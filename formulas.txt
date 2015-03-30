@@ -1,0 +1,47 @@
+
+[Scaling]
+A = 2
+B = 1,4
+C = 1,1
+D = 0,7
+E = 0,3
+
+Weapons
+z=basedamage
+x=scaling
+y=stat
+
+
+Total AR = z+(z*(x*y)%)
+
+Ex.
+
+Claymore, 110 , C/C, 30/30.
+
+110+(110*((1,1*30)*2)%) = 183  
+		33*2
+		 66	
+
+Catalysts
+
+z=MagicAdjust
+x=scaling
+y=stat
+w=SpellAdjust
+
+Total AR = w*(z+(z*(x*y)%)
+
+Ex.
+
+Thorned Talisman, 130 , B, 40; Elwind, 1,3.
+
+1,3*(130+(130*(1,4*40)%) = 277
+		 64
+	    83
+	213
+
+[Upgrade]
+
+
+
+	
