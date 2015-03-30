@@ -2,18 +2,36 @@ WOrld generation
 	- Castles
 	- TOwers
 	- Dungeons
-	- Extra villager houses
-	- Bon fires *
+	- Custom villager houses
+	- Bon fires
+		- Teleportation(Needs to be lit)
+			- Per character
 
 Mechanics
 	- MC Durability(No bar)
 	- Equip load
 	- Custom stats
-	- More HP
 	- Custom inventory
-		- 
 	- Custom GUI
 	- Scaling(See formules.txt)
+	- Stamina
+	- Item upgrade system
+	- EXP as currency
+	- Custom leveling
+	- Consume ??? for EXP
+	- Spells(See spells.txt)
+	- Item requirements
+
 Items
 	- Weapons(See weapons.txt)
-	- 
+	- Estus
+		- DS1 of DS2 variant
+	- Armor(See armor.txt)
+	- Titanite
+	- Rings(See rings.txt)
+	- EXP to ??? drainer
+	- ??? for trading
+
+Mobs
+	- Custom mobs(See mobs.txt)
+	- Villagers(Using EXP as currency)
