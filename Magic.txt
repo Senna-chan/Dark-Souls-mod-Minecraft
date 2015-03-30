@@ -1,0 +1,63 @@
+Will - Resolve - Wrath - Serenity - Harmony
+
+Fire - Will 
+Light - Resolve
+Dark - Wrath
+Water - Serenity
+Nature - Harmony
+
+[combination elemental attacks]
+Fire + Water = Frostfire
+Water + Dark = Poison
+Fire + Light = Sunfire
+Dark + Nature = Taint
+Fire + Dark = Curse
+Nature + Light = Flower
+Fire + Nature = Ash
+Light + Water = Ice
+Light + Dark = Spirit
+Water + Nature = Storm
+
+
+[passives]
+
+Fire
+
+Light
+
+Dark
+
+Water
+
+Nature
+
+
+Frostfire
+
+Poison
++poison heals you. poison everything in water 11 blocks.
+-weapons lose more durability.
+Sunfire
++undead withing 12 blocks burn. strenght 1 in direct sunlight.
+-weakness if light-level under 9.
+Taint
++spread negative effects, 5 blocks. 11 blocks in water. reduces effectiveness of negative effects.
+-positive effects are converted into negative effects.
+Curse
++All caused negative effects have their level increased by 1.
+- Takes increased light damage. (lower light defense)
+Flower
++gain regeneration when within 5 blocks of a flower. gain regeneration 3 when below 20% health.(3 min cooldown)
+-takes increased dark damage. (lower dark defense)
+Ash
++
+-
+Ice
++
+- takes increased fire damage. (lower fire defense)
+
+Spirit
+
+Storm
+
+
