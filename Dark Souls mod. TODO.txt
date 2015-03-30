@@ -1,0 +1,19 @@
+WOrld generation
+	- Castles
+	- TOwers
+	- Dungeons
+	- Extra villager houses
+	- Bon fires *
+
+Mechanics
+	- MC Durability(No bar)
+	- Equip load
+	- Custom stats
+	- More HP
+	- Custom inventory
+		- 
+	- Custom GUI
+	- Scaling(See formules.txt)
+Items
+	- Weapons(See weapons.txt)
+	- 
