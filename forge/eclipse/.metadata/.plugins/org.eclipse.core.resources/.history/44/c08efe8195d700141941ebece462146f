@@ -1,7 +1,0 @@
-package telinc.tutorialmod.common;
-
-import telinc.tutorialmod.common.TutorialCommonProxy;
-
-public class TutorialClientProxy extends TutorialCommonProxy {
-
-}
