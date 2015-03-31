@@ -1,0 +1,33 @@
+package starglas.dsremake.common;
+
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkMod;
+
+
+
+@Mod(modid = "DSRemake",name = "Dark Souls remake", version = "Pre pre-alpha")
+@NetworkMod(clientSideRequired=true, serverSideRequired=false)
+public class DSremakeName {
+	
+	@Instance("tutorial")
+	public static DSremakeName instance;
+	
+	@PreInit
+	public void preInit(FMLPreInitializationEvent event) {
+		
+	}
+
+	@Init
+	public void init(FMLInitializationEvent event) {
+		
+	}
+
+	@PostInit
+	public static void postInit(FMLPostInitializationEvent event) {
+		
+	}
+}

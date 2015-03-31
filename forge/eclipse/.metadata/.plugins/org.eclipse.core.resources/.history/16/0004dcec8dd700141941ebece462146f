@@ -1,0 +1,5 @@
+package starglas.dsremake.common;
+
+public @interface PreInit {
+
+}
