@@ -121,9 +121,25 @@ but its sheer weight and sharpness makes quick work of foes.
 
 [Great Hammers]
 
+Sanctified Great hammer
+
+Base AR: 200,-,120,-,-,-
+Base Scaling: B,-,-,B,-,-,-
+Upgrade level: 5
+Descr: 
+
+
 [Reapers]
 
 [Spears]
+
+Paladin's Glaive
+
+Base AR: 130,-,80,-,-,-
+Base Scaling: D,A,-,C,-,-,-
+Upgrade level: 5
+Descr:
+
 
 [Fist weapons]
 

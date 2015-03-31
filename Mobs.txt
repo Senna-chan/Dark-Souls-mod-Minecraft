@@ -1,0 +1,5 @@
+[Mimic]
+	Health: 60
+	Attack: 4+4 (ignores 50% armor)
+	Drops: Vita crystals, Random chest loot table gear, 
+	

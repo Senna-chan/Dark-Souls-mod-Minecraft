@@ -1,0 +1,26 @@
+	[item pools]
+
+[grotto]
+{Items}
+Vita crystals, Life gems, Bloodstone chip
+{Gear}
+Falchion, longsword, Scimitar, ?
+
+[Shelter]
+{Items}
+Vita crystals, life gems, bloodstone chip/shard
+{Gear}
+Falchion, longsword, scimitar, hunter set, warrior set
+
+[fortress]
+{Items}
+Vita crystals, bloodstone chip/shard
+{Gear}
+longsword, knight set, elite knight set, Captain set
+
+[Cathedral]
+{Items}
+Vita crystals, bloodstone shard/chunk/orb, prismatic bloodstone, Radiant oil
+{Gear}
+Solar sword, bolt blade, sanctified great hammer, Paladin's glaive
+

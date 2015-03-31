@@ -1,0 +1,37 @@
+[consumable]
+
+
+Life gem.
+Grant regeneration 2 for 5 seconds.
+
+Incandescent life gem.
+Grant regeneration 3 for 5 seconds.
+
+Radiant life gem.
+Grant regeneration 4 for 5 seconds.
+
+
+[key items]
+
+Radiant oil
+Use to craft bonfire. Use to upgrade bonfire intensity.
+
+
+[material]
+
+Bloodstone chip
+Use to upgrade standard weapons to +3
+
+Bloodstone shard
+Use to upgrade standard weapons to +6
+
+Bloodstone chunk
+Use to upgrade standard weapons to +9
+
+Bloodstone orb
+Use to upgrade standard weapons to +10
+
+Prismatic Bloodstone
+Use to upgrade special weapons to +5
+
+
