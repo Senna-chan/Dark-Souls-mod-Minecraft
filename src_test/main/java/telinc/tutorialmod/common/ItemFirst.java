@@ -11,6 +11,7 @@ public class ItemFirst extends Item {
 	public ItemFirst(int par1){
 		super(par1);
 		this.setCreativeTab(CreativeTabs.tabMaterials);
+		this.setTextureName("tutorialmod:myFirstItem");
 	}
 	
 	@Override

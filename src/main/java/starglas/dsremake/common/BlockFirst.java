@@ -1,8 +1,8 @@
-package telinc.tutorialmod.common;
+package starglas.dsremake.common;
 
 import net.minecraft.block.Block;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 
 public class BlockFirst extends Block {
 	public BlockFirst(int par1, Material material){
@@ -11,5 +11,10 @@ public class BlockFirst extends Block {
 		this.setHardness(89.3F);
 		this.setResistance(89.5F);
 		this.setStepSound(soundMetalFootstep);
+		this.setTextureName("tutorialmod:myFirstBlock");
+	}
+	public boolean isOpaqueCube()
+	{
+	        return false;
 	}
 }
