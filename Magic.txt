@@ -35,7 +35,7 @@ Nature
 Frostfire
 
 Poison
-+poison heals you. poison everything in water 11 blocks.
++poison heals you. poison everything within 5 blocks, in water 11 blocks. 
 -weapons lose more durability.
 Sunfire
 +undead withing 12 blocks burn. strenght 1 in direct sunlight.
@@ -57,7 +57,8 @@ Ice
 - takes increased fire damage. (lower fire defense)
 
 Spirit
-
++ immunity against negative effects.
+- immunity against positive effects.
 Storm
 
 

@@ -18,7 +18,7 @@ Mechanics
 	- Item upgrade system
 	- EXP as currency
 	- Custom leveling
-	- Consume ??? for EXP
+	- Consume Vita crystals for EXP
 	- Spells(See spells.txt)
 	- Item requirements
 
@@ -27,7 +27,8 @@ Items
 	- Estus
 		- DS1 of DS2 variant
 	- Armor(See armor.txt)
-	- Titanite
+	- bloodstone chip/shard/chunk/orb
+	- prismatic blood stone
 	- Rings(See rings.txt)
 	- EXP to ??? drainer
 	- ??? for trading
