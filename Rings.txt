@@ -1,0 +1,8 @@
+Redtearstone ring
+When under 20% hp strength 2 buff
+
+Ring of lifeprotect
+Don't lose EXP when dead, but ring breaks after that
+
+Ring of life
+Get aditional hp
