@@ -21,6 +21,8 @@ Mechanics
 	- Consume Vita crystals for EXP
 	- Spells(See spells.txt)
 	- Item requirements
+	- life gems (crushing animation)
+	- drain xp to crystalize Vitae
 
 Items
 	- Weapons(See weapons.txt)
@@ -30,9 +32,9 @@ Items
 	- bloodstone chip/shard/chunk/orb
 	- prismatic blood stone
 	- Rings(See rings.txt)
-	- EXP to ??? drainer
+	- EXP to vitae drainer
 	- ??? for trading
 
 Mobs
 	- Custom mobs(See mobs.txt)
-	- Villagers(Using EXP as currency)
+	- Villagers(Using vita crystals as currency)

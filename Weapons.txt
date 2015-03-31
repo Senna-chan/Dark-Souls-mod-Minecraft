@@ -125,6 +125,17 @@ but its sheer weight and sharpness makes quick work of foes.
 
 [Spears]
 
+[Fist weapons]
+
+Gyromatic Drill
+Base AR: 80,-,-,-,-,-
+Base Scaling: S,B,-,-,-,-,-
+Upgrade level: 5
+Descr: A heavy steel maintenance drill. Such a powerful tool was meant to be carried only by the great sentinels of the deep.
+The spinning mechanism is broken, but it can still be swung around with great destructive force.
+
+
+
 [Daggers]
 
 Ghost Blade

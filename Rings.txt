@@ -1,8 +1,22 @@
-Redtearstone ring
+Crimson tearstone ring
 When under 20% hp strength 2 buff
 
-Ring of lifeprotect
+Ring of the saviour
 Don't lose EXP when dead, but ring breaks after that
 
-Ring of life
-Get aditional hp
+Ring of Vigor
+Get aditional hp (10%)
+
+Green blossoming ring
+Increase stamina regeneration (30%)
+
+Gavel's ring
+Increase equip load by 30%
+
+Gluttonous leech ring
+increase chance of Vita crystals drops
+
+Hyena ring
+Increase droprate(looting)
+
+
