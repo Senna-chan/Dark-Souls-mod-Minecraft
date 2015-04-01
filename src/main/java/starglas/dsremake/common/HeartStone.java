@@ -16,9 +16,9 @@ public class HeartStone extends Item {
 		this.setTextureName("tutorialmod:myFirstItem");
 	}
 	
-	public ItemStack onItemRightclick(ItemStack itemstack,World world, EntityPlayer entityplayer){
-		
-	}
+//	public ItemStack onItemRightclick(ItemStack itemstack,World world, EntityPlayer entityplayer){
+//		
+//	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)

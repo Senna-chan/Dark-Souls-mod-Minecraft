@@ -37,6 +37,7 @@ public class DSMain {
 	// Items
 	public static Item myFirstItem;
 	public static Item MK1HeartStone;
+	public static Item MK1VitaCrystal;
 	// Tools
 	
 	// Lets create custom creative tab
@@ -54,13 +55,26 @@ public class DSMain {
 		
 		// Registering of items
 		myFirstItem = (new ItemFirst(900)).setUnlocalizedName("myFirstItem");
-		MK1HeartStone = (new HeartStone(900)).setUnlocalizedName("MK1HeartStone");
+		//MK1HeartStone = (new HeartStone(900)).setUnlocalizedName("MK1HeartStone");
 		
+		// Vita crystals
+		MK1VitaCrystal = (new VitaCrystal(901,"dsremake:MK1vita")).setUnlocalizedName("MK1VitaCrystal");
+		
+		
+		
+		// Language shit
+		
+		// BLocks
 		
 		LanguageRegistry.addName(myFirstBlock, "My first block");
 		GameRegistry.registerBlock(myFirstBlock, "My First Block");
 		
+		//Items
 		LanguageRegistry.addName(myFirstItem, "My first item");
+		
+		//Vita Crystals
+		LanguageRegistry.addName(MK1VitaCrystal, "Small Vita Crystal");
+		
 	}
 
 	public static void postInit(FMLPostInitializationEvent event) {
