@@ -1,0 +1,3 @@
+Player Api		Custom animations
+Mystcraft Api		Waarschijnlijk voor teleportation
+Tah yet unknown Api	Voor de 3d models?
