@@ -3,3 +3,8 @@
 	Attack: 4+4 (ignores 50% armor)
 	Drops: Vita crystals, Random chest loot table gear, 
 	
+
+[Longing skeleton]
+	Health: 20
+	Attack: 4
+	Drops: Homeward bone, Vita crystals(small), Heart crystal, 

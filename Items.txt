@@ -1,15 +1,17 @@
 [consumable]
 
 
-Life gem.
+Heart stone.
 Grant regeneration 2 for 5 seconds.
 
-Incandescent life gem.
+Incandescent Heart stone.
 Grant regeneration 3 for 5 seconds.
 
-Radiant life gem.
+Radiant Heart stone.
 Grant regeneration 4 for 5 seconds.
 
+Homeward bone
+Teleports you back to last bonfire rested at.
 
 [key items]
 
