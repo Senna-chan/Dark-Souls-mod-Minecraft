@@ -36,7 +36,7 @@ public class DSMain {
 	
 	// Items
 	public static Item myFirstItem;
-	
+	public static Item MK1HeartStone;
 	// Tools
 	
 	// Lets create custom creative tab
@@ -47,12 +47,19 @@ public class DSMain {
 	}
 	
 	@EventHandler
-	public void init(FMLInitializationEvent event) {
+	public void init(FMLInitializationEvent event) { // Init almost everything go's in here
+		
+		// Registering of blocks
 		myFirstBlock = (new BlockFirst(538, Material.rock)).setUnlocalizedName("myFirstBlock");
+		
+		// Registering of items
+		myFirstItem = (new ItemFirst(900)).setUnlocalizedName("myFirstItem");
+		MK1HeartStone = (new HeartStone(900)).setUnlocalizedName("MK1HeartStone");
+		
+		
 		LanguageRegistry.addName(myFirstBlock, "My first block");
 		GameRegistry.registerBlock(myFirstBlock, "My First Block");
 		
-		myFirstItem = (new ItemFirst(900)).setUnlocalizedName("myFirstItem");
 		LanguageRegistry.addName(myFirstItem, "My first item");
 	}
 
