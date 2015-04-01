@@ -4,6 +4,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraftforge.client.model.AdvancedModelLoader;
+import net.minecraftforge.client.model.IModelCustom;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -14,8 +16,6 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 @Mod(modid = "tutorial", name = "Tutorial Mod", version = "1.0.0")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
@@ -43,6 +43,10 @@ public class DSMain {
 	public static Item MK5VitaCrystal;
 	// Tools
 	
+	
+	public static CreativeTabs ModTutorialTab = new CreateCreativeTab(CreativeTabs.getNextID(), "tabDSConsume","DSRemake consumebles");
+	
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		
@@ -53,7 +57,7 @@ public class DSMain {
 	public void init(FMLInitializationEvent event) { // Init almost everything go's in here
 		
 		// Creating creative tabs
-		///public static CreativeTabs CreateCreativeTab - new CreateCreativeTab(CreativeTabs.getNextID(), "tabConsume");
+		
 		
 		// Registering of blocks
 		myFirstBlock = (new BlockFirst(538, Material.rock)).setUnlocalizedName("myFirstBlock");
@@ -76,7 +80,7 @@ public class DSMain {
 		LanguageRegistry.addName(myFirstBlock, "My first block");
 		GameRegistry.registerBlock(myFirstBlock, "My First Block");
 		
-		//Items
+		//Item
 		LanguageRegistry.addName(myFirstItem, "My first item");
 		
 		//Vita Crystals
@@ -86,8 +90,6 @@ public class DSMain {
 		LanguageRegistry.addName(MK4VitaCrystal, "Giant Vita Crystal");
 		LanguageRegistry.addName(MK5VitaCrystal, "Legendary Vita Crystal");
 
-		// Tabs
-		
 	}
 
 	public static void postInit(FMLPostInitializationEvent event) {
