@@ -2,13 +2,13 @@
 
 [grotto]
 {Items}
-Vita crystals, Life gems, Bloodstone chip
+Vita crystals, Heart stones, Bloodstone chip
 {Gear}
 Falchion, longsword, Scimitar, ?
 
 [Shelter]
 {Items}
-Vita crystals, life gems, bloodstone chip/shard
+Vita crystals, Heart stones, bloodstone chip/shard
 {Gear}
 Falchion, longsword, scimitar, hunter set, warrior set
 
