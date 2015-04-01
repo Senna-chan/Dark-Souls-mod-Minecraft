@@ -10,7 +10,7 @@ public class VitaCrystal extends Item {
 
 	public VitaCrystal(int ID, String texture) {
 		super(ID);
-		this.setCreativeTab(DSMain.CreateCreativeTab);
+		this.setCreativeTab(CreativeTabs.tabMaterials);
 		this.setTextureName(texture);
 	}
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer player)

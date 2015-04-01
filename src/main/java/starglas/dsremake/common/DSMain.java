@@ -53,7 +53,7 @@ public class DSMain {
 	public void init(FMLInitializationEvent event) { // Init almost everything go's in here
 		
 		// Creating creative tabs
-		public static CreativeTabs CreateCreativeTab - new CreateCreativeTab(CreativeTabs.getNextID(), "tabConsume");
+		///public static CreativeTabs CreateCreativeTab - new CreateCreativeTab(CreativeTabs.getNextID(), "tabConsume");
 		
 		// Registering of blocks
 		myFirstBlock = (new BlockFirst(538, Material.rock)).setUnlocalizedName("myFirstBlock");
