@@ -4,9 +4,9 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 public final class CreateCreativeTab extends CreativeTabs
 {
-public CreateCreativeTab(int par1, String par2Str)
+public CreateCreativeTab(int ID, String name)
 {
-super(par1, par2Str);
+super(ID, name);
 }
 //sets the image for the creative tab
 @SideOnly(Side.CLIENT)
