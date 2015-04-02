@@ -3,7 +3,10 @@ package starglas.dsremake.common;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.EnumHelper;
+import starglas.dsremake.common.items.swords.Longsword;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -12,6 +15,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -41,10 +45,15 @@ public class DSMain {
 	public static Item MK3VitaCrystal;
 	public static Item MK4VitaCrystal;
 	public static Item MK5VitaCrystal;
+	public static Item Estus;
 	// Tools
 	
+	// Swords
+	public static Item LongSword; 
 	
 	public static CreativeTabs tabDSConsume = new CreateCreativeTab(CreativeTabs.getNextID(), "tabDSConsume","DSRemake consumebles");
+	
+	public static EnumToolMaterial DSRemake = EnumHelper.addToolMaterial("DSRemake", 0, 1000, -40.0F, 0, 0);
 	
 	
 	@EventHandler
@@ -55,7 +64,6 @@ public class DSMain {
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event) { // Init almost everything go's in here
-		
 		// Creating creative tabs
 		
 		
@@ -63,7 +71,7 @@ public class DSMain {
 		myFirstBlock = (new BlockFirst(538, Material.rock)).setUnlocalizedName("myFirstBlock");
 		
 		// Registering of items
-		myFirstItem = (new ItemFirst(900)).setUnlocalizedName("myFirstItem");
+		
 		MK1HeartStone = (new HeartStone(901,"dsremake:MK1Heart",1)).setUnlocalizedName("MK1HeartStone");
 		MK2HeartStone = (new HeartStone(902,"dsremake:MK2Heart",2)).setUnlocalizedName("MK2HeartStone");
 		MK3HeartStone = (new HeartStone(903,"dsremake:MK3Heart",3)).setUnlocalizedName("MK3HeartStone");
@@ -75,6 +83,10 @@ public class DSMain {
 		MK4VitaCrystal = (new VitaCrystal(913,"dsremake:MK4vita",4)).setUnlocalizedName("MK4VitaCrystal");
 		MK5VitaCrystal = (new VitaCrystal(914,"dsremake:MK5vita",5)).setUnlocalizedName("MK5VitaCrystal");
 		
+		Estus = (new Estus(915)).setUnlocalizedName("Estus");
+		
+		// Tools
+		GameRegistry.registerItem(LongSword = new Longsword(920,"dsremake:longsword"),"longSword");
 		// Language shit
 		
 		// BLocks
@@ -83,7 +95,9 @@ public class DSMain {
 		GameRegistry.registerBlock(myFirstBlock, "My First Block");
 		
 		//Item
-		LanguageRegistry.addName(myFirstItem, "My first item");
+		
+		// Tools
+		LanguageRegistry.addName(LongSword, "Longsword");
 		
 		// Heart Gems
 		LanguageRegistry.addName(MK1HeartStone, "Heart Stone");
