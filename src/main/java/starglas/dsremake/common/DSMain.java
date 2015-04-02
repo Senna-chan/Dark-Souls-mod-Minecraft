@@ -36,6 +36,8 @@ public class DSMain {
 	// Items
 	public static Item myFirstItem;
 	public static Item MK1HeartStone;
+	public static Item MK2HeartStone;
+	public static Item MK3HeartStone;
 	public static Item MK1VitaCrystal;
 	public static Item MK2VitaCrystal;
 	public static Item MK3VitaCrystal;
@@ -44,7 +46,7 @@ public class DSMain {
 	// Tools
 	
 	
-	public static CreativeTabs ModTutorialTab = new CreateCreativeTab(CreativeTabs.getNextID(), "tabDSConsume","DSRemake consumebles");
+	public static CreativeTabs tabDSConsume = new CreateCreativeTab(CreativeTabs.getNextID(), "tabDSConsume","DSRemake consumebles");
 	
 	
 	@EventHandler
@@ -64,14 +66,16 @@ public class DSMain {
 		
 		// Registering of items
 		myFirstItem = (new ItemFirst(900)).setUnlocalizedName("myFirstItem");
-		//MK1HeartStone = (new HeartStone(900)).setUnlocalizedName("MK1HeartStone");
+		MK1HeartStone = (new HeartStone(901,"dsremake:MK1Heart",1)).setUnlocalizedName("MK1HeartStone");
+		MK2HeartStone = (new HeartStone(902,"dsremake:MK2Heart",2)).setUnlocalizedName("MK2HeartStone");
+		MK3HeartStone = (new HeartStone(903,"dsremake:MK3Heart",3)).setUnlocalizedName("MK3HeartStone");
 		
 		// Vita crystals
-		MK1VitaCrystal = (new VitaCrystal(901,"dsremake:MK1vita")).setUnlocalizedName("MK1VitaCrystal");
-		MK2VitaCrystal = (new VitaCrystal(902,"dsremake:MK2vita")).setUnlocalizedName("MK2VitaCrystal");
-		MK3VitaCrystal = (new VitaCrystal(903,"dsremake:MK3vita")).setUnlocalizedName("MK3VitaCrystal");
-		MK4VitaCrystal = (new VitaCrystal(904,"dsremake:MK4vita")).setUnlocalizedName("MK4VitaCrystal");
-		MK5VitaCrystal = (new VitaCrystal(905,"dsremake:MK5vita")).setUnlocalizedName("MK5VitaCrystal");
+		MK1VitaCrystal = (new VitaCrystal(910,"dsremake:MK1vita",1)).setUnlocalizedName("MK1VitaCrystal");
+		MK2VitaCrystal = (new VitaCrystal(911,"dsremake:MK2vita",2)).setUnlocalizedName("MK2VitaCrystal");
+		MK3VitaCrystal = (new VitaCrystal(912,"dsremake:MK3vita",3)).setUnlocalizedName("MK3VitaCrystal");
+		MK4VitaCrystal = (new VitaCrystal(913,"dsremake:MK4vita",4)).setUnlocalizedName("MK4VitaCrystal");
+		MK5VitaCrystal = (new VitaCrystal(914,"dsremake:MK5vita",5)).setUnlocalizedName("MK5VitaCrystal");
 		
 		// Language shit
 		
@@ -82,6 +86,11 @@ public class DSMain {
 		
 		//Item
 		LanguageRegistry.addName(myFirstItem, "My first item");
+		
+		// Heart Gems
+		LanguageRegistry.addName(MK1HeartStone, "Heart Stone");
+		LanguageRegistry.addName(MK2HeartStone, "Incandescent Heart Stone");
+		LanguageRegistry.addName(MK3HeartStone, "Radiant Heart Stone");
 		
 		//Vita Crystals
 		LanguageRegistry.addName(MK1VitaCrystal, "Small Vita Crystal");

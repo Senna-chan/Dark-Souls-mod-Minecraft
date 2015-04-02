@@ -3,12 +3,15 @@
 
 Heart stone.
 Grant regeneration 2 for 5 seconds.
+Final HP Gain 4
 
 Incandescent Heart stone.
 Grant regeneration 3 for 5 seconds.
+Final HP Gain 8
 
 Radiant Heart stone.
 Grant regeneration 4 for 5 seconds.
+Final HP Gain 16
 
 Homeward bone
 Teleports you back to last bonfire rested at.
