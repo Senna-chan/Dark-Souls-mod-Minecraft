@@ -53,19 +53,19 @@ public class VitaCrystal extends Item {
         }
 		switch(this.mark){
 			case 1:
-				player.addExperience(20);
+				player.addExperience(50);
 				break;
 			case 2:
-				player.addExperience(20);
+				player.addExperience(300);
 				break;
 			case 3:
-				player.addExperience(20);
+				player.addExperience(1000);
 				break;
 			case 4:
-				player.addExperience(20);
+				player.addExperience(5000);
 				break;
 			case 5:
-				player.addExperience(20);
+				player.addExperience(20000);
 				break;
 			default:
 				break;

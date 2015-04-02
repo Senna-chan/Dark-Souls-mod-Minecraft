@@ -18,7 +18,7 @@ Mechanics
 	- Item upgrade system
 	- EXP as currency
 	- Custom leveling
-	- Consume Vita crystals for EXP
+CHECK	- Consume Vita crystals for EXP
 	- Spells(See spells.txt)
 	- Item requirements
 	- life gems (crushing animation)
