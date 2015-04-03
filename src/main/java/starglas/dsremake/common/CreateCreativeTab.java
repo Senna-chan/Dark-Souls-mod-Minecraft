@@ -1,10 +1,9 @@
 package starglas.dsremake.common;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import starglas.dsremake.common.items.ModItems;
 
-public final class CreateCreativeTab extends CreativeTabs
+public class CreateCreativeTab extends CreativeTabs
 {
 
 	private String tabName;
@@ -14,14 +13,14 @@ public final class CreateCreativeTab extends CreativeTabs
 		this.tabName = tabName ;
 	}
 	//sets the image for the creative tab
-	@SideOnly(Side.CLIENT)
-	public int getTabIconItemIndex()
-	{
-		return DSMain.MK1VitaCrystal.itemID;
-	}
+	
 	//sets the title/name for the creative tab
 	public String getTranslatedTabLabel()
 	{
 		return this.tabName;
+	}
+	@Override
+	public Item getTabIconItem() {
+		return ModItems.MK1VitaCrystal;
 	}
 }

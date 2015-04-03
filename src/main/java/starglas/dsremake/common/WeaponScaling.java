@@ -5,24 +5,24 @@ public class WeaponScaling {
 	private static float strScaling;
 	private static float dexScaling;
 
-	public static float WeaponScalingRaw(int weaponDamage, String strengthScaling, String dextScaling, int playerStrength, int playerDex){
+	public static float WeaponScalingRaw(int weaponDamage, char strengthScaling, char dextScaling, int playerStrength, int playerDex){
 		switch(strengthScaling){
-		case "E":
+		case 'E':
 			strScaling = 0.3F;
 			break;
-		case "D":
+		case 'D':
 			strScaling = 0.7F;
 			break;
-		case "C":
+		case 'C':
 			strScaling = 1.1F;
 			break;
-		case "B":
+		case 'B':
 			strScaling = 1.5F;
 			break;
-		case "A":
+		case 'A':
 			strScaling = 1.9F;
 			break;
-		case "S":
+		case 'S':
 			strScaling = 2.5F;
 			break;
 		default:
@@ -30,22 +30,22 @@ public class WeaponScaling {
 			break;
 		}
 		switch(dextScaling){
-		case "E":
+		case 'E':
 			dexScaling = 0.3F;
 			break;
-		case "D":
+		case 'D':
 			dexScaling = 0.7F;
 			break;
-		case "C":
+		case 'C':
 			dexScaling = 1.1F;
 			break;
-		case "B":
+		case 'B':
 			dexScaling = 1.5F;
 			break;
-		case "A":
+		case 'A':
 			dexScaling = 1.9F;
 			break;
-		case "S":
+		case 'S':
 			dexScaling = 2.5F;
 			break;
 		default:
@@ -53,13 +53,13 @@ public class WeaponScaling {
 			break;
 		}
 		if(strScaling != 0.0F && dexScaling !=0.0F){
-			totalAR = (float) Math.ceil( weaponDamage + (weaponDamage * ((strScaling * playerStrength ) + (dexScaling * playerDex )) ) );
+			totalAR = (float) Math.ceil( weaponDamage + (weaponDamage * ((strScaling * playerStrength ) + (dexScaling * playerDex ))/100 ) );
 		}
 		if(strScaling != 0 && dexScaling == 0.0F){
-			totalAR = (float) Math.ceil( weaponDamage + (weaponDamage * ((strScaling * playerStrength))/1000) );
+			totalAR = (float) Math.ceil( weaponDamage + (weaponDamage * ((strScaling * playerStrength))/100) );
 		}
 		if(dexScaling != 0 && strScaling == 0.0F){
-			totalAR = (float) Math.ceil( weaponDamage + (weaponDamage * ((dexScaling * playerDex))/1000) );
+			totalAR = (float) Math.ceil( weaponDamage + (weaponDamage * ((dexScaling * playerDex))/100) );
 		}
 		return totalAR;
 	}
