@@ -1,4 +1,4 @@
-package starglas.dsremake.common;
+/*package starglas.dsremake.common;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -9,7 +9,6 @@ public class BlockFirst extends Block {
 		super(par1, material);
 		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setHardness(89.3F);
-		this.setResistance(89.5F);
 		this.setStepSound(soundMetalFootstep);
 		this.setTextureName("tutorialmod:myFirstBlock");
 	}
@@ -17,4 +16,4 @@ public class BlockFirst extends Block {
 	{
 	        return false;
 	}
-}
+}*/
