@@ -1,6 +1,5 @@
 package starglas.dsremake.common;
-// All imports are comming here. But I am lazy so CTRL + SHIFT + O for auto imports
-import net.minecraft.block.Block;
+// All imports are coming here. But I am lazy so CTRL + SHIFT + O for auto imports
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.common.util.EnumHelper;
@@ -8,7 +7,6 @@ import starglas.dsremake.common.helpers.Reference;
 import starglas.dsremake.common.helpers.RegisterHelper;
 import starglas.dsremake.common.items.ModItems;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -27,7 +25,6 @@ public class DSMain {
 	// Declaring vars
 	
 	// Blocks
-	public static Block myFirstBlock;
 	
 	public static CreativeTabs tabDSConsume = new CreateCreativeTab(CreativeTabs.getNextID(), "tabDSConsume","DSRemake consumebles");
 	public static ToolMaterial DSRemake = EnumHelper.addToolMaterial("DSRemake", 0, 1000, -40.0F, 0, 0);
@@ -36,20 +33,11 @@ public class DSMain {
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		ModItems.init();
-		
+		proxy.registerRenderers();
 	}
 	
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) { // Init almost everything go's in here
-		// Creating creative tabs
-		
-		
-		// Registering of blocks
-		
-		// Registering of items
-		
-		
-
 		
 	}
 

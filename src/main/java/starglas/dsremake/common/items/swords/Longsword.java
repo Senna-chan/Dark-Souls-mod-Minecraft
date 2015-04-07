@@ -34,6 +34,7 @@ public class Longsword extends Item
         this.setCreativeTab(CreativeTabs.tabCombat);
         this.weaponDamage = WeaponScaling.WeaponScalingRaw(11, 'C', 'C', 30, 30);
         this.weapondmg = this.weaponDamage + " HI";
+        this.setFull3D();
     }
 
     public float func_82803_g()
