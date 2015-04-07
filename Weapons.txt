@@ -21,7 +21,7 @@ Water + Nature = Storm
 
 [straight swords]
 
-Longsword
+Longsword x
 Base AR: 80,-,-,-,-,-
 Base Scaling: B,B,-,-,-,-,-
 Upgrade level: 10
