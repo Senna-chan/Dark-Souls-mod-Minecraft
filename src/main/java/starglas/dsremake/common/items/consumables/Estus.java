@@ -6,6 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import starglas.dsremake.common.DSMain;
+import starglas.dsremake.common.SoundHandler;
 import starglas.dsremake.common.helpers.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -23,15 +24,19 @@ public class Estus extends Item {
 		this.setMaxDamage(19);
 	}
 	
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer player)
+	public ItemStack onItemRightClick(ItemStack Items, World world, EntityPlayer player)
     {
-		this.playerMaxHP = player.getMaxHealth();
-		this.playerHP = player.getHealth();
-		if(this.playerHP < this.playerMaxHP){
-			player.setHealth((float) (playerHP + (playerMaxHP*0.40)));
-			par1ItemStack.damageItem(1, player);
-		}
-		return par1ItemStack;
+		
+			this.playerMaxHP = player.getMaxHealth();
+			this.playerHP = player.getHealth();
+			player.setHealth(10F);
+			if(this.playerHP < this.playerMaxHP){
+				SoundHandler.onEntityPlay("ChuckThatEstus", world, player, 2, 1);
+				player.setHealth((float) (playerHP + (playerMaxHP*0.40)));
+				Items.damageItem(1, player);
+			}
+		
+		return Items;
     }
     
 	

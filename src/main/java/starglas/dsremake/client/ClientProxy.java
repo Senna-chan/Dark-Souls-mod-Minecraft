@@ -5,11 +5,15 @@ import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 import starglas.dsremake.common.CommonProxy;
 import starglas.dsremake.common.DSMain;
+import starglas.dsremake.common.helpers.RegisterHelper;
 import starglas.dsremake.common.items.ModItems;
 import starglas.dsremake.renderer.ItemRendererLongSword;
+import starglas.dsremake.renderer.ItemRendererTest;
 
 public class ClientProxy extends CommonProxy {
 	public void registerRenderers(){
 		MinecraftForgeClient.registerItemRenderer(ModItems.longSword, (IItemRenderer)new ItemRendererLongSword());
+		//MinecraftForgeClient.registerItemRenderer(ModItems.MK5VitaCrystal, (IItemRenderer)new ItemRendererTest());
+		RegisterHelper.registerRender(ModItems.MK5VitaCrystal, new ItemRendererTest());
 	}
 }
