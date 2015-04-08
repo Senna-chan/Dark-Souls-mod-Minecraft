@@ -13,7 +13,7 @@ import assets.dsremake.models.LongswordModel;
 
 public class ItemRendererLongSword implements IItemRenderer {
 
-	protected LongswordModel model;
+	public LongswordModel model;
 	
 	public ItemRendererLongSword(){
 		model = new LongswordModel();

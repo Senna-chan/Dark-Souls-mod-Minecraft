@@ -13,7 +13,7 @@ public class RendererBonfire extends TileEntitySpecialRenderer{
 	
 	private static final ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/blocks/bonfiretexture.png");
 	
-	private Bonfire model;
+	public Bonfire model;
 
 	public RendererBonfire(){
 		this.model = new Bonfire();
