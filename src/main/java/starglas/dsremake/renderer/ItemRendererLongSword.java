@@ -9,7 +9,7 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 import starglas.dsremake.common.helpers.Reference;
-import assets.dsremake.models.LongswordModel;
+import starglas.dsremake.common.models.LongswordModel;
 
 public class ItemRendererLongSword implements IItemRenderer {
 

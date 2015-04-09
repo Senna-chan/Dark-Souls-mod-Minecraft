@@ -4,6 +4,7 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
@@ -14,6 +15,7 @@ public class BlockBonfire extends BlockContainer{
 	protected BlockBonfire() {
 		super(Material.rock);
 		this.setCreativeTab(CreativeTabs.tabMisc);
+		this.setHardness(1F);
 	}
 
 	@Override
@@ -31,6 +33,10 @@ public class BlockBonfire extends BlockContainer{
 	}
 	
 	public boolean renderAsNormalBlock(){
+		return false;
+	}
+	public boolean onBlockActivated(World world, int X, int Y, int Z, EntityPlayer player, int par6, float par7, float par8, float par9){
+		System.out.println("Thou has activated thy bonfire");
 		return false;
 	}
 	

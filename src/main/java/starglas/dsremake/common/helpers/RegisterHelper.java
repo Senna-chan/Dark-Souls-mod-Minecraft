@@ -4,8 +4,6 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
-import starglas.dsremake.common.items.ModItems;
-import starglas.dsremake.renderer.ItemRendererTest;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class RegisterHelper

@@ -1,4 +1,6 @@
 item.longSword.name=Longsword
+item.PaladinGlaive.name=Paladin's Glaive
+
 item.MK1HeartStone.name=Heart Stone
 item.MK2HeartStone.name=Incandescent Heart Stone
 item.MK3HeartStone.name=Radiant Heart Stone
@@ -9,4 +11,10 @@ item.MK3VitaCrystal.name=Large Vita Crystal
 item.MK4VitaCrystal.name=Giant Vita Crystal
 item.MK5VitaCrystal.name=Legendary Vita Crystal
 
-item.Estus.name=Estus
+item.MK1BloodStone.name=Bloodstone Chip
+item.MK2BloodStone.name=Bloodstone Shard
+item.MK3BloodStone.name=Bloodstone Chunk
+item.MK4BloodStone.name=Bloodstone Orb
+item.PrismaticBloodStone.name=Prismatic Bloodstone
+
+item.Estus.name=Estus Flask
