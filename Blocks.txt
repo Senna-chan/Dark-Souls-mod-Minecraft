@@ -1,0 +1,20 @@
+[ore]
+
+Bloodstone ore
+-smelt into bloodstone chip
+Bloodstone cluster
+-smelt into bloodstone shard
+[misc]
+
+Dungeon bricks
+
+
+[utility]
+Bonfire
+
+-Recharge estus
+
+Primal bonfire
+
+-teleporting
+-Recharge estus

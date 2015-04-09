@@ -1,0 +1,62 @@
+Armor values
+
+PD = physical defense
+LD = light defense
+FD = fire defense
+DD = dark defense
+WD = Water defense
+ND = Nature defense
+
+1000 defense = 100% resistance = immunity
+
+Armor pieces may have special effects, different type pieces with the same effect don't stack.
+
+
+
+
+Haze knight set
+
+primary: dark/nature
+
+PD: 786
+LD: 234
+FD: 267
+DD: 676
+WD: 346
+ND: 687
+
+Black phantom set
+
+primary: dark/light
+
+PD: 566
+LD: 678
+FD: 345
+DD: 780
+WD: 426
+ND: 356
+
+
+
+Blood sun set
+
+primary: light
+
+PD: 684
+LD: 796
+FD: 436
+DD: 356
+WD: 230
+ND: 254
+
+Brimstone knight set
+
+primary: fire/dark
+
+PD: 680
+LD: 237
+FD: 796
+DD: 673
+WD: 368
+ND: 496
+

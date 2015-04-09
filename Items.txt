@@ -21,6 +21,14 @@ Teleports you back to last bonfire rested at.
 Radiant oil
 Use to craft bonfire. Use to upgrade bonfire intensity.
 
+Beckoning Bell
+Summons phantoms.
+
+Small Resonant bell
+Be summoned as a phantom.
+
+Sinister Resonant bell
+Be summoned as an invader.
 
 [material]
 

@@ -8,3 +8,6 @@
 	Health: 20
 	Attack: 4
 	Drops: Homeward bone, Vita crystals(small), Heart crystal, 
+
+[Blood borer]
+	Health: 

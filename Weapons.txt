@@ -133,7 +133,7 @@ Descr:
 
 [Spears]
 
-Paladin's Glaive
+Paladin's Glaive x
 
 Base AR: 130,-,80,-,-,-
 Base Scaling: D,A,-,C,-,-,-
