@@ -9,7 +9,7 @@
 
 
 
-package assets.dsremake.models;
+package starglas.dsremake.common.models;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

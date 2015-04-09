@@ -9,14 +9,15 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 import starglas.dsremake.common.helpers.Reference;
+import starglas.dsremake.common.models.Bonfire;
 import starglas.dsremake.common.models.LongswordModel;
 
-public class ItemRendererLongSword implements IItemRenderer {
+public class ItemRendererBlockBonfire implements IItemRenderer {
 
-	public LongswordModel model;
+	public Bonfire model;
 	
-	public ItemRendererLongSword(){
-		model = new LongswordModel();
+	public ItemRendererBlockBonfire(){
+		model = new Bonfire();
 	}
 	
 	@Override
@@ -41,15 +42,16 @@ public class ItemRendererLongSword implements IItemRenderer {
 		switch(type){
 		case EQUIPPED:
 		case EQUIPPED_FIRST_PERSON:
+		case INVENTORY:
 			GL11.glPushMatrix();
 			
-				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(Reference.MODID,"textures/items/longsword.png"));
+				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(Reference.MODID,"textures/blocks/bonfiretexture.png"));
 				
-				GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
+				/*GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
 				GL11.glRotatef(100.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glRotatef(90.0F, 0.0F, 0.0F, 1.0F);
 				
-				GL11.glTranslatef(0F, -1.5F, 0.65F);
+				GL11.glTranslatef(0F, -1.5F, 0.65F);*/
 				
 				model.render((Entity)data[1],0.0F,0.0F,0.0F,0.0F,0.0F,0.0625F);
 				

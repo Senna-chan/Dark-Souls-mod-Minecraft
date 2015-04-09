@@ -8,7 +8,8 @@ import starglas.dsremake.common.items.bloodstone.BloodStone;
 import starglas.dsremake.common.items.consumables.Estus;
 import starglas.dsremake.common.items.consumables.HeartStone;
 import starglas.dsremake.common.items.consumables.VitaCrystal;
-import starglas.dsremake.common.items.swords.Longsword;
+import starglas.dsremake.common.items.halberts.GenericHalbert;
+import starglas.dsremake.common.items.swords.GenericSword;
 
 public class ModItems{
 	public static Item myFirstItem;
@@ -25,12 +26,14 @@ public class ModItems{
 	public static Item MK2BloodStone = new BloodStone(":MK2Blood",2).setUnlocalizedName("MK2BloodStone");
 	public static Item MK3BloodStone = new BloodStone(":MK3Blood",3).setUnlocalizedName("MK3BloodStone");
 	public static Item MK4BloodStone = new BloodStone(":MK4Blood",4).setUnlocalizedName("MK4BloodStone");
-	public static Item MK5BloodStone = new BloodStone(":MK5Blood",5).setUnlocalizedName("MK5BloodStone");
+	public static Item PrismaticBloodStone = new BloodStone(":MK5Blood",5).setUnlocalizedName("PrismaticBloodStone");
 	
 	// Swords
-	public static Item longSword = new Longsword("dsremake:longsword").setUnlocalizedName("longSword"); 
+	public static Item longSword = new GenericSword("dsremake:longsword").setUnlocalizedName("longSword"); 
 	
-		
+	// Halberts
+	public static Item PaladinGlaive = new GenericHalbert("dsremake:paladinglaive").setUnlocalizedName("PaladinGlaive");
+	
 	public static void init(){
 		// Heart Crystals
 		RegisterHelper.registerItem(MK1HeartStone);
@@ -51,9 +54,13 @@ public class ModItems{
 		RegisterHelper.registerItem(MK2BloodStone);
 		RegisterHelper.registerItem(MK3BloodStone);
 		RegisterHelper.registerItem(MK4BloodStone);
-		RegisterHelper.registerItem(MK5BloodStone);
+		RegisterHelper.registerItem(PrismaticBloodStone);
 		
-		// Tools
+		// Weapons
+		// Sword
 		RegisterHelper.registerItem(longSword);
+		
+		// Halberts
+		RegisterHelper.registerItem(PaladinGlaive);
 	}
 }

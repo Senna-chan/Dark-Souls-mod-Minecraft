@@ -9,14 +9,13 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 import starglas.dsremake.common.helpers.Reference;
-import starglas.dsremake.common.models.LongswordModel;
 
-public class ItemRendererLongSword implements IItemRenderer {
+public class ItemRendererTest implements IItemRenderer {
 
-	public LongswordModel model;
+	protected starglas.dsremake.common.models.paladinglaive model;
 	
-	public ItemRendererLongSword(){
-		model = new LongswordModel();
+	public ItemRendererTest(){
+		model = new starglas.dsremake.common.models.paladinglaive();
 	}
 	
 	@Override
@@ -43,13 +42,13 @@ public class ItemRendererLongSword implements IItemRenderer {
 		case EQUIPPED_FIRST_PERSON:
 			GL11.glPushMatrix();
 			
-				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(Reference.MODID,"textures/items/longsword.png"));
+				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(Reference.MODID,"textures/items/paladinglaivetexture.png"));
 				
-				GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
-				GL11.glRotatef(100.0F, 0.0F, 1.0F, 0.0F);
-				GL11.glRotatef(90.0F, 0.0F, 0.0F, 1.0F);
-				
-				GL11.glTranslatef(0F, -1.5F, 0.65F);
+//				GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
+//				GL11.glRotatef(100.0F, 0.0F, 1.0F, 0.0F);
+//				GL11.glRotatef(90.0F, 0.0F, 0.0F, 1.0F);
+//				
+//				GL11.glTranslatef(0F, -1.5F, 0.65F);
 				
 				model.render((Entity)data[1],0.0F,0.0F,0.0F,0.0F,0.0F,0.0625F);
 				

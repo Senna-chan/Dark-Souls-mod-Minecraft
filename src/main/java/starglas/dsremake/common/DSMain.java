@@ -2,7 +2,9 @@ package starglas.dsremake.common;
 // All imports are coming here. But I am lazy so CTRL + SHIFT + O for auto imports
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
+import starglas.dsremake.common.block.ModBlocks;
 import starglas.dsremake.common.helpers.Reference;
 import starglas.dsremake.common.helpers.RegisterHelper;
 import starglas.dsremake.common.items.ModItems;
@@ -33,6 +35,7 @@ public class DSMain {
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		ModItems.init();
+		ModBlocks.init();
 		proxy.registerRenderers();
 	}
 	
