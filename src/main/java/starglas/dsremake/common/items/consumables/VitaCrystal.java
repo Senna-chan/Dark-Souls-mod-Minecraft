@@ -1,22 +1,22 @@
 package starglas.dsremake.common.items.consumables;
 
-import starglas.dsremake.common.helpers.Reference;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import starglas.dsremake.common.DSMain;
+import starglas.dsremake.common.helpers.Reference;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class VitaCrystal extends Item {
 
 	private int mark;
 	public VitaCrystal(String texture, int mark) {
 		super();
-		this.setCreativeTab(CreativeTabs.tabMisc);
-		this.setTextureName(Reference.MODID + texture);
+		this.setCreativeTab(DSMain.tabDSConsume);
+		//this.setTextureName(Reference.MODID + texture);
 		this.mark = mark;
 	}
 

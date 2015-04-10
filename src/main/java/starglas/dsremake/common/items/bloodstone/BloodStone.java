@@ -16,7 +16,7 @@ public class BloodStone extends Item {
 	public BloodStone(String texture, int mark) {
 		super();
 		this.setCreativeTab(CreativeTabs.tabMisc);
-		this.setTextureName(Reference.MODID + texture);
+		//this.setTextureName(Reference.MODID + texture);
 		this.mark = mark;
 	}
 

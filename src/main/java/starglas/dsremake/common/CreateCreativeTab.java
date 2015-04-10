@@ -6,21 +6,16 @@ import starglas.dsremake.common.items.ModItems;
 public class CreateCreativeTab extends CreativeTabs
 {
 
-	private String tabName;
-	public CreateCreativeTab(int ID, String name, String tabName)
+	private Item tabItem;
+	public CreateCreativeTab(int ID, String name, Item item)
 	{
 		super(ID, name);
-		this.tabName = tabName ;
+		this.tabItem = item;
 	}
 	//sets the image for the creative tab
 	
-	//sets the title/name for the creative tab
-	public String getTranslatedTabLabel()
-	{
-		return this.tabName;
-	}
 	@Override
 	public Item getTabIconItem() {
-		return ModItems.MK1VitaCrystal;
+		return this.tabItem;
 	}
 }

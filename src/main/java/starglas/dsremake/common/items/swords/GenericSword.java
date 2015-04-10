@@ -22,17 +22,17 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class GenericSword extends Item
 {
-    private static final String mc = null;
+    
+    
 	private float weaponDamage;
 	public String weapondmg;
-
-    public GenericSword(String texture)
+    public GenericSword(String texture, char[] scaleArray)
     {
         super();
         this.maxStackSize = 1;
         this.setMaxDamage(20);
         this.setCreativeTab(CreativeTabs.tabCombat);
-        this.weaponDamage = WeaponScaling.WeaponScalingRaw(11, 'C', 'C', 30, 30);
+        this.weaponDamage = WeaponScaling.WeaponScalingRaw(11, scaleArray, 30, 30);
         this.weapondmg = this.weaponDamage + " HI";
         this.setFull3D();
     }

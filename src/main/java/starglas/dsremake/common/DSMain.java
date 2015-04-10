@@ -1,6 +1,7 @@
 package starglas.dsremake.common;
 // All imports are coming here. But I am lazy so CTRL + SHIFT + O for auto imports
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
@@ -28,7 +29,10 @@ public class DSMain {
 	
 	// Blocks
 	
-	public static CreativeTabs tabDSConsume = new CreateCreativeTab(CreativeTabs.getNextID(), "tabDSConsume","DSRemake consumebles");
+	public static CreativeTabs tabDSConsume = new CreateCreativeTab(CreativeTabs.getNextID(), "tabDSConsume",ModItems.Estus);
+	public static CreativeTabs tabDSSwords = new CreateCreativeTab(CreativeTabs.getNextID(), "tabDSSwords",ModItems.longSword);
+	public static CreativeTabs tabDSHalberts = new CreateCreativeTab(CreativeTabs.getNextID(), "tabDSHalberts",ModItems.PaladinGlaive);
+	public static CreativeTabs tabDSBlocks = new CreateCreativeTab(CreativeTabs.getNextID(), "tabDSBlocks", ModItems.MK1BloodStone);
 	public static ToolMaterial DSRemake = EnumHelper.addToolMaterial("DSRemake", 0, 1000, -40.0F, 0, 0);
 	
 	

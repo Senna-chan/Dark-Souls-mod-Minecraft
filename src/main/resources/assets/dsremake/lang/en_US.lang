@@ -18,3 +18,8 @@ item.MK4BloodStone.name=Bloodstone Orb
 item.PrismaticBloodStone.name=Prismatic Bloodstone
 
 item.Estus.name=Estus Flask
+
+itemGroup.tabDSConsume=DSRemake Consumables
+itemGroup.tabDSSwords=DSRemake Swords
+itemGroup.tabDSHalberts=DSRemake Halberds
+itemGroup.tabDSBlocks=DSRemake Blocks
