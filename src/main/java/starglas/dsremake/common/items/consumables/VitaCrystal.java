@@ -16,7 +16,7 @@ public class VitaCrystal extends Item {
 	public VitaCrystal(String texture, int mark) {
 		super();
 		this.setCreativeTab(DSMain.tabDSConsume);
-		this.setTextureName(Reference.MODID + texture);
+		//this.setTextureName(Reference.MODID + texture);
 		this.mark = mark;
 	}
 

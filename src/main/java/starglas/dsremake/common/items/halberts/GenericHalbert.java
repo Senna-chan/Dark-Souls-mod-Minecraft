@@ -32,7 +32,7 @@ public class GenericHalbert extends Item
         this.maxStackSize = 1;
         this.setMaxDamage(20);
         this.setCreativeTab(CreativeTabs.tabCombat);
-        this.weaponDamage = WeaponScaling.WeaponScalingRaw(11, 'C', 'C', 30, 30);
+        //this.weaponDamage = WeaponScaling.WeaponScalingRaw(11, 'C', 'C', 30, 30);
         this.weapondmg = this.weaponDamage + " HI";
         this.setFull3D();
     }

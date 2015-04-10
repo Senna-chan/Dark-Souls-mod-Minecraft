@@ -28,8 +28,9 @@ public class ModItems{
 	public static Item MK4BloodStone = new BloodStone(":MK4Blood",4).setUnlocalizedName("MK4BloodStone");
 	public static Item PrismaticBloodStone = new BloodStone(":MK5Blood",5).setUnlocalizedName("PrismaticBloodStone");
 	
-	// Swords
-	public static Item longSword = new GenericSword("dsremake:longsword").setUnlocalizedName("longSword"); 
+	 // Swords
+	static char[] scales = new char[] { 'C','C' };
+	public static Item longSword = new GenericSword("dsremake:longsword", scales).setUnlocalizedName("longSword"); 
 	
 	// Halberts
 	public static Item PaladinGlaive = new GenericHalbert("dsremake:paladinglaive").setUnlocalizedName("PaladinGlaive");

@@ -18,12 +18,12 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ClientProxy extends CommonProxy {
 	public void registerRenderers(){
-		MinecraftForgeClient.registerItemRenderer(ModItems.longSword, (IItemRenderer)new ItemRendererLongSword());
-		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.blockBonfire), (IItemRenderer)new ItemRendererBlockBonfire());
+		RegisterHelper.registerRender(ModItems.longSword, (IItemRenderer)new ItemRendererLongSword());
+		RegisterHelper.registerRender(Item.getItemFromBlock(ModBlocks.blockBonfire), (IItemRenderer)new ItemRendererBlockBonfire());
 		GameRegistry.registerTileEntity(TileEntityBonfire.class, "blockBonfire");
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBonfire.class, new RendererBonfire());
 		RegisterHelper.registerRender(ModItems.PaladinGlaive, new ItemRendererPaladinGlaive());
-		MinecraftForgeClient.registerItemRenderer(ModItems.MK1BloodStone, new ItemRendererLance());
+		RegisterHelper.registerRender(ModItems.MK1BloodStone, new ItemRendererLance());
 		
 	}
 }
