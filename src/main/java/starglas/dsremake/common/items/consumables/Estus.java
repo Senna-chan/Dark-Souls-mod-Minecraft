@@ -1,14 +1,13 @@
 package starglas.dsremake.common.items.consumables;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.IChatComponent;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 import starglas.dsremake.common.DSMain;
 import starglas.dsremake.common.SoundHandler;
+import starglas.dsremake.common.block.ModBlocks;
 import starglas.dsremake.common.helpers.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

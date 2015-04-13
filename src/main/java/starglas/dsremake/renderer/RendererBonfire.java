@@ -24,7 +24,7 @@ public class RendererBonfire extends TileEntitySpecialRenderer{
 	public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f) {
 		
 		GL11.glPushMatrix();
-			GL11.glTranslatef((float)x + 0.5F,(float)y + 3F, (float)z + 0.5F);
+			GL11.glTranslatef((float)x + 0.5F,(float)y + 3F, (float)z + 0.4F);
 			GL11.glRotatef(180F, 0F, 0F, 1F);
 			GL11.glScalef(2F, 2F, 2F);
 			this.bindTexture(texture);

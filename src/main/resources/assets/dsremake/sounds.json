@@ -1,3 +1,4 @@
 {
     "ChugThatEstus": {"catagory": "master","sounds": [{"name": "Estus","stream": false}]}
+    "BonfireLit": {"catagory": "master","sounds": [{"name": "Bonfire_lit","stream": false}]}
     }

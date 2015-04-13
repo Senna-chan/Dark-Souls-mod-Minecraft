@@ -1,5 +1,6 @@
 package starglas.dsremake.common.block;
 
+import starglas.dsremake.common.SoundHandler;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -16,6 +17,7 @@ public class BlockBonfire extends BlockContainer{
 		super(Material.rock);
 		this.setCreativeTab(CreativeTabs.tabMisc);
 		this.setHardness(1F);
+		this.setBlockBounds(0F, 0F, 0F, 1F, 1.3F, 1F);
 	}
 
 	@Override
@@ -37,6 +39,7 @@ public class BlockBonfire extends BlockContainer{
 	}
 	public boolean onBlockActivated(World world, int X, int Y, int Z, EntityPlayer player, int par6, float par7, float par8, float par9){
 		System.out.println("Thou has activated thy bonfire");
+		SoundHandler.onEntityPlay("BonfireLit", world, player, 1, 1);
 		return false;
 	}
 	

@@ -10,14 +10,11 @@ import net.minecraft.block.Block;
 public class ModBlocks{
 	
 	public static Block blockBonfire;
-	public static Block blockTest;
 		
 	public static void init(){
 
 		blockBonfire = new BlockBonfire().setBlockName("blockBonfire");
-		blockTest = new BlockSnowball().setBlockName("blockTest");
 		RegisterHelper.registerBlock(blockBonfire);
-		RegisterHelper.registerBlock(blockTest);
 		
 		
 		
