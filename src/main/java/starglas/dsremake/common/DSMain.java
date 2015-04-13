@@ -3,17 +3,17 @@ package starglas.dsremake.common;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import starglas.dsremake.common.block.ModBlocks;
 import starglas.dsremake.common.helpers.Reference;
-import starglas.dsremake.common.helpers.RegisterHelper;
 import starglas.dsremake.common.items.ModItems;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 @Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION)
 //@NetworkMod(clientSideRequired = true, serverSideRequired = false)
@@ -27,12 +27,7 @@ public class DSMain {
 	
 	// Declaring vars
 	
-	// Blocks
 	
-	public static CreativeTabs tabDSConsume = new CreateCreativeTab(CreativeTabs.getNextID(), "tabDSConsume",ModItems.Estus);
-	public static CreativeTabs tabDSSwords = new CreateCreativeTab(CreativeTabs.getNextID(), "tabDSSwords",ModItems.longSword);
-	public static CreativeTabs tabDSHalberts = new CreateCreativeTab(CreativeTabs.getNextID(), "tabDSHalberts",ModItems.PaladinGlaive);
-	public static CreativeTabs tabDSBlocks = new CreateCreativeTab(CreativeTabs.getNextID(), "tabDSBlocks", ModItems.MK1BloodStone);
 	public static ToolMaterial DSRemake = EnumHelper.addToolMaterial("DSRemake", 0, 1000, -40.0F, 0, 0);
 	
 	

@@ -5,6 +5,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import starglas.dsremake.common.CreateCreativeTab;
 import starglas.dsremake.common.DSMain;
 import starglas.dsremake.common.SoundHandler;
 import starglas.dsremake.common.block.ModBlocks;
@@ -20,7 +21,7 @@ public class Estus extends Item {
 	private int ChangedItemDMG;
 	public Estus(){
 		super();
-		this.setCreativeTab(DSMain.tabDSConsume);
+		this.setCreativeTab(CreateCreativeTab.tabDSConsume);
 		this.setTextureName(Reference.MODID + ":myFirstItem");
 		this.setMaxStackSize(1);
 		this.setMaxDamage(19);
@@ -29,7 +30,6 @@ public class Estus extends Item {
 	public ItemStack onItemRightClick(ItemStack Items, World world, EntityPlayer player)
     {
 		this.ItemDMG = Items.getItemDamage();
-		System.out.println(Items.getItemDamage() + " Before item dmg");
 			this.playerMaxHP = player.getMaxHealth();
 			this.playerHP = player.getHealth();
 			player.setHealth(10F);
@@ -42,7 +42,6 @@ public class Estus extends Item {
 			if(this.ChangedItemDMG == this.ItemDMG){
 				Items.damageItem(1, player);
 			}
-			System.out.println(Items.getItemDamage() + " After item dmg");
 		return Items;
     }
     

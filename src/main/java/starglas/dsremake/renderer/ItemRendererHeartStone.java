@@ -26,7 +26,6 @@ public class ItemRendererHeartStone implements IItemRenderer {
 		switch(type){
 		case EQUIPPED:
 		case EQUIPPED_FIRST_PERSON:
-		case INVENTORY:
 			return true;
 		default:
 			return false;

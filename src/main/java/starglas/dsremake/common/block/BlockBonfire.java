@@ -1,22 +1,19 @@
 package starglas.dsremake.common.block;
 
-import starglas.dsremake.common.SoundHandler;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import starglas.dsremake.common.CreateCreativeTab;
+import starglas.dsremake.common.SoundHandler;
 
 public class BlockBonfire extends BlockContainer{
 
 	protected BlockBonfire() {
-		super(Material.rock);
-		this.setCreativeTab(CreativeTabs.tabMisc);
-		this.setHardness(1F);
+		super(Material.ground);
+		this.setCreativeTab(CreateCreativeTab.tabDSBlocks);
+		this.setHardness(0.5F);
 		this.setBlockBounds(0F, 0F, 0F, 1F, 1.3F, 1F);
 	}
 
@@ -46,7 +43,7 @@ public class BlockBonfire extends BlockContainer{
 	
 	/*@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister icon){	
-		this.blockIcon = icon.registerIcon(ModBlocks.BonFire)
+		this.blockIcon = icon.registerIcon(ModBlocks.blockBonfire);
 	}*/
 	
 	
