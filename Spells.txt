@@ -1,0 +1,56 @@
+Spells are found in respective dungeons, along with attunement crystals.
+
+[Fire]
+{Basic}
+Flare - Basic fireball
+Warmth - Basic utility spell, spawns object with regeneration 1 aura.
+Pyromancy - Basic passive, increases fire damage dealt
+
+{Advanced}
+Magma burst - Advanced fireball, set target alight.
+Inner fire - advanced utility spell, grants buffs rank 1.
+Lava flows - advanced passive, grants speed 1 whenever you get a debuff.
+
+{Expert}
+Bolganone - Expert fireball, explodes in fire.
+Lava Lash - Expert utility spell, reels struck targets in like a fishing rod.
+Trailblaze - Expert passive, sprinting leaves behind a trail of fire. <toggled>
+
+Light
+{Basic}
+
+{Advanced}
+
+{Expert}
+
+Dark
+{Basic}
+
+{Advanced}
+
+{Expert}
+
+Water
+
+Nature
+
+Frostfire
+
+Poison
+
+Sunfire
+
+Taint
+
+Curse
+
+Flower
+
+Ash
+
+Ice
+
+Spirit
+
+Storm
+
