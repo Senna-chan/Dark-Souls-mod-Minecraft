@@ -1,8 +1,5 @@
 package starglas.dsremake.common.items.halberts;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -11,8 +8,7 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import starglas.dsremake.common.PlayerStatsTest;
-import starglas.dsremake.common.WeaponScaling;
+import starglas.dsremake.common.CreateCreativeTab;
 
 import com.google.common.collect.Multimap;
 
@@ -31,7 +27,7 @@ public class GenericHalbert extends Item
         super();
         this.maxStackSize = 1;
         this.setMaxDamage(20);
-        this.setCreativeTab(CreativeTabs.tabCombat);
+        this.setCreativeTab(CreateCreativeTab.tabDSHalberts);
         //this.weaponDamage = WeaponScaling.WeaponScalingRaw(11, 'C', 'C', 30, 30);
         this.weapondmg = this.weaponDamage + " HI";
         this.setFull3D();

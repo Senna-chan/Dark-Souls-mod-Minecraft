@@ -42,16 +42,17 @@ public class ItemRendererBlockBonfire implements IItemRenderer {
 		switch(type){
 		case EQUIPPED:
 		case EQUIPPED_FIRST_PERSON:
-		case INVENTORY:
 			GL11.glPushMatrix();
 			
 				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(Reference.MODID,"textures/blocks/bonfiretexture.png"));
 				
-				/*GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
+				GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
 				GL11.glRotatef(100.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glRotatef(90.0F, 0.0F, 0.0F, 1.0F);
 				
-				GL11.glTranslatef(0F, -1.5F, 0.65F);*/
+				GL11.glTranslatef(0F, -3F, 0.65F);
+				
+				GL11.glScalef(2F, 2F, 2F);
 				
 				model.render((Entity)data[1],0.0F,0.0F,0.0F,0.0F,0.0F,0.0625F);
 				

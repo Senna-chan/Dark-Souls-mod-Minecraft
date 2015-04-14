@@ -23,3 +23,6 @@ itemGroup.tabDSConsume=DSRemake Consumables
 itemGroup.tabDSSwords=DSRemake Swords
 itemGroup.tabDSHalberts=DSRemake Halberds
 itemGroup.tabDSBlocks=DSRemake Blocks
+
+
+tile.blockBonfire.name=Bonfire
