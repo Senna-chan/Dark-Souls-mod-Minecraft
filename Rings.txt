@@ -19,4 +19,7 @@ increase chance of Vita crystals drops
 Hyena ring
 Increase droprate(looting)
 
+Azure tearstone ring
+When under 20% hp resistance 2 buff
+
 
