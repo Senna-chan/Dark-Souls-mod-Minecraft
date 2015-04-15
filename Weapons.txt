@@ -162,6 +162,41 @@ Descr: A sharp knife wielded by banshees from a sunken city.
 Its blade is ghostly, and seems to phase in and out of reality.
 Effect: shield piercing.
 
+[Catalysts]
+
+{Default}
+Fire - Fickle embers
+Base AR: 50
+Base Scaling: D
+Upgrade level: 5
+Descr:
+
+
+Light - Saint's Mark
+Base AR: 50
+Base Scaling: D
+Upgrade level: 5
+Descr:
+
+Dark - Devil fingers
+Base AR: 50
+Base Scaling: D
+Descr:
+
+Water - Living droplets
+Base AR: 50 
+Base Scaling: D
+Descr:
+
+
+Nature - Galevine sprout
+Base AR: 50
+Base Scaling: D
+Descr:
+
+
+
+
 
 
 

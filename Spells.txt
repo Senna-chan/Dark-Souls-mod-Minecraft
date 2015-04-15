@@ -31,17 +31,51 @@ Dark
 {Expert}
 
 Water
+{Basic}
+
+{Advanced}
+
+{Expert}
 
 Nature
+{Basic}
+
+{advanced}
+
+{expert}
 
 Frostfire
+{Basic}
+
+{Advanced}
+
+{Expert}
 
 Poison
+{Basic}
+
+{Advanced}
+
+{Expert}
 
 Sunfire
+{Basic}
+
+{Advanced}
+
+{Expert}
 
 Taint
+{Basic}
+Flux - 
 
+{Advanced}
+Ruin - 
+Nosferatu -
+
+{Expert}
+Goetia - 
+Mire - 
 Curse
 
 Flower
