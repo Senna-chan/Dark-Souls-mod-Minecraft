@@ -13,9 +13,6 @@ import starglas.dsremake.common.helpers.Reference;
 
 public class ItemRendererHeartStone implements IItemRenderer {
 	IModelCustom model;
-	ResourceLocation texture = new ResourceLocation(Reference.MODID,
-			"textures/items/heartstonetexture.png");
-
 	public ItemRendererHeartStone(){
 		this.model = AdvancedModelLoader.loadModel(new ResourceLocation(
 				Reference.MODID, "obj/heartstone.obj"));
@@ -40,14 +37,19 @@ public class ItemRendererHeartStone implements IItemRenderer {
 	@Override
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
 		GL11.glPushMatrix();
-		Minecraft.getMinecraft().renderEngine.bindTexture(texture);
+		
 			GL11.glTranslatef(0.5F, 0.4F, 0F);
 			GL11.glRotatef(30F, 1.0F, 0.0F, 0.0F);
 			GL11.glRotatef(0F, 0.0F, 0.0F, 0.0F);
 			GL11.glRotatef(0F, 0.0F, 0.0F, 0.0F);
 			GL11.glScalef(0.2F,0.2F,0.2F);
+			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(Reference.MODID,
+					"textures/items/heartstonelessertexture.png"));
+
 			
+
 			model.renderAll();
+			
 		GL11.glPopMatrix();
 	}
 }

@@ -7,39 +7,34 @@ import starglas.dsremake.common.items.ModItems;
 
 public class CreateCreativeTab
 {
-	public static CreativeTabs tabDSConsume;
-	public static CreativeTabs tabDSBlocks;
-	public static CreativeTabs tabDSSwords;
-	public static CreativeTabs tabDSHalberts;
+	public static CreativeTabs tabDSConsume = new CreativeTabs("tabDSConsume"){
+		@Override
+		public Item getTabIconItem(){
+			return ModItems.Estus;
+		}
+	};
+	public static CreativeTabs tabDSBlocks = new CreativeTabs("tabDSBlocks"){
+		@Override
+		public Item getTabIconItem(){
+			return ModItems.Estus;
+		}
+	};
+	public static CreativeTabs tabDSSwords = new CreativeTabs("tabDSSwords"){
+		@Override
+		public Item getTabIconItem(){
+			return ModItems.Estus;
+		}
+	};
+	public static CreativeTabs tabDSHalberts = new CreativeTabs("tabDSHalberts"){
+		@Override
+		public Item getTabIconItem(){
+			return ModItems.Estus;
+		}
+	};
 
-	public CreateCreativeTab(){
-		tabDSConsume = new CreativeTabs("tabDSConsume"){
-			@Override
-			@SideOnly(Side.CLIENT)
-			public Item getTabIconItem(){
-				return ModItems.Estus;
-			}
-		};
-		tabDSBlocks = new CreativeTabs("tabDSBlocks"){
-			@Override
-			@SideOnly(Side.CLIENT)
-			public Item getTabIconItem(){
-				return ModItems.Estus;
-			}
-		};
-		tabDSSwords = new CreativeTabs("tabDSSwords"){
-			@Override
-			@SideOnly(Side.CLIENT)
-			public Item getTabIconItem(){
-				return ModItems.Estus;
-			}
-		};
-		tabDSHalberts = new CreativeTabs("tabDSHalberts"){
-			@Override
-			@SideOnly(Side.CLIENT)
-			public Item getTabIconItem(){
-				return ModItems.Estus;
-			}
-		};
+	public static void RegisterTabs(){
+
+		
+		
 	}
 }

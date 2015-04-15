@@ -35,6 +35,7 @@ public class DSMain {
 	public void preInit(FMLPreInitializationEvent event) {
 		ModItems.init();
 		ModBlocks.init();
+		CreateCreativeTab.RegisterTabs();
 		proxy.registerRenderers();
 	}
 	
