@@ -47,4 +47,17 @@ Use to upgrade standard weapons to +10
 Prismatic Bloodstone
 Use to upgrade special weapons to +5
 
+Angelic Feather
+Use to upgrade light catalysts to +5
 
+Abyssal Runestone
+Use to upgrade dark catalysts to +5
+
+Dragon bone ash
+Use to upgrade fire catalysts to +5
+
+Shimmering shoal pearl
+Use to upgrade water catalysts to +5
+
+Silverleaf moth scales
+Use to upgrade nature catalysts to +5

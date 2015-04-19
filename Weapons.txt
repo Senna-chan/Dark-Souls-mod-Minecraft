@@ -181,17 +181,20 @@ Descr:
 Dark - Devil fingers
 Base AR: 50
 Base Scaling: D
+Upgrade level: 5
 Descr:
 
 Water - Living droplets
 Base AR: 50 
 Base Scaling: D
+Upgrade level: 5
 Descr:
 
 
 Nature - Galevine sprout
 Base AR: 50
 Base Scaling: D
+Upgrade level: 5
 Descr:
 
 
