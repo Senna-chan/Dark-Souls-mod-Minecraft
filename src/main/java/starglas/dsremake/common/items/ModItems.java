@@ -1,13 +1,13 @@
 package starglas.dsremake.common.items;
 
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import starglas.dsremake.common.CreateCreativeTab;
 import starglas.dsremake.common.helpers.RegisterHelper;
 import starglas.dsremake.common.items.bloodstone.BloodStone;
 import starglas.dsremake.common.items.consumables.Estus;
 import starglas.dsremake.common.items.consumables.HeartStone;
 import starglas.dsremake.common.items.consumables.VitaCrystal;
+import starglas.dsremake.common.items.fists.GenericFist;
+import starglas.dsremake.common.items.greathammers.GenericGreatHammer;
 import starglas.dsremake.common.items.halberts.GenericHalbert;
 import starglas.dsremake.common.items.swords.GenericSword;
 
@@ -27,6 +27,7 @@ public class ModItems{
 	public static Item MK3BloodStone = new BloodStone(":MK3Blood",3).setUnlocalizedName("MK3BloodStone");
 	public static Item MK4BloodStone = new BloodStone(":MK4Blood",4).setUnlocalizedName("MK4BloodStone");
 	public static Item PrismaticBloodStone = new BloodStone(":MK5Blood",5).setUnlocalizedName("PrismaticBloodStone");
+	public static Item RadiantOil = new RadiantOil().setUnlocalizedName("RadiantOil");
 	
 	 // Swords
 	static char[] scales = new char[] { 'C','C' };
@@ -35,7 +36,15 @@ public class ModItems{
 	// Halberts
 	public static Item PaladinGlaive = new GenericHalbert("dsremake:paladinglaive").setUnlocalizedName("PaladinGlaive");
 	
+	// Great Hamers
+	public static Item SanctifiedGreathammer = new GenericGreatHammer().setUnlocalizedName("SanctifiedGreathammer");
+	
+	// Fist Weapons
+	public static Item GyroDrill = new GenericFist().setUnlocalizedName("GyroDrill");
+	
 	public static void init(){
+		// Items
+		RegisterHelper.registerItem(RadiantOil);
 		// Heart Crystals
 		RegisterHelper.registerItem(MK1HeartStone);
 		RegisterHelper.registerItem(MK2HeartStone);
@@ -63,5 +72,11 @@ public class ModItems{
 		
 		// Halberts
 		RegisterHelper.registerItem(PaladinGlaive);
+		
+		// Great Hammers
+		RegisterHelper.registerItem(SanctifiedGreathammer);
+		
+		// Fist weapons
+		RegisterHelper.registerItem(GyroDrill);
 	}
 }

@@ -7,6 +7,8 @@ import net.minecraftforge.common.util.EnumHelper;
 import starglas.dsremake.common.block.ModBlocks;
 import starglas.dsremake.common.helpers.Reference;
 import starglas.dsremake.common.items.ModItems;
+import starglas.dsremake.common.items.ModRecipes;
+import starglas.dsremake.world.WorldGenClass;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -36,11 +38,13 @@ public class DSMain {
 		ModItems.init();
 		ModBlocks.init();
 		CreateCreativeTab.RegisterTabs();
+		ModRecipes.init();
+		WorldGenClass.init();
 		proxy.registerRenderers();
 	}
 	
 	@Mod.EventHandler
-	public void init(FMLInitializationEvent event) { // Init almost everything go's in here
+	public void init(FMLInitializationEvent event) { // Init nice and clean because of seperate classes that init in the preInit class
 		
 	}
 

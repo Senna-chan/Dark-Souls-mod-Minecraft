@@ -12,10 +12,10 @@ import starglas.dsremake.common.helpers.Reference;
 
 public class ItemRendererTest implements IItemRenderer {
 
-	protected starglas.dsremake.common.models.paladinglaive model;
+	protected starglas.dsremake.common.models.TestModel model;
 	
 	public ItemRendererTest(){
-		model = new starglas.dsremake.common.models.paladinglaive();
+		model = new starglas.dsremake.common.models.TestModel();
 	}
 	
 	@Override
@@ -42,7 +42,7 @@ public class ItemRendererTest implements IItemRenderer {
 		case EQUIPPED_FIRST_PERSON:
 			GL11.glPushMatrix();
 			
-				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(Reference.MODID,"textures/items/paladinglaivetexture.png"));
+				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(Reference.MODID,"textures/items/testtexture.png"));
 				
 //				GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
 //				GL11.glRotatef(100.0F, 0.0F, 1.0F, 0.0F);

@@ -40,6 +40,13 @@ public class BlockBonfire extends BlockContainer{
 	public boolean renderAsNormalBlock(){
 		return false;
 	}
+	
+	public int onBlockPlaced(World world, int X, int Y, int Z, EntityPlayer player){
+		TileEntityBonfire t = (TileEntityBonfire) world.getTileEntity(X, Y, Z);
+        t.onPlaced(player);
+		return 0;
+	}
+	
 	public boolean onBlockActivated(World world, int X, int Y, int Z, EntityPlayer player, int par6, float par7, float par8, float par9){
 		System.out.println("Thou has activated thy bonfire");
 		player.heal(player.getMaxHealth());
@@ -56,6 +63,12 @@ public class BlockBonfire extends BlockContainer{
                 }
             }
 		}
+		if(!world.isRemote)
+        {
+			TileEntityBonfire t = (TileEntityBonfire) world.getTileEntity(X, Y, Z);
+                t.processActivate(player, world);
+        }
+		player.addChatMessage(new ChatComponentText("Held item is: " + player.getHeldItem()));
 		return false;
 	}
 	
