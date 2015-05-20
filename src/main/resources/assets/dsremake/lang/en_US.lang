@@ -16,13 +16,17 @@ item.MK2BloodStone.name=Bloodstone Shard
 item.MK3BloodStone.name=Bloodstone Chunk
 item.MK4BloodStone.name=Bloodstone Orb
 item.PrismaticBloodStone.name=Prismatic Bloodstone
+tile.BlockBloodstonechipOre.name=Bloodstone Chip Ore
+tile.BlockBloodstoneshardOre.name=Bloodstone Shard Ore
 
 item.Estus.name=Estus Flask
+item.RadiantOil.name=Radiant Oil
 
 itemGroup.tabDSConsume=DSRemake Consumables
 itemGroup.tabDSSwords=DSRemake Swords
 itemGroup.tabDSHalberts=DSRemake Halberds
 itemGroup.tabDSBlocks=DSRemake Blocks
+itemGroup.tabDSUpgrade=DSRemake Upgrade items
 
 
 tile.blockBonfire.name=Bonfire

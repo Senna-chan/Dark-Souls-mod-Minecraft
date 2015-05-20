@@ -34,7 +34,6 @@ public class Estus extends ItemBucketMilk {
 	public int getMaxItemUseDuration(ItemStack Items) {
 		return 15;
 	}
-
 	public ItemStack onEaten(ItemStack Items, World world, EntityPlayer player) {
 		
 		SoundHandler.onEntityPlay("ChugThatEstus", world, player, 1, 1);
@@ -50,20 +49,6 @@ public class Estus extends ItemBucketMilk {
 	@Override
 	public ItemStack onItemRightClick(ItemStack Items, World world,
 			EntityPlayer player) {
-		// this.ItemDMG = Items.getItemDamage();
-		// this.playerMaxHP = player.getMaxHealth();
-		// this.playerHP = player.getHealth();
-		// player.setHealth(10F);
-		// if(this.playerHP < this.playerMaxHP){
-		// SoundHandler.onEntityPlay("ChugThatEstus", world, player, 1, 1);
-		// player.setHealth((float) (playerHP + (playerMaxHP*0.40)));
-		// Items.damageItem(1, player);
-		// this.ChangedItemDMG = Items.getItemDamage();
-		// }
-		// if(this.ChangedItemDMG == this.ItemDMG){
-		// Items.damageItem(1, player);
-		// }
-		// return Items;
 		player.setHealth(10F);
 		if(this.ItemDMG != 19){
 			this.ItemDMG = Items.getItemDamage();

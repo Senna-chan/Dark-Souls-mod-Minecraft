@@ -9,9 +9,8 @@ public class WeaponScaling {
 	private static float FireScaling;
 
 	//public static float WeaponScalingRaw(int weaponDamage, char strengthScaling, char dextScaling, int playerStrength, int playerDex/*, int playerWill, int playerLight, int playerWrath, int playerSerenity, int playerHarmony*/){
-	public static float WeaponScalingRaw(int weaponDamage, char[] scaleArray, int playerStrength, int playerDex/*, int playerWill, int playerLight, int playerWrath, int playerSerenity, int playerHarmony*/){
-		System.out.println(Arrays.toString(scaleArray));
-		switch(scaleArray[0]){
+	public static float WeaponScalingRaw(int weaponDamage, char strengthScale, char dexScale, int playerStrength, int playerDex/*, int playerWill, int playerLight, int playerWrath, int playerSerenity, int playerHarmony*/){
+		switch(strengthScale){
 			case 'E': strScaling = 0.3F;
 			case 'D': strScaling = 0.7F;
 			case 'C': strScaling = 1.1F;
@@ -20,7 +19,7 @@ public class WeaponScaling {
 			case 'S': strScaling = 2.5F;
 			default:  strScaling = 0.0F;
 		}
-		switch(scaleArray[1]){
+		switch(dexScale){
 			case 'E': dexScaling = 0.3F;
 			case 'D': dexScaling = 0.7F;
 			case 'C': dexScaling = 1.1F;

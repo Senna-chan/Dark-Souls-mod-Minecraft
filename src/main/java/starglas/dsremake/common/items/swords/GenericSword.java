@@ -28,7 +28,7 @@ public class GenericSword extends Item
         this.maxStackSize = 1;
         this.setMaxDamage(20);
         this.setCreativeTab(CreateCreativeTab.tabDSSwords);
-        this.weaponDamage = WeaponScaling.WeaponScalingRaw(11, scaleArray, 30, 30);
+        this.weaponDamage = WeaponScaling.WeaponScalingRaw(11, 'C', 'C', 30, 30);
         this.setFull3D();
     }
 

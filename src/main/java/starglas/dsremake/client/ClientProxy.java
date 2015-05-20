@@ -5,16 +5,17 @@ import net.minecraftforge.client.IItemRenderer;
 import starglas.dsremake.common.CommonProxy;
 import starglas.dsremake.common.block.ModBlocks;
 import starglas.dsremake.common.block.TileEntityBonfire;
-import starglas.dsremake.common.block.TileEntityJokesOnYou;
 import starglas.dsremake.common.helpers.RegisterHelper;
 import starglas.dsremake.common.items.ModItems;
 import starglas.dsremake.renderer.ItemRendererBlockBonfire;
 import starglas.dsremake.renderer.ItemRendererEstus;
+import starglas.dsremake.renderer.ItemRendererGyroDrill;
 import starglas.dsremake.renderer.ItemRendererHeartStone;
 import starglas.dsremake.renderer.ItemRendererLongSword;
 import starglas.dsremake.renderer.ItemRendererPaladinGlaive;
+import starglas.dsremake.renderer.ItemRendererSancitiedGreatHammer;
+import starglas.dsremake.renderer.ItemRendererTest;
 import starglas.dsremake.renderer.RendererBonfire;
-import starglas.dsremake.renderer.RendererJokesOnYou;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -27,6 +28,8 @@ public class ClientProxy extends CommonProxy {
 		RegisterHelper.registerRender(ModItems.PaladinGlaive, new ItemRendererPaladinGlaive());
 		RegisterHelper.registerRender(ModItems.MK1HeartStone, new ItemRendererHeartStone());
 		RegisterHelper.registerRender(ModItems.Estus, new ItemRendererEstus());
-		
+		RegisterHelper.registerRender(ModItems.MK1BloodStone, new ItemRendererTest());
+		RegisterHelper.registerRender(ModItems.SanctifiedGreathammer, new ItemRendererSancitiedGreatHammer());
+		RegisterHelper.registerRender(ModItems.GyroDrill, new ItemRendererGyroDrill());
 	}
 }
