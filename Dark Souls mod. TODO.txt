@@ -26,7 +26,7 @@ CHECK	- Consume Vita crystals for EXP
 
 Items
 	- Weapons(See weapons.txt)
-	- Estus
+	- Estus x
 		- DS1 of DS2 variant
 	- Armor(See armor.txt)
 	- bloodstone chip/shard/chunk/orb

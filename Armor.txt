@@ -60,3 +60,14 @@ DD: 673
 WD: 368
 ND: 496
 
+Singing crystal set
+
+primary: Water/light
+
+PD: 540
+LD: 670
+FD: 340
+DD: 230
+WD: 670
+ND: 400
+

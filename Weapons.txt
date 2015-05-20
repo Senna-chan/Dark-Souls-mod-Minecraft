@@ -58,6 +58,11 @@ Upgrade level: 5
 Descr: A shortsword made from a drake's fang. Imbued with fire, but has short reach.
 Those with a strong enough will can feel a warmth eminating from the hilt.
 
+Rosemary
+Base AR: 60,-,40,-,-,40
+Base Scaling: E,A,-,C,-,-,B
+Upgrade level: 5
+Descr: A rapier formed from a hardened rose,
 [Great Swords]
 Flameberge
 Base AR: 130,180,-,-,-,-

@@ -18,9 +18,20 @@ Vita crystals, bloodstone chip/shard
 {Gear}
 longsword, knight set, elite knight set, Captain set
 
+
+|[high dungeons]|
+
+
+
 [Cathedral]
 {Items}
 Vita crystals, bloodstone shard/chunk/orb, prismatic bloodstone, Radiant oil
 {Gear}
 Solar sword, bolt blade, sanctified great hammer, Paladin's glaive
 
+
+[Grove]
+{Items}
+Vita crystals, bloodstone shard/chunk/orb, prismatic bloodstone, Radiant oil
+{Gear}
+Nature spell book, Flower spell book, Rosemary, 

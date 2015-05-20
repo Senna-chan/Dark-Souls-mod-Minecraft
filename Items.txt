@@ -59,5 +59,35 @@ Use to upgrade fire catalysts to +5
 Shimmering shoal pearl
 Use to upgrade water catalysts to +5
 
-Silverleaf moth scales
+Silverwing moth scales
 Use to upgrade nature catalysts to +5
+
+Dancing vapor
+Use to upgrade steam catalysts to +5
+
+Liquid death
+Use to upgrade poison catalysts to +5
+
+Solar lense
+Use to upgrade sunfire catalysts to +5
+
+Taintcap spores
+Use to upgrade taint catalysts to +5
+
+Devil's slip
+Use to upgrade Curse catalysts to +5
+
+Heart petal
+Use to upgrade Flower catalysts to +5
+
+Pheonix Incense
+Use to upgrade Ash catalysts to +5
+
+Bottled arctic gale
+Use to upgrade Ice catalysts to +5
+
+Transient Nail
+Use to upgrade spirit catalysts to +5
+
+Bottled nethergon energy
+Use to upgrade Storm catalysts to +5

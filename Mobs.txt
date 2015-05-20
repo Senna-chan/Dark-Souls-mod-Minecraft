@@ -11,3 +11,37 @@
 
 [Blood borer]
 	Health: 
+
+
+
+
+[Hanako](Fire Merchant)
+
+[Ilias](Light Merchant)
+
+[Alicefieze](Dark Merchant)
+
+[Nahreide](Water Merchant)
+
+[Sylph](Nature Merchant)
+
+[Lord Gaben](Steam)
+
+[](Poison)
+
+[Solaire](Sunfire)
+
+[](Taint)
+
+[Tharja](Curse)
+
+[Alraune](Flower)
+
+[](Ash)
+
+[Jack frost](Ice)
+
+[Cainhurst](Spirit)
+
+[](Storm)
+

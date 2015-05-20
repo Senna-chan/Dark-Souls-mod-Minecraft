@@ -7,7 +7,7 @@ Water - Serenity
 Nature - Harmony
 
 [combination elemental attacks]
-Fire + Water = Frostfire
+Fire + Water = Steam
 Water + Dark = Poison
 Fire + Light = Sunfire
 Dark + Nature = Taint
@@ -32,7 +32,7 @@ Water
 Nature
 
 
-Frostfire
+Steam
 
 Poison
 +poison heals you. poison everything within 5 blocks, in water 11 blocks. 
