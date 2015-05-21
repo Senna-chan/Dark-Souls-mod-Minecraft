@@ -1,5 +1,8 @@
 package starglas.dsremake.common.items.fists;
 
+import java.util.List;
+
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -7,9 +10,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import starglas.dsremake.common.CreateCreativeTab;
 import starglas.dsremake.common.WeaponScaling;
+import starglas.dsremake.common.helpers.WeaponInfo;
+import akka.dispatch.Foreach;
 
 import com.google.common.collect.Multimap;
 
@@ -17,11 +23,11 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 
+
 public class GenericFist extends Item
 {
-    
-    
 	private float weaponDamage;
+	
     public GenericFist()
     {
         super();
@@ -31,6 +37,18 @@ public class GenericFist extends Item
         this.weaponDamage = WeaponScaling.WeaponScalingRaw(11, 'C', 'C', 30, 30);
         this.setFull3D();
     }
+   
+   @SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List list, boolean par4) {
+		if(GuiScreen.isShiftKeyDown()) {
+	    	for(int i=0;i<WeaponInfo.GyroDrill.length; ){
+	    		list.add(WeaponInfo.GyroDrill[i]);
+	    		i++;
+	    	}
+		} else{
+			list.add("Press shift for more info");
+		}
+	}
 
     public float func_82803_g()
     {
@@ -58,19 +76,11 @@ public class GenericFist extends Item
     }
 
     /**
-     * returns the action that specifies what animation to play when the items is being used
-     */
-    public EnumAction getItemUseAction(ItemStack par1ItemStack)
-    {
-        return EnumAction.block;
-    }
-
-    /**
      * How long it takes to use or consume an item
      */
     public int getMaxItemUseDuration(ItemStack par1ItemStack)
     {
-        return 72000;
+        return 720;
     }
 
     /**
@@ -78,7 +88,6 @@ public class GenericFist extends Item
      */
     public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
-       
         return par1ItemStack;
     }
 

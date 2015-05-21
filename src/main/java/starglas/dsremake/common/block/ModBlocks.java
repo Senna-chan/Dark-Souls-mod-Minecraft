@@ -6,17 +6,17 @@ import starglas.dsremake.common.helpers.RegisterHelper;
 
 public class ModBlocks{
 	
-	public static Block BloodstoneshardOre;
 	public static Block blockBonfire;
-	public static Block BloodstonechipOre;
+	public static Block BloodstoneOre;
+	public static Block blockSmallChest;
 	public static void init(){
 
 		blockBonfire = new BlockBonfire().setBlockName("blockBonfire");
-		BloodstonechipOre = new BloodstoneOre(1).setBlockName("blockBloodstonechipOre");
-		BloodstoneshardOre = new BloodstoneOre(2).setBlockName("blockBloodstoneshardOre");
+		BloodstoneOre = new BloodstoneOre().setBlockName("blockBloodstoneOre");
+		blockSmallChest = new BlockSmallChest().setBlockName("blocksmallchest");
 		RegisterHelper.registerBlock(blockBonfire);
-		RegisterHelper.registerBlock(BloodstonechipOre);
-		RegisterHelper.registerBlock(BloodstoneshardOre);
+		RegisterHelper.registerBlock(BloodstoneOre);
+		RegisterHelper.registerBlock(blockSmallChest);
 		
 	}
 }

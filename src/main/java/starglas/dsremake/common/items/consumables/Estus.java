@@ -13,6 +13,8 @@ import starglas.dsremake.common.DSMain;
 import starglas.dsremake.common.SoundHandler;
 import starglas.dsremake.common.block.ModBlocks;
 import starglas.dsremake.common.helpers.Reference;
+import starglas.dsremake.common.helpers.RegisterHelper;
+import starglas.dsremake.handler.DSPlayerHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -22,22 +24,32 @@ public class Estus extends ItemBucketMilk {
 	private float playerMaxHP;
 	private int ItemDMG;
 	private int ChangedItemDMG;
-
+	private String playerClass;
+	private int MaxEstusUses;
+	
 	public Estus() {
 		super();
 		this.setCreativeTab(CreateCreativeTab.tabDSConsume);
 		this.setTextureName(Reference.MODID + ":myFirstItem");
 		this.setMaxStackSize(1);
-		this.setMaxDamage(19);
+		this.setMaxDamage(4);
 	}
 
 	public int getMaxItemUseDuration(ItemStack Items) {
 		return 15;
 	}
 	public ItemStack onEaten(ItemStack Items, World world, EntityPlayer player) {
-		
+		DSPlayerHandler handler = new DSPlayerHandler(player);
+		this.playerClass = handler.getPlayerClass();
 		SoundHandler.onEntityPlay("ChugThatEstus", world, player, 1, 1);
 		player.setHealth((float) (playerHP + (playerMaxHP * 0.40)));
+		if(this.playerClass!="taint"){
+//			if (!world.isRemote)
+//	        {
+//	            player.curePotionEffects();
+//	        }
+
+		}
 		Items.damageItem(1, player);
 		this.ChangedItemDMG = Items.getItemDamage();
 		if (this.ChangedItemDMG == this.ItemDMG) {
@@ -50,7 +62,7 @@ public class Estus extends ItemBucketMilk {
 	public ItemStack onItemRightClick(ItemStack Items, World world,
 			EntityPlayer player) {
 		player.setHealth(10F);
-		if(this.ItemDMG != 19){
+		if(this.ItemDMG != this.MaxEstusUses){
 			this.ItemDMG = Items.getItemDamage();
 			this.playerMaxHP = player.getMaxHealth();
 			this.playerHP = player.getHealth();
@@ -58,8 +70,8 @@ public class Estus extends ItemBucketMilk {
 				player.setItemInUse(Items, this.getMaxDamage(Items));
 			}
 		}
+		RegisterHelper.displayChat(player, "HI");
 		return Items;
-		
 	}
 
 	@Override
@@ -78,8 +90,27 @@ public class Estus extends ItemBucketMilk {
 		return true;
 	}
 
-	public void refillEstus(ItemStack itemStack)
+	public void refillEstus(ItemStack itemStack, int mark)
 	{
-	    itemStack.setItemDamage(0);
+		if(mark==1){
+			this.setMaxDamage(4);
+			this.MaxEstusUses = 4;
+			itemStack.setItemDamage(0);
+		}
+		else if(mark==2){
+			this.setMaxDamage(9);
+			this.MaxEstusUses = 9;
+			itemStack.setItemDamage(0);
+		}
+		else if(mark==3){
+			this.setMaxDamage(14);
+			this.MaxEstusUses = 14;
+			itemStack.setItemDamage(0);
+		}
+		else if(mark==4){
+			this.setMaxDamage(19);
+			this.MaxEstusUses = 19;
+			itemStack.setItemDamage(0);
+		}
 	}
 }

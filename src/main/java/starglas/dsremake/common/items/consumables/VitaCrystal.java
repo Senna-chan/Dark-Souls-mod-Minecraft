@@ -6,6 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import starglas.dsremake.common.CreateCreativeTab;
+import starglas.dsremake.common.helpers.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -15,7 +16,7 @@ public class VitaCrystal extends Item {
 	public VitaCrystal(String texture, int mark) {
 		super();
 		this.setCreativeTab(CreateCreativeTab.tabDSConsume);
-		//this.setTextureName(Reference.MODID + texture);
+		this.setTextureName(Reference.MODID + "testtexture");
 		this.mark = mark;
 	}
 

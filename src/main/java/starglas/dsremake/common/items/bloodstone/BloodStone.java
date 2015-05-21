@@ -13,10 +13,10 @@ import net.minecraft.world.World;
 public class BloodStone extends Item {
 
 	private int mark;
-	public BloodStone(String texture, int mark) {
+	public BloodStone(int mark) {
 		super();
 		this.setCreativeTab(CreativeTabs.tabMisc);
-		//this.setTextureName(Reference.MODID + texture);
+		this.setTextureName(Reference.MODID + ":bloodstone" + mark);
 		this.mark = mark;
 	}
 

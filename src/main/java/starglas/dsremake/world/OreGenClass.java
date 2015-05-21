@@ -36,13 +36,6 @@ public class OreGenClass implements IWorldGenerator {
 		}
 	}
 	private void generateOverworld(Random random, int chunkX, int chunkZ, World world) {
-		addOre(ModBlocks.BloodstonechipOre, Blocks.stone, random, world, chunkX, chunkZ, 30, 60, 2, 5, 5);
-		addOre(ModBlocks.BloodstoneshardOre, Blocks.stone, random, world, chunkX, chunkZ, 5, 100, 1, 3, 2);
+		addOre(ModBlocks.BloodstoneOre, Blocks.stone, random, world, chunkX, chunkZ, 10, 35, 2, 5, 5);
 	}
-
-//	private void generateNether(Random random, int chunkX, int chunkZ, World world) {
-//		addOre(ModBlocks.BloodstonechipOre, Blocks.stone, random, world, chunkX, chunkZ, 5, 30, 2, 5, 5);
-//		addOre(ModBlocks.BloodstoneshardOre, Blocks.stone, random, world, chunkX, chunkZ, 5, 100, 1, 3, 2);
-//	}
-
 }

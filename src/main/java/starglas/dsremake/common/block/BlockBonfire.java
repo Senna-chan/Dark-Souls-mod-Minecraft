@@ -2,19 +2,22 @@ package starglas.dsremake.common.block;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 import starglas.dsremake.common.CreateCreativeTab;
 import starglas.dsremake.common.SoundHandler;
+import starglas.dsremake.common.entity.TileEntityBonfire;
+import starglas.dsremake.common.gui.BonFireGui;
 import starglas.dsremake.common.items.ModItems;
 import starglas.dsremake.common.items.consumables.Estus;
+import starglas.dsremake.handler.DSPlayerHandler;
 
 public class BlockBonfire extends BlockContainer{
+
+	private int BonFireLevel;
 
 	protected BlockBonfire() {
 		super(Material.ground);
@@ -40,17 +43,25 @@ public class BlockBonfire extends BlockContainer{
 	public boolean renderAsNormalBlock(){
 		return false;
 	}
-	
-	public int onBlockPlaced(World world, int X, int Y, int Z, EntityPlayer player){
+	@Override
+	public void onBlockAdded(World world, int X, int Y, int Z)
+    {
 		TileEntityBonfire t = (TileEntityBonfire) world.getTileEntity(X, Y, Z);
-        t.onPlaced(player);
-		return 0;
-	}
+        t.onPlaced(Minecraft.getMinecraft().thePlayer);
+        super.onBlockAdded(world, X, Y, Z);
+    }
 	
 	public boolean onBlockActivated(World world, int X, int Y, int Z, EntityPlayer player, int par6, float par7, float par8, float par9){
+		TileEntityBonfire t = (TileEntityBonfire) world.getTileEntity(X, Y, Z);
+		this.BonFireLevel = t.getBonFireLevel();
+		DSPlayerHandler handler = new DSPlayerHandler(player);
+		System.out.println(player.posX);
+		handler.saveVisitedBonfire(player.posX, player.posY, player.posZ);
 		System.out.println("Thou has activated thy bonfire");
 		player.heal(player.getMaxHealth());
-		player.getFoodStats().setFoodLevel(20);
+		if(player.getFoodStats().getFoodLevel()<10){
+			player.getFoodStats().setFoodLevel(10);
+		}
 		SoundHandler.onEntityPlay("BonfireLit", world, player, 1, 1);
 		if(player.inventory.hasItem(ModItems.Estus)){
 			ItemStack[] playerInventory = player.inventory.mainInventory;
@@ -59,16 +70,16 @@ public class BlockBonfire extends BlockContainer{
             {
                 if(itemStack != null && itemStack.getItem() instanceof Estus)
                 {
-                    ((Estus)itemStack.getItem()).refillEstus(itemStack);
+                    ((Estus)itemStack.getItem()).refillEstus(itemStack, BonFireLevel);
+                    break;
                 }
             }
 		}
 		if(!world.isRemote)
         {
-			TileEntityBonfire t = (TileEntityBonfire) world.getTileEntity(X, Y, Z);
-                t.processActivate(player, world);
+			//t.processOnActivate(player, world);
         }
-		player.addChatMessage(new ChatComponentText("Held item is: " + player.getHeldItem()));
+		Minecraft.getMinecraft().displayGuiScreen(new BonFireGui(X, Y, Z));
 		return false;
 	}
 	

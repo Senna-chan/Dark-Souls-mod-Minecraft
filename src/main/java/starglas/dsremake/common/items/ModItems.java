@@ -22,12 +22,14 @@ public class ModItems{
 	public static Item MK4VitaCrystal = new VitaCrystal(":MK4vita",4).setUnlocalizedName("MK4VitaCrystal");
 	public static Item MK5VitaCrystal = new VitaCrystal(":MK5vita",5).setUnlocalizedName("MK5VitaCrystal");
 	public static Item Estus = new Estus().setUnlocalizedName("Estus");
-	public static Item MK1BloodStone = new BloodStone(":MK1Blood",1).setUnlocalizedName("MK1BloodStone");
-	public static Item MK2BloodStone = new BloodStone(":MK2Blood",2).setUnlocalizedName("MK2BloodStone");
-	public static Item MK3BloodStone = new BloodStone(":MK3Blood",3).setUnlocalizedName("MK3BloodStone");
-	public static Item MK4BloodStone = new BloodStone(":MK4Blood",4).setUnlocalizedName("MK4BloodStone");
-	public static Item PrismaticBloodStone = new BloodStone(":MK5Blood",5).setUnlocalizedName("PrismaticBloodStone");
+	public static Item MK1BloodStone = new BloodStone(1).setUnlocalizedName("MK1BloodStone");
+	public static Item MK2BloodStone = new BloodStone(2).setUnlocalizedName("MK2BloodStone");
+	public static Item MK3BloodStone = new BloodStone(3).setUnlocalizedName("MK3BloodStone");
+	public static Item MK4BloodStone = new BloodStone(4).setUnlocalizedName("MK4BloodStone");
+	public static Item PrismaticBloodStone = new BloodStone(5).setUnlocalizedName("PrismaticBloodStone");
 	public static Item RadiantOil = new RadiantOil().setUnlocalizedName("RadiantOil");
+	public static Item TehBook = new TehBook().setUnlocalizedName("TehBook");
+	public static Item HomewardBone = new HomewardBone().setUnlocalizedName("HomewardBone");
 	
 	 // Swords
 	static char[] scales = new char[] { 'C','C' };
@@ -45,6 +47,8 @@ public class ModItems{
 	public static void init(){
 		// Items
 		RegisterHelper.registerItem(RadiantOil);
+		RegisterHelper.registerItem(TehBook);
+		RegisterHelper.registerItem(HomewardBone);
 		// Heart Crystals
 		RegisterHelper.registerItem(MK1HeartStone);
 		RegisterHelper.registerItem(MK2HeartStone);

@@ -1,5 +1,7 @@
 item.longSword.name=Longsword
 item.PaladinGlaive.name=Paladin's Glaive
+item.SanctifiedGreathammer.name=Santified Greathammer
+item.GyroDrill.name=Gyro Drill
 
 item.MK1HeartStone.name=Heart Stone
 item.MK2HeartStone.name=Incandescent Heart Stone
@@ -27,6 +29,7 @@ itemGroup.tabDSSwords=DSRemake Swords
 itemGroup.tabDSHalberts=DSRemake Halberds
 itemGroup.tabDSBlocks=DSRemake Blocks
 itemGroup.tabDSUpgrade=DSRemake Upgrade items
+itemGroup.tabDSFist=DSRemake Fist weapons
 
 
 tile.blockBonfire.name=Bonfire
