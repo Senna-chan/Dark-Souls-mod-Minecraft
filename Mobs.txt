@@ -9,9 +9,16 @@
 	Attack: 4
 	Drops: Homeward bone, Vita crystals(small), Heart crystal, 
 
-[Blood borer]
-	Health: 
+[Blood borer] Ocelot AI
+	Health: 10
+	attack: - 
+	Drops: Upgrade items
 
+[]
+
+[]
+
+[]
 
 
 
