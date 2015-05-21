@@ -13,16 +13,29 @@
 	Health: 10
 	attack: - 
 	Drops: Upgrade items
+		
+		[Ash whisp] - fire
+		[Heaven dove] - light
+		[ender custodian] - dark
+		[Clamshrimp] - Water
+		[Silverwing moth] - nature
+		[Living vapor] - steam
+		[deadsap sprout] - poison
+		[Sunlight collector] - sunfire
+		[Taintcap] - taint
+		[Imp] - curse
+		[Rozenmarinus] - flower
+		[Pheonix] - ash
+		[Icy walker] - Ice
+		[Unliving maiden] - Spirit
+		[Nethergon sprite] - Storm
+		
+		
 
-[]
-
-[]
-
-[]
 
 
 
-[Hanako](Fire Merchant)
+[Lesser smelter demon](Fire Merchant)
 
 [Ilias](Light Merchant)
 
@@ -34,21 +47,21 @@
 
 [Lord Gaben](Steam)
 
-[](Poison)
+[Vile revenant](Poison)
 
 [Solaire](Sunfire)
 
-[](Taint)
+[Elder Mushan](Taint)
 
 [Tharja](Curse)
 
 [Alraune](Flower)
 
-[](Ash)
+[Nedalia](Ash)
 
 [Jack frost](Ice)
 
-[Cainhurst](Spirit)
+[Lady Cainhurst](Spirit)
 
-[](Storm)
+[W.U.T.A.](Storm)
 
