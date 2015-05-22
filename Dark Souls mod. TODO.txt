@@ -16,6 +16,7 @@ Mechanics
 	- Scaling(See formules.txt)
 	- Stamina
 	- Item upgrade system
+		- Eerst weapon scaling - 1 rank. Als item +10 is rank omhoog
 	- EXP as currency
 	- Custom leveling
 CHECK	- Consume Vita crystals for EXP

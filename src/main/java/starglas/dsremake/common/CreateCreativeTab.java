@@ -42,13 +42,13 @@ public class CreateCreativeTab
 	public static CreativeTabs tabDSGreatHammers = new CreativeTabs("tabDSGreatHammers"){
 		@Override
 		public Item getTabIconItem(){
-			return ModItems.Estus;
+			return ModItems.SanctifiedGreathammer;
 		}
 	};
 	public static CreativeTabs tabDSFists = new CreativeTabs("tabDSFists"){
 		@Override
 		public Item getTabIconItem(){
-			return ModItems.Estus;
+			return ModItems.GyroDrill;
 		}
 	};
 	

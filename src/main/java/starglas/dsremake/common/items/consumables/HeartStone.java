@@ -8,6 +8,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import starglas.dsremake.common.CreateCreativeTab;
+import starglas.dsremake.common.helpers.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -17,7 +18,7 @@ public class HeartStone extends Item {
 	public HeartStone(String texture, int mark){
 		super();
 		this.setCreativeTab(CreateCreativeTab.tabDSConsume);
-		//this.setTextureName(Reference.MODID + texture);
+		this.setTextureName(Reference.MODID + "testtexture");
 		this.mark = mark;
 	}
 	

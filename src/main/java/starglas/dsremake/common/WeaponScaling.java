@@ -28,7 +28,7 @@ public class WeaponScaling {
 			case 'S': dexScaling = 2.5F;
 			default:  dexScaling = 0.0F;
 		}
-		System.out.println(dexScaling + "Dex; " + strScaling + " Str;");
+		System.out.println(dexScaling + " Dex; " + strScaling + " Str;");
 		/*switch(FireScaling){
 		case 'E': FireScaling = 0.3F;
 		case 'D': FireScaling = 0.7F;
