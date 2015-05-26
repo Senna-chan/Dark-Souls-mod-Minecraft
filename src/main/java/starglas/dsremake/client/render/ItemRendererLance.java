@@ -9,16 +9,16 @@ import net.minecraftforge.client.model.IModelCustom;
 
 import org.lwjgl.opengl.GL11;
 
-import starglas.dsremake.common.helpers.Reference;
+import starglas.dsremake.common.helpers.ModReference;
 
 public class ItemRendererLance implements IItemRenderer {
 	IModelCustom model;
-	ResourceLocation texture = new ResourceLocation(Reference.MODID,
+	ResourceLocation texture = new ResourceLocation(ModReference.MODID,
 			"textures/items/testtexture.png");
 
 	public ItemRendererLance(){
 		this.model = AdvancedModelLoader.loadModel(new ResourceLocation(
-				Reference.MODID, "obj/lance.obj"));
+				ModReference.MODID, "obj/lance.obj"));
 	}
 
 	@Override

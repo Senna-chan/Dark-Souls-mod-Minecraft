@@ -7,11 +7,11 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 import starglas.dsremake.client.models.Bonfire;
-import starglas.dsremake.common.helpers.Reference;
+import starglas.dsremake.common.helpers.ModReference;
 
 public class BlockRendererBonfire extends TileEntitySpecialRenderer{
 	
-	private static final ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/blocks/bonfiretexture.png");
+	private static final ResourceLocation texture = new ResourceLocation(ModReference.MODID, "textures/blocks/bonfiretexture.png");
 	
 	public Bonfire model;
 

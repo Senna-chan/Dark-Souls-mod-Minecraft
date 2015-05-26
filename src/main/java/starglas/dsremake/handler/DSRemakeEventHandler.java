@@ -16,16 +16,18 @@ public class DSRemakeEventHandler{
 	@SubscribeEvent
 	public void OnPlayerLogedIn(PlayerEvent.PlayerLoggedInEvent event){
 		if (event.player instanceof EntityPlayer && DSPlayerHandler.get((EntityPlayer) event.player) == null){
-		System.out.println("OnPlayerLogedIn");
-		DSPlayerHandler.register((EntityPlayer) event.player);
-		DSPlayerHandler handler = new DSPlayerHandler(event.player);
-		handler.FirstLogin();
+			System.out.println("OnPlayerLogedIn");
+			DSPlayerHandler.register((EntityPlayer) event.player);
+			DSPlayerHandler handler = new DSPlayerHandler(event.player);
+			handler.FirstLogin();
 		}
 	}
 	@SubscribeEvent
     public void onPlayerTick(LivingUpdateEvent e){
         if (e.entity instanceof EntityPlayer){
-            //EntityPlayer player = (EntityPlayer)e.entity;
+            EntityPlayer player = (EntityPlayer)e.entity;
+            DSPlayerHandler handler = new DSPlayerHandler(player);
+            handler.saveLastVisitedBonfire(player.posX, player.posY, player.posZ);
             //RegisterHelper.displayChat(player, "SPAM");
         }
     }

@@ -9,13 +9,13 @@ import net.minecraftforge.client.model.IModelCustom;
 
 import org.lwjgl.opengl.GL11;
 
-import starglas.dsremake.common.helpers.Reference;
+import starglas.dsremake.common.helpers.ModReference;
 
 public class ItemRendererHeartStone implements IItemRenderer {
 	IModelCustom model;
 	public ItemRendererHeartStone(){
 		this.model = AdvancedModelLoader.loadModel(new ResourceLocation(
-				Reference.MODID, "obj/heartstone.obj"));
+				ModReference.MODID, "obj/heartstone.obj"));
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class ItemRendererHeartStone implements IItemRenderer {
 			GL11.glRotatef(0F, 0.0F, 0.0F, 0.0F);
 			GL11.glRotatef(0F, 0.0F, 0.0F, 0.0F);
 			GL11.glScalef(0.2F,0.2F,0.2F);
-			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(Reference.MODID,
+			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ModReference.MODID,
 					"textures/items/heartstonelessertexture.png"));
 
 			

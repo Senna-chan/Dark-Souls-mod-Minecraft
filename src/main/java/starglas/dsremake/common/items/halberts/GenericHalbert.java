@@ -8,7 +8,7 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import starglas.dsremake.common.CreateCreativeTab;
+import starglas.dsremake.common.DSMainCreativeTabs;
 
 import com.google.common.collect.Multimap;
 
@@ -27,7 +27,7 @@ public class GenericHalbert extends Item
         super();
         this.maxStackSize = 1;
         this.setMaxDamage(20);
-        this.setCreativeTab(CreateCreativeTab.tabDSHalberts);
+        this.setCreativeTab(DSMainCreativeTabs.tabDSHalberts);
         //this.weaponDamage = WeaponScaling.WeaponScalingRaw(11, 'C', 'C', 30, 30);
         this.weapondmg = this.weaponDamage + " HI";
         this.setFull3D();

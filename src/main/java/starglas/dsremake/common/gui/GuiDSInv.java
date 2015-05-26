@@ -4,10 +4,10 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 import starglas.dsremake.common.entity.TileEntityBonfire;
-import starglas.dsremake.common.helpers.Reference;
+import starglas.dsremake.common.helpers.ModReference;
 import starglas.dsremake.common.items.ModItems;
-import starglas.dsremake.common.items.RadiantOil;
 import starglas.dsremake.common.items.consumables.Estus;
+import starglas.dsremake.common.items.upgrades.RadiantOil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -35,7 +35,7 @@ public class GuiDSInv extends GuiScreen{
 		int guiY = (height - guiHeight) /2;
 		GL11.glColor4f(1F, 1F, 1F, 1F);
 		drawDefaultBackground();
-		mc.getTextureManager().bindTexture(new ResourceLocation(Reference.MODID, "/gui/guitest.png"));
+		mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.MODID, "/gui/guitest.png"));
 		
 		//Draw stuff
 		drawTexturedModalRect(guiX, guiY, 0, 0, guiWidth, guiHeight);

@@ -8,7 +8,7 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 import starglas.dsremake.client.models.bloodstoneore;
-import starglas.dsremake.common.helpers.Reference;
+import starglas.dsremake.common.helpers.ModReference;
 
 public class ItemRendererBloodStoneOre implements IItemRenderer {
 
@@ -33,7 +33,7 @@ public class ItemRendererBloodStoneOre implements IItemRenderer {
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
 		
 			GL11.glPushMatrix();
-			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(Reference.MODID,"textures/blocks/bloodstoneoretexture.png"));
+			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ModReference.MODID,"textures/blocks/bloodstoneoretexture.png"));
 				switch(type){
 				case EQUIPPED:
 				case EQUIPPED_FIRST_PERSON:

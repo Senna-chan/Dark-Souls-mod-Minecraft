@@ -18,11 +18,23 @@ item.MK2BloodStone.name=Bloodstone Shard
 item.MK3BloodStone.name=Bloodstone Chunk
 item.MK4BloodStone.name=Bloodstone Orb
 item.PrismaticBloodStone.name=Prismatic Bloodstone
-tile.BlockBloodstonechipOre.name=Bloodstone Chip Ore
-tile.BlockBloodstoneshardOre.name=Bloodstone Shard Ore
 
 item.Estus.name=Estus Flask
+
+item.HomewardBone.name=Homeward Bone
+
 item.RadiantOil.name=Radiant Oil
+item.AbyssalRunestone.name=Abyssal Runestone
+item.AngelicFeather.name=Angelic Feather
+item.BottledTaintcapSpored.name=Bottled Taintcap Spores
+item.DancingVapor.name=Dancing Vapor
+item.DragonboneAsh.name=Dragonbone Ash
+item.HeartPetal.name=HeartPetal
+item.LiquidDeath.name=Liquid Death
+item.MadmansKnowledge.name=Madmans Knowledge
+item.ShimmeringShoalPearl.name=Shimmering Shoal Pearl
+item.SolarLens.name=Solar Lens
+item.TreantSeed.name=Treant Seed
 
 itemGroup.tabDSConsume=DSRemake Consumables
 itemGroup.tabDSSwords=DSRemake Swords
@@ -33,3 +45,5 @@ itemGroup.tabDSFist=DSRemake Fist weapons
 
 
 tile.blockBonfire.name=Bonfire
+tile.BlockBloodstoneOre.name=Bloodstone Ore
+tile.blockSmallChest.name=Small Chest

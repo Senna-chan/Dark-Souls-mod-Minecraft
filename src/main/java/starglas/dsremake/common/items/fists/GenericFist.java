@@ -12,7 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
-import starglas.dsremake.common.CreateCreativeTab;
+import starglas.dsremake.common.DSMainCreativeTabs;
 import starglas.dsremake.common.WeaponScaling;
 import starglas.dsremake.common.helpers.WeaponInfo;
 import akka.dispatch.Foreach;
@@ -33,7 +33,7 @@ public class GenericFist extends Item
         super();
         this.maxStackSize = 1;
         this.setMaxDamage(20);
-        this.setCreativeTab(CreateCreativeTab.tabDSFists);
+        this.setCreativeTab(DSMainCreativeTabs.tabDSFists);
         this.weaponDamage = WeaponScaling.WeaponScalingRaw(11, 'C', 'C', 30, 30);
         this.setFull3D();
     }

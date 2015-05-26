@@ -2,14 +2,17 @@ package starglas.dsremake.common.items;
 
 import net.minecraft.item.Item;
 import starglas.dsremake.common.helpers.RegisterHelper;
-import starglas.dsremake.common.items.bloodstone.BloodStone;
 import starglas.dsremake.common.items.consumables.Estus;
 import starglas.dsremake.common.items.consumables.HeartStone;
+import starglas.dsremake.common.items.consumables.HomewardBone;
 import starglas.dsremake.common.items.consumables.VitaCrystal;
 import starglas.dsremake.common.items.fists.GenericFist;
 import starglas.dsremake.common.items.greathammers.GenericGreatHammer;
 import starglas.dsremake.common.items.halberts.GenericHalbert;
 import starglas.dsremake.common.items.swords.GenericSword;
+import starglas.dsremake.common.items.upgrades.BloodStone;
+import starglas.dsremake.common.items.upgrades.GenericUpgrade;
+import starglas.dsremake.common.items.upgrades.RadiantOil;
 
 public class ModItems{
 	public static Item myFirstItem;
@@ -27,10 +30,20 @@ public class ModItems{
 	public static Item MK3BloodStone = new BloodStone(3).setUnlocalizedName("MK3BloodStone");
 	public static Item MK4BloodStone = new BloodStone(4).setUnlocalizedName("MK4BloodStone");
 	public static Item PrismaticBloodStone = new BloodStone(5).setUnlocalizedName("PrismaticBloodStone");
-	public static Item RadiantOil = new RadiantOil().setUnlocalizedName("RadiantOil");
+	public static Item RadiantOil = new GenericUpgrade(":radiantoil").setUnlocalizedName("RadiantOil");
 	public static Item TehBook = new TehBook().setUnlocalizedName("TehBook");
 	public static Item HomewardBone = new HomewardBone().setUnlocalizedName("HomewardBone");
-	
+	public static Item AbyssalRunestone = new GenericUpgrade(":abyssalrunestone").setUnlocalizedName("AbyssalRunestone");
+	public static Item AngelicFeather = new GenericUpgrade(":angelicfeather").setUnlocalizedName("AngelicFeather");
+	public static Item BottledTaintcapSpored = new GenericUpgrade(":bottledtaintcapspores").setUnlocalizedName("BottledTaintcapSpores");
+	public static Item DancingVapor = new GenericUpgrade(":dancingvapor").setUnlocalizedName("DancingVapor");
+	public static Item DragonboneAsh = new GenericUpgrade(":dragonboneash").setUnlocalizedName("DragonboneAsh");
+	public static Item HeartPetal = new GenericUpgrade(":heartpetal").setUnlocalizedName("HeartPetal");
+	public static Item LiquidDeath = new GenericUpgrade(":liquiddeath").setUnlocalizedName("LiquidDeath");
+	public static Item MadmansKnowledge = new GenericUpgrade(":madmansknowledge").setUnlocalizedName("MadmansKnowledge");
+	public static Item ShimmeringShoalPearl = new GenericUpgrade(":shimmeringshoalpearl").setUnlocalizedName("ShimmeringShoalPearl");
+	public static Item SolarLens = new GenericUpgrade(":solarlens").setUnlocalizedName("SolarLens");
+	public static Item TreantSeed = new GenericUpgrade(":treantseed").setUnlocalizedName("TreantSeed");
 	 // Swords
 	static char[] scales = new char[] { 'C','C' };
 	public static Item longSword = new GenericSword("dsremake:longsword", scales).setUnlocalizedName("longSword"); 
@@ -46,7 +59,6 @@ public class ModItems{
 	
 	public static void init(){
 		// Items
-		RegisterHelper.registerItem(RadiantOil);
 		RegisterHelper.registerItem(TehBook);
 		RegisterHelper.registerItem(HomewardBone);
 		// Heart Crystals
@@ -69,6 +81,20 @@ public class ModItems{
 		RegisterHelper.registerItem(MK3BloodStone);
 		RegisterHelper.registerItem(MK4BloodStone);
 		RegisterHelper.registerItem(PrismaticBloodStone);
+		
+		// Upgrade Items
+		RegisterHelper.registerItem(RadiantOil);
+		RegisterHelper.registerItem(AbyssalRunestone);
+		RegisterHelper.registerItem(AngelicFeather);
+		RegisterHelper.registerItem(BottledTaintcapSpored);
+		RegisterHelper.registerItem(DancingVapor);
+		RegisterHelper.registerItem(DragonboneAsh);
+		RegisterHelper.registerItem(HeartPetal);
+		RegisterHelper.registerItem(LiquidDeath);
+		RegisterHelper.registerItem(MadmansKnowledge);
+		RegisterHelper.registerItem(ShimmeringShoalPearl);
+		RegisterHelper.registerItem(SolarLens);
+		RegisterHelper.registerItem(TreantSeed);
 		
 		// Weapons
 		// Sword

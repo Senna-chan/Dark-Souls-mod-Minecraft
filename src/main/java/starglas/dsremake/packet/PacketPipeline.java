@@ -16,7 +16,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.NetHandlerPlayServer;
-import starglas.dsremake.common.helpers.Reference;
+import starglas.dsremake.common.helpers.ModReference;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.FMLEmbeddedChannel;
 import cpw.mods.fml.common.network.FMLOutboundHandler;
@@ -53,7 +53,7 @@ public class PacketPipeline extends MessageToMessageCodec<FMLProxyPacket, Abstra
 	}
 	
 	public void initialize(){
-		this.channels = NetworkRegistry.INSTANCE.newChannel(Reference.PACKET_CHANNEL, this);
+		this.channels = NetworkRegistry.INSTANCE.newChannel(ModReference.PACKET_CHANNEL, this);
 		
 		registerPackets();
 	}

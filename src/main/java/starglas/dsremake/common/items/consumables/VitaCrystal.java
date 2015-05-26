@@ -5,8 +5,8 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import starglas.dsremake.common.CreateCreativeTab;
-import starglas.dsremake.common.helpers.Reference;
+import starglas.dsremake.common.DSMainCreativeTabs;
+import starglas.dsremake.common.helpers.ModReference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -15,8 +15,8 @@ public class VitaCrystal extends Item {
 	private int mark;
 	public VitaCrystal(String texture, int mark) {
 		super();
-		this.setCreativeTab(CreateCreativeTab.tabDSConsume);
-		this.setTextureName(Reference.MODID + "testtexture");
+		this.setCreativeTab(DSMainCreativeTabs.tabDSConsume);
+		this.setTextureName(ModReference.MODID + ":vitacrystal" + mark);
 		this.mark = mark;
 	}
 

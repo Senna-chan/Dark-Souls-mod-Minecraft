@@ -8,7 +8,7 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 import starglas.dsremake.client.models.ModelEstus;
-import starglas.dsremake.common.helpers.Reference;
+import starglas.dsremake.common.helpers.ModReference;
 
 public class ItemRendererEstus implements IItemRenderer {
 
@@ -33,7 +33,7 @@ public class ItemRendererEstus implements IItemRenderer {
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
 		GL11.glPushMatrix();
 		
-			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(Reference.MODID,"textures/items/estustexture.png"));
+			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ModReference.MODID,"textures/items/estustexture.png"));
 			
 			if(type==ItemRenderType.EQUIPPED){
 				GL11.glTranslatef(0.4F, 0.3F, 0.2F);

@@ -9,7 +9,7 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 import starglas.dsremake.client.models.TestModel;
-import starglas.dsremake.common.helpers.Reference;
+import starglas.dsremake.common.helpers.ModReference;
 
 public class ItemRendererTest implements IItemRenderer {
 
@@ -43,7 +43,7 @@ public class ItemRendererTest implements IItemRenderer {
 		case EQUIPPED_FIRST_PERSON:
 			GL11.glPushMatrix();
 			
-				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(Reference.MODID,"textures/items/testtexture.png"));
+				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ModReference.MODID,"textures/items/testtexture.png"));
 				
 //				GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
 //				GL11.glRotatef(100.0F, 0.0F, 1.0F, 0.0F);

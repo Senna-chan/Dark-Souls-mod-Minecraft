@@ -7,6 +7,7 @@ import starglas.dsremake.common.helpers.RegisterHelper;
 
 public class ModRecipes {
 	public static void init(){
-		
+		GameRegistry.addRecipe(new ItemStack(ModItems.MK2BloodStone), new Object[] {"##", "##", '#', ModItems.MK1BloodStone});
+		GameRegistry.addRecipe(new ItemStack(ModItems.MK3BloodStone), new Object[] {"##", "##", '#', ModItems.MK2BloodStone});
 	}
 }

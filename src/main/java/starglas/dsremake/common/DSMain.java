@@ -8,7 +8,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import starglas.dsremake.common.block.ModBlocks;
-import starglas.dsremake.common.helpers.Reference;
+import starglas.dsremake.common.helpers.ModReference;
 import starglas.dsremake.common.items.ModItems;
 import starglas.dsremake.common.items.ModRecipes;
 import starglas.dsremake.handler.DSPlayerHandler;
@@ -30,12 +30,12 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION)
+@Mod(modid = ModReference.MODID, name = ModReference.NAME, version = ModReference.VERSION)
 //@NetworkMod(clientSideRequired = true, serverSideRequired = false)
 
 public class DSMain {
 	
-	@Mod.Instance(Reference.MODID)
+	@Mod.Instance(ModReference.MODID)
 	public static DSMain instance;
 	
 	
@@ -58,7 +58,7 @@ public class DSMain {
 		//packetpipeline.initialize();
 		ModItems.init();
 		ModBlocks.init();
-		CreateCreativeTab.RegisterTabs();
+		DSMainCreativeTabs.RegisterTabs();
 		ModRecipes.init();
 		WorldGenClass.init();
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GUIHandler());

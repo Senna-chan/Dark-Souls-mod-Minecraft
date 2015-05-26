@@ -1,16 +1,14 @@
 package starglas.dsremake.handler;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
-import net.minecraftforge.common.util.Constants.NBT;
+import starglas.dsremake.common.helpers.ModReference;
 
 public class DSPlayerHandler implements IExtendedEntityProperties {
-	
-	
-	static final String IDENTIFIER = "DSPlayerInfo";
 	
 	private int 	playerLevel;
 	private String 	playerClass = "";
@@ -24,20 +22,14 @@ public class DSPlayerHandler implements IExtendedEntityProperties {
 	private int 	playerSerenity;
 	private int 	playerHarmony;
 	private int		playerHasData;
-	
 	private EntityPlayer player;
-
 	private int ticksExisted;
-
-	private double lastBFX;
-
-	private double lastBFY;
-
-	private double lastBFZ;
-	
+	// Bonfire
+	private int lastBFX;
+	private int lastBFY;
+	private int lastBFZ;
 	
 	public DSPlayerHandler(EntityPlayer player) {
-		System.out.println("DSPlayerHandler for leveling and shit is loaded");
 		this.player = player;
 		this.ticksExisted = player.ticksExisted;
 		this.playerHP = (int) player.getMaxHealth();
@@ -45,40 +37,17 @@ public class DSPlayerHandler implements IExtendedEntityProperties {
 
 	public static final void register(EntityPlayer player)
 	{
-		player.registerExtendedProperties(DSPlayerHandler.IDENTIFIER, new DSPlayerHandler(player));
+		player.registerExtendedProperties(ModReference.NBTExtendedName, new DSPlayerHandler(player));
 	}
 	
 	public static final DSPlayerHandler get(EntityPlayer player)
 	{
-		return (DSPlayerHandler) player.getExtendedProperties(IDENTIFIER);
+		return (DSPlayerHandler) player.getExtendedProperties(ModReference.NBTExtendedName);
 	}
 	
 	@Override
-	public void saveNBTData(NBTTagCompound compound) {
-		NBTTagCompound nbt = new NBTTagCompound();
-		
-		nbt.setInteger("level", 	this.playerLevel);
-		nbt.setInteger("hp", 		this.playerHP);
-		nbt.setInteger("stamina", 	this.playerStamina);
-		nbt.setInteger("strength", 	this.playerStrength);
-		nbt.setInteger("grace", 	this.playerGrace);
-		nbt.setInteger("will", 		this.playerWill);
-		nbt.setInteger("resolve", 	this.playerResolve);
-		nbt.setInteger("wrath", 	this.playerWrath);
-		nbt.setInteger("serenity",	this.playerSerenity);
-		nbt.setInteger("harmony", 	this.playerHarmony);
-		nbt.setString ("class",		this.playerClass);
-		nbt.setInteger("playerHasData", this.playerHasData);
-		nbt.setDouble("LastBonfireX", this.lastBFX);
-		nbt.setDouble("LastBonfireY", this.lastBFY);
-		nbt.setDouble("LastBonfireZ", this.lastBFZ);
-		
-		compound.setTag(IDENTIFIER, nbt);
-	}
-
-	@Override
 	public void loadNBTData(NBTTagCompound playerNbt) {
-		NBTTagCompound nbt = playerNbt.getCompoundTag(IDENTIFIER);
+		NBTTagCompound nbt = playerNbt.getCompoundTag(ModReference.NBTExtendedName);
 		
 		this.playerLevel 	= nbt.getInteger("level");		
 		this.playerHP	 	= nbt.getInteger("hp");
@@ -92,13 +61,18 @@ public class DSPlayerHandler implements IExtendedEntityProperties {
 		this.playerHarmony	= nbt.getInteger("harmony");
 		this.playerClass	= nbt.getString ("class");
 		this.playerHasData	= nbt.getInteger("initlevel");
-		this.lastBFX		= nbt.getDouble("LastBonfireX");
-		this.lastBFY		= nbt.getDouble("LastBonfireY"); 
-		this.lastBFZ		= nbt.getDouble("LastBonfireZ");
-		
-		System.out.println("Data found: " + this.lastBFX + " " + this.lastBFY + " " + this.lastBFZ);
+		if(nbt.getDouble("LastBonfireX") != 0 && nbt.getDouble("LastBonfireY") != 0 && nbt.getDouble("LastBonfireZ") != 0){
+			this.lastBFX		= nbt.getInteger("LastBonfireX");
+			this.lastBFY		= nbt.getInteger("LastBonfireY"); 
+			this.lastBFZ		= nbt.getInteger("LastBonfireZ");
+			System.out.println("We have loaded some values");
+		}
 	}
-
+	
+	
+	
+	
+	
 	@Override
 	public void init(Entity entity, World world) {
 		
@@ -139,9 +113,15 @@ public class DSPlayerHandler implements IExtendedEntityProperties {
 		this.playerWrath	= 0;
 		this.playerSerenity = 0;
 		this.playerHarmony	= 0;
-		this.playerClass	= "NONE";
+		this.playerClass	= "None";
 		this.playerHasData	= 1;
+		this.lastBFX		= 80;
+		this.lastBFY		= 80;
+		this.lastBFZ		= 80;
 		System.out.println("FirstLogin");
+
+		NBTTagCompound compound = new NBTTagCompound();
+		this.saveNBTData(compound);
 		}
 	}
 	
@@ -158,19 +138,52 @@ public class DSPlayerHandler implements IExtendedEntityProperties {
 		nbt.setInteger("wrath", 	0);
 		nbt.setInteger("serenity",	0);
 		nbt.setInteger("harmony", 	0);
-		nbt.setString ("Class",		"CLASS");
+		nbt.setString ("class",		"CLASS");
 	}
 	
 	public String getPlayerClass(){
 		return this.playerClass;
 	}
 
-	public void saveVisitedBonfire(double posX, double posY, double posZ) {
-		this.lastBFX = posX;
-		this.lastBFY = posY;
-		this.lastBFZ = posZ;
-		System.out.println("Saved bonfire");
+	
+	
+	public double[] getLastUsedBonfire(){
+		double[] lastBFUsed = {this.lastBFX, this.lastBFY, this.lastBFZ};
+		return lastBFUsed;
 	}
 	
+	public void saveLastVisitedBonfire(double posX, double posY, double posZ) {
+		this.lastBFX = (int)posX;
+		this.lastBFY = (int)posY;
+		this.lastBFZ = (int)posZ;
+	}
+	
+	
+	@Override
+	public void saveNBTData(NBTTagCompound compound) {
+		NBTTagCompound nbt = new NBTTagCompound();
+		
+		compound.setTag(ModReference.NBTExtendedName, nbt);
+		
+		nbt.setInteger("level", 	this.playerLevel);
+		nbt.setInteger("hp", 		this.playerHP);
+		nbt.setInteger("stamina", 	this.playerStamina);
+		nbt.setInteger("strength", 	this.playerStrength);
+		nbt.setInteger("grace", 	this.playerGrace);
+		nbt.setInteger("will", 		this.playerWill);
+		nbt.setInteger("resolve", 	this.playerResolve);
+		nbt.setInteger("wrath", 	this.playerWrath);
+		nbt.setInteger("serenity",	this.playerSerenity);
+		nbt.setInteger("harmony", 	this.playerHarmony);
+		nbt.setString ("class",		this.playerClass);
+		nbt.setInteger("playerHasData", this.playerHasData);
+//		if(this.lastBFX != 0 && this.lastBFY != 0 && this.lastBFZ !=0){
+//			System.out.println("We can save some values");
+			nbt.setInteger("LastBonfireX", this.lastBFX);
+			nbt.setInteger("LastBonfireY", this.lastBFY);
+			nbt.setInteger("LastBonfireZ", this.lastBFZ);
+		//}
+			
+	}
 	
 }

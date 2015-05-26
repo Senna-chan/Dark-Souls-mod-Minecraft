@@ -10,12 +10,13 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
-import starglas.dsremake.common.CreateCreativeTab;
+import starglas.dsremake.common.DSMainCreativeTabs;
 import starglas.dsremake.common.SoundHandler;
 import starglas.dsremake.common.entity.TileEntityBonfire;
 import starglas.dsremake.common.entity.TileEntitySmallChest;
 import starglas.dsremake.common.gui.BonFireGui;
 import starglas.dsremake.common.gui.BookGui;
+import starglas.dsremake.common.helpers.ModReference;
 import starglas.dsremake.common.items.ModItems;
 import starglas.dsremake.common.items.consumables.Estus;
 
@@ -24,9 +25,10 @@ public class BlockSmallChest extends BlockContainer{
 
 	protected BlockSmallChest() {
 		super(Material.wood);
-		this.setCreativeTab(CreateCreativeTab.tabDSBlocks);
+		this.setCreativeTab(DSMainCreativeTabs.tabDSBlocks);
 		this.setHardness(0.5F);
 		this.setBlockBounds(0F, 0F, 0F, 2F, 1F, 1F);
+		this.setBlockTextureName(ModReference.MODID + ":smallchesttexture");
 	}
 
 	@Override

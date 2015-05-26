@@ -8,11 +8,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBucketMilk;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import starglas.dsremake.common.CreateCreativeTab;
+import starglas.dsremake.common.DSMainCreativeTabs;
 import starglas.dsremake.common.DSMain;
 import starglas.dsremake.common.SoundHandler;
 import starglas.dsremake.common.block.ModBlocks;
-import starglas.dsremake.common.helpers.Reference;
+import starglas.dsremake.common.helpers.ModReference;
 import starglas.dsremake.common.helpers.RegisterHelper;
 import starglas.dsremake.handler.DSPlayerHandler;
 import cpw.mods.fml.relauncher.Side;
@@ -29,8 +29,8 @@ public class Estus extends ItemBucketMilk {
 	
 	public Estus() {
 		super();
-		this.setCreativeTab(CreateCreativeTab.tabDSConsume);
-		this.setTextureName(Reference.MODID + ":myFirstItem");
+		this.setCreativeTab(DSMainCreativeTabs.tabDSConsume);
+		this.setTextureName(ModReference.MODID + ":myFirstItem");
 		this.setMaxStackSize(1);
 		this.setMaxDamage(4);
 	}

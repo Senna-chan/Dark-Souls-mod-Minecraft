@@ -3,7 +3,7 @@ package starglas.dsremake.handler;
 import org.lwjgl.input.Keyboard;
 
 import starglas.dsremake.common.DSMain;
-import starglas.dsremake.common.helpers.Reference;
+import starglas.dsremake.common.helpers.ModReference;
 import starglas.dsremake.packet.OpenDSInvPacket;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -35,7 +35,7 @@ public class KeyHandler {
 			// DSRemake inv
 			if(isDown && key== keyValues[0/* DSREMAKE Inv*/]){
 				// Send packet to open gui
-				DSMain.packetpipeline.sendToSever(new OpenDSInvPacket(Reference.GUI_DSINV));
+				//DSMain.packetpipeline.sendToSever(new OpenDSInvPacket(ModReference.GUI_DSINV));
 			}
 		}
 	}

@@ -1,7 +1,7 @@
 package starglas.dsremake.common.items;
 
 import starglas.dsremake.common.gui.BookGui;
-import starglas.dsremake.common.helpers.Reference;
+import starglas.dsremake.common.helpers.ModReference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
