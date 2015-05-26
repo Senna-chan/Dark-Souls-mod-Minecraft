@@ -18,12 +18,12 @@
 		[Heaven dove] - light
 		[ender custodian] - dark
 		[Clamshrimp] - Water
-		[Silverwing moth] - nature
+		[treantling] - nature
 		[Living vapor] - steam
 		[deadsap sprout] - poison
 		[Sunlight collector] - sunfire
 		[Taintcap] - taint
-		[Imp] - curse
+		[Herr schadel] - curse
 		[Rozenmarinus] - flower
 		[Pheonix] - ash
 		[Icy walker] - Ice
