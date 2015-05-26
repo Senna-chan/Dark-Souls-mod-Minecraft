@@ -1,15 +1,15 @@
 [consumable]
 
 
-Heart stone.
+Heart stone. 
 Grant regeneration 2 for 5 seconds.
 Final HP Gain 4
 
-Incandescent Heart stone.
+Incandescent Heart stone. 
 Grant regeneration 3 for 5 seconds.
 Final HP Gain 8
 
-Radiant Heart stone.
+Radiant Heart stone. 
 Grant regeneration 4 for 5 seconds.
 Final HP Gain 16
 
@@ -32,19 +32,19 @@ Be summoned as an invader.
 
 [material]
 
-Bloodstone chip
+Bloodstone chip x
 Use to upgrade standard weapons to +3
 
-Bloodstone shard
+Bloodstone shard x
 Use to upgrade standard weapons to +6
 
-Bloodstone chunk
+Bloodstone chunk x
 Use to upgrade standard weapons to +9
 
-Bloodstone orb
+Bloodstone orb x
 Use to upgrade standard weapons to +10
 
-Prismatic Bloodstone
+Prismatic Bloodstone x
 Use to upgrade special weapons to +5
 
 Angelic Feather
@@ -59,7 +59,7 @@ Use to upgrade fire catalysts to +5
 Shimmering shoal pearl
 Use to upgrade water catalysts to +5
 
-Silverwing moth scales
+treant seed
 Use to upgrade nature catalysts to +5
 
 Dancing vapor
@@ -71,10 +71,10 @@ Use to upgrade poison catalysts to +5
 Solar lense
 Use to upgrade sunfire catalysts to +5
 
-Taintcap spores
+bottled Taintcap spores
 Use to upgrade taint catalysts to +5
 
-Devil's slip
+Madman's knowledge
 Use to upgrade Curse catalysts to +5
 
 Heart petal
