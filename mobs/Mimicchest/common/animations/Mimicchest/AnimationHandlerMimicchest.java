@@ -1,10 +1,10 @@
-package yourModPackage.common.animations.Mimicchest;
+package starglas.dsremake.common.animations.Mimicchest;
 
 import java.util.HashMap;
 
-import yourModPackage.common.MCACommonLibrary.IMCAnimatedEntity;
-import yourModPackage.common.MCACommonLibrary.animation.AnimationHandler;
-import yourModPackage.common.MCACommonLibrary.animation.Channel;
+import starglas.dsremake.common.MCACommonLibrary.IMCAnimatedEntity;
+import starglas.dsremake.common.MCACommonLibrary.animation.AnimationHandler;
+import starglas.dsremake.common.MCACommonLibrary.animation.Channel;
 
 public class AnimationHandlerMimicchest extends AnimationHandler {
 	/** Map with all the animations. */

@@ -47,3 +47,5 @@ itemGroup.tabDSFist=DSRemake Fist weapons
 tile.blockBonfire.name=Bonfire
 tile.BlockBloodstoneOre.name=Bloodstone Ore
 tile.blockSmallChest.name=Small Chest
+
+entity.DeadsapSprout.name=Deadsap Sprout
