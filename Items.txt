@@ -16,6 +16,44 @@ Final HP Gain 16
 Homeward bone
 Teleports you back to last bonfire rested at.
 
+Poison knife
+Thrown, Inflicts poison 4.
+
+[Ammo]
+Wooden greatarrow
+60,-,-,-,-,-
+
+Iron greatarrow
+140,-,-,-,-,-
+
+Blazing greatarrow
+90,130,-,-,-,-
+
+Divine greatarrow
+90,-,130,-,-,-
+
+Abyssal greatarrow
+90,-,-130,-,-
+
+Torrent greatarrow
+90,-,-,-,130,-
+
+Galewood greatarrow
+60,-,-,-,-160
+
+Iron nail round
+70,-,-,-,-,-
+
+Truegold round
+120,-,-,-,-,-
+
+Bloodstone round
+200,-,-,-,-,-
+
+
+
+
+
 [key items]
 
 Radiant oil

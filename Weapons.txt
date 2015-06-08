@@ -167,6 +167,22 @@ Descr: A sharp knife wielded by banshees from a sunken city.
 Its blade is ghostly, and seems to phase in and out of reality.
 Effect: shield piercing.
 
+[Greatbows]
+
+Vilebark Greatbow
+Base AR: 30,-,-,30,30,-
+Base Scaling: C,C,-,-,B,B,-
+Upgrade level: 10
+Descr: A wooden greatbow made from vilewood bark. The poisonous sap leaks onto nocked arrows.
+
+[Guns]
+
+The messenger
+Base AR: 20,-,-,-,-,-
+Base Scaling: E,C,-,-,-,-,-
+Upgrade level: 10
+Descr: A tool intended for delivering a message. The original owner did not take pride in his work.
+
 [Catalysts]
 
 {Default}
@@ -202,7 +218,13 @@ Base Scaling: D
 Upgrade level: 5
 Descr:
 
+Steam - Volatile vapors
+Base AR: 50 
+Base Scaling: D
+Upgrade level: 5
+Descr:
 
+Poison - 
 
 
 
