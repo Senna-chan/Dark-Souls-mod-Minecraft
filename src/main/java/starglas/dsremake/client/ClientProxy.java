@@ -2,45 +2,52 @@ package starglas.dsremake.client;
 
 import net.minecraft.item.Item;
 import net.minecraftforge.client.IItemRenderer;
-import starglas.dsremake.client.render.BlockRendererBloodstoneOre;
-import starglas.dsremake.client.render.BlockRendererBonfire;
-import starglas.dsremake.client.render.BlockRendererSmallChest;
-import starglas.dsremake.client.render.ItemRendererBlockBonfire;
-import starglas.dsremake.client.render.ItemRendererBloodStoneOre;
-import starglas.dsremake.client.render.ItemRendererEstus;
-import starglas.dsremake.client.render.ItemRendererGyroDrill;
-import starglas.dsremake.client.render.ItemRendererLongSword;
-import starglas.dsremake.client.render.ItemRendererPaladinGlaive;
-import starglas.dsremake.client.render.ItemRendererSancitiedGreatHammer;
-import starglas.dsremake.client.render.ItemRendererSmallChest;
+import starglas.dsremake.block.ModBlocks;
+import starglas.dsremake.client.render.block.BlockRendererBloodstoneOre;
+import starglas.dsremake.client.render.block.BlockRendererBonfire;
+import starglas.dsremake.client.render.block.BlockRendererSmallChest;
+import starglas.dsremake.client.render.item.ItemRendererBlockBonfire;
+import starglas.dsremake.client.render.item.ItemRendererBloodStoneOre;
+import starglas.dsremake.client.render.item.ItemRendererEstus;
+import starglas.dsremake.client.render.item.ItemRendererGyroDrill;
+import starglas.dsremake.client.render.item.ItemRendererLongSword;
+import starglas.dsremake.client.render.item.ItemRendererPaladinGlaive;
+import starglas.dsremake.client.render.item.ItemRendererSancitiedGreatHammer;
+import starglas.dsremake.client.render.mob.RenderDeadsapsprout;
+import starglas.dsremake.client.render.mob.RenderVilerevenant;
 import starglas.dsremake.common.CommonProxy;
-import starglas.dsremake.common.block.ModBlocks;
-import starglas.dsremake.common.entity.TileEntityBloodstoneOre;
-import starglas.dsremake.common.entity.TileEntityBonfire;
-import starglas.dsremake.common.entity.TileEntitySmallChest;
-import starglas.dsremake.common.helpers.RegisterHelper;
-import starglas.dsremake.common.items.ModItems;
+import starglas.dsremake.common.helpers.ModHelper;
+import starglas.dsremake.entity.TileEntityBloodstoneOre;
+import starglas.dsremake.entity.TileEntityBonfire;
+import starglas.dsremake.entity.TileEntitySmallChest;
+import starglas.dsremake.entity.mobs.EntityDeadsapsprout;
+import starglas.dsremake.entity.mobs.EntityVilerevenant;
+import starglas.dsremake.handler.KeyHandler;
+import starglas.dsremake.items.ModItems;
 import cpw.mods.fml.client.registry.ClientRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
 
 public class ClientProxy extends CommonProxy {
 	public void registerProxies(){
-		RegisterHelper.registerRender(ModItems.longSword, (IItemRenderer)new ItemRendererLongSword());
-		RegisterHelper.registerRender(Item.getItemFromBlock(ModBlocks.blockBonfire), (IItemRenderer)new ItemRendererBlockBonfire());
-		GameRegistry.registerTileEntity(TileEntityBonfire.class, "blockBonfire");
+		ModHelper.registerRender(ModItems.longSword, (IItemRenderer)new ItemRendererLongSword());
+		ModHelper.registerRender(Item.getItemFromBlock(ModBlocks.blockBonfire), (IItemRenderer)new ItemRendererBlockBonfire());
+		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBonfire.class, new BlockRendererBonfire());
-		RegisterHelper.registerRender(ModItems.PaladinGlaive, new ItemRendererPaladinGlaive());
-		RegisterHelper.registerRender(ModItems.Estus, new ItemRendererEstus());
-		RegisterHelper.registerRender(ModItems.SanctifiedGreathammer, new ItemRendererSancitiedGreatHammer());
-		RegisterHelper.registerRender(ModItems.GyroDrill, new ItemRendererGyroDrill());
-		RegisterHelper.registerRender(Item.getItemFromBlock(ModBlocks.blockSmallChest), (IItemRenderer)new ItemRendererSmallChest());
-		GameRegistry.registerTileEntity(TileEntitySmallChest.class, "blockSmallChest");
+		ModHelper.registerRender(ModItems.PaladinGlaive, new ItemRendererPaladinGlaive());
+		ModHelper.registerRender(ModItems.Estus, new ItemRendererEstus());
+		ModHelper.registerRender(ModItems.SanctifiedGreathammer, new ItemRendererSancitiedGreatHammer());
+		ModHelper.registerRender(ModItems.GyroDrill, new ItemRendererGyroDrill());
+		RenderingRegistry.registerEntityRenderingHandler(EntityDeadsapsprout.class, new RenderDeadsapsprout());
+		RenderingRegistry.registerEntityRenderingHandler(EntityVilerevenant.class, new RenderVilerevenant());
+		
+		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySmallChest.class, new BlockRendererSmallChest());
 		
-		RegisterHelper.registerRender(Item.getItemFromBlock(ModBlocks.BloodstoneOre), (IItemRenderer)new ItemRendererBloodStoneOre());
-		GameRegistry.registerTileEntity(TileEntityBloodstoneOre.class, "BloodstoneOre");
+		ModHelper.registerRender(Item.getItemFromBlock(ModBlocks.BloodstoneOre), (IItemRenderer)new ItemRendererBloodStoneOre());
+		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBloodstoneOre.class, new BlockRendererBloodstoneOre());
 		
-		
+		FMLCommonHandler.instance().bus().register(new KeyHandler()); // Reg key and event for keystuff
 	}
 }

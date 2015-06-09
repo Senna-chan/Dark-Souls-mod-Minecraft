@@ -47,6 +47,7 @@ public class DSPlayerHandler implements IExtendedEntityProperties {
 	
 	@Override
 	public void loadNBTData(NBTTagCompound playerNbt) {
+		System.out.println("LOADING");
 		NBTTagCompound nbt = playerNbt.getCompoundTag(ModReference.NBTExtendedName);
 		
 		this.playerLevel 	= nbt.getInteger("level");		
@@ -60,16 +61,22 @@ public class DSPlayerHandler implements IExtendedEntityProperties {
 		this.playerSerenity = nbt.getInteger("serenity");
 		this.playerHarmony	= nbt.getInteger("harmony");
 		this.playerClass	= nbt.getString ("class");
-		this.playerHasData	= nbt.getInteger("initlevel");
+		this.playerHasData	= nbt.getInteger("playerHasData");
 		if(nbt.getDouble("LastBonfireX") != 0 && nbt.getDouble("LastBonfireY") != 0 && nbt.getDouble("LastBonfireZ") != 0){
 			this.lastBFX		= nbt.getInteger("LastBonfireX");
 			this.lastBFY		= nbt.getInteger("LastBonfireY"); 
 			this.lastBFZ		= nbt.getInteger("LastBonfireZ");
 			System.out.println("We have loaded some values");
 		}
+		System.out.println(this.playerStrength + " STR       " + this.playerGrace + " DEX");
 	}
 	
-	
+	public int getPlayerStrength(){
+		return this.playerStrength;
+	}
+	public int getPlayerGrace(){
+		return this.playerGrace;
+	}
 	
 	
 	
@@ -102,10 +109,10 @@ public class DSPlayerHandler implements IExtendedEntityProperties {
 	}
 	
 	public void FirstLogin() {// Already making the tag shit for easy stuff
-		if(this.playerHasData!=1){
+		if(this.playerHasData==0){
 		this.playerLevel 	= 0;
 		this.playerHP	 	= 20;
-		this.playerStamina 	= 0;
+		this.playerStamina 	= 80;
 		this.playerStrength = 0;
 		this.playerGrace 	= 0;
 		this.playerWill		= 0;
@@ -113,11 +120,11 @@ public class DSPlayerHandler implements IExtendedEntityProperties {
 		this.playerWrath	= 0;
 		this.playerSerenity = 0;
 		this.playerHarmony	= 0;
-		this.playerClass	= "None";
+		this.playerClass	= "NONE";
 		this.playerHasData	= 1;
-		this.lastBFX		= 80;
-		this.lastBFY		= 80;
-		this.lastBFZ		= 80;
+		this.lastBFX		= 0;
+		this.lastBFY		= 0;
+		this.lastBFZ		= 0;
 		System.out.println("FirstLogin");
 
 		NBTTagCompound compound = new NBTTagCompound();
@@ -141,9 +148,19 @@ public class DSPlayerHandler implements IExtendedEntityProperties {
 		nbt.setString ("class",		"CLASS");
 	}
 	
-	public String getPlayerClass(){
-		return this.playerClass;
-	}
+	
+//	public String getPlayerClass(){
+//		return this.playerClass;
+//	}
+//	public String getPlayerClass(){
+//		return this.playerClass;
+//	}
+//	public String getPlayerClass(){
+//		return this.playerClass;
+//	}
+//	public String getPlayerClass(){
+//		return this.playerClass;
+//	}
 
 	
 	
@@ -177,13 +194,10 @@ public class DSPlayerHandler implements IExtendedEntityProperties {
 		nbt.setInteger("harmony", 	this.playerHarmony);
 		nbt.setString ("class",		this.playerClass);
 		nbt.setInteger("playerHasData", this.playerHasData);
-//		if(this.lastBFX != 0 && this.lastBFY != 0 && this.lastBFZ !=0){
-//			System.out.println("We can save some values");
-			nbt.setInteger("LastBonfireX", this.lastBFX);
-			nbt.setInteger("LastBonfireY", this.lastBFY);
-			nbt.setInteger("LastBonfireZ", this.lastBFZ);
-		//}
-			
+		nbt.setInteger("LastBonfireX", this.lastBFX);
+		nbt.setInteger("LastBonfireY", this.lastBFY);
+		nbt.setInteger("LastBonfireZ", this.lastBFZ);
+		System.out.println("SAVING");
 	}
 	
 }

@@ -1,7 +1,7 @@
 package starglas.dsremake.handler;
 
 import net.minecraft.client.Minecraft;
-import starglas.dsremake.common.helpers.RegisterHelper;
+import starglas.dsremake.common.helpers.ModHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 

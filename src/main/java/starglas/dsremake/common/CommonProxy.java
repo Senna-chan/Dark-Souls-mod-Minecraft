@@ -1,16 +1,18 @@
 package starglas.dsremake.common;
 
-import net.minecraftforge.common.MinecraftForge;
-import starglas.dsremake.handler.DSRemakeEventHandler;
-import starglas.dsremake.handler.KeyHandler;
-import starglas.dsremake.handler.TickEvents;
-import cpw.mods.fml.common.FMLCommonHandler;
+import starglas.dsremake.common.helpers.ModReference;
+import starglas.dsremake.entity.TileEntityBloodstoneOre;
+import starglas.dsremake.entity.TileEntityBonfire;
+import starglas.dsremake.entity.TileEntitySmallChest;
+import starglas.dsremake.entity.mobs.EntityDeadsapsprout;
+import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 
 public class CommonProxy {
 
-	public void registerProxies() {//Server stuff
-		FMLCommonHandler.instance().bus().register(new KeyHandler()); // Reg key and event for keystuff
+	public void registerProxies() {//Server and Client stuff
 		
 	}
+	
 }

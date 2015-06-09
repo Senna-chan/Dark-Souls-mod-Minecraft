@@ -1,7 +1,7 @@
-package yourModPackage.common.animations.Mimicchest;
+package starglas.dsremake.common.animations.Mimicchest;
 
-import yourModPackage.common.MCACommonLibrary.animation.*;
-import yourModPackage.common.MCACommonLibrary.math.*;
+import starglas.dsremake.common.MCACommonLibrary.animation.*;
+import starglas.dsremake.common.MCACommonLibrary.math.*;
 
 public class ChannelOpen extends Channel {
 	public ChannelOpen(String _name, float _fps, int _totalFrames, byte _mode) {

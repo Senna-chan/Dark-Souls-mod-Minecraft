@@ -11,4 +11,5 @@ public class ModReference
 	public static final String NBTExtendedName = "DSPlayerInfo";
 	
 	public static final byte GUI_DSINV = 0;
+	public static final byte GUI_MERCHANT = 1;
 }

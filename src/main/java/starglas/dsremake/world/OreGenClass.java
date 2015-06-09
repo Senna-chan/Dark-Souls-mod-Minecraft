@@ -2,7 +2,7 @@ package starglas.dsremake.world;
 
 import java.util.Random;
 
-import starglas.dsremake.common.block.ModBlocks;
+import starglas.dsremake.block.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -36,6 +36,6 @@ public class OreGenClass implements IWorldGenerator {
 		}
 	}
 	private void generateOverworld(Random random, int chunkX, int chunkZ, World world) {
-		addOre(ModBlocks.BloodstoneOre, Blocks.stone, random, world, chunkX, chunkZ, 10, 35, 2, 5, 5);
+		addOre(ModBlocks.BloodstoneOre, Blocks.stone, random, world, chunkX, chunkZ, 10, 35, 2, 5, 10);
 	}
 }
