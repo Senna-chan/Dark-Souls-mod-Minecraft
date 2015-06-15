@@ -50,7 +50,7 @@ Flower
 +gain regeneration when within 5 blocks of a flower. gain regeneration 3 when below 20% health.(3 min cooldown)
 -takes increased dark damage. (lower dark defense)
 Ash
-+
++attackers are blinded
 -
 Ice
 +

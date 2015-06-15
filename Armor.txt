@@ -71,3 +71,28 @@ DD: 230
 WD: 670
 ND: 400
 
+Field captain set
+
+Elite knight set
+
+royal swordsman set
+
+knight set
+
+Hunter set
+
+Warrior set
+
+Royal hunter set
+
+catacomb warden set
+
+stone warden set
+
+Paladin set
+
+inquisitors set
+
+grove watcher set
+
+

@@ -23,3 +23,9 @@ Azure tearstone ring
 When under 20% hp resistance 2 buff
 
 
+Slithering serpent ring
+increase sneak speed
+
+Raging bull ring
+sprinting attack damage increase
+

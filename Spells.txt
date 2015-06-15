@@ -18,20 +18,31 @@ Trailblaze - Expert passive, sprinting leaves behind a trail of fire. <toggled>
 
 Light
 {Basic}
-
+smite - basic light spell
+soothing glow - cure negative effects
+Holy beacon - you are a walking torch
 {Advanced}
 
 {Expert}
 
 Dark
 {Basic}
-
+Shadow orb - basic dark spell
+Bloodtinge - sacrifice 20% of max health, gain strength 1, speed 1, resistance 1.
+Creeping shade - dark damage dealt increases by 5% per light level, ranking down.
 {Advanced}
-
+Void orb - advanced dark spell
+shadow aura - decreases light levels around you by 5, 10 block radius.
+Night watch - automatic night vision, creeping shade now gives 10% instead.
 {Expert}
+Nightmare Orb - expert dark spell
+Horrify - every mob around you runs away for 5 seconds.
+Consume - 20% of all dark damage dealt is returned in health.
 
 Water
 {Basic}
+Water bolt - basic water spell
+Pure geyser - knocks back enemies in 5 block radius, grant regen 2 for 3 sec.
 
 {Advanced}
 
@@ -44,7 +55,7 @@ Nature
 
 {expert}
 
-Frostfire
+Steam
 {Basic}
 
 {Advanced}
@@ -67,15 +78,18 @@ Sunfire
 
 Taint
 {Basic}
-Flux - 
+Flux - basic taint bolt
+Waste - Add speed 6 for 5 seconds, jump height 6 for 5 seconds. feather falling 5 seconds. withering for 5 seconds.
 
 {Advanced}
 Ruin - 
 Nosferatu -
-
+Vengeance - Add half of missing health to attack power.
 {Expert}
 Goetia - 
 Mire - 
+Shadowgift - all attacks deal 50% of their power in taint damage in addition.
+
 Curse
 
 Flower
@@ -85,6 +99,14 @@ Ash
 Ice
 
 Spirit
+{basic}
+Augur of ebrietas - basic spirit spell
+Ethereal step - invisibility for 5 seconds, speed 3 for 5 seconds.
 
+{advanced}
+
+{expert}
+
+Transcend spirit - experience orbs heal.
 Storm
 
