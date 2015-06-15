@@ -43,11 +43,15 @@ Water
 {Basic}
 Water bolt - basic water spell
 Pure geyser - knocks back enemies in 5 block radius, grant regen 2 for 3 sec.
-
+Ripple steps - walk on water
 {Advanced}
-
+Tide bolt - advanced water spell
+Shell shield - gain resistance 3 for 10 sec.
+Trenchwalker - underwater speed increased
 {Expert}
-
+Torrent missile - Expert water spell
+Coral shield - Gain resistance 4 for 10 sec, gain thorns for 10 sec.
+cleansing wave - heal negative status conditions when in water.
 Nature
 {Basic}
 
@@ -66,6 +70,7 @@ Poison
 {Basic}
 
 {Advanced}
+Aqua Regia - advanced poison spell
 
 {Expert}
 

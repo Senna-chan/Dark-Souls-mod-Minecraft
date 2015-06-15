@@ -55,6 +55,8 @@ Bloodstone round
 
 
 [key items]
+Fire poker
+Use to craft bonfire.
 
 Radiant oil
 Use to craft bonfire. Use to upgrade bonfire intensity.

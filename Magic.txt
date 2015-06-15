@@ -28,7 +28,8 @@ Light
 Dark
 
 Water
-
++ underwater breathing
+- Catch fire when close to heat source
 Nature
 
 
