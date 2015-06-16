@@ -4,20 +4,25 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.StatCollector;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.EnumHelper;
 import starglas.dsremake.common.helpers.DSMainCreativeTabs;
+import starglas.dsremake.common.helpers.ModHelper;
 import starglas.dsremake.common.helpers.WeaponInfo;
 import starglas.dsremake.common.helpers.WeaponScaling;
-import akka.dispatch.Foreach;
+import starglas.dsremake.items.arrows.DSArrow;
 
 import com.google.common.collect.Multimap;
 
@@ -29,6 +34,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class GenericFist extends Item
 {
 	private float weaponDamage;
+	int knockbackAdded = 0;
 	
     public GenericFist(int dmg, char str, char grc)
     {
@@ -36,9 +42,8 @@ public class GenericFist extends Item
         this.maxStackSize = 1;
         this.setMaxDamage(20);
         this.setCreativeTab(DSMainCreativeTabs.tabDSFists);
-        this.weaponDamage = WeaponScaling.WeaponScalingRaw(dmg, str, grc);
+        //this.weaponDamage = WeaponScaling.WeaponScalingRaw(dmg, str, grc);
         this.setFull3D();
-        Random random = new Random();
         
     }
    
@@ -52,6 +57,23 @@ public class GenericFist extends Item
 		} else{
 			list.add("Press shift for more info");
 		}
+	}
+	@Override
+	public void onUpdate(ItemStack stack, World worldIn, Entity entity, int itemSlot, boolean isSelected) {
+		NBTTagList enchantList = stack.getEnchantmentTagList();
+		if(enchantList == null){
+			stack.addEnchantment(Enchantment.knockback, 3);
+		}
+		if (entity instanceof EntityPlayer)
+        {
+            EntityPlayer player = (EntityPlayer) entity;
+            ItemStack equipped = player.getCurrentEquippedItem();
+            if (equipped == stack)
+            {
+                player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 2, 2, true));
+            }
+        }
+		super.onUpdate(stack, worldIn, entity, itemSlot, isSelected);
 	}
 
     public float func_82803_g()

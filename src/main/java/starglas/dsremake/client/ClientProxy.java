@@ -3,6 +3,7 @@ package starglas.dsremake.client;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.IItemRenderer;
 import starglas.dsremake.block.ModBlocks;
+import starglas.dsremake.client.render.RenderWoodengreatarrow;
 import starglas.dsremake.client.render.block.BlockRendererBloodstoneOre;
 import starglas.dsremake.client.render.block.BlockRendererBonfire;
 import starglas.dsremake.client.render.block.BlockRendererSmallChest;
@@ -17,11 +18,12 @@ import starglas.dsremake.client.render.mob.RenderDeadsapsprout;
 import starglas.dsremake.client.render.mob.RenderVilerevenant;
 import starglas.dsremake.common.CommonProxy;
 import starglas.dsremake.common.helpers.ModHelper;
-import starglas.dsremake.entity.TileEntityBloodstoneOre;
-import starglas.dsremake.entity.TileEntityBonfire;
-import starglas.dsremake.entity.TileEntitySmallChest;
+import starglas.dsremake.entity.arrows.EntityWoodengreatarrow;
 import starglas.dsremake.entity.mobs.EntityDeadsapsprout;
 import starglas.dsremake.entity.mobs.EntityVilerevenant;
+import starglas.dsremake.entity.tileentity.TileEntityBloodstoneOre;
+import starglas.dsremake.entity.tileentity.TileEntityBonfire;
+import starglas.dsremake.entity.tileentity.TileEntitySmallChest;
 import starglas.dsremake.handler.KeyHandler;
 import starglas.dsremake.items.ModItems;
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -41,7 +43,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityDeadsapsprout.class, new RenderDeadsapsprout());
 		RenderingRegistry.registerEntityRenderingHandler(EntityVilerevenant.class, new RenderVilerevenant());
 		
-		
+		RenderingRegistry.registerEntityRenderingHandler(EntityWoodengreatarrow.class, new RenderWoodengreatarrow());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySmallChest.class, new BlockRendererSmallChest());
 		
 		ModHelper.registerRender(Item.getItemFromBlock(ModBlocks.BloodstoneOre), (IItemRenderer)new ItemRendererBloodStoneOre());

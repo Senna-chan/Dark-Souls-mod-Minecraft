@@ -1,21 +1,31 @@
-package starglas.dsremake.items.greathammers;
+package starglas.dsremake.items.fists;
 
+import java.util.List;
+import java.util.Random;
+
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IExtendedEntityProperties;
+import net.minecraftforge.common.util.EnumHelper;
 import starglas.dsremake.common.helpers.DSMainCreativeTabs;
 import starglas.dsremake.common.helpers.ModHelper;
+import starglas.dsremake.common.helpers.ModReference;
+import starglas.dsremake.common.helpers.WeaponInfo;
 import starglas.dsremake.common.helpers.WeaponScaling;
+import starglas.dsremake.handler.ExtendedPlayer;
+import starglas.dsremake.items.arrows.DSArrow;
 
 import com.google.common.collect.Multimap;
 
@@ -23,23 +33,46 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 
-public class GenericGreatHammer extends Item
+
+public class GyroDrill extends Item
 {
-	private EntityPlayer player;
 	private float weaponDamage;
-    public GenericGreatHammer(int dmg, char str, char grc)
+	int knockbackAdded = 0;
+	private int dmg;
+	private char str;
+	private char grc;
+	
+    public GyroDrill(int dmg, char str, char grc)
     {
         super();
         this.maxStackSize = 1;
         this.setMaxDamage(20);
-        this.setCreativeTab(DSMainCreativeTabs.tabDSGreatHammers);
-        this.weaponDamage = 20;
+        this.setCreativeTab(DSMainCreativeTabs.tabDSFists);
+        this.weaponDamage = 0;
         this.setFull3D();
+        this.dmg = dmg;
+        this.str = str;
+        this.grc = grc;
     }
-    
-    @Override
+   
+    @SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List list, boolean par4) {
+		if(GuiScreen.isShiftKeyDown()) {
+	    	for(int i=0;i<WeaponInfo.GyroDrill.length; ){
+	    		list.add(WeaponInfo.GyroDrill[i]);
+	    		i++;
+	    	}
+		} else{
+			list.add("Press shift for more info");
+		}
+	}
+	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
 		super.onUpdate(stack, world, entity, itemSlot, isSelected);
+		NBTTagList enchantList = stack.getEnchantmentTagList();
+		if(enchantList == null){
+			stack.addEnchantment(Enchantment.knockback, 3);
+		}
 		if (entity instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer) entity;
@@ -61,14 +94,20 @@ public class GenericGreatHammer extends Item
     {
         return this.weaponDamage;
     }
+    
+    public int getItemEnchantability()
+    {
+        return 100;
+    }
 
     /**
      * Current implementations of this method in child classes do not use the entry argument beside ev. They just raise
      * the damage on the stack.
      */
-    public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)
+    public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase entityliving, EntityLivingBase entityliving1)
     {
-        par1ItemStack.damageItem(1, par3EntityLivingBase);
+        par1ItemStack.damageItem(1, entityliving1);
+        
         return true;
     }
 
@@ -83,19 +122,11 @@ public class GenericGreatHammer extends Item
     }
 
     /**
-     * returns the action that specifies what animation to play when the items is being used
-     */
-    public EnumAction getItemUseAction(ItemStack par1ItemStack)
-    {
-        return EnumAction.block;
-    }
-
-    /**
      * How long it takes to use or consume an item
      */
     public int getMaxItemUseDuration(ItemStack par1ItemStack)
     {
-        return 72000;
+        return 720;
     }
 
     /**
@@ -103,7 +134,6 @@ public class GenericGreatHammer extends Item
      */
     public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
-       
         return par1ItemStack;
     }
 

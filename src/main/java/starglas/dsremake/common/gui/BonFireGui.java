@@ -4,7 +4,7 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 import starglas.dsremake.common.helpers.ModReference;
-import starglas.dsremake.entity.TileEntityBonfire;
+import starglas.dsremake.entity.tileentity.TileEntityBonfire;
 import starglas.dsremake.items.ModItems;
 import starglas.dsremake.items.consumables.Estus;
 import starglas.dsremake.items.upgrades.RadiantOil;

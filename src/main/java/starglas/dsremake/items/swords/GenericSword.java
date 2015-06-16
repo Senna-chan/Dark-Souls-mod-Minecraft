@@ -1,15 +1,18 @@
 package starglas.dsremake.items.swords;
 
+import java.util.Map;
+
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import starglas.dsremake.common.helpers.DSMainCreativeTabs;
-import starglas.dsremake.common.helpers.ModHelper;
 import starglas.dsremake.common.helpers.WeaponScaling;
 
 import com.google.common.collect.Multimap;
@@ -26,8 +29,9 @@ public class GenericSword extends Item
 	private int dmg;
 	private char str;
 	private char grc;
-	private EntityPlayer player;
-    public GenericSword(String texture, int dmg, char str, char grc)
+    //public GenericSword(String texture, int dmg, char str, char grc)
+	private Map<String, Float> map;
+	public GenericSword(int dmg, char str, char grc) 
     {
         super();
         this.maxStackSize = 1;
@@ -39,7 +43,7 @@ public class GenericSword extends Item
         this.setFull3D();
     }
 
-    public float func_82803_g()
+	public float func_82803_g()
     {
         return this.weaponDamage;
     }
@@ -48,12 +52,29 @@ public class GenericSword extends Item
      * Current implementations of this method in child classes do not use the entry argument beside ev. They just raise
      * the damage on the stack.
      */
-    public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)
+    public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase entity1, EntityLivingBase entity2Player)
     {
-        par1ItemStack.damageItem(1, par3EntityLivingBase);
-        this.weaponDamage = WeaponScaling.WeaponScalingRaw(dmg, str, grc);
-        ModHelper.displayChat(player, this.weaponDamage+"");
+        par1ItemStack.damageItem(1, entity2Player);
         return true;
+    }
+    
+    @Override
+	public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
+    	if (entity instanceof EntityPlayer)
+        {
+            EntityPlayer player = (EntityPlayer) entity;
+            ItemStack equipped = player.getCurrentEquippedItem();
+            if (equipped == stack)
+            {
+                player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 2, 2, true));
+            }
+            if (!world.isRemote)
+            {
+            	if(isSelected){
+            		this.weaponDamage = WeaponScaling.CalcWeaponDMG(dmg, str, grc, player);
+        		}
+            }
+        }
     }
 
     @SideOnly(Side.CLIENT)

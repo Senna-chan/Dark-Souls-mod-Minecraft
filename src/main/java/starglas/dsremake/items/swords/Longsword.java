@@ -1,7 +1,5 @@
 package starglas.dsremake.items.swords;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -11,8 +9,6 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import starglas.dsremake.common.PlayerStatsTest;
-import starglas.dsremake.common.helpers.WeaponScaling;
 
 import com.google.common.collect.Multimap;
 

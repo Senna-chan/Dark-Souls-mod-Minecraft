@@ -2,17 +2,19 @@ package starglas.dsremake.items;
 
 import net.minecraft.item.Item;
 import starglas.dsremake.common.helpers.ModHelper;
+import starglas.dsremake.items.arrows.WoodenGreatArrow;
+import starglas.dsremake.items.bows.VileBarkGreatbow;
 import starglas.dsremake.items.consumables.Estus;
 import starglas.dsremake.items.consumables.HeartStone;
 import starglas.dsremake.items.consumables.HomewardBone;
 import starglas.dsremake.items.consumables.VitaCrystal;
-import starglas.dsremake.items.fists.GenericFist;
+import starglas.dsremake.items.fists.GyroDrill;
 import starglas.dsremake.items.greathammers.GenericGreatHammer;
 import starglas.dsremake.items.halberts.GenericHalbert;
+import starglas.dsremake.items.rings.RingofVigor;
 import starglas.dsremake.items.swords.GenericSword;
 import starglas.dsremake.items.upgrades.BloodStone;
 import starglas.dsremake.items.upgrades.GenericUpgrade;
-import starglas.dsremake.items.upgrades.RadiantOil;
 
 public class ModItems{
 	public static Item myFirstItem;
@@ -43,8 +45,16 @@ public class ModItems{
 	public static Item ShimmeringShoalPearl = new GenericUpgrade(":shimmeringshoalpearl").setUnlocalizedName("ShimmeringShoalPearl");
 	public static Item SolarLens = new GenericUpgrade(":solarlens").setUnlocalizedName("SolarLens");
 	public static Item TreantSeed = new GenericUpgrade(":treantseed").setUnlocalizedName("TreantSeed");
-	 // Swords
-	public static Item longSword = new GenericSword("dsremake:longsword", 8, 'B', 'B').setUnlocalizedName("longSword"); 
+	
+	// Rings
+	public static Item RingofVigor = new RingofVigor().setUnlocalizedName("RingofVigor");
+	
+	// Bows
+	public static Item VileBarkGreatbow = new VileBarkGreatbow().setUnlocalizedName("VileBarkGreatbow");
+	// Arrows
+	public static Item WoodenGreatArrow = new WoodenGreatArrow().setUnlocalizedName("WoodenGreatArrow");
+	// Swords
+	public static Item longSword = new GenericSword(9, 'B', 'B').setUnlocalizedName("longSword"); 
 	
 	// Halberts
 	public static Item PaladinGlaive = new GenericHalbert("dsremake:paladinglaive").setUnlocalizedName("PaladinGlaive");
@@ -53,11 +63,10 @@ public class ModItems{
 	public static Item SanctifiedGreathammer = new GenericGreatHammer(20, 'B', 'Z').setUnlocalizedName("SanctifiedGreathammer");
 	
 	// Fist Weapons
-	public static Item GyroDrill = new GenericFist(8, 'S', 'B').setUnlocalizedName("GyroDrill");
+	public static Item GyroDrill = new GyroDrill(8, 'S', 'B').setUnlocalizedName("GyroDrill");
 	
 	public static void init(){
 		// Items
-		//RegisterHelper.registerItem(TehBook);
 		ModHelper.registerItem(HomewardBone);
 		// Heart Crystals
 		ModHelper.registerItem(MK1HeartStone);
@@ -94,7 +103,16 @@ public class ModItems{
 		ModHelper.registerItem(SolarLens);
 		ModHelper.registerItem(TreantSeed);
 		
+		// Rings
+		ModHelper.registerItem(RingofVigor);
+		
 		// Weapons
+		// Bows
+		ModHelper.registerItem(VileBarkGreatbow);
+		
+		// Arrows
+		ModHelper.registerItem(WoodenGreatArrow);
+		
 		// Sword
 		ModHelper.registerItem(longSword);
 		

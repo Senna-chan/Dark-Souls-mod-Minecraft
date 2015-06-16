@@ -2,6 +2,7 @@ package starglas.dsremake.common.helpers;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import starglas.dsremake.block.ModBlocks;
 import starglas.dsremake.items.ModItems;
@@ -51,7 +52,12 @@ public class DSMainCreativeTabs
 			return ModItems.GyroDrill;
 		}
 	};
-	
+	public static CreativeTabs tabDSBows = new CreativeTabs("tabDSBows"){
+		@Override
+		public Item getTabIconItem(){
+			return Items.bow;
+		}
+	};
 	public static void RegisterTabs(){
 
 		

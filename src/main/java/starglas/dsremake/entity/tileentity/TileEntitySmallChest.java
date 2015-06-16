@@ -1,4 +1,4 @@
-package starglas.dsremake.entity;
+package starglas.dsremake.entity.tileentity;
 
 import net.minecraft.tileentity.TileEntity;
 

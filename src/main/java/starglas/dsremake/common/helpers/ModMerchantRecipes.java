@@ -9,8 +9,8 @@ public class ModMerchantRecipes {
 	public static MerchantRecipeList getRecipes(String type){
 		MerchantRecipeList merchantrecipelist = new MerchantRecipeList();
 		if(type == "poison"){
-		 merchantrecipelist.add(new MerchantRecipe(new ItemStack(ModItems.MK2VitaCrystal, 3, 0), new ItemStack(ModItems.LiquidDeath)));
-		 //merchantrecipelist.add(new MerchantRecipe(new ItemStack(ModItems.LiquidDeath, 8, 0), new ItemStack(ModItems.MadmansKnowledge)));
+			merchantrecipelist.add(new MerchantRecipe(new ItemStack(ModItems.MK2VitaCrystal, 3, 0), new ItemStack(ModItems.LiquidDeath)));
+			merchantrecipelist.add(new MerchantRecipe(new ItemStack(ModItems.LiquidDeath, 1, 0), new ItemStack(ModItems.MK2VitaCrystal, 2, 0)));
 		}
 		return merchantrecipelist;
 	}

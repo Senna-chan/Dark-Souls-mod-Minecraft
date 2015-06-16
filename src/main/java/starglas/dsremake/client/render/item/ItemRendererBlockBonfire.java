@@ -4,7 +4,7 @@ import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
 import starglas.dsremake.client.models.blocks.Bonfire;
-import starglas.dsremake.entity.TileEntityBonfire;
+import starglas.dsremake.entity.tileentity.TileEntityBonfire;
 
 public class ItemRendererBlockBonfire implements IItemRenderer {
 

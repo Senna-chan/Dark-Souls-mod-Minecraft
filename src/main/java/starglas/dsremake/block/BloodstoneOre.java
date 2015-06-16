@@ -14,7 +14,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import starglas.dsremake.common.helpers.DSMainCreativeTabs;
 import starglas.dsremake.common.helpers.ModReference;
-import starglas.dsremake.entity.TileEntityBloodstoneOre;
+import starglas.dsremake.entity.tileentity.TileEntityBloodstoneOre;
 import starglas.dsremake.items.ModItems;
 
 public class BloodstoneOre extends BlockContainer{
