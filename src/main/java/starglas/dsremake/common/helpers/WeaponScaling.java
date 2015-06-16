@@ -8,8 +8,8 @@ public class WeaponScaling {
 	public static float totalAR;
 	private static float strScaling;
 	private static float FireScaling;
-	private static int playerStrength = DSRemakeEventHandler.playerStrength;
-	private static int playerGrace = DSRemakeEventHandler.playerGrace;
+	private static int playerStrength;
+	private static int playerGrace;
 	private static float grcScaling;
 	
 	//public static float WeaponScalingRaw(int weaponDamage, char strengthScaling, char dextScaling, int playerStrength, int playerDex/*, int playerWill, int playerLight, int playerWrath, int playerSerenity, int playerHarmony*/){

@@ -65,7 +65,11 @@ public class ModItems{
 	// Fist Weapons
 	public static Item GyroDrill = new GyroDrill(8, 'S', 'B').setUnlocalizedName("GyroDrill");
 	
+	// Spells
+	public static Item Spell = new starglas.dsremake.items.spells.Spell().setUnlocalizedName("Spell");
+	
 	public static void init(){
+		ModHelper.registerItem(Spell);
 		// Items
 		ModHelper.registerItem(HomewardBone);
 		// Heart Crystals

@@ -12,6 +12,7 @@ import net.minecraftforge.common.IExtendedEntityProperties;
 import starglas.dsremake.common.CommonProxy;
 import starglas.dsremake.common.DSMain;
 import starglas.dsremake.common.helpers.ModReference;
+import starglas.dsremake.gui.inventory.InventoryCustomPlayer;
 import starglas.dsremake.packet.SyncPlayerPropsPacket;
 
 public class ExtendedPlayer implements IExtendedEntityProperties {
@@ -34,6 +35,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	private double lastBFX;
 	private double lastBFY;
 	private double lastBFZ;
+	public final InventoryCustomPlayer inventory = new InventoryCustomPlayer();
 	
 	public ExtendedPlayer(EntityPlayer player) {
 		this.player = player;
@@ -69,6 +71,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 		this.playerHarmony	= nbt.getInteger("harmony");
 		this.playerClass	= nbt.getString ("class");
 		this.playerHasData	= nbt.getInteger("playerHasData");
+		this.inventory.readFromNBT(playerNbt);
 		if(nbt.getDouble("LastBonfireX") != 0 && nbt.getDouble("LastBonfireY") != 0 && nbt.getDouble("LastBonfireZ") != 0){
 			this.lastBFX		= nbt.getDouble("LastBonfireX");
 			this.lastBFY		= nbt.getDouble("LastBonfireY"); 
@@ -213,6 +216,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 		nbt.setDouble("LastBonfireX", this.lastBFX);
 		nbt.setDouble("LastBonfireY", this.lastBFY);
 		nbt.setDouble("LastBonfireZ", this.lastBFZ);
+		this.inventory.writeToNBT(compound);
 		System.out.println("SAVING");
 	}
 	

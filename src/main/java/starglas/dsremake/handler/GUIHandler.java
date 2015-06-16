@@ -1,9 +1,11 @@
 package starglas.dsremake.handler;
 
-import starglas.dsremake.common.gui.BookGui;
-import starglas.dsremake.common.gui.ContainerDSInv;
-import starglas.dsremake.common.gui.GuiDSInv;
 import starglas.dsremake.common.helpers.ModReference;
+import starglas.dsremake.gui.BookGui;
+import starglas.dsremake.gui.ContainerDSInv;
+import starglas.dsremake.gui.GuiDSInv;
+import starglas.dsremake.gui.container.ContainerCustomPlayer;
+import starglas.dsremake.gui.inventory.GuiCustomPlayerInventory;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -19,7 +21,7 @@ public class GUIHandler implements IGuiHandler {
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		switch (ID) {
 		case ModReference.GUI_DSINV:
-			return new ContainerDSInv(player);
+			return new ContainerCustomPlayer(player, player.inventory, ExtendedPlayer.get(player).inventory);
 		default:
 			return null;
 		}
@@ -30,7 +32,7 @@ public class GUIHandler implements IGuiHandler {
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		switch (ID) {
 		case ModReference.GUI_DSINV:
-			return new GuiDSInv(player);
+			return new GuiCustomPlayerInventory(player, player.inventory, ExtendedPlayer.get(player).inventory);
 		default:
 			return null;
 		}

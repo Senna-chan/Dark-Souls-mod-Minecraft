@@ -1,4 +1,4 @@
-package starglas.dsremake.common.gui;
+package starglas.dsremake.gui;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
