@@ -1,12 +1,13 @@
 package starglas.dsremake.gui.inventory;
 
-import starglas.dsremake.items.shields.DSShields;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-
+import starglas.dsremake.items.shields.DSShields;
+import starglas.dsremake.items.spells.DSSpells;
 public class InventoryCustomPlayer implements IInventory
 
 {
@@ -20,7 +21,7 @@ public class InventoryCustomPlayer implements IInventory
 	 * NBT tag in as well
 	 */
 
-	private final String tagName = "CustomInvTag";
+	private final String tagName = "DarkSoulsINV";
 
 	/** Define the inventory size here for easy reference */
 
@@ -29,8 +30,10 @@ public class InventoryCustomPlayer implements IInventory
 
 	// for example SLOT_SHIELD = 0, SLOT_AMULET = 1;
 
-	public static final int INV_SIZE = 13;
+	public static final int INV_SIZE = 11;
+	public static final int SLOT_SHIELD = 11;
 
+	public Minecraft mc;
 	/**
 	 * Inventory's size must be same as number of slots you add to the Container
 	 * class
@@ -136,6 +139,7 @@ public class InventoryCustomPlayer implements IInventory
 	public void openInventory() {}
 	@Override
 	public void closeInventory() {}
+	
 	/**
 	 * 
 	 * This method doesn't seem to do what it claims to do, as
@@ -152,7 +156,15 @@ public class InventoryCustomPlayer implements IInventory
 		// return true;
 
 		// For now, only ItemUseMana items can be stored in these slots
-		return itemstack.getItem() instanceof DSShields;
+		if(slot == SLOT_SHIELD && itemstack.getItem() instanceof DSShields){
+			return true;
+		}
+		else if(itemstack.getItem() instanceof DSSpells){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 	public void writeToNBT(NBTTagCompound tagcompound)
 	{

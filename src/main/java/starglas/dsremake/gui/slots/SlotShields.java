@@ -1,11 +1,16 @@
 package starglas.dsremake.gui.slots;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import starglas.dsremake.items.shields.DSShields;
+import starglas.dsremake.items.spells.DSSpells;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
 
 //Custom Slot:
 
@@ -36,8 +41,13 @@ public class SlotShields extends Slot
 
 		// We only want our custom item to be storable in this slot
 
-		return itemstack.getItem() instanceof DSShields;
+		return itemstack.getItem() instanceof DSSpells;
 
+	}
+	@SideOnly(Side.CLIENT)
+	public IIcon getBackgroundIconIndex()
+	{
+		return DSSpells.getBackgroundIcon();
 	}
 
 }

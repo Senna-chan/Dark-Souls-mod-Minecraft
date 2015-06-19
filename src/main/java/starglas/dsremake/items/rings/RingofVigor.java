@@ -16,9 +16,7 @@ import baubles.api.IBauble;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class RingofVigor
-  extends Item
-  implements IBauble
+public class RingofVigor extends Item implements IBauble
 {
   public IIcon icon;
 private float playerMaxHP;

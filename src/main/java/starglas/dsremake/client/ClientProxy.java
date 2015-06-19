@@ -33,7 +33,7 @@ import cpw.mods.fml.common.FMLCommonHandler;
 public class ClientProxy extends CommonProxy {
 	public void registerProxies(){
 		ModHelper.registerRender(ModItems.longSword, (IItemRenderer)new ItemRendererLongSword());
-		ModHelper.registerRender(Item.getItemFromBlock(ModBlocks.blockBonfire), (IItemRenderer)new ItemRendererBlockBonfire());
+		ModHelper.registerRender(Item.getItemFromBlock(ModBlocks.bonfire), (IItemRenderer)new ItemRendererBlockBonfire());
 		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBonfire.class, new BlockRendererBonfire());
 		ModHelper.registerRender(ModItems.PaladinGlaive, new ItemRendererPaladinGlaive());
@@ -46,7 +46,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityWoodengreatarrow.class, new RenderWoodengreatarrow());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySmallChest.class, new BlockRendererSmallChest());
 		
-		ModHelper.registerRender(Item.getItemFromBlock(ModBlocks.BloodstoneOre), (IItemRenderer)new ItemRendererBloodStoneOre());
+		ModHelper.registerRender(Item.getItemFromBlock(ModBlocks.bloodstoneOre), (IItemRenderer)new ItemRendererBloodStoneOre());
 		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBloodstoneOre.class, new BlockRendererBloodstoneOre());
 		

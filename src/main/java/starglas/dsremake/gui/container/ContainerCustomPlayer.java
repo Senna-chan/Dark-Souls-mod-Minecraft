@@ -7,11 +7,13 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import starglas.dsremake.common.helpers.ModHelper;
 import starglas.dsremake.gui.inventory.InventoryCustomPlayer;
 import starglas.dsremake.gui.slots.SlotArmor;
-import starglas.dsremake.gui.slots.SlotRings;
 import starglas.dsremake.gui.slots.SlotShields;
 import starglas.dsremake.gui.slots.SlotSpells;
+import starglas.dsremake.handler.ExtendedPlayer;
+import starglas.dsremake.items.shields.DSShields;
 import starglas.dsremake.items.spells.DSSpells;
 
 public class ContainerCustomPlayer extends Container
@@ -33,28 +35,18 @@ public class ContainerCustomPlayer extends Container
 
 	public ContainerCustomPlayer(EntityPlayer player,InventoryPlayer inventoryPlayer,InventoryCustomPlayer inventoryCustom)
 	{
-
+		ExtendedPlayer props = ExtendedPlayer.get(player);
+		int MagicSlots = props.getMagicSlots(); 
+		ModHelper.displayChat(player, "Creating slots");
 		int i;
-
-		// Add CUSTOM slots - we'll just add two for now, both of the same type.
-
-		// Make a new Slot class for each different item type you want to add
-		this.addSlotToContainer(new SlotRings(inventoryCustom, 0, 80, 50));  // Ring slot
-		this.addSlotToContainer(new SlotRings(inventoryCustom, 1, 98, 50));  // Ring slot
-		this.addSlotToContainer(new SlotShields(inventoryCustom, 2, 134, 50)); // Shield slot
 		// Spell slots
 		for(i = 0; i < 5; i++){
-			this.addSlotToContainer(new SlotSpells(inventoryCustom, i+3, 80 + (18*i), 8));
+			this.addSlotToContainer(new SlotSpells(inventoryCustom, i, 80 + (18*i), 8, 0));
 		}
 		for(i = 0; i < 5; i++){
-			this.addSlotToContainer(new SlotSpells(inventoryCustom, i+8, 80+ (18*i), 26));
+			this.addSlotToContainer(new SlotSpells(inventoryCustom, i+5, 80+ (18*i), 26, 0));		
 		}
-//		this.addSlotToContainer(new SlotCustom(inventoryCustom, 8, 80, 30));
-//		this.addSlotToContainer(new SlotCustom(inventoryCustom, 9, 100, 30));
-//		this.addSlotToContainer(new SlotCustom(inventoryCustom, 10, 120, 30));
-//		this.addSlotToContainer(new SlotCustom(inventoryCustom, 11, 140, 30));
-//		this.addSlotToContainer(new SlotCustom(inventoryCustom, 12, 160, 30));
-		
+		this.addSlotToContainer(new SlotShields(inventoryCustom, 10, 80, 62)); // Shield slot
 
 		// Add ARMOR slots; note you need to make a public version of SlotArmor
 		// just copy and paste the vanilla code into a new class and change what
@@ -128,9 +120,15 @@ public class ContainerCustomPlayer extends Container
 			else
 			{
 				// if item is our custom item
-				if (itemstack1.getItem() instanceof DSSpells)
+				/*if (itemstack1.getItem() instanceof DSSpells)
 				{
-					if (!this.mergeItemStack(itemstack1, 0, InventoryCustomPlayer.INV_SIZE, false))
+					if (!this.mergeItemStack(itemstack1, 0, InventoryCustomPlayer.INV_SIZE - 1, false))
+					{
+						return null;
+					}
+				}
+				else*/ if (itemstack1.getItem() instanceof DSShields){
+					if (!this.mergeItemStack(itemstack1, 0, InventoryCustomPlayer.SLOT_SHIELD, false))
 					{
 						return null;
 					}

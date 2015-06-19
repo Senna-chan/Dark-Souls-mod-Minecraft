@@ -36,6 +36,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	private double lastBFY;
 	private double lastBFZ;
 	public final InventoryCustomPlayer inventory = new InventoryCustomPlayer();
+	private int playerMagicSlots;
 	
 	public ExtendedPlayer(EntityPlayer player) {
 		this.player = player;
@@ -78,6 +79,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 			this.lastBFZ		= nbt.getDouble("LastBonfireZ");
 			System.out.println("We have loaded some values");
 		}
+		this.playerMagicSlots = nbt.getInteger("MagicSlots");
 	}
 	
 	public int getPlayerStrength(){
@@ -89,7 +91,9 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	public String getPlayerClass(){
 		return this.playerClass;
 	}
-	
+	public int getMagicSlots(){
+		return this.playerMagicSlots;
+	}
 	
 	
 	@Override
@@ -137,6 +141,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 			this.lastBFX		= 0;
 			this.lastBFY		= 0;
 			this.lastBFZ		= 0;
+			this.playerMagicSlots = 3;
 			System.out.println("FirstLogin");
 	
 			NBTTagCompound compound = new NBTTagCompound();
@@ -216,6 +221,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 		nbt.setDouble("LastBonfireX", this.lastBFX);
 		nbt.setDouble("LastBonfireY", this.lastBFY);
 		nbt.setDouble("LastBonfireZ", this.lastBFZ);
+		nbt.setInteger("MagicSlots", this.playerMagicSlots);
 		this.inventory.writeToNBT(compound);
 		System.out.println("SAVING");
 	}

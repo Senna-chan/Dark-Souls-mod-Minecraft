@@ -11,12 +11,14 @@ public class SlotSpells extends Slot
 
 {
 
-	public SlotSpells(IInventory inventory, int par2, int par3, int par4)
+	private int disabled;
+
+	public SlotSpells(IInventory inventory, int par2, int par3, int par4, int i)
 
 	{
 
 		super(inventory, par2, par3, par4);
-
+		this.disabled = i;
 	}
 
 	/**
@@ -33,9 +35,12 @@ public class SlotSpells extends Slot
 	{
 
 		// We only want our custom item to be storable in this slot
-
-		return itemstack.getItem() instanceof DSSpells;
-
+		if(this.disabled == 0)
+			return itemstack.getItem() instanceof DSSpells;
+		else if (this.disabled == 1)
+			return false;
+		else
+			return false;
 	}
 
 }

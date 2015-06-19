@@ -17,7 +17,7 @@ import starglas.dsremake.items.upgrades.BloodStone;
 import starglas.dsremake.items.upgrades.GenericUpgrade;
 
 public class ModItems{
-	public static Item myFirstItem;
+	public static Item XPDrainer = new XPDrainer().setUnlocalizedName("XPDrainer");
 	public static Item MK1HeartStone = new HeartStone(":MK1Heart",1).setUnlocalizedName("MK1HeartStone");
 	public static Item MK2HeartStone = new HeartStone(":MK2Heart",2).setUnlocalizedName("MK2HeartStone");
 	public static Item MK3HeartStone = new HeartStone(":MK3Heart",3).setUnlocalizedName("MK3HeartStone");
@@ -70,6 +70,7 @@ public class ModItems{
 	
 	public static void init(){
 		ModHelper.registerItem(Spell);
+		ModHelper.registerItem(XPDrainer);
 		// Items
 		ModHelper.registerItem(HomewardBone);
 		// Heart Crystals

@@ -36,6 +36,6 @@ public class OreGenClass implements IWorldGenerator {
 		}
 	}
 	private void generateOverworld(Random random, int chunkX, int chunkZ, World world) {
-		addOre(ModBlocks.BloodstoneOre, Blocks.stone, random, world, chunkX, chunkZ, 10, 35, 2, 5, 10);
+		addOre(ModBlocks.bloodstoneOre, Blocks.stone, random, world, chunkX, chunkZ, 10, 35, 2, 5, 10);
 	}
 }
