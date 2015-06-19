@@ -1,5 +1,7 @@
 package starglas.dsremake.items.greathammers;
 
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -7,6 +9,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import starglas.dsremake.common.helpers.DSMainCreativeTabs;
 import starglas.dsremake.common.helpers.ModHelper;
@@ -31,6 +36,26 @@ public class GenericGreatHammer extends Item
         this.weaponDamage = 20;
         this.setFull3D();
     }
+    
+    @Override
+	public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
+		super.onUpdate(stack, world, entity, itemSlot, isSelected);
+		if (entity instanceof EntityPlayer)
+        {
+            EntityPlayer player = (EntityPlayer) entity;
+            ItemStack equipped = player.getCurrentEquippedItem();
+            if (equipped == stack)
+            {
+                player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 2, 2, true));
+            }
+            if (!world.isRemote)
+            {
+            	if(isSelected){
+                	this.weaponDamage = WeaponScaling.CalcWeaponDMG(9, 'S', 'B', player);
+        		}
+            }
+        }
+	}
 
     public float func_82803_g()
     {

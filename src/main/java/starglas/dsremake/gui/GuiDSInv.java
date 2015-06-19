@@ -1,10 +1,10 @@
-package starglas.dsremake.common.gui;
+package starglas.dsremake.gui;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 import starglas.dsremake.common.helpers.ModReference;
-import starglas.dsremake.entity.TileEntityBonfire;
+import starglas.dsremake.entity.tileentity.TileEntityBonfire;
 import starglas.dsremake.items.ModItems;
 import starglas.dsremake.items.consumables.Estus;
 import starglas.dsremake.items.upgrades.RadiantOil;
@@ -16,7 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ResourceLocation;
 
-public class BonFireGui extends GuiScreen{
+public class GuiDSInv extends GuiScreen{
 	
 	int guiWidth = 300;
 	int guiHeight = 200;
@@ -25,12 +25,9 @@ public class BonFireGui extends GuiScreen{
 	int guiY = (height - guiHeight) /2;
 	boolean radiantOilFound = false;
 	
-	int BonFireX, BonFireY, BonFireZ;
 	
-	public BonFireGui(int X, int Y, int Z){
-		this.BonFireX = X;
-		this.BonFireY = Y;
-		this.BonFireZ = Z;
+	public GuiDSInv(EntityPlayer player) {
+		
 	}
 	@Override
 	public void drawScreen(int x, int y, float ticks){
@@ -63,24 +60,7 @@ public class BonFireGui extends GuiScreen{
 	public void actionPerformed(GuiButton button){
 		switch(button.id){
 		case 0:
-			ItemStack[] playerInventory = mc.thePlayer.inventory.mainInventory;
-
-            for(ItemStack itemStack : playerInventory){
-                if(itemStack != null && itemStack.getItem() instanceof RadiantOil){
-                	mc.thePlayer.inventory.consumeInventoryItem(ModItems.RadiantOil);
-                	radiantOilFound = true;
-                	break;
-                }
-            }
-			if(radiantOilFound == false){
-				mc.thePlayer.addChatMessage(new ChatComponentText("Git Gud Faggot. Ya need a Radiant Oil"));
-			}
-			else{
-				mc.thePlayer.addChatMessage(new ChatComponentText("BonFire level upgraded"));
-				TileEntityBonfire t = (TileEntityBonfire) mc.theWorld.getTileEntity(BonFireX, BonFireY, BonFireZ);
-				t.processOnActivate(mc.thePlayer, mc.theWorld);
-				radiantOilFound = false;
-			}
+			
 			break;
 		case 1:
 			mc.thePlayer.addChatMessage(new ChatComponentText("WIP"));

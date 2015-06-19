@@ -1,4 +1,6 @@
-package starglas.dsremake.entity;
+package starglas.dsremake.entity.tileentity;
+
+import java.util.UUID;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -13,7 +15,7 @@ public class TileEntityBonfire extends TileEntity {
 	int BonfireLevel = 1;
 
 	public void onPlaced(EntityPlayer player){
-		owner = player.getDisplayName();
+		owner = player.getUniqueID()+"";
 		activated = 1;
 		player.addChatMessage(new ChatComponentText("This bonfire belongs to " + owner + " Level is " + this.BonfireLevel));
 	}

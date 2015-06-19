@@ -1,18 +1,12 @@
 package starglas.dsremake.common;
 
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import starglas.dsremake.block.ModBlocks;
 import starglas.dsremake.common.helpers.DSMainCreativeTabs;
 import starglas.dsremake.common.helpers.ModReference;
 import starglas.dsremake.entity.ModEntities;
-import starglas.dsremake.entity.TileEntityBloodstoneOre;
-import starglas.dsremake.entity.TileEntityBonfire;
-import starglas.dsremake.entity.TileEntitySmallChest;
-import starglas.dsremake.entity.mobs.EntityDeadsapsprout;
 import starglas.dsremake.handler.DSRemakeEventHandler;
 import starglas.dsremake.handler.GUIHandler;
 import starglas.dsremake.handler.TickEvents;
@@ -28,8 +22,6 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = ModReference.MODID, name = ModReference.NAME, version = ModReference.VERSION)
 //@NetworkMod(clientSideRequired = true, serverSideRequired = false)
@@ -43,7 +35,7 @@ public class DSMain {
 	@SidedProxy(clientSide="starglas.dsremake.client.ClientProxy", serverSide="starglas.dsremake.common.CommonProxy")
 	public static CommonProxy proxy;
 	
-	public static PacketPipeline packetpipeline = new PacketPipeline();
+	public static final PacketPipeline packetPipeline = new PacketPipeline();
 	
 	DSRemakeEventHandler handler = new DSRemakeEventHandler();
 	
@@ -56,7 +48,7 @@ public class DSMain {
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		packetpipeline.initialize();
+		packetPipeline.initialise();
 		ModItems.init();
 		ModBlocks.init();
 		DSMainCreativeTabs.RegisterTabs();
@@ -64,8 +56,7 @@ public class DSMain {
 		WorldGenClass.init();
 		ModEntities.init();
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GUIHandler());
-		MinecraftForge.EVENT_BUS.register(new DSRemakeEventHandler());
-		FMLCommonHandler.instance().bus().register(new DSRemakeEventHandler());
+		
 		FMLCommonHandler.instance().bus().register(new TickEvents());
 		proxy.registerProxies();
 		//new GUIHandler();
@@ -75,12 +66,11 @@ public class DSMain {
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event) { // Init nice and clean because of seperate classes that init in the preInit class
-		
-		
+		MinecraftForge.EVENT_BUS.register(new DSRemakeEventHandler());
 	}
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-		packetpipeline.postInitialize();
+		packetPipeline.postInitialise();
 	}
 }

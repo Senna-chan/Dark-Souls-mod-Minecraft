@@ -8,7 +8,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import starglas.dsremake.common.helpers.DSMainCreativeTabs;
 import starglas.dsremake.common.helpers.ModReference;
-import starglas.dsremake.entity.TileEntitySmallChest;
+import starglas.dsremake.entity.tileentity.TileEntitySmallChest;
 
 public class BlockSmallChest extends BlockContainer{
 

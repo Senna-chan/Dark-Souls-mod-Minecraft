@@ -1,18 +1,25 @@
 package starglas.dsremake.handler;
 
+import java.util.UUID;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
+import starglas.dsremake.common.CommonProxy;
+import starglas.dsremake.common.DSMain;
 import starglas.dsremake.common.helpers.ModReference;
+import starglas.dsremake.gui.inventory.InventoryCustomPlayer;
+import starglas.dsremake.packet.SyncPlayerPropsPacket;
 
-public class DSPlayerHandler implements IExtendedEntityProperties {
+public class ExtendedPlayer implements IExtendedEntityProperties {
 	
 	private int 	playerLevel;
 	private String 	playerClass = "";
-	private int 	playerHP;
+	private int 	playerVigor;
 	private int 	playerStamina;
 	private int 	playerStrength;
 	private int 	playerGrace;
@@ -25,24 +32,26 @@ public class DSPlayerHandler implements IExtendedEntityProperties {
 	private EntityPlayer player;
 	private int ticksExisted;
 	// Bonfire
-	private int lastBFX;
-	private int lastBFY;
-	private int lastBFZ;
+	private double lastBFX;
+	private double lastBFY;
+	private double lastBFZ;
+	public final InventoryCustomPlayer inventory = new InventoryCustomPlayer();
 	
-	public DSPlayerHandler(EntityPlayer player) {
+	public ExtendedPlayer(EntityPlayer player) {
 		this.player = player;
-		this.ticksExisted = player.ticksExisted;
-		this.playerHP = (int) player.getMaxHealth();
+		this.playerGrace = 30;
+		this.playerStrength = 14;
+		this.player.getDataWatcher().addObject(ModReference.STAMINA_WATCHER, this.playerStamina);
 	}
 
 	public static final void register(EntityPlayer player)
 	{
-		player.registerExtendedProperties(ModReference.NBTExtendedName, new DSPlayerHandler(player));
+		player.registerExtendedProperties(ModReference.NBTExtendedName, new ExtendedPlayer(player));
 	}
 	
-	public static final DSPlayerHandler get(EntityPlayer player)
+	public static final ExtendedPlayer get(EntityPlayer player)
 	{
-		return (DSPlayerHandler) player.getExtendedProperties(ModReference.NBTExtendedName);
+		return (ExtendedPlayer) player.getExtendedProperties(ModReference.NBTExtendedName);
 	}
 	
 	@Override
@@ -51,8 +60,8 @@ public class DSPlayerHandler implements IExtendedEntityProperties {
 		NBTTagCompound nbt = playerNbt.getCompoundTag(ModReference.NBTExtendedName);
 		
 		this.playerLevel 	= nbt.getInteger("level");		
-		this.playerHP	 	= nbt.getInteger("hp");
-		this.playerStamina 	= nbt.getInteger("stamina");
+		this.playerVigor 	= nbt.getInteger("vigor");
+		this.player.getDataWatcher().updateObject(ModReference.STAMINA_WATCHER, nbt.getInteger("stamina"));
 		this.playerStrength = nbt.getInteger("strength");
 		this.playerGrace 	= nbt.getInteger("grace");
 		this.playerWill		= nbt.getInteger("will");
@@ -62,13 +71,13 @@ public class DSPlayerHandler implements IExtendedEntityProperties {
 		this.playerHarmony	= nbt.getInteger("harmony");
 		this.playerClass	= nbt.getString ("class");
 		this.playerHasData	= nbt.getInteger("playerHasData");
+		this.inventory.readFromNBT(playerNbt);
 		if(nbt.getDouble("LastBonfireX") != 0 && nbt.getDouble("LastBonfireY") != 0 && nbt.getDouble("LastBonfireZ") != 0){
-			this.lastBFX		= nbt.getInteger("LastBonfireX");
-			this.lastBFY		= nbt.getInteger("LastBonfireY"); 
-			this.lastBFZ		= nbt.getInteger("LastBonfireZ");
+			this.lastBFX		= nbt.getDouble("LastBonfireX");
+			this.lastBFY		= nbt.getDouble("LastBonfireY"); 
+			this.lastBFZ		= nbt.getDouble("LastBonfireZ");
 			System.out.println("We have loaded some values");
 		}
-		System.out.println(this.playerStrength + " STR       " + this.playerGrace + " DEX");
 	}
 	
 	public int getPlayerStrength(){
@@ -76,6 +85,9 @@ public class DSPlayerHandler implements IExtendedEntityProperties {
 	}
 	public int getPlayerGrace(){
 		return this.playerGrace;
+	}
+	public String getPlayerClass(){
+		return this.playerClass;
 	}
 	
 	
@@ -88,7 +100,7 @@ public class DSPlayerHandler implements IExtendedEntityProperties {
 	public void doLevelUp(int hp, int stamina, int strength, int grace, int will, int resolve, int wrath, int serenity, int harmony){
 		this.playerLevel++;
 		if(hp != 0)
-			this.playerHP++;
+			this.playerVigor++;
 		if(stamina != 0)
 			this.playerStamina = this.playerStamina + 2;
 		if(strength != 0)
@@ -110,25 +122,25 @@ public class DSPlayerHandler implements IExtendedEntityProperties {
 	
 	public void FirstLogin() {// Already making the tag shit for easy stuff
 		if(this.playerHasData==0){
-		this.playerLevel 	= 0;
-		this.playerHP	 	= 20;
-		this.playerStamina 	= 80;
-		this.playerStrength = 0;
-		this.playerGrace 	= 0;
-		this.playerWill		= 0;
-		this.playerResolve	= 0;
-		this.playerWrath	= 0;
-		this.playerSerenity = 0;
-		this.playerHarmony	= 0;
-		this.playerClass	= "NONE";
-		this.playerHasData	= 1;
-		this.lastBFX		= 0;
-		this.lastBFY		= 0;
-		this.lastBFZ		= 0;
-		System.out.println("FirstLogin");
-
-		NBTTagCompound compound = new NBTTagCompound();
-		this.saveNBTData(compound);
+			this.playerLevel 	= 0;
+			this.playerVigor 	= 20;
+			this.playerStamina 	= 80;
+			this.playerStrength = 10;
+			this.playerGrace 	= 30;
+			this.playerWill		= 0;
+			this.playerResolve	= 0;
+			this.playerWrath	= 0;
+			this.playerSerenity = 0;
+			this.playerHarmony	= 0;
+			this.playerClass	= "NONE";
+			this.playerHasData	= 1;
+			this.lastBFX		= 0;
+			this.lastBFY		= 0;
+			this.lastBFZ		= 0;
+			System.out.println("FirstLogin");
+	
+			NBTTagCompound compound = new NBTTagCompound();
+			this.saveNBTData(compound);
 		}
 	}
 	
@@ -136,7 +148,7 @@ public class DSPlayerHandler implements IExtendedEntityProperties {
 		NBTTagCompound nbt = new NBTTagCompound();
 		
 		nbt.setInteger("level", 	0);
-		nbt.setInteger("hp", 		20);
+		nbt.setInteger("vigor",		0);
 		nbt.setInteger("stamina", 	80);
 		nbt.setInteger("strength", 	0);
 		nbt.setInteger("grace", 	0);
@@ -147,20 +159,6 @@ public class DSPlayerHandler implements IExtendedEntityProperties {
 		nbt.setInteger("harmony", 	0);
 		nbt.setString ("class",		"CLASS");
 	}
-	
-	
-//	public String getPlayerClass(){
-//		return this.playerClass;
-//	}
-//	public String getPlayerClass(){
-//		return this.playerClass;
-//	}
-//	public String getPlayerClass(){
-//		return this.playerClass;
-//	}
-//	public String getPlayerClass(){
-//		return this.playerClass;
-//	}
 
 	
 	
@@ -170,11 +168,32 @@ public class DSPlayerHandler implements IExtendedEntityProperties {
 	}
 	
 	public void saveLastVisitedBonfire(double posX, double posY, double posZ) {
-		this.lastBFX = (int)posX;
-		this.lastBFY = (int)posY;
-		this.lastBFZ = (int)posZ;
+		this.lastBFX = posX;
+		this.lastBFY = posY;
+		this.lastBFZ = posZ;
+		System.out.println("Saved Bonfire data?");
 	}
 	
+	private static UUID getSaveKey(EntityPlayer player) {
+		return player.getUniqueID();
+	}
+	
+	public static void saveProxyData(EntityPlayer player) {
+		ExtendedPlayer playerData = ExtendedPlayer.get(player);
+		NBTTagCompound savedData = new NBTTagCompound();
+
+		playerData.saveNBTData(savedData);
+		// Note that we made the CommonProxy method storeEntityData static,
+		// so now we don't need an instance of CommonProxy to use it! Great!
+		CommonProxy.storeEntityData(getSaveKey(player), savedData);
+	}
+	
+	public static final void loadProxyData(EntityPlayer player) {
+		ExtendedPlayer playerData = ExtendedPlayer.get(player);
+		NBTTagCompound savedData = CommonProxy.getEntityData(getSaveKey(player));
+		if (savedData != null) { playerData.loadNBTData(savedData); }
+		DSMain.packetPipeline.sendTo(new SyncPlayerPropsPacket(player), (EntityPlayerMP) player);
+		}
 	
 	@Override
 	public void saveNBTData(NBTTagCompound compound) {
@@ -183,8 +202,8 @@ public class DSPlayerHandler implements IExtendedEntityProperties {
 		compound.setTag(ModReference.NBTExtendedName, nbt);
 		
 		nbt.setInteger("level", 	this.playerLevel);
-		nbt.setInteger("hp", 		this.playerHP);
-		nbt.setInteger("stamina", 	this.playerStamina);
+		nbt.setInteger("vigor",		this.playerVigor);
+		nbt.setInteger("stamina", 	this.player.getDataWatcher().getWatchableObjectInt(ModReference.STAMINA_WATCHER));
 		nbt.setInteger("strength", 	this.playerStrength);
 		nbt.setInteger("grace", 	this.playerGrace);
 		nbt.setInteger("will", 		this.playerWill);
@@ -194,9 +213,10 @@ public class DSPlayerHandler implements IExtendedEntityProperties {
 		nbt.setInteger("harmony", 	this.playerHarmony);
 		nbt.setString ("class",		this.playerClass);
 		nbt.setInteger("playerHasData", this.playerHasData);
-		nbt.setInteger("LastBonfireX", this.lastBFX);
-		nbt.setInteger("LastBonfireY", this.lastBFY);
-		nbt.setInteger("LastBonfireZ", this.lastBFZ);
+		nbt.setDouble("LastBonfireX", this.lastBFX);
+		nbt.setDouble("LastBonfireY", this.lastBFY);
+		nbt.setDouble("LastBonfireZ", this.lastBFZ);
+		this.inventory.writeToNBT(compound);
 		System.out.println("SAVING");
 	}
 	

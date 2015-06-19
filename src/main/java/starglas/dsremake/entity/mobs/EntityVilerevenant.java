@@ -43,10 +43,11 @@ public class EntityVilerevenant extends EntityCreature implements IMCAnimatedEnt
 	@Override
 	public void onUpdate()
 	{
+		super.onUpdate();
 		if(!this.getAnimationHandler().isAnimationActive("Idle")) {
 	        this.getAnimationHandler().activateAnimation("Idle", 0);
 	    }
-            super.onUpdate();
+        
     }
 
 	public boolean interact(EntityPlayer player)
@@ -56,7 +57,7 @@ public class EntityVilerevenant extends EntityCreature implements IMCAnimatedEnt
         if (!this.worldObj.isRemote)
         {
             this.setCustomer(player);
-            player.displayGUIMerchant(this, this.getCustomNameTag());//(new GuiCustomMerchant(player.inventory, this, player.worldObj, this.getCustomNameTag()));
+            player.displayGUIMerchant(this, "Vile Revenant");//(new GuiCustomMerchant(player.inventory, this, player.worldObj, this.getCustomNameTag()));
         }
 
         return true;
@@ -87,24 +88,22 @@ public class EntityVilerevenant extends EntityCreature implements IMCAnimatedEnt
 	@Override
 	public MerchantRecipeList getRecipes(EntityPlayer player) {
 		return ModMerchantRecipes.getRecipes("poison");
-		//MerchantRecipeList merchantrecipelist = new MerchantRecipeList();
     }
 	
 	@Override
 	public void setRecipes(MerchantRecipeList recipeList) {
-		
+
 	}
 
 
 	@Override
 	public void useRecipe(MerchantRecipe p_70933_1_) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void func_110297_a_(ItemStack p_110297_1_) {
-		// TODO Auto-generated method stub
-		
+
 	}
 }
