@@ -1,14 +1,11 @@
 package starglas.dsremake.entity;
 
-import starglas.dsremake.client.render.RenderWoodengreatarrow;
 import starglas.dsremake.common.helpers.ModHelper;
-import starglas.dsremake.entity.arrows.EntityWoodengreatarrow;
-import starglas.dsremake.entity.mobs.EntityDeadsapsprout;
-import starglas.dsremake.entity.mobs.EntityVilerevenant;
+import starglas.dsremake.entity.mobs.creature.EntityDeadsapsprout;
+import starglas.dsremake.entity.mobs.trader.EntityVilerevenant;
 import starglas.dsremake.entity.tileentity.TileEntityBloodstoneOre;
 import starglas.dsremake.entity.tileentity.TileEntityBonfire;
 import starglas.dsremake.entity.tileentity.TileEntitySmallChest;
-import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModEntities {

@@ -24,11 +24,11 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	private int 	playerStrength;
 	private int 	playerGrace;
 	private int 	playerWill;
-	private int 	playerResolve;
+	private int		playerResolve;
 	private int 	playerWrath;
 	private int 	playerSerenity;
 	private int 	playerHarmony;
-	private int		playerHasData;
+	private boolean playerHasData;
 	private EntityPlayer player;
 	private int ticksExisted;
 	// Bonfire
@@ -71,7 +71,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 		this.playerSerenity = nbt.getInteger("serenity");
 		this.playerHarmony	= nbt.getInteger("harmony");
 		this.playerClass	= nbt.getString ("class");
-		this.playerHasData	= nbt.getInteger("playerHasData");
+		this.playerHasData	= nbt.getBoolean("playerHasData");
 		this.inventory.readFromNBT(playerNbt);
 		if(nbt.getDouble("LastBonfireX") != 0 && nbt.getDouble("LastBonfireY") != 0 && nbt.getDouble("LastBonfireZ") != 0){
 			this.lastBFX		= nbt.getDouble("LastBonfireX");
@@ -94,7 +94,13 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	public int getMagicSlots(){
 		return this.playerMagicSlots;
 	}
-	
+	public int getPlayerStamina() {
+		return this.playerStamina;
+	}
+
+	public void consumeStamina(int stamina){
+		this.playerStamina = this.playerStamina - stamina;
+	}
 	
 	@Override
 	public void init(Entity entity, World world) {
@@ -125,7 +131,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	}
 	
 	public void FirstLogin() {// Already making the tag shit for easy stuff
-		if(this.playerHasData==0){
+		if(!this.playerHasData){
 			this.playerLevel 	= 0;
 			this.playerVigor 	= 20;
 			this.playerStamina 	= 80;
@@ -137,7 +143,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 			this.playerSerenity = 0;
 			this.playerHarmony	= 0;
 			this.playerClass	= "NONE";
-			this.playerHasData	= 1;
+			this.playerHasData	= true;
 			this.lastBFX		= 0;
 			this.lastBFY		= 0;
 			this.lastBFZ		= 0;
@@ -149,7 +155,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 		}
 	}
 	
-	public void FinishedBookSetup(int SelectedClass){
+	public void FinishedBookSetup(String SelectedClass){
 		NBTTagCompound nbt = new NBTTagCompound();
 		
 		nbt.setInteger("level", 	0);
@@ -162,7 +168,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 		nbt.setInteger("wrath", 	0);
 		nbt.setInteger("serenity",	0);
 		nbt.setInteger("harmony", 	0);
-		nbt.setString ("class",		"CLASS");
+		nbt.setString ("class",		SelectedClass);
 	}
 
 	
@@ -217,7 +223,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 		nbt.setInteger("serenity",	this.playerSerenity);
 		nbt.setInteger("harmony", 	this.playerHarmony);
 		nbt.setString ("class",		this.playerClass);
-		nbt.setInteger("playerHasData", this.playerHasData);
+		nbt.setBoolean("playerHasData", this.playerHasData);
 		nbt.setDouble("LastBonfireX", this.lastBFX);
 		nbt.setDouble("LastBonfireY", this.lastBFY);
 		nbt.setDouble("LastBonfireZ", this.lastBFZ);

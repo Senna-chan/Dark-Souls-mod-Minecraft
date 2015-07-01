@@ -9,7 +9,7 @@ import org.lwjgl.opengl.GL11;
 
 import starglas.dsremake.client.models.ModelVilerevenant;
 import starglas.dsremake.common.helpers.ModReference;
-import starglas.dsremake.entity.mobs.EntityVilerevenant;
+import starglas.dsremake.entity.mobs.trader.EntityVilerevenant;
 
 public class RenderVilerevenant extends RenderLiving {
 

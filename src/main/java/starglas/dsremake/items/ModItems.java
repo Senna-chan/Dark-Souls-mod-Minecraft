@@ -12,6 +12,7 @@ import starglas.dsremake.items.fists.GyroDrill;
 import starglas.dsremake.items.greathammers.GenericGreatHammer;
 import starglas.dsremake.items.halberts.GenericHalbert;
 import starglas.dsremake.items.rings.RingofVigor;
+import starglas.dsremake.items.spells.fireball;
 import starglas.dsremake.items.swords.GenericSword;
 import starglas.dsremake.items.upgrades.BloodStone;
 import starglas.dsremake.items.upgrades.GenericUpgrade;
@@ -67,11 +68,16 @@ public class ModItems{
 	
 	// Spells
 	public static Item Spell = new starglas.dsremake.items.spells.Spell().setUnlocalizedName("Spell");
+	public static Item firespell = new fireball().setUnlocalizedName("FireBall");
 	
 	public static void init(){
+		// Spells
 		ModHelper.registerItem(Spell);
-		ModHelper.registerItem(XPDrainer);
+		ModHelper.registerItem(firespell);
+
+
 		// Items
+		ModHelper.registerItem(XPDrainer);
 		ModHelper.registerItem(HomewardBone);
 		// Heart Crystals
 		ModHelper.registerItem(MK1HeartStone);

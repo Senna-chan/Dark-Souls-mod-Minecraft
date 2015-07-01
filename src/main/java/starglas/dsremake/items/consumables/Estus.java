@@ -73,7 +73,7 @@ public class Estus extends ItemBucketMilk {
 			this.playerMaxHP = player.getMaxHealth();
 			this.playerHP = player.getHealth();
 			if (this.playerHP < this.playerMaxHP) {
-				player.setItemInUse(Items, this.getMaxDamage(Items));
+				player.setItemInUse(Items, this.getMaxItemUseDuration(Items));
 			}
 		}
 		return Items;
@@ -88,11 +88,6 @@ public class Estus extends ItemBucketMilk {
 	@Override
 	public EnumAction getItemUseAction(ItemStack p_77661_1_) {
 		return EnumAction.drink;
-	}
-
-	@Override
-	public boolean hasEffect(ItemStack par1ItemStack) { // Sets enchanting glow
-		return true;
 	}
 
 	public void refillEstus(ItemStack itemStack, int mark)

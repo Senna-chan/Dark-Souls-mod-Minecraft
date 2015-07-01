@@ -8,7 +8,7 @@ import org.lwjgl.opengl.GL11;
 
 import starglas.dsremake.client.models.ModelWoodengreatarrow;
 import starglas.dsremake.common.helpers.ModReference;
-import starglas.dsremake.entity.arrows.EntityWoodengreatarrow;
+import starglas.dsremake.entity.projectiles.arrows.EntityWoodengreatarrow;
 
 public class RenderWoodengreatarrow extends Render {
 

@@ -13,7 +13,7 @@ import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
 import starglas.dsremake.common.helpers.DSMainCreativeTabs;
 import starglas.dsremake.common.helpers.ModHelper;
-import starglas.dsremake.entity.arrows.EntityWoodengreatarrow;
+import starglas.dsremake.entity.projectiles.arrows.EntityWoodengreatarrow;
 import starglas.dsremake.items.arrows.DSArrow;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

@@ -1,14 +1,22 @@
 package starglas.dsremake.handler;
 
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import starglas.dsremake.common.DSMain;
+import starglas.dsremake.common.helpers.ModHelper;
 import starglas.dsremake.common.helpers.ModReference;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import starglas.dsremake.entity.mobs.trader.DSTrader;
+
+import java.util.List;
 
 public class DSRemakeEventHandler{
 	public static int 		playerLevel;
@@ -23,17 +31,6 @@ public class DSRemakeEventHandler{
 	public static int 		playerSerenity;
 	public static int	 	playerHarmony;
 
-	/*@SubscribeEvent
-	public void OnPlayerLogedIn(PlayerEvent.PlayerLoggedInEvent event){
-		if (event.player instanceof EntityPlayer && DSPlayerHandler.get((EntityPlayer) event.player) == null){
-			System.out.println("OnPlayerLogedIn");
-			DSPlayerHandler.register((EntityPlayer) event.player);
-			DSPlayerHandler handler = new DSPlayerHandler(event.player);
-			NBTTagCompound nbt = new NBTTagCompound();
-			handler.loadNBTData(nbt);
-			handler.FirstLogin();
-		}
-	}*/
 	@SubscribeEvent
 	public void OnPlayerConstruct(EntityEvent.EntityConstructing event){
 		
@@ -80,8 +77,23 @@ public class DSRemakeEventHandler{
 				// then load the data back into the player's IExtendedEntityProperties
 				((ExtendedPlayer)(event.entity.getExtendedProperties(ModReference.NBTExtendedName))).loadNBTData(playerData);
 			}
-			// finally, we sync the data between server and client (we did this earlier in 3.3)
-			//((ExtendedPlayer)(event.entity.getExtendedProperties(ModReference.NBTExtendedName))).syncExtendedProperties();
+		}
+	}
+	@SubscribeEvent
+	public void onPlayerTick(LivingEvent.LivingUpdateEvent event){
+		if(event.entity instanceof EntityPlayer){
+			Entity player = event.entity;
+			if (ExtendedPlayer.get((EntityPlayer) player) != null){
+				List foundPlayers = player.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(player.posX - 5, player.posY - 1, player.posZ - 5, player.posX + 5, player.posY + 5, player.posZ + 5));
+				for(int i=0; i < foundPlayers.size();i++) {
+					Object currentElement = foundPlayers.get(i);
+					if(currentElement instanceof EntityLivingBase && currentElement != player && !(currentElement instanceof DSTrader)){
+						ModHelper.displayChat((EntityPlayer)player, foundPlayers.get(i).getClass() + "");
+					}
+
+				}
+
+			}
 		}
 	}
 }

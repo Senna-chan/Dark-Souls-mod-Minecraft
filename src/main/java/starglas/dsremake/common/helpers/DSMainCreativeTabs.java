@@ -18,7 +18,7 @@ public class DSMainCreativeTabs
 	public static CreativeTabs tabDSBlocks = new CreativeTabs("tabDSBlocks"){
 		@Override
 		public Item getTabIconItem(){
-			return Item.getItemFromBlock(ModBlocks.blockBonfire);
+			return Item.getItemFromBlock(ModBlocks.bonfire);
 		}
 	};
 	public static CreativeTabs tabDSSwords = new CreativeTabs("tabDSSwords"){
@@ -56,6 +56,12 @@ public class DSMainCreativeTabs
 		@Override
 		public Item getTabIconItem(){
 			return Items.bow;
+		}
+	};
+	public static CreativeTabs tabDSSpells = new CreativeTabs("tabDSSpells"){
+		@Override
+		public Item getTabIconItem(){
+			return Items.paper;
 		}
 	};
 	public static void RegisterTabs(){

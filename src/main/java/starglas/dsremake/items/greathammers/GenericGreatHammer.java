@@ -87,7 +87,7 @@ public class GenericGreatHammer extends Item
      */
     public EnumAction getItemUseAction(ItemStack par1ItemStack)
     {
-        return EnumAction.block;
+        return EnumAction.none;
     }
 
     /**

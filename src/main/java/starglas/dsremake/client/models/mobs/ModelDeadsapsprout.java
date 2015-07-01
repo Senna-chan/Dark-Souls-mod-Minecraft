@@ -9,7 +9,7 @@ import starglas.dsremake.common.MCACommonLibrary.MCAVersionChecker;
 import starglas.dsremake.common.MCACommonLibrary.animation.AnimationHandler;
 import starglas.dsremake.common.MCACommonLibrary.math.Matrix4f;
 import starglas.dsremake.common.MCACommonLibrary.math.Quaternion;
-import starglas.dsremake.entity.mobs.EntityDeadsapsprout;
+import starglas.dsremake.entity.mobs.creature.EntityDeadsapsprout;
 
 public class ModelDeadsapsprout extends ModelBase {
 public final int MCA_MIN_REQUESTED_VERSION = 5;

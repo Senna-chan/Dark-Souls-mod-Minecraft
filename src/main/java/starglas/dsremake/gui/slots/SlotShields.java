@@ -44,10 +44,5 @@ public class SlotShields extends Slot
 		return itemstack.getItem() instanceof DSSpells;
 
 	}
-	@SideOnly(Side.CLIENT)
-	public IIcon getBackgroundIconIndex()
-	{
-		return DSSpells.getBackgroundIcon();
-	}
 
 }

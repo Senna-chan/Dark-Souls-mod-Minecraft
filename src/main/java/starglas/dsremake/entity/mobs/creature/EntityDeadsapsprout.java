@@ -1,26 +1,21 @@
-package starglas.dsremake.entity.mobs;
+package starglas.dsremake.entity.mobs.creature;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityCreature;
-import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAvoidEntity;
 import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAITempt;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.village.MerchantRecipe;
-import net.minecraft.village.MerchantRecipeList;
+import net.minecraft.potion.Potion;
 import net.minecraft.world.World;
 import starglas.dsremake.common.MCACommonLibrary.IMCAnimatedEntity;
 import starglas.dsremake.common.MCACommonLibrary.animation.AnimationHandler;
 import starglas.dsremake.common.animations.Deadsapsprout.AnimationHandlerDeadsapsprout;
 import starglas.dsremake.common.helpers.ModHelper;
 import starglas.dsremake.entity.ai.EntityAIFleePlayer;
+import starglas.dsremake.entity.ai.EntityAIRadiusInteractions;
 import starglas.dsremake.items.ModItems;
 
 public class EntityDeadsapsprout extends EntityCreature implements IMCAnimatedEntity {
@@ -32,8 +27,10 @@ public class EntityDeadsapsprout extends EntityCreature implements IMCAnimatedEn
 		super(par1World);
 		this.getNavigator().setAvoidsWater(true);
 		this.tasks.addTask(1, new EntityAISwimming(this));
-		this.tasks.addTask(2, this.aiFleePlayer = new EntityAIFleePlayer(this, EntityPlayer.class, 16.0F, 0.8D, 1.66D));
-		this.tasks.addTask(3, new EntityAIWander(this, 0.8D));
+		this.tasks.addTask(2, new EntityAIRadiusInteractions(this, Potion.poison.id, 80, 0, 5));
+		this.tasks.addTask(3, this.aiFleePlayer = new EntityAIFleePlayer(this, EntityPlayer.class, 16.0F, 0.8D, 1.66D));
+		this.tasks.addTask(4, new EntityAIWander(this, 0.8D));
+
 	}
 	
 	 public boolean canBePushed()

@@ -1,6 +1,5 @@
 package starglas.dsremake.client.render.mob;
 
-import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -10,7 +9,7 @@ import org.lwjgl.opengl.GL11;
 
 import starglas.dsremake.client.models.mobs.ModelDeadsapsprout;
 import starglas.dsremake.common.helpers.ModReference;
-import starglas.dsremake.entity.mobs.EntityDeadsapsprout;
+import starglas.dsremake.entity.mobs.creature.EntityDeadsapsprout;
 
 public class RenderDeadsapsprout extends RenderLiving {
 

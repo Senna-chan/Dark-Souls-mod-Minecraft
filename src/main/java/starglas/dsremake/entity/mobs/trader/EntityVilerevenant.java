@@ -1,4 +1,4 @@
-package starglas.dsremake.entity.mobs;
+package starglas.dsremake.entity.mobs.trader;
 
 import starglas.dsremake.client.gui.GuiCustomMerchant;
 import starglas.dsremake.common.MCACommonLibrary.IMCAnimatedEntity;
@@ -19,7 +19,7 @@ import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
-public class EntityVilerevenant extends EntityCreature implements IMCAnimatedEntity, IMerchant, INpc {
+public class EntityVilerevenant extends DSTrader implements IMCAnimatedEntity, IMerchant, INpc {
 	protected AnimationHandler animHandler = new AnimationHandlerVilerevenant(this);
 	private EntityPlayer buyingPlayer;
 	private MerchantRecipeList buyingList;

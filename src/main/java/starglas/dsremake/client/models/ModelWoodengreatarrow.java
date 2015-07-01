@@ -4,13 +4,11 @@ import java.util.HashMap;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.Entity;
-
 import starglas.dsremake.client.MCAClientLibrary.MCAModelRenderer;
 import starglas.dsremake.common.MCACommonLibrary.MCAVersionChecker;
-import starglas.dsremake.common.MCACommonLibrary.animation.AnimationHandler;
 import starglas.dsremake.common.MCACommonLibrary.math.Matrix4f;
 import starglas.dsremake.common.MCACommonLibrary.math.Quaternion;
-import starglas.dsremake.entity.arrows.EntityWoodengreatarrow;
+import starglas.dsremake.entity.projectiles.arrows.EntityWoodengreatarrow;
 
 public class ModelWoodengreatarrow extends ModelBase {
 public final int MCA_MIN_REQUESTED_VERSION = 5;
