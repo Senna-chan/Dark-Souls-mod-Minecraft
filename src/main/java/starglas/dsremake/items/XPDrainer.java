@@ -21,7 +21,7 @@ public class XPDrainer extends Item{
 	public ItemStack onItemRightClick(ItemStack Items, World world, EntityPlayer player) {
 		if(player.experienceTotal > 50){
 			if(player.inventory.getFirstEmptyStack() != -1){
-				player.experienceTotal = player.experienceTotal - 50;
+				ModHelper.displayChat(player, "Experience: "+ player.experience + "ExperieceTotal: " + player.experienceTotal);
 				player.inventory.addItemStackToInventory(new ItemStack(ModItems.MK1VitaCrystal,1));
 			}
 		}
