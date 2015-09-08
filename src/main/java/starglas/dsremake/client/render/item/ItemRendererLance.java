@@ -6,19 +6,17 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
-
 import org.lwjgl.opengl.GL11;
-
-import starglas.dsremake.common.helpers.ModReference;
+import starglas.dsremake.common.helpers.ModVars;
 
 public class ItemRendererLance implements IItemRenderer {
 	IModelCustom model;
-	ResourceLocation texture = new ResourceLocation(ModReference.MODID,
+	ResourceLocation texture = new ResourceLocation(ModVars.MODID,
 			"textures/items/testtexture.png");
 
 	public ItemRendererLance(){
 		this.model = AdvancedModelLoader.loadModel(new ResourceLocation(
-				ModReference.MODID, "obj/lance.obj"));
+				ModVars.MODID, "obj/lance.obj"));
 	}
 
 	@Override
@@ -35,7 +33,6 @@ public class ItemRendererLance implements IItemRenderer {
 	@Override
 	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item,
 			ItemRendererHelper helper) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	@Override

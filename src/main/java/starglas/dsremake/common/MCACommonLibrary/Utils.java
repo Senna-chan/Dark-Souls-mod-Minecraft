@@ -1,12 +1,12 @@
 package starglas.dsremake.common.MCACommonLibrary;
 
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
-
 import starglas.dsremake.common.MCACommonLibrary.math.Matrix4f;
 import starglas.dsremake.common.MCACommonLibrary.math.Quaternion;
 import starglas.dsremake.common.MCACommonLibrary.math.Vector3f;
+
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.FloatBuffer;
 
 public class Utils {
 	/**

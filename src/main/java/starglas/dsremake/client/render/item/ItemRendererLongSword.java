@@ -5,11 +5,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
-
 import org.lwjgl.opengl.GL11;
-
 import starglas.dsremake.client.models.items.LongswordModel;
-import starglas.dsremake.common.helpers.ModReference;
+import starglas.dsremake.common.helpers.ModVars;
 
 public class ItemRendererLongSword implements IItemRenderer {
 
@@ -43,7 +41,7 @@ public class ItemRendererLongSword implements IItemRenderer {
 		case EQUIPPED_FIRST_PERSON:
 			GL11.glPushMatrix();
 			
-				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ModReference.MODID,"textures/items/longsword.png"));
+				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ModVars.MODID,"textures/items/longsword.png"));
 				
 				GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
 				GL11.glRotatef(100.0F, 0.0F, 1.0F, 0.0F);

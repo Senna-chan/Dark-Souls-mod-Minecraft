@@ -1,7 +1,9 @@
 package starglas.dsremake.common.animations.Vilerevenant;
 
-import starglas.dsremake.common.MCACommonLibrary.animation.*;
-import starglas.dsremake.common.MCACommonLibrary.math.*;
+import starglas.dsremake.common.MCACommonLibrary.animation.Channel;
+import starglas.dsremake.common.MCACommonLibrary.animation.KeyFrame;
+import starglas.dsremake.common.MCACommonLibrary.math.Quaternion;
+import starglas.dsremake.common.MCACommonLibrary.math.Vector3f;
 
 public class ChannelIdle extends Channel {
 	public ChannelIdle(String _name, float _fps, int _totalFrames, byte _mode) {

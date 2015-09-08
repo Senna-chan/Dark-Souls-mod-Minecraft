@@ -1,9 +1,9 @@
 package starglas.dsremake.common.helpers;
 
-import starglas.dsremake.items.ModItems;
 import net.minecraft.item.ItemStack;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
+import starglas.dsremake.items.ModItems;
 
 public class ModMerchantRecipes {
 	public static MerchantRecipeList getRecipes(String type){

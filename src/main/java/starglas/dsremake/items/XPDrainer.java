@@ -6,7 +6,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import starglas.dsremake.common.helpers.DSMainCreativeTabs;
-import starglas.dsremake.common.helpers.ModHelper;
 
 public class XPDrainer extends Item{
 	public XPDrainer(){
@@ -21,7 +20,7 @@ public class XPDrainer extends Item{
 	public ItemStack onItemRightClick(ItemStack Items, World world, EntityPlayer player) {
 		if(player.experienceTotal > 50){
 			if(player.inventory.getFirstEmptyStack() != -1){
-				ModHelper.displayChat(player, "Experience: "+ player.experience + "ExperieceTotal: " + player.experienceTotal);
+				player.experienceTotal = player.experienceTotal - 50;
 				player.inventory.addItemStackToInventory(new ItemStack(ModItems.MK1VitaCrystal,1));
 			}
 		}

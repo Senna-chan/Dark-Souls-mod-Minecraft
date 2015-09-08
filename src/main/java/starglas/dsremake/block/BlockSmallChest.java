@@ -2,12 +2,10 @@ package starglas.dsremake.block;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import starglas.dsremake.common.helpers.DSMainCreativeTabs;
-import starglas.dsremake.common.helpers.ModReference;
+import starglas.dsremake.common.helpers.ModVars;
 import starglas.dsremake.entity.tileentity.TileEntitySmallChest;
 
 public class BlockSmallChest extends BlockContainer{
@@ -18,7 +16,7 @@ public class BlockSmallChest extends BlockContainer{
 		this.setCreativeTab(DSMainCreativeTabs.tabDSBlocks);
 		this.setHardness(0.5F);
 		this.setBlockBounds(0F, 0F, 0F, 2F, 1F, 1F);
-		this.setBlockTextureName(ModReference.MODID + ":smallchest");
+		this.setBlockTextureName(ModVars.MODID + ":smallchest");
 	}
 
 	@Override

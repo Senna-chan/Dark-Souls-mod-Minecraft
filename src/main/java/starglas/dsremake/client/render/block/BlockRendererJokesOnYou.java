@@ -5,20 +5,18 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
-
 import org.lwjgl.opengl.GL11;
-
-import starglas.dsremake.common.helpers.ModReference;
+import starglas.dsremake.common.helpers.ModVars;
 
 public class BlockRendererJokesOnYou extends TileEntitySpecialRenderer{
 	
 	IModelCustom model;
-	ResourceLocation texture = new ResourceLocation(ModReference.MODID,
+	ResourceLocation texture = new ResourceLocation(ModVars.MODID,
 			"textures/items/testtexture.png");
 
 	public BlockRendererJokesOnYou(){
 		this.model = AdvancedModelLoader.loadModel(new ResourceLocation(
-				ModReference.MODID, "obj/DADDY.obj"));
+				ModVars.MODID, "obj/DADDY.obj"));
 	}
 	public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f) {
 		

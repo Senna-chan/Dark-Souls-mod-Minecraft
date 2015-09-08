@@ -4,11 +4,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
-
 import org.lwjgl.opengl.GL11;
-
 import starglas.dsremake.client.models.blocks.bloodstoneore;
-import starglas.dsremake.common.helpers.ModReference;
+import starglas.dsremake.common.helpers.ModVars;
 
 public class ItemRendererBloodStoneOre implements IItemRenderer {
 
@@ -31,7 +29,7 @@ public class ItemRendererBloodStoneOre implements IItemRenderer {
 	@Override
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
 		GL11.glPushMatrix();
-			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ModReference.MODID,"textures/blocks/bloodstoneoretexture.png"));
+			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ModVars.MODID,"textures/blocks/bloodstoneoretexture.png"));
 			if(type==ItemRenderType.EQUIPPED){
 				GL11.glTranslatef(0.5F, 0.5F, 0.5F);
 			}

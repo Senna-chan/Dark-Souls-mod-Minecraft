@@ -4,16 +4,14 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
-
-import starglas.dsremake.client.models.ModelVilerevenant;
-import starglas.dsremake.common.helpers.ModReference;
+import starglas.dsremake.client.models.mobs.ModelVilerevenant;
+import starglas.dsremake.common.helpers.ModVars;
 import starglas.dsremake.entity.mobs.trader.EntityVilerevenant;
 
 public class RenderVilerevenant extends RenderLiving {
 
-	public static final ResourceLocation Vilerevenant_texture = new ResourceLocation(ModReference.MODID, "textures/mobs/vilerevenanttexture.png");
+	public static final ResourceLocation Vilerevenant_texture = new ResourceLocation(ModVars.MODID, "textures/mobs/vilerevenanttexture.png");
 	public static ModelVilerevenant modelVilerevenant = new ModelVilerevenant();	
 	public static float modelHeight = 2F;
 	

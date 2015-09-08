@@ -4,16 +4,14 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
-
 import starglas.dsremake.client.models.mobs.ModelDeadsapsprout;
-import starglas.dsremake.common.helpers.ModReference;
+import starglas.dsremake.common.helpers.ModVars;
 import starglas.dsremake.entity.mobs.creature.EntityDeadsapsprout;
 
 public class RenderDeadsapsprout extends RenderLiving {
 
-	public static final ResourceLocation Deadsapsprout_texture = new ResourceLocation(ModReference.MODID, "textures/mobs/deadsapsprout.png");
+	public static final ResourceLocation Deadsapsprout_texture = new ResourceLocation(ModVars.MODID, "textures/mobs/deadsapsprout.png");
 	public static ModelDeadsapsprout modelDeadsapsprout = new ModelDeadsapsprout();	
 	public static float modelHeight = 4F;
 	

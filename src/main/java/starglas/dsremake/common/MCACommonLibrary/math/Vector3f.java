@@ -1,5 +1,5 @@
-package starglas.dsremake.common.MCACommonLibrary.math; 
-import java.io.IOException;
+package starglas.dsremake.common.MCACommonLibrary.math;
+
 import java.util.logging.Logger;
 
 /**
@@ -813,10 +813,9 @@ public final class Vector3f implements Cloneable, java.io.Serializable {
       if (Float.isNaN(vector.x) ||
           Float.isNaN(vector.y) ||
           Float.isNaN(vector.z)) return false;
-      if (Float.isInfinite(vector.x) ||
-          Float.isInfinite(vector.y) ||
-          Float.isInfinite(vector.z)) return false;
-      return true;
+        return !(Float.isInfinite(vector.x) ||
+                Float.isInfinite(vector.y) ||
+                Float.isInfinite(vector.z));
     }
 
     public static void generateOrthonormalBasis(Vector3f u, Vector3f v, Vector3f w) {
@@ -892,8 +891,7 @@ public final class Vector3f implements Cloneable, java.io.Serializable {
         Vector3f comp = (Vector3f) o;
         if (Float.compare(x,comp.x) != 0) return false;
         if (Float.compare(y,comp.y) != 0) return false;
-        if (Float.compare(z,comp.z) != 0) return false;
-        return true;
+        return Float.compare(z, comp.z) == 0;
     }
 
     /**

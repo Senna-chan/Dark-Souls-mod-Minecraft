@@ -1,7 +1,5 @@
 package starglas.dsremake.client.models.mobs;
 
-import java.util.HashMap;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.Entity;
 import starglas.dsremake.client.MCAClientLibrary.MCAModelRenderer;
@@ -10,6 +8,8 @@ import starglas.dsremake.common.MCACommonLibrary.animation.AnimationHandler;
 import starglas.dsremake.common.MCACommonLibrary.math.Matrix4f;
 import starglas.dsremake.common.MCACommonLibrary.math.Quaternion;
 import starglas.dsremake.entity.mobs.creature.EntityDeadsapsprout;
+
+import java.util.HashMap;
 
 public class ModelDeadsapsprout extends ModelBase {
 public final int MCA_MIN_REQUESTED_VERSION = 5;

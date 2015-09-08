@@ -1,21 +1,18 @@
 package starglas.dsremake.gui.inventory;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
-import starglas.dsremake.common.*;
-import starglas.dsremake.common.helpers.ModReference;
-import starglas.dsremake.gui.container.ContainerCustomPlayer;
-
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
+import starglas.dsremake.common.helpers.ModVars;
+import starglas.dsremake.gui.container.ContainerCustomPlayer;
+import starglas.dsremake.handler.InventoryCustomPlayer;
 
 public class GuiCustomPlayerInventory extends GuiContainer
 
@@ -88,16 +85,14 @@ public class GuiCustomPlayerInventory extends GuiContainer
 			int par3)
 	{
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.MODID, "gui/inventory.png"));
+		mc.getTextureManager().bindTexture(new ResourceLocation(ModVars.MODID, "gui/inventory.png"));
 		int k = (this.width - this.xSize) / 2;
 		int l = (this.height - this.ySize) / 2;
 		this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
-		int i1;
 		drawPlayerModel(k + 51, l + 75, 30, (float) (k + 51) - this.xSize_lo, (float) (l + 75 - 50) - this.ySize_lo, this.mc.thePlayer);
 	}
 
 	/**
-	 * 
 	 * Copied straight out of vanilla - renders the player model on screen
 	 */
 

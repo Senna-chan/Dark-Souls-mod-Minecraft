@@ -1,12 +1,10 @@
 package starglas.dsremake.items.consumables;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import starglas.dsremake.common.helpers.DSMainCreativeTabs;
-import starglas.dsremake.common.helpers.ModHelper;
 import starglas.dsremake.handler.ExtendedPlayer;
 
 public class HomewardBone extends Item{
@@ -15,7 +13,7 @@ public class HomewardBone extends Item{
 	public HomewardBone(){
 		super();
 		this.setCreativeTab(DSMainCreativeTabs.tabDSConsume);
-		this.setMaxStackSize(64);
+		this.setMaxStackSize(1);
 		this.setTextureName("minecraft:bone");
 	}
 	
@@ -29,13 +27,5 @@ public class HomewardBone extends Item{
         }
 		return Items;
 	}
-	@Override
-	public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
-    	if (entity instanceof EntityPlayer)
-        {
-            EntityPlayer player = (EntityPlayer) entity;
-            //ModHelper.displayChat(player, player.posX + " X, " + player.posY + " Y, " + player.posZ + " Z");
-        }
-    }
 	
 }

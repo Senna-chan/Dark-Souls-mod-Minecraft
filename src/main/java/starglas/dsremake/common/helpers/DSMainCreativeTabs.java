@@ -1,7 +1,7 @@
 package starglas.dsremake.common.helpers;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import starglas.dsremake.block.ModBlocks;
@@ -62,6 +62,12 @@ public class DSMainCreativeTabs
 		@Override
 		public Item getTabIconItem(){
 			return Items.paper;
+		}
+	};
+	public static CreativeTabs tabDSFluids = new CreativeTabs("tabDSFluids"){
+		@Override
+		public Item getTabIconItem(){
+			return Item.getItemFromBlock(Blocks.water);
 		}
 	};
 	public static void RegisterTabs(){

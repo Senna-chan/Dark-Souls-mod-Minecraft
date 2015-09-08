@@ -1,12 +1,5 @@
 package starglas.dsremake.entity.mobs.trader;
 
-import starglas.dsremake.client.gui.GuiCustomMerchant;
-import starglas.dsremake.common.MCACommonLibrary.IMCAnimatedEntity;
-import starglas.dsremake.common.MCACommonLibrary.animation.AnimationHandler;
-import starglas.dsremake.common.animations.Vilerevenant.AnimationHandlerVilerevenant;
-import starglas.dsremake.common.helpers.ModMerchantRecipes;
-import starglas.dsremake.items.ModItems;
-import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.INpc;
 import net.minecraft.entity.ai.EntityAISwimming;
@@ -18,11 +11,14 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
+import starglas.dsremake.common.MCACommonLibrary.IMCAnimatedEntity;
+import starglas.dsremake.common.MCACommonLibrary.animation.AnimationHandler;
+import starglas.dsremake.common.animations.Vilerevenant.AnimationHandlerVilerevenant;
+import starglas.dsremake.common.helpers.ModMerchantRecipes;
 
 public class EntityVilerevenant extends DSTrader implements IMCAnimatedEntity, IMerchant, INpc {
 	protected AnimationHandler animHandler = new AnimationHandlerVilerevenant(this);
 	private EntityPlayer buyingPlayer;
-	private MerchantRecipeList buyingList;
 	public EntityVilerevenant(World par1World) {
 		super(par1World);
 		this.getNavigator().setAvoidsWater(true);
@@ -57,7 +53,7 @@ public class EntityVilerevenant extends DSTrader implements IMCAnimatedEntity, I
         if (!this.worldObj.isRemote)
         {
             this.setCustomer(player);
-            player.displayGUIMerchant(this, "Vile Revenant");//(new GuiCustomMerchant(player.inventory, this, player.worldObj, this.getCustomNameTag()));
+            player.displayGUIMerchant(this, "Vile Revenant");
         }
 
         return true;
@@ -98,7 +94,6 @@ public class EntityVilerevenant extends DSTrader implements IMCAnimatedEntity, I
 
 	@Override
 	public void useRecipe(MerchantRecipe p_70933_1_) {
-		// TODO Auto-generated method stub
 
 	}
 

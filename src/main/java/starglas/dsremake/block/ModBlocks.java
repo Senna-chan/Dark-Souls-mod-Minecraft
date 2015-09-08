@@ -13,6 +13,8 @@ public class ModBlocks{
 	public static Block vilebarkBlock = new TempleBlock("vilebarkblock").setBlockName("vilebarkBlock");
 	public static Block taintBlock = new TempleBlock("taintblock").setBlockName("taintBlock");
 	public static Block ashBlock = new TempleBlock("ashblock").setBlockName("ashblock");
+
+
 	public static void init(){
 
 		ModHelper.registerBlock(desertBlock);

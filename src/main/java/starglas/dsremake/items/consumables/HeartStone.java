@@ -1,5 +1,7 @@
 package starglas.dsremake.items.consumables;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
@@ -8,9 +10,8 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import starglas.dsremake.common.helpers.DSMainCreativeTabs;
-import starglas.dsremake.common.helpers.ModReference;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import starglas.dsremake.common.helpers.ModVars;
+import starglas.dsremake.handler.ExtendedPlayer;
 
 public class HeartStone extends Item {
 	private int mark;
@@ -18,12 +19,14 @@ public class HeartStone extends Item {
 	public HeartStone(String texture, int mark){
 		super();
 		this.setCreativeTab(DSMainCreativeTabs.tabDSConsume);
-		this.setTextureName(ModReference.MODID + "testtexture");
+		this.setTextureName(ModVars.MODID + "testtexture");
 		this.mark = mark;
 	}
 	
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer player)
     {
+		ExtendedPlayer props = ExtendedPlayer.get(player);
+		props.allowedRegeneration=true;
 		if (!player.capabilities.isCreativeMode)
         {
             --par1ItemStack.stackSize;
@@ -60,9 +63,6 @@ public class HeartStone extends Item {
 	
 	@Override
 	public boolean hasEffect(ItemStack par1ItemStack){ // Sets enchanting glow
-		if(this.mark == 3)
-			return true;
-		else
-			return false;
+		return this.mark == 3;
 	}
 }

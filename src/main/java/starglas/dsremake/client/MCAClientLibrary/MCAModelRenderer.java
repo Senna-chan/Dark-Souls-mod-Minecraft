@@ -1,24 +1,17 @@
 package starglas.dsremake.client.MCAClientLibrary;
 
-import java.nio.FloatBuffer;
-import java.util.ArrayList;
-
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelBox;
+import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GLAllocation;
+import net.minecraft.client.renderer.Tessellator;
 import org.lwjgl.opengl.GL11;
-
 import starglas.dsremake.common.MCACommonLibrary.Utils;
 import starglas.dsremake.common.MCACommonLibrary.math.Matrix4f;
 import starglas.dsremake.common.MCACommonLibrary.math.Quaternion;
 import starglas.dsremake.common.MCACommonLibrary.math.Vector3f;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelBox;
-import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.client.model.TextureOffset;
-import net.minecraft.client.renderer.GLAllocation;
-import net.minecraft.client.renderer.Tessellator;
+import java.nio.FloatBuffer;
 
 public class MCAModelRenderer extends ModelRenderer
 {

@@ -1,10 +1,9 @@
 package starglas.dsremake.common.MCACommonLibrary.animation;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import starglas.dsremake.common.MCACommonLibrary.math.Quaternion;
 import starglas.dsremake.common.MCACommonLibrary.math.Vector3f;
+
+import java.util.HashMap;
 
 public class KeyFrame {
 	public HashMap<String, Quaternion> modelRenderersRotations = new HashMap<String, Quaternion>();

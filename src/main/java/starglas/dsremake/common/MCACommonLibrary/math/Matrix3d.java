@@ -1,7 +1,5 @@
 package starglas.dsremake.common.MCACommonLibrary.math;
 
-import java.lang.Math;
-
 /**
  * A double precision floating point 3 by 3 matrix.
  * Primarily to support 3D rotations.
@@ -1866,9 +1864,8 @@ public class Matrix3d implements java.io.Serializable, Cloneable {
 		if((diff<0?-diff:diff) > epsilon) return false;
 
 		diff = m22 - m1.m22;
-		if((diff<0?-diff:diff) > epsilon) return false;
+		return (diff < 0 ? -diff : diff) <= epsilon;
 
-		return true;
 	}
 
 
@@ -2625,10 +2622,7 @@ public class Matrix3d implements java.io.Serializable, Cloneable {
 		ha = Math.abs(h);
 
 		pmax = 1;
-		if( ha > fa)
-			swap = true;
-		else
-			swap = false;
+		swap = ha > fa;
 
 		if (swap) {
 			pmax = 3;
@@ -2943,10 +2937,8 @@ public class Matrix3d implements java.io.Serializable, Cloneable {
 		if (diff < EPSILON_ABSOLUTE)
 			return true;
 
-		if ((diff / max) < EPSILON_RELATIVE)
-			return true;
+		return (diff / max) < EPSILON_RELATIVE;
 
-		return false;
 	}
 
 	/**

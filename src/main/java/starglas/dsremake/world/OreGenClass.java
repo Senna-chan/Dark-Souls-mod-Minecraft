@@ -1,14 +1,14 @@
 package starglas.dsremake.world;
 
-import java.util.Random;
-
-import starglas.dsremake.block.ModBlocks;
+import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
-import cpw.mods.fml.common.IWorldGenerator;
+import starglas.dsremake.block.ModBlocks;
+
+import java.util.Random;
 
 public class OreGenClass implements IWorldGenerator {
 

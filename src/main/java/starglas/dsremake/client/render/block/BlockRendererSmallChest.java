@@ -3,15 +3,13 @@ package starglas.dsremake.client.render.block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
-
 import starglas.dsremake.client.models.blocks.smallchest_OLD;
-import starglas.dsremake.common.helpers.ModReference;
+import starglas.dsremake.common.helpers.ModVars;
 
 public class BlockRendererSmallChest extends TileEntitySpecialRenderer{
 	
-	private static final ResourceLocation texture = new ResourceLocation(ModReference.MODID, "textures/blocks/Mimicchestfinal.png");
+	private static final ResourceLocation texture = new ResourceLocation(ModVars.MODID, "textures/blocks/Mimicchestfinal.png");
 	
 	public smallchest_OLD model;
 

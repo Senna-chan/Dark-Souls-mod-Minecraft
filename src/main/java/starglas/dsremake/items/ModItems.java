@@ -4,6 +4,7 @@ import net.minecraft.item.Item;
 import starglas.dsremake.common.helpers.ModHelper;
 import starglas.dsremake.items.arrows.WoodenGreatArrow;
 import starglas.dsremake.items.bows.VileBarkGreatbow;
+import starglas.dsremake.items.catalyst.FireHand;
 import starglas.dsremake.items.consumables.Estus;
 import starglas.dsremake.items.consumables.HeartStone;
 import starglas.dsremake.items.consumables.HomewardBone;
@@ -17,8 +18,10 @@ import starglas.dsremake.items.swords.GenericSword;
 import starglas.dsremake.items.upgrades.BloodStone;
 import starglas.dsremake.items.upgrades.GenericUpgrade;
 
-public class ModItems{
+public class ModItems extends Item{
 	public static Item XPDrainer = new XPDrainer().setUnlocalizedName("XPDrainer");
+	public static Item theBook = new TheBook().setUnlocalizedName("TheBook");
+	public static Item testItem = new TestItem().setUnlocalizedName("TestItem");
 	public static Item MK1HeartStone = new HeartStone(":MK1Heart",1).setUnlocalizedName("MK1HeartStone");
 	public static Item MK2HeartStone = new HeartStone(":MK2Heart",2).setUnlocalizedName("MK2HeartStone");
 	public static Item MK3HeartStone = new HeartStone(":MK3Heart",3).setUnlocalizedName("MK3HeartStone");
@@ -68,12 +71,24 @@ public class ModItems{
 	
 	// Spells
 	public static Item Spell = new starglas.dsremake.items.spells.Spell().setUnlocalizedName("Spell");
-	public static Item firespell = new fireball().setUnlocalizedName("FireBall");
+	public static Item Firespell = new fireball().setUnlocalizedName("FireBall");
+
+	// Catalysts
+	public static Item FireHand = new FireHand().setUnlocalizedName("FireHand");
+
+	// Debug Items
+	public static Item ElementChanger = new Changer(1).setUnlocalizedName("Element");
+	public static Item ClassChanger = new Changer(2).setUnlocalizedName("ClassChanger");
 	
 	public static void init(){
+		ModHelper.registerItem(ElementChanger);
+		ModHelper.registerItem(theBook);
+		ModHelper.registerItem(testItem);
+		ModHelper.registerItem(ClassChanger);
+
 		// Spells
 		ModHelper.registerItem(Spell);
-		ModHelper.registerItem(firespell);
+		ModHelper.registerItem(Firespell);
 
 
 		// Items
@@ -135,5 +150,8 @@ public class ModItems{
 		
 		// Fist weapons
 		ModHelper.registerItem(GyroDrill);
+
+		// Catalysts
+		ModHelper.registerItem(FireHand);
 	}
 }

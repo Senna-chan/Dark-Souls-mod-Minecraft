@@ -1,20 +1,18 @@
 package starglas.dsremake.common.MCACommonLibrary.animation;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
-
 import starglas.dsremake.client.MCAClientLibrary.MCAModelRenderer;
 import starglas.dsremake.common.MCACommonLibrary.IMCAnimatedEntity;
 import starglas.dsremake.common.MCACommonLibrary.math.Quaternion;
 import starglas.dsremake.common.MCACommonLibrary.math.Vector3f;
 
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public abstract class AnimationHandler {
 	public static AnimTickHandler animTickHandler;

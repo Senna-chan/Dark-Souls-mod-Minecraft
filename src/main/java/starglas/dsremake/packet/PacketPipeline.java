@@ -1,8 +1,12 @@
 package starglas.dsremake.packet;
 
-import java.util.*;
-
-import starglas.dsremake.common.helpers.ModReference;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.network.FMLEmbeddedChannel;
+import cpw.mods.fml.common.network.FMLOutboundHandler;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.network.internal.FMLProxyPacket;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandler;
@@ -13,13 +17,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.NetHandlerPlayServer;
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.network.FMLEmbeddedChannel;
-import cpw.mods.fml.common.network.FMLOutboundHandler;
-import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.network.internal.FMLProxyPacket;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import starglas.dsremake.common.helpers.ModVars;
+
+import java.util.*;
 
 /**
  * Packet pipeline class. Directs all registered packet data to be handled by the packets themselves.
@@ -42,12 +42,12 @@ public class PacketPipeline extends MessageToMessageCodec<FMLProxyPacket, Abstra
      */
     public boolean registerPacket(Class<? extends AbstractPacket> clazz) {
         if (this.packets.size() > 256) {
-            // You should log here!!
+            System.out.println("Error packet is to big. Size: "+this.packets.size());
             return false;
         }
 
         if (this.packets.contains(clazz)) {
-            // You should log here!!
+            System.out.println("Packet contains class");
             return false;
         }
 
@@ -110,13 +110,15 @@ public class PacketPipeline extends MessageToMessageCodec<FMLProxyPacket, Abstra
 
     // Method to call from FMLInitializationEvent
     public void initialise() {
-        this.channels = NetworkRegistry.INSTANCE.newChannel(ModReference.PACKET_CHANNEL, this);
+        this.channels = NetworkRegistry.INSTANCE.newChannel(ModVars.PACKET_CHANNEL, this);
         registerPackets();
     }
     
     public void registerPackets() {
-    	registerPacket(OpenGuiPacket.class);
+    	registerPacket(OpenPlayerGuiPacket.class);
     	registerPacket(SyncPlayerPropsPacket.class);
+        registerPacket(OpenGuiPacket.class);
+        registerPacket(GenericServerPacket.class);
     }
 
     // Method to call from FMLPostInitializationEvent

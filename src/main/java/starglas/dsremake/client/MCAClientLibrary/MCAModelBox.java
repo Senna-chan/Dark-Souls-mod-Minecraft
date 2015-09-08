@@ -47,9 +47,9 @@ public class MCAModelBox extends ModelBox {
 		PositionTextureVertex PTV_front_left_top = new PositionTextureVertex(posX, endY, endZ, 8.0F, 0.0F);
 		//...
 		/** Create the TexturedQuads. The constructor of each quad defines the order of the PTV (counterclockwise) and fixes their UV. */
-		//Right quad (TODO fix texture)
+		//Right quad
 		this.MCAquadList[0] = new TexturedQuad(new PositionTextureVertex[] {PTV_back_right_top, PTV_front_right_top, PTV_front_right_bottom, PTV_back_right_bottom}, textureX + sizeZ + sizeX, textureY + sizeZ, textureX + sizeZ + sizeX + sizeZ, textureY + sizeZ + sizeY, par1ModelRenderer.textureWidth, par1ModelRenderer.textureHeight);
-		//Left quad (TODO fix texture)
+		//Left quad
 		this.MCAquadList[1] = new TexturedQuad(new PositionTextureVertex[] {PTV_front_left_top, PTV_back_left_top, PTV_back_left_bottom, PTV_front_left_bottom}, textureX, textureY + sizeZ, textureX + sizeZ, textureY + sizeZ + sizeY, par1ModelRenderer.textureWidth, par1ModelRenderer.textureHeight);
 		//Bottom quad
 		this.MCAquadList[2] = new TexturedQuad(new PositionTextureVertex[] {PTV_front_right_bottom, PTV_front_left_bottom, PTV_back_left_bottom, PTV_back_right_bottom}, textureX + sizeZ + sizeX, textureY, textureX + sizeZ + sizeX + sizeX, textureY + sizeZ, par1ModelRenderer.textureWidth, par1ModelRenderer.textureHeight);

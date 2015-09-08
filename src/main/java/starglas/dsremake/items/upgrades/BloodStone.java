@@ -1,15 +1,12 @@
 package starglas.dsremake.items.upgrades;
 
-import starglas.dsremake.common.helpers.DSMainCreativeTabs;
-import starglas.dsremake.common.helpers.ModReference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
+import starglas.dsremake.common.helpers.DSMainCreativeTabs;
+import starglas.dsremake.common.helpers.ModVars;
 
 public class BloodStone extends Item {
 
@@ -18,10 +15,10 @@ public class BloodStone extends Item {
 		super();
 		this.setCreativeTab(DSMainCreativeTabs.tabDSUpgrade);
 		if(mark != 5){
-			this.setTextureName(ModReference.MODID + ":bloodstone" + mark);
+			this.setTextureName(ModVars.MODID + ":bloodstone" + mark);
 		}
 		else{
-			this.setTextureName(ModReference.MODID + ":prismaticbloodstone");
+			this.setTextureName(ModVars.MODID + ":prismaticbloodstone");
 		}
 		this.mark = mark;
 	}
@@ -45,12 +42,7 @@ public class BloodStone extends Item {
 		}
 	}
 	public boolean hasEffect(ItemStack par1ItemStack){
-		if(this.mark == 5){
-			return true;
-		}
-		else{
-			return false;
-		}
+		return this.mark == 5;
 	}
 
 }

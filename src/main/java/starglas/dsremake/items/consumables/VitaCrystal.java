@@ -1,14 +1,14 @@
 package starglas.dsremake.items.consumables;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import starglas.dsremake.common.helpers.DSMainCreativeTabs;
-import starglas.dsremake.common.helpers.ModReference;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import starglas.dsremake.common.helpers.ModVars;
 
 public class VitaCrystal extends Item {
 
@@ -16,7 +16,7 @@ public class VitaCrystal extends Item {
 	public VitaCrystal(String texture, int mark) {
 		super();
 		this.setCreativeTab(DSMainCreativeTabs.tabDSConsume);
-		this.setTextureName(ModReference.MODID + ":vitacrystal" + mark);
+		this.setTextureName(ModVars.MODID + ":vitacrystal" + mark);
 		this.mark = mark;
 	}
 
@@ -39,12 +39,7 @@ public class VitaCrystal extends Item {
 		}
 	}
 	public boolean hasEffect(ItemStack par1ItemStack){
-		if(this.mark == 5){
-			return true;
-		}
-		else{
-			return false;
-		}
+		return this.mark == 5;
 	}
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer player)
     {
@@ -71,9 +66,6 @@ public class VitaCrystal extends Item {
 			default:
 				break;
 		}
-			
-		
-
         return par1ItemStack;
     }
 

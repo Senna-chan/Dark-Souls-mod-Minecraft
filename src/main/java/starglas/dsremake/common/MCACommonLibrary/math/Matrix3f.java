@@ -1,6 +1,5 @@
 package starglas.dsremake.common.MCACommonLibrary.math;
 
-import java.io.IOException;
 import java.nio.FloatBuffer;
 import java.util.logging.Logger;
 
@@ -1119,11 +1118,8 @@ public final class Matrix3f implements Cloneable, java.io.Serializable {
         if (Float.compare(m21, comp.m21) != 0) {
             return false;
         }
-        if (Float.compare(m22, comp.m22) != 0) {
-            return false;
-        }
+        return Float.compare(m22, comp.m22) == 0;
 
-        return true;
     }
 
     /**
@@ -1264,11 +1260,8 @@ public final class Matrix3f implements Cloneable, java.io.Serializable {
         if (Math.abs(mat.m20) > 1e-4) {
             return false;
         }
-        if (Math.abs(mat.m21) > 1e-4) {
-            return false;
-        }
+        return Math.abs(mat.m21) <= 1e-4;
 
-        return true;
     }
 
     @Override

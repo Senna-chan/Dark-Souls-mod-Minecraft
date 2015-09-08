@@ -25,6 +25,7 @@ import java.util.List;
 
 public class EntityWoodengreatarrow extends EntityArrow implements IEntityAdditionalSpawnData
 {
+
     private int field_145791_d = -1;
     private int field_145792_e = -1;
     private int field_145789_f = -1;
@@ -39,11 +40,10 @@ public class EntityWoodengreatarrow extends EntityArrow implements IEntityAdditi
     public Entity shootingEntity;
     private int ticksInGround;
     private int ticksInAir;
-    private double damage = 2.0D;
+    private double damage;
     /** The amount of knockback an arrow applies when it hits a mob. */
     private int knockbackStrength;
 	private int arrowToPickup;
-    private static final String __OBFID = "CL_00001715";
 
     public EntityWoodengreatarrow(World p_i1753_1_)
     {
@@ -91,18 +91,18 @@ public class EntityWoodengreatarrow extends EntityArrow implements IEntityAdditi
         }
     }
 
-    public EntityWoodengreatarrow(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_)
+    public EntityWoodengreatarrow(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_, double damage)
     {
         super(p_i1756_1_);
         this.renderDistanceWeight = 10.0D;
         this.shootingEntity = p_i1756_2_;
-
+        this.damage = damage;
         if (p_i1756_2_ instanceof EntityPlayer)
         {
             this.canBePickedUp = 1;
         }
 
-        this.setSize(0.5F, 0.5F);
+        this.setSize(1F, 1F);
         this.setLocationAndAngles(p_i1756_2_.posX, p_i1756_2_.posY + (double)p_i1756_2_.getEyeHeight(), p_i1756_2_.posZ, p_i1756_2_.rotationYaw, p_i1756_2_.rotationPitch);
         this.posX -= (double)(MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
         this.posY -= 0.10000000149011612D;
@@ -182,7 +182,8 @@ public class EntityWoodengreatarrow extends EntityArrow implements IEntityAdditi
      */
     public void onUpdate()
     {
-        super.onUpdate();
+        // TODO: fix the arrow hitbox in a block
+        super.onEntityUpdate();
 
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F)
         {
@@ -195,10 +196,10 @@ public class EntityWoodengreatarrow extends EntityArrow implements IEntityAdditi
 
         if (block.getMaterial() != Material.air)
         {
-            block.setBlockBoundsBasedOnState(this.worldObj, this.field_145791_d, this.field_145792_e, this.field_145789_f);
-            AxisAlignedBB axisalignedbb = block.getCollisionBoundingBoxFromPool(this.worldObj, this.field_145791_d, this.field_145792_e, this.field_145789_f);
+            block.setBlockBoundsBasedOnState(this.worldObj, -1, 1, -1);
+            AxisAlignedBB axisalignedbb = block.getCollisionBoundingBoxFromPool(this.worldObj, -1, 1, -1);
 
-            if (axisalignedbb != null && axisalignedbb.isVecInside(Vec3.createVectorHelper(this.posX, this.posY, this.posZ)))
+            if (axisalignedbb != null && axisalignedbb.isVecInside(Vec3.createVectorHelper(this.posX + 1, this.posY + 1, this.posZ + 1)))
             {
                 this.inGround = true;
             }
@@ -305,15 +306,15 @@ public class EntityWoodengreatarrow extends EntityArrow implements IEntityAdditi
                         k += this.rand.nextInt(k / 2 + 2);
                     }
 
-                    DamageSource damagesource = null;
+                    DamageSource damagesource;
 
                     if (this.shootingEntity == null)
                     {
-                        damagesource = (new EntityDamageSourceIndirect("arrow", this, this)).setProjectile();
+                        damagesource = (new EntityDamageSourceIndirect("Great Arrow", this, this)).setProjectile();
                     }
                     else
                     {
-                        damagesource = (new EntityDamageSourceIndirect("arrow", this, this.shootingEntity)).setProjectile();
+                        damagesource = (new EntityDamageSourceIndirect("Great Arrow", this, this.shootingEntity)).setProjectile();
                     }
 
                     if (this.isBurning() && !(movingobjectposition.entityHit instanceof EntityEnderman))
@@ -401,7 +402,7 @@ public class EntityWoodengreatarrow extends EntityArrow implements IEntityAdditi
             {
                 for (i = 0; i < 4; ++i)
                 {
-                    this.worldObj.spawnParticle("crit", this.posX + this.motionX * (double)i / 4.0D, this.posY + this.motionY * (double)i / 4.0D, this.posZ + this.motionZ * (double)i / 4.0D, -this.motionX, -this.motionY + 0.2D, -this.motionZ);
+                    //this.worldObj.spawnParticle("crit", this.posX + this.motionX * (double)i / 4.0D, this.posY + this.motionY * (double)i / 4.0D, this.posZ + this.motionZ * (double)i / 4.0D, -this.motionX, -this.motionY + 0.2D, -this.motionZ);
                 }
             }
 
@@ -413,7 +414,7 @@ public class EntityWoodengreatarrow extends EntityArrow implements IEntityAdditi
 
             for (this.rotationPitch = (float)(Math.atan2(this.motionY, (double)f2) * 180.0D / Math.PI); this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F)
             {
-                ;
+
             }
 
             while (this.rotationPitch - this.prevRotationPitch >= 180.0F)
@@ -609,7 +610,7 @@ public class EntityWoodengreatarrow extends EntityArrow implements IEntityAdditi
         // Replicate EntityArrow's special spawn packet handling from NetHandlerPlayClient#handleSpawnObject:
         Entity shooter = worldObj.getEntityByID(buffer.readInt());
         if (shooter instanceof EntityLivingBase) {
-            shootingEntity = (EntityLivingBase) shooter;
+            shootingEntity = shooter;
         }
     }
 }

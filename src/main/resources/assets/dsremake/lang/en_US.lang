@@ -2,6 +2,12 @@ item.longSword.name=Longsword
 item.PaladinGlaive.name=Paladin's Glaive
 item.SanctifiedGreathammer.name=Santified Greathammer
 item.GyroDrill.name=Gyro Drill
+item.VileBarkGreatbow.name=Vilebark Greatbow
+
+item.ClassChanger.name=Class Changer
+item.ElementChanger.name=Element Changer
+
+item.FireHand.name=Fickle embers
 
 item.MK1HeartStone.name=Heart Stone
 item.MK2HeartStone.name=Incandescent Heart Stone
@@ -36,6 +42,11 @@ item.ShimmeringShoalPearl.name=Shimmering Shoal Pearl
 item.SolarLens.name=Solar Lens
 item.TreantSeed.name=Treant Seed
 
+item.PoisonBucket.name=Bucket of Liquid Poison
+
+item.WoodenGreatArrow.name=Wooden Great Arrow
+
+
 itemGroup.tabDSConsume=DSRemake Consumables
 itemGroup.tabDSSwords=DSRemake Swords
 itemGroup.tabDSHalberts=DSRemake Halberds
@@ -45,7 +56,20 @@ itemGroup.tabDSFist=DSRemake Fist weapons
 
 
 tile.blockBonfire.name=Bonfire
-tile.BlockBloodstoneOre.name=Bloodstone Ore
+tile.blockBloodstoneOre.name=Bloodstone Ore
 tile.blockSmallChest.name=Small Chest
+tile.desertBlock.name=Desert Block
+tile.vilebarkBlock.name=Vilebark Block
+tile.ashBlock.name=Ash Block
+tile.taintBlock.name=Taint Block
+
+tile.fluid_poison.name=Liquid Poison
 
 entity.DeadsapSprout.name=Deadsap Sprout
+entity.VileRevenant.name=Vile Revenant
+
+attribute.name.maxDamage=Max possible damage
+
+key.open_ds_inventory.name=Open Darksouls Inventory
+key.spell_minus.name=Spell min
+key.spell_plus.name=Spell plus

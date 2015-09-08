@@ -1,11 +1,11 @@
 package starglas.dsremake.packet;
 
+import cpw.mods.fml.common.network.ByteBufUtils;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import starglas.dsremake.handler.ExtendedPlayer;
-import cpw.mods.fml.common.network.ByteBufUtils;
 
 public class SyncPlayerPropsPacket extends AbstractPacket
 

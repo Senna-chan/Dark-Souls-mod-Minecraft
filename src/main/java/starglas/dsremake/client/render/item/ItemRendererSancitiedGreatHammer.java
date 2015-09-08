@@ -4,11 +4,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
-
 import org.lwjgl.opengl.GL11;
-
 import starglas.dsremake.client.models.items.ModelSanctifiedgreathammer;
-import starglas.dsremake.common.helpers.ModReference;
+import starglas.dsremake.common.helpers.ModVars;
 
 public class ItemRendererSancitiedGreatHammer implements IItemRenderer {
 
@@ -34,7 +32,7 @@ public class ItemRendererSancitiedGreatHammer implements IItemRenderer {
 		
 		GL11.glPushMatrix();
 		
-			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ModReference.MODID,"textures/items/Sanctifiedgreathammertexture.png"));
+			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ModVars.MODID,"textures/items/Sanctifiedgreathammertexture.png"));
 			if(type==ItemRenderType.EQUIPPED){
 				GL11.glRotatef(270, 0, 1, 0);
 				GL11.glRotatef(30, 1, 0, 0);

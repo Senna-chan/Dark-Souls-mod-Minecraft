@@ -1,7 +1,5 @@
 package starglas.dsremake.common.MCACommonLibrary.math;
 
-import java.lang.Math;
-
 /**
  * A four-element axis angle represented by single-precision floating point 
  * x,y,z,angle components. An axis angle is a rotation of angle (radians)
@@ -250,9 +248,9 @@ public class AxisAngle4f implements java.io.Serializable, Cloneable {
 	 */
 	public final void set(Matrix3f m1)
 	{
-		x = (float)(m1.m21 - m1.m12);
-		y = (float)(m1.m02 - m1.m20);
-		z = (float)(m1.m10 - m1.m01);
+		x = m1.m21 - m1.m12;
+		y = m1.m02 - m1.m20;
+		z = m1.m10 - m1.m01;
 		double mag = x*x + y*y + z*z;
 		if (mag > EPS) {
 			mag = Math.sqrt(mag);
@@ -378,9 +376,7 @@ public class AxisAngle4f implements java.io.Serializable, Cloneable {
 		if((diff<0?-diff:diff) > epsilon) return false;
 
 		diff = angle - a1.angle;
-		if((diff<0?-diff:diff) > epsilon) return false;
-
-		return true;
+		return (diff < 0 ? -diff : diff) <= epsilon;
 
 	}
 

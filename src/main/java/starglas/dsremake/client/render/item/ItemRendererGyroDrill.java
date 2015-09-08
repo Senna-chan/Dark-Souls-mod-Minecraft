@@ -4,11 +4,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
-
 import org.lwjgl.opengl.GL11;
-
 import starglas.dsremake.client.models.items.ModelGyrodrill;
-import starglas.dsremake.common.helpers.ModReference;
+import starglas.dsremake.common.helpers.ModVars;
 
 public class ItemRendererGyroDrill implements IItemRenderer {
 
@@ -33,7 +31,7 @@ public class ItemRendererGyroDrill implements IItemRenderer {
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
 		GL11.glPushMatrix();
 		
-			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ModReference.MODID,"textures/items/gyrodrilltexture.png"));
+			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ModVars.MODID,"textures/items/gyrodrilltexture.png"));
 			if(type==ItemRenderType.EQUIPPED){
 				GL11.glTranslatef(0.98F, -0.20F, 0.25F);
 				GL11.glRotatef(15F, 0.0F, 0.0F, 1.0F);

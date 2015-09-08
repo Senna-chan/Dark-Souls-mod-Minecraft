@@ -1,11 +1,7 @@
 package starglas.dsremake.block;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -13,9 +9,12 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import starglas.dsremake.common.helpers.DSMainCreativeTabs;
-import starglas.dsremake.common.helpers.ModReference;
+import starglas.dsremake.common.helpers.ModVars;
 import starglas.dsremake.entity.tileentity.TileEntityBloodstoneOre;
 import starglas.dsremake.items.ModItems;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class BloodstoneOre extends BlockContainer{
 	private Random rand = new Random();
@@ -27,7 +26,7 @@ public class BloodstoneOre extends BlockContainer{
 	     this.setCreativeTab(DSMainCreativeTabs.tabDSBlocks);
 	     this.setHardness(6F);
 	     this.setResistance(10F);
-	     this.setBlockTextureName(ModReference.MODID + ":bloodstoneparticle");
+	     this.setBlockTextureName(ModVars.MODID + ":bloodstoneparticle");
 	     this.setStepSound(soundTypeStone);
 	}
 	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)

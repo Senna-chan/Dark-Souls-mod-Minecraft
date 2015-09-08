@@ -1,13 +1,10 @@
 package starglas.dsremake.common;
 
+import net.minecraft.nbt.NBTTagCompound;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.nbt.NBTTagCompound;
-import starglas.dsremake.common.helpers.ModReference;
-import starglas.dsremake.handler.ExtendedPlayer;
 
 
 public class CommonProxy {

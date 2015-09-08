@@ -1,16 +1,13 @@
 package starglas.dsremake.common.MCACommonLibrary.animation;
 
-import java.util.ArrayList;
-
-import net.minecraft.entity.Entity;
-
-import starglas.dsremake.common.MCACommonLibrary.IMCAnimatedEntity;
-
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.Phase;
-import cpw.mods.fml.relauncher.Side;
+import net.minecraft.entity.Entity;
+import starglas.dsremake.common.MCACommonLibrary.IMCAnimatedEntity;
+
+import java.util.ArrayList;
 
 public class AnimTickHandler {
 	private ArrayList<IMCAnimatedEntity> activeEntities = new ArrayList<IMCAnimatedEntity>();

@@ -8,6 +8,7 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import starglas.dsremake.common.helpers.DSMainCreativeTabs;
 import starglas.dsremake.common.helpers.ModHelper;
+import starglas.dsremake.common.helpers.ModVars;
 import starglas.dsremake.entity.projectiles.spells.EntityFireball;
 import starglas.dsremake.handler.ExtendedPlayer;
 
@@ -28,47 +29,35 @@ public class fireball extends DSSpells{
     }
 
     @Override
-    public void onPlayerStoppedUsing(ItemStack Items, World world, EntityPlayer player, int p_77615_4_) {
-        super.onPlayerStoppedUsing(Items, world, player, p_77615_4_);
-        ModHelper.displayChat(player, "FIREBALL");
-        ExtendedPlayer props = ExtendedPlayer.get(player);
-        props.consumeStamina(20);
-        Vec3 look = player.getLookVec();
-        int position = MathHelper.floor_double((double) (player.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
-        System.out.println(position);
-        if(position == 0){
-            entityposZ = player.posZ + 1;
-            entityposX = player.posX;
-        }
-        else if(position == 1){
-            entityposZ = player.posZ;
-            entityposX = player.posX - 1;
-        }
-        else if(position == 2){
-            entityposZ = player.posZ - 1;
-            entityposX = player.posX;
-        }
-        else if(position == 3){
-            entityposZ = player.posZ;
-            entityposX = player.posX + 1;
-        }
-        entityposY = player.posY + 1;
-
-        world.spawnEntityInWorld(new EntityFireball(world, entityposX, entityposY, entityposZ, look.xCoord, look.yCoord, look.zCoord, 5));
-    }
-
-    @Override
-    public ItemStack onEaten(ItemStack Items, World world, EntityPlayer player) {
-        return Items;
-    }
-
-    @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
-        this.setMaxDamage(5);
-        ExtendedPlayer props = ExtendedPlayer.get(player);
-        int stamina = props.getPlayerStamina();
+        float stamina = player.getDataWatcher().getWatchableObjectFloat(ModVars.STAMINA_WATCHER);
         if(stamina >= 20) {
-            player.setItemInUse(itemStack, this.getMaxItemUseDuration(itemStack));
+            ModHelper.displayChat(player, "FIREBALL");
+            ExtendedPlayer props = ExtendedPlayer.get(player);
+            props.consumeStamina(20);
+            Vec3 look = player.getLookVec();
+            int position = MathHelper.floor_double((double) (player.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+            if(position == 0){
+                entityposZ = player.posZ + 1;
+                entityposX = player.posX;
+            }
+            else if(position == 1){
+                entityposZ = player.posZ;
+                entityposX = player.posX - 1;
+            }
+            else if(position == 2){
+                entityposZ = player.posZ - 1;
+                entityposX = player.posX;
+            }
+            else if(position == 3){
+                entityposZ = player.posZ;
+                entityposX = player.posX + 1;
+            }
+            entityposY = player.posY + 1;
+            if(!world.isRemote) {
+                System.out.println(1);
+                world.spawnEntityInWorld(new EntityFireball(world, entityposX, entityposY, entityposZ, look.xCoord, look.yCoord, look.zCoord, 5));
+            }
         }
         else{
             ModHelper.displayChat(player, "Git More Stamina");
@@ -80,8 +69,5 @@ public class fireball extends DSSpells{
     public EnumAction getItemUseAction(ItemStack p_77661_1_) {
         return EnumAction.block;
     }
-
-
-
 
 }

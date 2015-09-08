@@ -8,13 +8,12 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import starglas.dsremake.common.helpers.ModHelper;
-import starglas.dsremake.gui.inventory.InventoryCustomPlayer;
 import starglas.dsremake.gui.slots.SlotArmor;
 import starglas.dsremake.gui.slots.SlotShields;
 import starglas.dsremake.gui.slots.SlotSpells;
 import starglas.dsremake.handler.ExtendedPlayer;
+import starglas.dsremake.handler.InventoryCustomPlayer;
 import starglas.dsremake.items.shields.DSShields;
-import starglas.dsremake.items.spells.DSSpells;
 
 public class ContainerCustomPlayer extends Container
 
@@ -44,7 +43,7 @@ public class ContainerCustomPlayer extends Container
 			this.addSlotToContainer(new SlotSpells(inventoryCustom, i, 80 + (18*i), 8, 0));
 		}
 		for(i = 0; i < 5; i++){
-			this.addSlotToContainer(new SlotSpells(inventoryCustom, i+5, 80+ (18*i), 26, 0));		
+			this.addSlotToContainer(new SlotSpells(inventoryCustom, i+5, 80 + (18*i), 26, 0));
 		}
 		this.addSlotToContainer(new SlotShields(inventoryCustom, 10, 80, 62)); // Shield slot
 
@@ -163,7 +162,7 @@ public class ContainerCustomPlayer extends Container
 			}
 			if (itemstack1.stackSize == 0)
 			{
-				slot.putStack((ItemStack) null);
+				slot.putStack(null);
 			}
 			else
 			{

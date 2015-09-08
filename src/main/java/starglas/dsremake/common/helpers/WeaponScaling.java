@@ -1,7 +1,6 @@
 package starglas.dsremake.common.helpers;
 
 import net.minecraft.entity.player.EntityPlayer;
-import starglas.dsremake.handler.DSRemakeEventHandler;
 import starglas.dsremake.handler.ExtendedPlayer;
 
 public class WeaponScaling {

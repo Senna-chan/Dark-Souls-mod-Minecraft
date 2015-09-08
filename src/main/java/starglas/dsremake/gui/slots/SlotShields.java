@@ -1,16 +1,9 @@
 package starglas.dsremake.gui.slots;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import starglas.dsremake.items.shields.DSShields;
-import starglas.dsremake.items.spells.DSSpells;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
+import starglas.dsremake.items.spells.DSSpells;
 
 //Custom Slot:
 

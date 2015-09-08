@@ -3,15 +3,13 @@ package starglas.dsremake.client.render.block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
-
 import starglas.dsremake.client.models.blocks.Bonfire;
-import starglas.dsremake.common.helpers.ModReference;
+import starglas.dsremake.common.helpers.ModVars;
 
 public class BlockRendererBonfire extends TileEntitySpecialRenderer{
 	
-	private static final ResourceLocation texture = new ResourceLocation(ModReference.MODID, "textures/blocks/bonfiretexture.png");
+	private static final ResourceLocation texture = new ResourceLocation(ModVars.MODID, "textures/blocks/bonfiretexture.png");
 	
 	public Bonfire model;
 

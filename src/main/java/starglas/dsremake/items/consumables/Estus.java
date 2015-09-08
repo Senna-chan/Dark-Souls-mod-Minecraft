@@ -1,32 +1,26 @@
 package starglas.dsremake.items.consumables;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBucketMilk;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.world.World;
-import starglas.dsremake.block.ModBlocks;
-import starglas.dsremake.common.DSMain;
 import starglas.dsremake.common.helpers.DSMainCreativeTabs;
-import starglas.dsremake.common.helpers.ModReference;
 import starglas.dsremake.common.helpers.ModHelper;
+import starglas.dsremake.common.helpers.ModVars;
 import starglas.dsremake.common.helpers.SoundHandler;
 import starglas.dsremake.handler.ExtendedPlayer;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
-public class Estus extends ItemBucketMilk {
+public class Estus extends Item {
 
 	private float playerHP;
 	private float playerMaxHP;
 	private int ItemDMG;
-	private int ChangedItemDMG;
-	private String playerClass;
-	private int MaxEstusUses;
+	private int MaxEstusUses = 4;
 	
 	public Estus() {
 		super();
@@ -40,10 +34,10 @@ public class Estus extends ItemBucketMilk {
 	}
 	public ItemStack onEaten(ItemStack Items, World world, EntityPlayer player) {
 		ExtendedPlayer props = ExtendedPlayer.get(player);
-		this.playerClass = props.getPlayerClass();
+		int playerElement = props.getPlayerElement();
 		SoundHandler.onEntityPlay("ChugThatEstus", world, player, 1, 1);
 		player.setHealth((float) (playerHP + (playerMaxHP * 0.40)));
-		if(this.playerClass!="taint"){
+		if(playerElement!= ModVars.TAINTELEMENT){
 			if (!world.isRemote)
 	        {
 				player.removePotionEffect(Potion.hunger.id);
@@ -55,28 +49,26 @@ public class Estus extends ItemBucketMilk {
 				player.removePotionEffect(Potion.digSlowdown.id);
 				player.removePotionEffect(Potion.moveSlowdown.id);
 	        }
-
 		}
 		Items.damageItem(1, player);
-		this.ChangedItemDMG = Items.getItemDamage();
-		if (this.ChangedItemDMG == this.ItemDMG) {
+		int ChangedItemDMG = Items.getItemDamage();
+		if (ChangedItemDMG == this.ItemDMG) {
 			Items.damageItem(1, player);
 		}
 		return Items;
 	}
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack Items, World world,
-			EntityPlayer player) {
+	public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer player) {
+		this.ItemDMG = item.getItemDamage();
 		if(this.ItemDMG != this.MaxEstusUses){
-			this.ItemDMG = Items.getItemDamage();
 			this.playerMaxHP = player.getMaxHealth();
 			this.playerHP = player.getHealth();
 			if (this.playerHP < this.playerMaxHP) {
-				player.setItemInUse(Items, this.getMaxItemUseDuration(Items));
+				player.setItemInUse(item, this.getMaxItemUseDuration(item));
 			}
 		}
-		return Items;
+		return item;
 	}
 
 	@Override
@@ -95,22 +87,31 @@ public class Estus extends ItemBucketMilk {
 		if(mark==1){
 			this.setMaxDamage(4);
 			this.MaxEstusUses = 4;
+			this.ItemDMG = 0;
 			itemStack.setItemDamage(0);
 		}
 		else if(mark==2){
 			this.setMaxDamage(9);
 			this.MaxEstusUses = 9;
+			this.ItemDMG = 0;
 			itemStack.setItemDamage(0);
 		}
 		else if(mark==3){
 			this.setMaxDamage(14);
 			this.MaxEstusUses = 14;
+			this.ItemDMG = 0;
 			itemStack.setItemDamage(0);
 		}
 		else if(mark==4){
 			this.setMaxDamage(19);
 			this.MaxEstusUses = 19;
+			this.ItemDMG = 0;
 			itemStack.setItemDamage(0);
 		}
+	}
+	public boolean onDroppedByPlayer(ItemStack item, EntityPlayer player)
+	{
+		ModHelper.displayChat(player, "Can't drop this. Sorry brah");
+		return false;
 	}
 }

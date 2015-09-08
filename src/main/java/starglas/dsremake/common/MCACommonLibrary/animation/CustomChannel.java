@@ -1,9 +1,9 @@
 package starglas.dsremake.common.MCACommonLibrary.animation;
 
-import java.util.HashMap;
-
 import starglas.dsremake.client.MCAClientLibrary.MCAModelRenderer;
 import starglas.dsremake.common.MCACommonLibrary.IMCAnimatedEntity;
+
+import java.util.HashMap;
 
 public class CustomChannel extends Channel {
 

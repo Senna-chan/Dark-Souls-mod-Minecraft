@@ -1,10 +1,10 @@
 package starglas.dsremake.common.animations.Deadsapsprout;
 
-import java.util.HashMap;
-
 import starglas.dsremake.common.MCACommonLibrary.IMCAnimatedEntity;
 import starglas.dsremake.common.MCACommonLibrary.animation.AnimationHandler;
 import starglas.dsremake.common.MCACommonLibrary.animation.Channel;
+
+import java.util.HashMap;
 
 public class AnimationHandlerDeadsapsprout extends AnimationHandler {
 	/** Map with all the animations. */
