@@ -1,4 +1,4 @@
-package starglas.dsremake.packet;
+package starglas.dsremake.network;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
@@ -24,7 +24,7 @@ public class GenericServerPacket extends AbstractPacket
     // allows
 
     // for them to be initialized, and use that constructor when sending the
-    // packet
+    // network
 
     public GenericServerPacket(int id, int slot) {
 
@@ -56,7 +56,7 @@ public class GenericServerPacket extends AbstractPacket
 
     @Override
     public void handleServerSide(EntityPlayer player) {
-        // because we sent the gui's id with the packet, we can handle all cases
+        // because we sent the gui's id with the network, we can handle all cases
         // with one line:
         ModHelper.displayChat(player, slot+"");
     }

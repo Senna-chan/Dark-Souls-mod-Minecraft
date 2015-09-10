@@ -33,10 +33,14 @@ public class ModVars
 
 	// Class vars
 	public static final int KNIGHTCLASS = 1;
-	public static final int SORCERERCLASS = 2;
-	public static final int CLERICCLASS = 3;
-	public static final int WANDERERCLASS = 4;
-	public static final String[] CLASSNAMES = {"", "Knight", "Sorcerer", "Cleric", "Wanderer"};
+	public static final int PALADINCLASS = 2;
+	public static final int WANDERERCLASS = 3;
+	public static final int WARRIORCLASS = 4;
+	public static final int PYROMANCERCLASS = 5;
+	public static final int WARLOCKCLASS = 6;
+	public static final int TIDEHUNTERCLASS = 7;
+	public static final int DRUIDCLASS = 8;
+	public static final String[] CLASSNAMES = {"", "Knight", "Paladin", "Wanderer", "Warrior", "Pyromancer", "Warlock", "Tidehunter", "Druid"};
 
 
 	public static final byte GUI_DSINV = 0;
@@ -45,6 +49,4 @@ public class ModVars
 	public static final byte GUI_BONFIRECHEST = 3;
 	public static final int BIOME_POISON = 137;
 
-
-	public static final int DECRSTACK = 1;
 }

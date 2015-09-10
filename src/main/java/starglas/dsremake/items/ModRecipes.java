@@ -8,8 +8,13 @@ import starglas.dsremake.block.ModBlocks;
 
 public class ModRecipes {
 	public static void init(){
+		// Crafting Recipes
 		GameRegistry.addRecipe(new ItemStack(ModItems.MK2BloodStone), "##", "##", '#', ModItems.MK1BloodStone);
 		GameRegistry.addRecipe(new ItemStack(ModItems.MK3BloodStone), "##", "##", '#', ModItems.MK2BloodStone);
-		GameRegistry.addRecipe(new ItemStack(ModBlocks.bonfire), "|^|", "|*|", "###", '|', Items.stick, '^', Items.iron_sword, '*', ModItems.RadiantOil, '#', Blocks.planks);
+		GameRegistry.addRecipe(new ItemStack(ModItems.FirePoker), "  #", " # ", "@  ", '#', Items.iron_ingot, '@', Items.fire_charge);
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.bonfire), "|^|", "|*|", "###", '|', Items.stick, '^', ModItems.FirePoker, '*', ModItems.RadiantOil, '#', Blocks.planks);
+		// Smelting Recipes
+
+		//
 	}
 }

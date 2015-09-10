@@ -27,10 +27,11 @@ import java.util.List;
 public class GyroDrill extends Item
 {
 	private float weaponDamage;
-	int knockbackAdded = 0;
 	private int dmg;
 	private char str;
 	private char grc;
+
+    private WeaponScaling weaponScaling;
 	
     public GyroDrill(int dmg, char str, char grc)
     {
@@ -43,6 +44,7 @@ public class GyroDrill extends Item
         this.dmg = dmg;
         this.str = str;
         this.grc = grc;
+        weaponScaling = new WeaponScaling();
     }
    
     @SideOnly(Side.CLIENT)
@@ -66,24 +68,16 @@ public class GyroDrill extends Item
 		if (entity instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer) entity;
-            ItemStack equipped = player.getCurrentEquippedItem();
-            if (equipped == stack)
-            {
-                player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 2, 2, true));
-            }
+            player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 2, 2, true));
             if (!world.isRemote)
             {
+                this.weaponDamage = weaponScaling.CalcWeaponDMG(20, 'S', 'B', player);
             	if(isSelected){
-                	this.weaponDamage = WeaponScaling.CalcWeaponDMG(9, 'S', 'B', player);
+
         		}
             }
         }
 	}
-
-    public float func_82803_g()
-    {
-        return this.weaponDamage;
-    }
     
     public int getItemEnchantability()
     {

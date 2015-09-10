@@ -5,9 +5,11 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
+import starglas.dsremake.common.DSMain;
 import starglas.dsremake.common.helpers.ModHelper;
 import starglas.dsremake.common.helpers.ModVars;
 import starglas.dsremake.handler.ExtendedPlayer;
+import starglas.dsremake.network.SetupClassPacket;
 
 public class BookGui extends GuiScreen{
 
@@ -44,44 +46,17 @@ public class BookGui extends GuiScreen{
 	public void initGui(){
 		int guiX = (width - guiWidth) / 2;
 		int guiY = (height - guiHeight) /2;
-		this.buttonList.add(new GuiButton(1, guiX + 10, guiY + 10, 65, 20, "Soldier"));
-		this.buttonList.add(new GuiButton(2, guiX + 10, guiY + 10 + 25 * 1, 65, 20, "Sorcerer)"));
-		this.buttonList.add(new GuiButton(3, guiX + 10, guiY + 10 + 25 * 2, 65, 20, "Cleric"));
-		this.buttonList.add(new GuiButton(4, guiX + 10, guiY + 10 + 25 * 3, 65, 20, "Human"));
+		this.buttonList.add(new GuiButton(ModVars.KNIGHTCLASS, guiX + 10, guiY + 10, 65, 20, "Knight"));
+		this.buttonList.add(new GuiButton(ModVars.PYROMANCERCLASS, guiX + 10, guiY + 10 + 25 * 1, 65, 20, "Pyromancer"));
+		this.buttonList.add(new GuiButton(ModVars.PALADINCLASS, guiX + 10, guiY + 10 + 25 * 2, 65, 20, "Paladin"));
+		this.buttonList.add(new GuiButton(ModVars.WANDERERCLASS, guiX + 10, guiY + 10 + 25 * 3, 65, 20, "Wanderer"));
 		super.initGui();
 	}
 	@Override
 	public void actionPerformed(GuiButton button){
 		ExtendedPlayer props = ExtendedPlayer.get(player);
-		switch(button.id){
-			case 1:
-				props.classSetup(1);
-				ModHelper.displayChat(player, "Go slash 'm up");
-				break;
-			case 2:
-				props.classSetup(2);
-				ModHelper.displayChat(player, "Go out of your parents basement u virgin");
-				break;
-			case 3:
-				props.classSetup(3);
-				ModHelper.displayChat(player, "Cleric");
-				break;
-			case 4:
-				props.classSetup(4);
-				ModHelper.displayChat(player, "Waste of human skin");
-			default:
-				break;
-		}
-		System.out.println("BookGui.actionPerformed");
-		int indexForClassName = props.getPlayerClass();
-		ModHelper.displayChat(player, "You are now a "+ ModVars.CLASSNAMES[indexForClassName]);
-	}
-	@Override
-	protected void keyTyped(char c, int key) {
-		if (key == mc.gameSettings.keyBindInventory.getKeyCode()){
-			mc.displayGuiScreen(null);
-		}
-		super.keyTyped(c, key);
+		DSMain.packetPipeline.sendToServer(new SetupClassPacket(button.id));
+		ModHelper.displayChat(player, "You are now a " + ModVars.CLASSNAMES[button.id]);
 	}
 	
 }

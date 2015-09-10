@@ -11,10 +11,10 @@ import starglas.dsremake.handler.ExtendedPlayer;
 /**
  * Created by Starlight on 12-7-2015.
  */
-public class Changer extends Item {
+public class ClassChanger extends Item {
     private int version;
 
-    public Changer(int version){
+    public ClassChanger(int version){
         super();
         this.setTextureName(ModVars.MODID + ":testtexture");
         this.setCreativeTab(CreativeTabs.tabMisc);

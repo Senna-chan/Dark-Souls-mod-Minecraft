@@ -7,6 +7,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Items;
@@ -23,7 +24,7 @@ import starglas.dsremake.fluids.ModFluids;
 import starglas.dsremake.handler.*;
 import starglas.dsremake.items.ModItems;
 import starglas.dsremake.items.ModRecipes;
-import starglas.dsremake.packet.PacketPipeline;
+import starglas.dsremake.network.PacketPipeline;
 import starglas.dsremake.world.ChunkProviderGenerator;
 import starglas.dsremake.world.WorldGenClass;
 import starglas.dsremake.world.WorldTypeDSRemake;
@@ -87,5 +88,13 @@ public class DSMain {
 		packetPipeline.postInitialise();
 		FluidContainerRegistry.registerFluidContainer(new FluidContainerRegistry.FluidContainerData(FluidRegistry.getFluidStack(ModFluids.fluidPoison.getName(), FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(ModFluids.PoisonBucket), new ItemStack(Items.bucket)));
 		WorldType DSREMAKE = new WorldTypeDSRemake(10, "DSRemake");
+	}
+
+	@EventHandler
+	public void serverLoad(FMLServerStartingEvent event)
+	{
+		// register server commands
+
+		event.registerServerCommand(new CommandCheatLevel());
 	}
 }

@@ -12,7 +12,7 @@ public class WeaponScaling {
 	private static float grcScaling;
 	
 	//public static float WeaponScalingRaw(int weaponDamage, char strengthScaling, char dextScaling, int playerStrength, int playerDex/*, int playerWill, int playerLight, int playerWrath, int playerSerenity, int playerHarmony*/){
-	public static float CalcWeaponDMG(int weaponDamage, char strengthScale, char dexScale, EntityPlayer player){
+	public float CalcWeaponDMG(int weaponDamage, char strengthScale, char dexScale, EntityPlayer player){
 		ExtendedPlayer props = ExtendedPlayer.get(player);
 		
 		int playerStrength = props.getPlayerStrength();
@@ -24,7 +24,7 @@ public class WeaponScaling {
 		totalAR = (float) Math.ceil( weaponDamage + (weaponDamage * ((strScaling * playerStrength ) + (grcScaling * playerGrace )) /100 ) );
 		return totalAR;
 	}
-	private static void getStrScaling(char strengthScale){
+	private void getStrScaling(char strengthScale){
 		switch(strengthScale){
 			case 'E': strScaling = 0.3F; break;
 			case 'D': strScaling = 0.7F; break;
@@ -35,7 +35,7 @@ public class WeaponScaling {
 			default:  strScaling = 0.0F; break;
 		}
 	}
-	private static void getGrcScaling(char graceScale){
+	private void getGrcScaling(char graceScale){
 		switch(graceScale){
 			case 'E': grcScaling = 0.3F; break;
 			case 'D': grcScaling = 0.7F; break;
@@ -47,7 +47,7 @@ public class WeaponScaling {
 			default:  grcScaling = 0.0F; break;
 		}
 	}
-	private static void getFireScaling(char fireScale){
+	private void getFireScaling(char fireScale){
 		switch(fireScale){
 			case 'E': FireScaling = 0.3F; break;
 			case 'D': FireScaling = 0.7F; break;

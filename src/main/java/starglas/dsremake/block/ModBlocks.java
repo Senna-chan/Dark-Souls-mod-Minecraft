@@ -13,6 +13,7 @@ public class ModBlocks{
 	public static Block vilebarkBlock = new TempleBlock("vilebarkblock").setBlockName("vilebarkBlock");
 	public static Block taintBlock = new TempleBlock("taintblock").setBlockName("taintBlock");
 	public static Block ashBlock = new TempleBlock("ashblock").setBlockName("ashblock");
+	public static Block dsAnvil = new DSAnvil().setBlockName("dsAnvil");
 
 
 	public static void init(){
@@ -25,6 +26,8 @@ public class ModBlocks{
 		ModHelper.registerBlock(bonfire);
 		ModHelper.registerBlock(bloodstoneOre);
 		ModHelper.registerBlock(smallChest);
+
+		ModHelper.registerBlock(dsAnvil);
 		
 	}
 }

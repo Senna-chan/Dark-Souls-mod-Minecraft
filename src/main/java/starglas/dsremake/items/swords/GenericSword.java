@@ -27,8 +27,8 @@ public class GenericSword extends Item
 	private int dmg;
 	private char str;
 	private char grc;
-    //public GenericSword(String texture, int dmg, char str, char grc)
-	private Map<String, Float> map;
+    private WeaponScaling weaponScaling;
+
 	public GenericSword(int dmg, char str, char grc) 
     {
         super();
@@ -69,7 +69,7 @@ public class GenericSword extends Item
             if (!world.isRemote)
             {
             	if(isSelected){
-            		this.weaponDamage = WeaponScaling.CalcWeaponDMG(dmg, str, grc, player);
+            		this.weaponDamage = weaponScaling.CalcWeaponDMG(dmg, str, grc, player);
         		}
             }
         }

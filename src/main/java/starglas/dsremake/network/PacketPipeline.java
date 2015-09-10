@@ -1,4 +1,4 @@
-package starglas.dsremake.packet;
+package starglas.dsremake.network;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.FMLEmbeddedChannel;
@@ -22,7 +22,7 @@ import starglas.dsremake.common.helpers.ModVars;
 import java.util.*;
 
 /**
- * Packet pipeline class. Directs all registered packet data to be handled by the packets themselves.
+ * Packet pipeline class. Directs all registered network data to be handled by the packets themselves.
  * @author sirgingalot
  * some code from: cpw
  */
@@ -34,15 +34,15 @@ public class PacketPipeline extends MessageToMessageCodec<FMLProxyPacket, Abstra
     private boolean                                     isPostInitialised = false;
 
     /**
-     * Register your packet with the pipeline. Discriminators are automatically set.
+     * Register your network with the pipeline. Discriminators are automatically set.
      *
      * @param clazz the class to register
      *
-     * @return whether registration was successful. Failure may occur if 256 packets have been registered or if the registry already contains this packet
+     * @return whether registration was successful. Failure may occur if 256 packets have been registered or if the registry already contains this network
      */
     public boolean registerPacket(Class<? extends AbstractPacket> clazz) {
         if (this.packets.size() > 256) {
-            System.out.println("Error packet is to big. Size: "+this.packets.size());
+            System.out.println("Error network is to big. Size: "+this.packets.size());
             return false;
         }
 
@@ -60,7 +60,7 @@ public class PacketPipeline extends MessageToMessageCodec<FMLProxyPacket, Abstra
         return true;
     }
 
-    // In line encoding of the packet, including discriminator setting
+    // In line encoding of the network, including discriminator setting
     @Override
     protected void encode(ChannelHandlerContext ctx, AbstractPacket msg, List<Object> out) throws Exception {
         ByteBuf buffer = Unpooled.buffer();
@@ -76,14 +76,14 @@ public class PacketPipeline extends MessageToMessageCodec<FMLProxyPacket, Abstra
         out.add(proxyPacket);
     }
 
-    // In line decoding and handling of the packet
+    // In line decoding and handling of the network
     @Override
     protected void decode(ChannelHandlerContext ctx, FMLProxyPacket msg, List<Object> out) throws Exception {
         ByteBuf payload = msg.payload();
         byte discriminator = payload.readByte();
         Class<? extends AbstractPacket> clazz = this.packets.get(discriminator);
         if (clazz == null) {
-            throw new NullPointerException("No packet registered for discriminator: " + discriminator);
+            throw new NullPointerException("No network registered for discriminator: " + discriminator);
         }
 
         AbstractPacket pkt = clazz.newInstance();
@@ -119,10 +119,11 @@ public class PacketPipeline extends MessageToMessageCodec<FMLProxyPacket, Abstra
     	registerPacket(SyncPlayerPropsPacket.class);
         registerPacket(OpenGuiPacket.class);
         registerPacket(GenericServerPacket.class);
+        registerPacket(SetupClassPacket.class);
     }
 
     // Method to call from FMLPostInitializationEvent
-    // Ensures that packet discriminators are common between server and client by using logical sorting
+    // Ensures that network discriminators are common between server and client by using logical sorting
     public void postInitialise() {
         if (this.isPostInitialised) {
             return;

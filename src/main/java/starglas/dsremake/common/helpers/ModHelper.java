@@ -1,14 +1,17 @@
 package starglas.dsremake.common.helpers;
 
+import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.client.IItemRenderer;
@@ -21,20 +24,21 @@ public class ModHelper
 	{
 		GameRegistry.registerBlock(block, ModVars.MODID + block.getUnlocalizedName().substring(5));
 	}
-
 	public static void registerItem(Item item)
 	{
 		GameRegistry.registerItem(item, ModVars.MODID + item.getUnlocalizedName().substring(5));
 	}
-	public static void registerRender(Item item, IItemRenderer toRender){
+
+	public static void registerItemRender(Item item, IItemRenderer toRender){
 		MinecraftForgeClient.registerItemRenderer(item, toRender);
 	}
-	/*
-	 * Register smeling recipe using Item(What to smelt), ItemStack(What to return), float(What XP to gain)
-	 */
-	public static void registerSmelting(Item item, ItemStack itemstack, float XP){
-		GameRegistry.addSmelting(item, itemstack, XP);
+	public static void registerItemRender(Block block, IItemRenderer toRender){
+		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(block), toRender);
 	}
+	public static void registerBlockRender(Class block, TileEntitySpecialRenderer renderer){
+		ClientRegistry.bindTileEntitySpecialRenderer(block, renderer);
+	}
+
 	public static void displayChat(EntityPlayer player, String chatmessage){
 		player.addChatMessage(new ChatComponentText(chatmessage));
 	}

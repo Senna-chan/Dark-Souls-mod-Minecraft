@@ -22,6 +22,7 @@ public class GenericGreatHammer extends Item
 {
 	private EntityPlayer player;
 	private float weaponDamage;
+    private WeaponScaling weaponScaling;
     public GenericGreatHammer(int dmg, char str, char grc)
     {
         super();
@@ -30,6 +31,7 @@ public class GenericGreatHammer extends Item
         this.setCreativeTab(DSMainCreativeTabs.tabDSGreatHammers);
         this.weaponDamage = 20;
         this.setFull3D();
+        weaponScaling = new WeaponScaling();
     }
     
     @Override
@@ -38,24 +40,16 @@ public class GenericGreatHammer extends Item
 		if (entity instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer) entity;
-            ItemStack equipped = player.getCurrentEquippedItem();
-            if (equipped == stack)
-            {
-                player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 2, 2, true));
-            }
+            player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 2, 2, true));
             if (!world.isRemote)
             {
+
             	if(isSelected){
-                	this.weaponDamage = WeaponScaling.CalcWeaponDMG(9, 'S', 'B', player);
+                	this.weaponDamage = weaponScaling.CalcWeaponDMG(9, 'S', 'B', player);
         		}
             }
         }
 	}
-
-    public float func_82803_g()
-    {
-        return this.weaponDamage;
-    }
 
     /**
      * Current implementations of this method in child classes do not use the entry argument beside ev. They just raise

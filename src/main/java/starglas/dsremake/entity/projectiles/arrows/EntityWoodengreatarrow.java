@@ -607,7 +607,7 @@ public class EntityWoodengreatarrow extends EntityArrow implements IEntityAdditi
 
     @Override
     public void readSpawnData(ByteBuf buffer) {
-        // Replicate EntityArrow's special spawn packet handling from NetHandlerPlayClient#handleSpawnObject:
+        // Replicate EntityArrow's special spawn network handling from NetHandlerPlayClient#handleSpawnObject:
         Entity shooter = worldObj.getEntityByID(buffer.readInt());
         if (shooter instanceof EntityLivingBase) {
             shootingEntity = shooter;

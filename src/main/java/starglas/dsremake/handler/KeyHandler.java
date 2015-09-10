@@ -11,7 +11,7 @@ import org.lwjgl.input.Keyboard;
 import starglas.dsremake.common.DSMain;
 import starglas.dsremake.common.helpers.ModVars;
 import starglas.dsremake.gui.container.ContainerCustomPlayer;
-import starglas.dsremake.packet.OpenPlayerGuiPacket;
+import starglas.dsremake.network.OpenPlayerGuiPacket;
 
 public class KeyHandler {
 

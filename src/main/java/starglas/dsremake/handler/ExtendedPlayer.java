@@ -1,9 +1,9 @@
 package starglas.dsremake.handler;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
@@ -11,8 +11,7 @@ import starglas.dsremake.common.CommonProxy;
 import starglas.dsremake.common.DSMain;
 import starglas.dsremake.common.helpers.ModHelper;
 import starglas.dsremake.common.helpers.ModVars;
-import starglas.dsremake.items.ModItems;
-import starglas.dsremake.packet.SyncPlayerPropsPacket;
+import starglas.dsremake.network.SyncPlayerPropsPacket;
 
 import java.util.UUID;
 
@@ -47,6 +46,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	// Public values for dirty tricks
 	public float staminaNeeded;
 	public boolean allowedRegeneration;
+	private int playerEndurance;
 
 
 	public ExtendedPlayer(EntityPlayer player) {
@@ -65,14 +65,14 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	}
 
 	public void changeElement(){
-		if(this.playerElement==ModVars.STORMELEMENT) this.playerElement=1;
+		if(this.playerElement==ModVars.ELEMENTNAMES.length) this.playerElement=1;
 		else this.playerElement++;
 		ModHelper.displayChat(this.player, ModVars.ELEMENTNAMES[this.playerElement]);
 	}
 
 	public void changeClass(){
-		if(this.playerClass==ModVars.WANDERERCLASS) this.playerClass=1;
-		else this.playerClass++;
+		if(this.playerClass==ModVars.CLASSNAMES.length) this.classSetup(1);
+		else {this.playerClass++; this.classSetup(this.playerClass);}
 		ModHelper.displayChat(this.player, ModVars.CLASSNAMES[this.playerClass]);
 	}
 	
@@ -92,6 +92,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 		this.playerWrath	= nbt.getInteger("wrath");
 		this.playerSerenity = nbt.getInteger("serenity");
 		this.playerHarmony	= nbt.getInteger("harmony");
+		this.playerEndurance= nbt.getInteger("endurance");
 		this.playerElement	= nbt.getInteger("element");
 		this.playerClass	= nbt.getInteger("class");
 		this.playerHasData	= nbt.getBoolean("playerHasData");
@@ -200,51 +201,127 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 			this.saveNBTData(compound);
 		}
 	}
+
 	
 	public void classSetup(int selectedClass){
-		int vigor, strength, grace;
+		int vit, end, str, grc, wil, rsv, wth, srn, har;
 		switch(selectedClass){
-			case 1:
-				vigor 		= 14;
-				strength 	= 11;
-				grace 		= 11;
-				player.inventory.addItemStackToInventory(new ItemStack(ModItems.longSword));
+			case ModVars.KNIGHTCLASS:
+				vit 	= 12;
+				end		= 9;
+				str		= 10;
+				grc		= 8;
+				wil		= 9;
+				rsv		= 9;
+				wth		= 6;
+				srn		= 9;
+				har		= 9;
 				break;
-			case 2:
-				vigor 		= 8;
-				strength 	= 9;
-				grace 		= 11;
+			case ModVars.WARRIORCLASS:
+				vit 	= 7;
+				end		= 13;
+				str		= 13;
+				grc		= 13;
+				wil		= 7;
+				rsv		= 7;
+				wth		= 7;
+				srn		= 7;
+				har		= 7;
 				break;
-			case 3:
-				vigor 		= 11;
-				strength 	= 12;
-				grace 		= 8;
+			case ModVars.WANDERERCLASS:
+				vit 	= 6;
+				end		= 15;
+				str		= 7;
+				grc		= 16;
+				wil		= 11;
+				rsv		= 6;
+				wth		= 9;
+				srn		= 8;
+				har		= 8;
 				break;
-			case 4:
-				vigor 		= 11;
-				strength	= 11;
-				grace		= 11;
+			case ModVars.PYROMANCERCLASS:
+				vit 	= 8;
+				end		= 12;
+				str		= 9;
+				grc		= 5;
+				wil		= 16;
+				rsv		= 6;
+				wth		= 9;
+				srn		= 8;
+				har		= 8;
+				break;
+			case ModVars.PALADINCLASS:
+				vit 	= 9;
+				end		= 9;
+				str		= 10;
+				grc		= 7;
+				wil		= 9;
+				rsv		= 15;
+				wth		= 4;
+				srn		= 9;
+				har		= 9;
+				break;
+			case ModVars.WARLOCKCLASS:
+				vit 	= 8;
+				end		= 12;
+				str		= 7;
+				grc		= 7;
+				wil		= 10;
+				rsv		= 8;
+				wth		= 16;
+				srn		= 7;
+				har		= 6;
+				break;
+			case ModVars.TIDEHUNTERCLASS:
+				vit 	= 9;
+				end		= 9;
+				str		= 9;
+				grc		= 12;
+				wil		= 5;
+				rsv		= 7;
+				wth		= 7;
+				srn		= 16;
+				har		= 7;
+				break;
+			case ModVars.DRUIDCLASS:
+				vit 	= 8;
+				end		= 10;
+				str		= 8;
+				grc		= 10;
+				wil		= 8;
+				rsv		= 8;
+				wth		= 5;
+				srn		= 8;
+				har		= 16;
 				break;
 			default:
-				vigor=0;
-				strength=0;
-				grace=0;
+				vit 	= 0;
+				end		= 0;
+				str		= 0;
+				grc		= 0;
+				wil		= 0;
+				rsv		= 0;
+				wth		= 0;
+				srn		= 0;
+				har		= 0;
 				break;
 		}
+		player.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20);// DEBUG
 		float playerHealth = player.getMaxHealth();
-		float health = playerHealth + (vigor * 0.5F);
+		float health = playerHealth + (vit * 0.5F);
+		player.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(health);
 		player.setHealth(health);
-		this.playerStrength =strength;
-		this.playerGrace = grace;
-		this.playerVigor = vigor;
+		this.playerVigor = vit;
+		this.playerEndurance = end;
+		this.playerStrength =str;
+		this.playerGrace = grc;
+		this.playerWill = wil;
+		this.playerResolve = rsv;
+		this.playerWrath = wth;
+		this.playerSerenity = srn;
+		this.playerHarmony = har;
 		this.playerClass = selectedClass;
 		this.finishedBookSetup = true;
-
-
-
-		NBTTagCompound compound = new NBTTagCompound();
-		this.saveNBTData(compound);
-		System.out.println("ExtendedPlayer.classSetup");
 	}
 
 	public double[] getLastUsedBonfire(){
@@ -319,6 +396,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 		nbt.setInteger("resolve", 	this.playerResolve);
 		nbt.setInteger("wrath", this.playerWrath);
 		nbt.setInteger("serenity", this.playerSerenity);
+		nbt.setInteger("endurance", this.playerEndurance);
 		nbt.setInteger("harmony", this.playerHarmony);
 		nbt.setInteger("element", this.playerElement);
 		nbt.setBoolean("playerHasData", this.playerHasData);
@@ -329,9 +407,9 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 		nbt.setInteger("MagicSlots", this.playerMagicSlots);
 		this.inventoryPlayer.writeToNBT(compound);
 
-		NBTTagCompound visitedBonfires = new NBTTagCompound();
-		nbt.setTag(ModVars.NBTOwnedBonfires, visitedBonfires);
-		visitedBonfires.setIntArray("01", this.bonfire1);
+//		NBTTagCompound visitedBonfires = new NBTTagCompound();
+//		nbt.setTag(ModVars.NBTOwnedBonfires, visitedBonfires);
+//		visitedBonfires.setIntArray("01", this.bonfire1);
 //		visitedBonfires.setIntArray("02", this.bonfire2);
 //		visitedBonfires.setIntArray("03", this.bonfire3);
 //		visitedBonfires.setIntArray("04", this.bonfire4);

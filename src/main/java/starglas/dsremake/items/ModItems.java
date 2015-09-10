@@ -49,6 +49,7 @@ public class ModItems extends Item{
 	public static Item ShimmeringShoalPearl = new GenericUpgrade(":shimmeringshoalpearl").setUnlocalizedName("ShimmeringShoalPearl");
 	public static Item SolarLens = new GenericUpgrade(":solarlens").setUnlocalizedName("SolarLens");
 	public static Item TreantSeed = new GenericUpgrade(":treantseed").setUnlocalizedName("TreantSeed");
+	public static Item FirePoker = new GenericUpgrade(":firepoker").setUnlocalizedName("FirePoker");
 	
 	// Rings
 	public static Item RingofVigor = new RingofVigor().setUnlocalizedName("RingofVigor");
@@ -77,8 +78,8 @@ public class ModItems extends Item{
 	public static Item FireHand = new FireHand().setUnlocalizedName("FireHand");
 
 	// Debug Items
-	public static Item ElementChanger = new Changer(1).setUnlocalizedName("Element");
-	public static Item ClassChanger = new Changer(2).setUnlocalizedName("ClassChanger");
+	public static Item ElementChanger = new ClassChanger(1).setUnlocalizedName("Element");
+	public static Item ClassChanger = new ClassChanger(2).setUnlocalizedName("ClassChanger");
 	
 	public static void init(){
 		ModHelper.registerItem(ElementChanger);
@@ -128,7 +129,7 @@ public class ModItems extends Item{
 		ModHelper.registerItem(ShimmeringShoalPearl);
 		ModHelper.registerItem(SolarLens);
 		ModHelper.registerItem(TreantSeed);
-		
+		ModHelper.registerItem(FirePoker);
 		// Rings
 		ModHelper.registerItem(RingofVigor);
 		

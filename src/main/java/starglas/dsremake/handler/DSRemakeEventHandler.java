@@ -37,7 +37,8 @@ import starglas.dsremake.entity.tileentity.TileEntityBonfire;
 import starglas.dsremake.items.ModItems;
 
 import java.util.List;
-
+// https://dl.dropboxusercontent.com/s/h777x7ugherqs0w/forgeevents.html
+// Detailed website with events
 public class DSRemakeEventHandler{
 
 	@SubscribeEvent
@@ -46,17 +47,15 @@ public class DSRemakeEventHandler{
 		if(event.entity instanceof EntityPlayer){
 			System.out.println("EntityConstructing event called; is this the client side? " + event.entity.worldObj.isRemote);
 			EntityPlayer player = (EntityPlayer)event.entity;
-			if (ExtendedPlayer.get(player) == null){
+			if (ExtendedPlayer.get(player) == null) {
 				ExtendedPlayer.register(player);
 				ExtendedPlayer props = ExtendedPlayer.get(player);
 				props.FirstLogin();
 			}
-			ExtendedPlayer props = ExtendedPlayer.get(player);
-			float health = props.getPlayerVigor();
 		}
 	}
 	@SubscribeEvent
-	public void onLivingDeathEvent(LivingDeathEvent event){
+	public void OnLivingDeath(LivingDeathEvent event){
 		// we only want to save data for players (most likely, anyway)
 		if (!event.entity.worldObj.isRemote && event.entity instanceof EntityPlayer)
 		{

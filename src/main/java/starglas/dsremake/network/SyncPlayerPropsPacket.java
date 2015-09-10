@@ -1,4 +1,4 @@
-package starglas.dsremake.packet;
+package starglas.dsremake.network;
 
 import cpw.mods.fml.common.network.ByteBufUtils;
 import io.netty.buffer.ByteBuf;
@@ -22,7 +22,7 @@ public class SyncPlayerPropsPacket extends AbstractPacket
 	// extended data, and no matter how much you add or remove, you'll never
 	// have
 
-	// to change the packet / synchronization of your data.
+	// to change the network / synchronization of your data.
 
 	// this will store our ExtendedPlayer data, allowing us to easily read and
 	// write
@@ -63,6 +63,6 @@ public class SyncPlayerPropsPacket extends AbstractPacket
 
 	@Override
 	public void handleServerSide(EntityPlayer player) {
-		// we never send this packet to the server, so do nothing here
+		// we never send this network to the server, so do nothing here
 	}
 }

@@ -1,5 +1,7 @@
 package starglas.dsremake.common;
 
+import cpw.mods.fml.common.network.simpleimpl.MessageContext;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 
 import java.util.HashMap;
@@ -26,6 +28,10 @@ public class CommonProxy {
 	public static NBTTagCompound getEntityData(UUID uuid)
 	{
 		return extendedEntityData.remove(uuid);
-	}	
+	}
+
+	public EntityPlayer getPlayerEntity(MessageContext ctx) {
+		return ctx.getServerHandler().playerEntity;
+	}
 	
 }

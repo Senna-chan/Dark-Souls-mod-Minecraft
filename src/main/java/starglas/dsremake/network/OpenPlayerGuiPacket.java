@@ -1,4 +1,4 @@
-package starglas.dsremake.packet;
+package starglas.dsremake.network;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
@@ -23,7 +23,7 @@ public class OpenPlayerGuiPacket extends AbstractPacket
 	// allows
 
 	// for them to be initialized, and use that constructor when sending the
-	// packet
+	// network
 
 	public OpenPlayerGuiPacket(int id) {
 
@@ -54,7 +54,7 @@ public class OpenPlayerGuiPacket extends AbstractPacket
 
 	@Override
 	public void handleServerSide(EntityPlayer player) {
-		// because we sent the gui's id with the packet, we can handle all cases
+		// because we sent the gui's id with the network, we can handle all cases
 		// with one line:
 		player.openGui(ModVars.MODID, id, player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
 	}

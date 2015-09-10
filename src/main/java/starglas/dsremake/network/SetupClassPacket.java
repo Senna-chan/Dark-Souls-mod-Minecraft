@@ -1,41 +1,31 @@
-package starglas.dsremake.packet;
+package starglas.dsremake.network;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
-import starglas.dsremake.common.helpers.ModVars;
+import starglas.dsremake.handler.ExtendedPlayer;
 
-public class OpenGuiPacket extends AbstractPacket
-
-{
-    private boolean isServer;
-
-    // this will store the id of the gui to open
-
+/**
+ * Created by Starlight on 8-9-2015.
+ */
+public class SetupClassPacket extends AbstractPacket {
     private int id;
 
     // The basic, no-argument constructor MUST be included to use the new
-    // automated handling
-
-    public OpenGuiPacket() {
-    }
-
+    // automated handling=
+    public SetupClassPacket() { }
     // if there are any class fields, be sure to provide a constructor that
     // allows
-
     // for them to be initialized, and use that constructor when sending the
-    // packet
-
-    public OpenGuiPacket(int id) {
+    // network
+    public SetupClassPacket(int id) {
         this.id = id;
     }
 
     @Override
     public void encodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
-
         // basic Input/Output operations, very much like DataOutputStream
         buffer.writeInt(id);
-
     }
 
     @Override
@@ -46,14 +36,12 @@ public class OpenGuiPacket extends AbstractPacket
 
     @Override
     public void handleClientSide(EntityPlayer player) {
-        // for opening a GUI, we don't need to do anything here
+
     }
 
     @Override
     public void handleServerSide(EntityPlayer player) {
-        // because we sent the gui's id with the packet, we can handle all cases
-        // with one line:
-        player.openGui(ModVars.MODID, id, player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
+        ExtendedPlayer props = ExtendedPlayer.get(player);
+        props.classSetup(id);
     }
-
 }
