@@ -26,7 +26,7 @@ public class BiomeGenPoison extends BiomeGenBase{
 
 
 
-        this.topBlock = ModBlocks.vilebarkBlock;
+        this.topBlock = Blocks.dirt;
         this.fillerBlock = Blocks.dirt;
     }
 

@@ -19,7 +19,7 @@ public class BiomeRegistry {
     }
 
     public static void registerBiome(){
-        BiomeDictionary.registerBiomeType(biomePoison, BiomeDictionary.Type.PLAINS);
+        BiomeDictionary.registerBiomeType(biomePoison, BiomeDictionary.Type.WASTELAND);
         BiomeDictionary.registerAllBiomesAndGenerateEvents();
         BiomeManager.addSpawnBiome(biomePoison);
     }

@@ -1,4 +1,4 @@
-package starglas.dsremake.network;
+package starglas.dsremake.network.PacketPipeline;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.FMLEmbeddedChannel;
@@ -18,6 +18,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.NetHandlerPlayServer;
 import starglas.dsremake.common.helpers.ModVars;
+import starglas.dsremake.network.PlayerUseItem;
 
 import java.util.*;
 
@@ -115,11 +116,8 @@ public class PacketPipeline extends MessageToMessageCodec<FMLProxyPacket, Abstra
     }
     
     public void registerPackets() {
-    	registerPacket(OpenPlayerGuiPacket.class);
-    	registerPacket(SyncPlayerPropsPacket.class);
         registerPacket(OpenGuiPacket.class);
         registerPacket(GenericServerPacket.class);
-        registerPacket(SetupClassPacket.class);
     }
 
     // Method to call from FMLPostInitializationEvent

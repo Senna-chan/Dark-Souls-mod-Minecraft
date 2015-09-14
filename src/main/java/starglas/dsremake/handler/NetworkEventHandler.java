@@ -6,14 +6,17 @@ import cpw.mods.fml.common.network.FMLNetworkEvent;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import starglas.dsremake.block.ModBlocks;
+import starglas.dsremake.common.helpers.ModHelper;
+import starglas.dsremake.common.helpers.ModVars;
 import starglas.dsremake.items.ModItems;
 import starglas.dsremake.items.TheBook;
 import starglas.dsremake.items.consumables.Estus;
+import starglas.dsremake.network.PacketHandler;
 
 /**
  * Created by Starlight on 7-7-2015.
  */
-public class NetworkHandler {
+public class NetworkEventHandler {
     @SubscribeEvent
     public void onClientConnected(FMLNetworkEvent.ClientConnectedToServerEvent event){
         System.out.println("Connected");
@@ -21,6 +24,10 @@ public class NetworkHandler {
     @SubscribeEvent
     public void onPlayerJoined(PlayerEvent.PlayerLoggedInEvent event){
         EntityPlayer player = event.player;
+        ExtendedPlayer props = ExtendedPlayer.get(player);
+        if(!props.finishedBookSetup()){
+
+        }
         // Give player their beginner items
         ItemStack[] playerInventory = player.inventory.mainInventory;
         boolean beginnerItemFound = false;

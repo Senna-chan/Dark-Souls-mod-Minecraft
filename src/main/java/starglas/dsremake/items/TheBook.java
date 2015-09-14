@@ -19,8 +19,7 @@ public class TheBook extends Item {
 
     @Override
     public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer player) {
-        ExtendedPlayer props = ExtendedPlayer.get(player);
-            player.openGui(ModVars.MODID, ModVars.GUI_BOOK, player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
+        player.openGui(ModVars.MODID, ModVars.GUI_BOOK, player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
         return item;
     }
 }

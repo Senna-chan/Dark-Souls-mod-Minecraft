@@ -10,7 +10,8 @@ import net.minecraft.world.World;
 import starglas.dsremake.common.helpers.DSMainCreativeTabs;
 import starglas.dsremake.common.helpers.ModHelper;
 import starglas.dsremake.handler.ExtendedPlayer;
-import starglas.dsremake.handler.KeyHandler;
+import starglas.dsremake.network.PacketHandler;
+import starglas.dsremake.network.PlayerUseItem;
 
 /**
  * Created by Starlight on 10-7-2015.
@@ -33,14 +34,6 @@ public class FireHand extends DSCatalyst {
             if (isSelected) {
                 NBTTagCompound nbt = item.getTagCompound();
                 int slot = nbt.getInteger("slot");
-                if (KeyHandler.keys[KeyHandler.SPELLMINUS].isPressed()) {
-                    System.out.println(slot);
-                    if (slot != 0) {
-                        nbt.setInteger("slot", slot - 1);
-                    } else {
-                        nbt.setInteger("slot", 9);
-                    }
-                }
             }
 
             if (!world.isRemote) {
@@ -59,23 +52,20 @@ public class FireHand extends DSCatalyst {
         }
     }
 
-    public boolean hitEntity(ItemStack item, EntityLivingBase target, EntityLivingBase player)
+    public boolean hitEntity(ItemStack items, EntityLivingBase target, EntityLivingBase player)
     {
         target.setFire(5);
         return true;
     }
 
     @Override
-    public ItemStack onEaten(ItemStack item, World world, EntityPlayer player) {
-        ModHelper.displayChat(player, "Is this the server "+world.isRemote+"?");
-        int slot = item.getTagCompound().getInteger("slot");
+    public ItemStack onEaten(ItemStack items, World world, EntityPlayer player) {
+        int slot = items.getTagCompound().getInteger("slot");
         ItemStack Mahou = ExtendedPlayer.get(player).inventoryPlayer.getStackInSlot(slot);
         if(Mahou!=null){
-            if(!world.isRemote) {
-                Mahou.useItemRightClick(world, player);
-            }
+            PacketHandler.sendToServer(new PlayerUseItem(slot));
         }
-        return item;
+        return items;
     }
 
     @Override
@@ -85,9 +75,16 @@ public class FireHand extends DSCatalyst {
 
 
     @Override
-    public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer player) {
-
-        player.setItemInUse(item, 10);
-        return item;
+    public ItemStack onItemRightClick(ItemStack items, World world, EntityPlayer player) {
+        int slot = items.getTagCompound().getInteger("slot");
+        ItemStack Mahou = ExtendedPlayer.get(player).inventoryPlayer.getStackInSlot(slot);
+        if(Mahou!=null) {
+            player.setItemInUse(items, Mahou.getMaxItemUseDuration());
+        }
+        else {
+            slot++;
+            ModHelper.displayChat(player, "No magic in " + slot);
+        }
+        return items;
     }
 }

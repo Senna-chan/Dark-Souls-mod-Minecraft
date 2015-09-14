@@ -1,14 +1,13 @@
 package starglas.dsremake.network;
 
 import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
 import starglas.dsremake.handler.ExtendedPlayer;
 
 /**
  * Created by Starlight on 8-9-2015.
  */
-public class SetupClassPacket extends AbstractPacket {
+public class SetupClassPacket extends MessageBase<SetupClassPacket> {
     private int id;
 
     // The basic, no-argument constructor MUST be included to use the new
@@ -23,25 +22,27 @@ public class SetupClassPacket extends AbstractPacket {
     }
 
     @Override
-    public void encodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
+    public void toBytes(ByteBuf buffer) {
         // basic Input/Output operations, very much like DataOutputStream
         buffer.writeInt(id);
     }
 
     @Override
-    public void decodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
+    public void fromBytes( ByteBuf buffer) {
         // basic Input/Output operations, very much like DataInputStream
         id = buffer.readInt();
     }
 
     @Override
-    public void handleClientSide(EntityPlayer player) {
+    public void handleClientSide(SetupClassPacket message, EntityPlayer player) {
 
     }
 
     @Override
-    public void handleServerSide(EntityPlayer player) {
+    public void handleServerSide(SetupClassPacket message, EntityPlayer player) {
         ExtendedPlayer props = ExtendedPlayer.get(player);
-        props.classSetup(id);
+        props.classSetup(message.id);
     }
+
+
 }

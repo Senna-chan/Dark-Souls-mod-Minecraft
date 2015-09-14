@@ -25,7 +25,7 @@ public class fireball extends DSSpells{
     }
 
     public int getMaxItemUseDuration(ItemStack Items) {
-        return 72000;
+        return 1;
     }
 
     @Override

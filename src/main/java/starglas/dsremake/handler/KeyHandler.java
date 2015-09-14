@@ -8,9 +8,9 @@ import net.minecraft.client.gui.GuiChat;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.EntityPlayer;
 import org.lwjgl.input.Keyboard;
-import starglas.dsremake.common.DSMain;
 import starglas.dsremake.common.helpers.ModVars;
 import starglas.dsremake.gui.container.ContainerCustomPlayer;
+import starglas.dsremake.network.PacketHandler;
 import starglas.dsremake.network.OpenPlayerGuiPacket;
 
 public class KeyHandler {
@@ -59,20 +59,33 @@ public class KeyHandler {
 
     @SubscribeEvent
     public void onKeyInput(KeyInputEvent event) {
-
+        EntityPlayer player = FMLClientHandler.instance().getClient().thePlayer;
         if (!FMLClientHandler.instance().isGUIOpen(GuiChat.class)) {
             int kb = Keyboard.getEventKey();
 
             boolean isDown = Keyboard.getEventKeyState();
             if (kb == keys[CUSTOM_INV].getKeyCode()) {
-                EntityPlayer player = FMLClientHandler.instance().getClient().thePlayer;
+
                 if (player.openContainer instanceof ContainerCustomPlayer) {
                     player.closeScreen();
                 }
                 else {
-                    DSMain.packetPipeline.sendToServer(new OpenPlayerGuiPacket(ModVars.GUI_DSINV));
+                    PacketHandler.sendToServer(new OpenPlayerGuiPacket(ModVars.GUI_DSINV));
                 }
             }
+//            if(kb == keys[SPELLMINUS].getKeyCode()){
+//                ItemStack currentItem = player.getCurrentEquippedItem();
+//                if(currentItem !=null && currentItem.getItem() instanceof DSCatalyst) {
+//                    NBTTagCompound tag = currentItem.getTagCompound();
+//                    int slot = tag.getInteger("slot");
+//                    if (slot != 0) {
+//                        tag.setInteger("slot", slot - 1);
+//                    } else {
+//                        tag.setInteger("slot", 9);
+//                    }
+//                    System.out.println("slot = " + slot);
+//                }
+//            }
 
 
         }

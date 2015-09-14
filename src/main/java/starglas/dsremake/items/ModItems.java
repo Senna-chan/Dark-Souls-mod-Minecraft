@@ -16,6 +16,7 @@ import starglas.dsremake.items.rings.RingofVigor;
 import starglas.dsremake.items.spells.fireball;
 import starglas.dsremake.items.swords.GenericSword;
 import starglas.dsremake.items.upgrades.BloodStone;
+import starglas.dsremake.items.upgrades.FirePoker;
 import starglas.dsremake.items.upgrades.GenericUpgrade;
 
 public class ModItems extends Item{
@@ -49,7 +50,8 @@ public class ModItems extends Item{
 	public static Item ShimmeringShoalPearl = new GenericUpgrade(":shimmeringshoalpearl").setUnlocalizedName("ShimmeringShoalPearl");
 	public static Item SolarLens = new GenericUpgrade(":solarlens").setUnlocalizedName("SolarLens");
 	public static Item TreantSeed = new GenericUpgrade(":treantseed").setUnlocalizedName("TreantSeed");
-	public static Item FirePoker = new GenericUpgrade(":firepoker").setUnlocalizedName("FirePoker");
+	public static Item BottledNethergonEnergy = new GenericUpgrade(":bottlednethergonenergy").setUnlocalizedName("bottlednethergonenergy");
+	public static Item FirePoker = new FirePoker().setUnlocalizedName("FirePoker");
 	
 	// Rings
 	public static Item RingofVigor = new RingofVigor().setUnlocalizedName("RingofVigor");
@@ -129,6 +131,7 @@ public class ModItems extends Item{
 		ModHelper.registerItem(ShimmeringShoalPearl);
 		ModHelper.registerItem(SolarLens);
 		ModHelper.registerItem(TreantSeed);
+		ModHelper.registerItem(BottledNethergonEnergy);
 		ModHelper.registerItem(FirePoker);
 		// Rings
 		ModHelper.registerItem(RingofVigor);

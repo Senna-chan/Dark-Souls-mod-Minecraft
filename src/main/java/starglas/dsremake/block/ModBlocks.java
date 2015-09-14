@@ -1,6 +1,7 @@
 package starglas.dsremake.block;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import starglas.dsremake.common.helpers.ModHelper;
 
 
@@ -9,19 +10,24 @@ public class ModBlocks{
 	public static Block bonfire = new BlockBonfire().setBlockName("blockBonfire");
 	public static Block bloodstoneOre = new BloodstoneOre().setBlockName("blockBloodstoneOre");
 	public static Block smallChest = new BlockSmallChest().setBlockName("blockSmallChest");
-	public static Block desertBlock = new TempleBlock("desertblock").setBlockName("desertBlock");
-	public static Block vilebarkBlock = new TempleBlock("vilebarkblock").setBlockName("vilebarkBlock");
-	public static Block taintBlock = new TempleBlock("taintblock").setBlockName("taintBlock");
-	public static Block ashBlock = new TempleBlock("ashblock").setBlockName("ashblock");
+	public static Block desertBlock = new GenericBlock("desertblock").setBlockName("desertBlock");
+
+	public static Block taintBlock = new GenericBlock("taintblock").setBlockName("taintBlock");
+	public static Block ashBlock = new GenericBlock("ashblock").setBlockName("ashblock");
 	public static Block dsAnvil = new DSAnvil().setBlockName("dsAnvil");
+
+	public static Block vilebarkBlock = new GenericBlock("vilebarkblock", Material.wood).setBlockName("vilebarkBlock");
+	public static Block vilebarkSapling = new VilebarkSapling().setBlockName("vilebarkSapling");
 
 
 	public static void init(){
 
 		ModHelper.registerBlock(desertBlock);
-		ModHelper.registerBlock(vilebarkBlock);
 		ModHelper.registerBlock(ashBlock);
 		ModHelper.registerBlock(taintBlock);
+
+		ModHelper.registerBlock(vilebarkBlock);
+		ModHelper.registerBlock(vilebarkSapling);
 		
 		ModHelper.registerBlock(bonfire);
 		ModHelper.registerBlock(bloodstoneOre);

@@ -8,9 +8,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
 import starglas.dsremake.common.CommonProxy;
-import starglas.dsremake.common.DSMain;
 import starglas.dsremake.common.helpers.ModHelper;
 import starglas.dsremake.common.helpers.ModVars;
+import starglas.dsremake.network.PacketHandler;
 import starglas.dsremake.network.SyncPlayerPropsPacket;
 
 import java.util.UUID;
@@ -322,6 +322,8 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 		this.playerHarmony = har;
 		this.playerClass = selectedClass;
 		this.finishedBookSetup = true;
+		NBTTagCompound tag = new NBTTagCompound();
+		this.saveNBTData(tag);
 	}
 
 	public double[] getLastUsedBonfire(){
@@ -353,7 +355,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 		ExtendedPlayer playerData = ExtendedPlayer.get(player);
 		NBTTagCompound savedData = CommonProxy.getEntityData(getSaveKey(player));
 		if (savedData != null) { playerData.loadNBTData(savedData); }
-		DSMain.packetPipeline.sendTo(new SyncPlayerPropsPacket(player), (EntityPlayerMP) player);
+		PacketHandler.sendTo(new SyncPlayerPropsPacket(player), (EntityPlayerMP) player);
 	}
 
 	public void saveBonfire(int x, int y, int z) {

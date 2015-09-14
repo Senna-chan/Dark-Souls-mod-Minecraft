@@ -9,7 +9,7 @@ public class GenericUpgrade extends Item{
 	public GenericUpgrade(String texture){
 		super();
 		this.setCreativeTab(DSMainCreativeTabs.tabDSUpgrade);
-		this.setMaxStackSize(64);
+		this.setMaxStackSize(8);
 		this.setTextureName(ModVars.MODID + texture);
 	}
 

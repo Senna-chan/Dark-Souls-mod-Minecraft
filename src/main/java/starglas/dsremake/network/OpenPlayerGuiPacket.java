@@ -1,11 +1,10 @@
 package starglas.dsremake.network;
 
 import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
 import starglas.dsremake.common.helpers.ModVars;
 
-public class OpenPlayerGuiPacket extends AbstractPacket
+public class OpenPlayerGuiPacket extends MessageBase<OpenPlayerGuiPacket>
 
 {
 
@@ -32,7 +31,7 @@ public class OpenPlayerGuiPacket extends AbstractPacket
 	}
 
 	@Override
-	public void encodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
+	public void toBytes(ByteBuf buffer) {
 
 		// basic Input/Output operations, very much like DataOutputStream
 
@@ -41,21 +40,18 @@ public class OpenPlayerGuiPacket extends AbstractPacket
 	}
 
 	@Override
-	public void decodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
+	public void fromBytes(ByteBuf buffer) {
 		// basic Input/Output operations, very much like DataInputStream
 		id = buffer.readInt();
-		System.out.println("ctx = [" + ctx + "], buffer = [" + buffer + "]");
 	}
 
 	@Override
-	public void handleClientSide(EntityPlayer player) {
-		// for opening a GUI, we don't need to do anything here
+	public void handleClientSide(OpenPlayerGuiPacket message, EntityPlayer player) {
+
 	}
 
 	@Override
-	public void handleServerSide(EntityPlayer player) {
-		// because we sent the gui's id with the network, we can handle all cases
-		// with one line:
-		player.openGui(ModVars.MODID, id, player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
+	public void handleServerSide(OpenPlayerGuiPacket message, EntityPlayer player) {
+		player.openGui(ModVars.MODID, message.id, player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
 	}
 }

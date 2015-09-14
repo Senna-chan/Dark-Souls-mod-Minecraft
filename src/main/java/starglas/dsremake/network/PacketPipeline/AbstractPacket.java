@@ -1,4 +1,4 @@
-package starglas.dsremake.network;
+package starglas.dsremake.network.PacketPipeline;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;

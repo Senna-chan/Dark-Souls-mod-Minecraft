@@ -5,10 +5,10 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-import starglas.dsremake.common.DSMain;
 import starglas.dsremake.common.helpers.ModHelper;
 import starglas.dsremake.common.helpers.ModVars;
 import starglas.dsremake.handler.ExtendedPlayer;
+import starglas.dsremake.network.PacketHandler;
 import starglas.dsremake.network.SetupClassPacket;
 
 public class BookGui extends GuiScreen{
@@ -55,7 +55,7 @@ public class BookGui extends GuiScreen{
 	@Override
 	public void actionPerformed(GuiButton button){
 		ExtendedPlayer props = ExtendedPlayer.get(player);
-		DSMain.packetPipeline.sendToServer(new SetupClassPacket(button.id));
+		PacketHandler.sendToServer(new SetupClassPacket(button.id));
 		ModHelper.displayChat(player, "You are now a " + ModVars.CLASSNAMES[button.id]);
 	}
 	

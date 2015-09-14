@@ -7,6 +7,7 @@ public class ModVars
 	public static final String VERSION = "pre-alpha";
 	
 	public static final String PACKET_CHANNEL = "DSRemake";
+	public static final String TEST_PACKET_CHANNEL = "DSRemakeTEST";
 	public static final String PLAYERINVTAGNAME = "DarkSoulsINV";
 	
 	public static final String NBTExtendedName = "DSPlayerInfo";

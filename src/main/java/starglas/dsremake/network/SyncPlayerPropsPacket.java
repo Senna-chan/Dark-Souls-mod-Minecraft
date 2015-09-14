@@ -2,12 +2,11 @@ package starglas.dsremake.network;
 
 import cpw.mods.fml.common.network.ByteBufUtils;
 import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import starglas.dsremake.handler.ExtendedPlayer;
 
-public class SyncPlayerPropsPacket extends AbstractPacket
+public class SyncPlayerPropsPacket extends MessageBase<SyncPlayerPropsPacket>
 
 {
 
@@ -32,8 +31,7 @@ public class SyncPlayerPropsPacket extends AbstractPacket
 	// The basic, no-argument constructor MUST be included to use the new
 	// automated handling
 
-	public SyncPlayerPropsPacket() {
-	}
+	public SyncPlayerPropsPacket() {}
 	// We need to initialize our data, so provide a suitable constructor:
 	public SyncPlayerPropsPacket(EntityPlayer player) {
 		// create a new tag compound
@@ -43,26 +41,24 @@ public class SyncPlayerPropsPacket extends AbstractPacket
 	}
 
 	@Override
-	public void encodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
+	public void toBytes(ByteBuf buffer) {
 		// ByteBufUtils provides a convenient method for writing the compound
 		ByteBufUtils.writeTag(buffer, data);
 	}
 
 	@Override
-	public void decodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
+	public void fromBytes(ByteBuf buffer) {
 		// luckily, ByteBufUtils provides an easy way to read the NBT
 		data = ByteBufUtils.readTag(buffer);
 	}
 
 	@Override
-	public void handleClientSide(EntityPlayer player) {
-		// now we can just load the NBTTagCompound data directly; one and done,
-		// folks
-		ExtendedPlayer.get(player).loadNBTData(data);
+	public void handleClientSide(SyncPlayerPropsPacket message, EntityPlayer player) {
+
 	}
 
 	@Override
-	public void handleServerSide(EntityPlayer player) {
-		// we never send this network to the server, so do nothing here
+	public void handleServerSide(SyncPlayerPropsPacket message, EntityPlayer player) {
+
 	}
 }

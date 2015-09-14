@@ -24,7 +24,7 @@ import starglas.dsremake.fluids.ModFluids;
 import starglas.dsremake.handler.*;
 import starglas.dsremake.items.ModItems;
 import starglas.dsremake.items.ModRecipes;
-import starglas.dsremake.network.PacketPipeline;
+import starglas.dsremake.network.PacketHandler;
 import starglas.dsremake.world.ChunkProviderGenerator;
 import starglas.dsremake.world.WorldGenClass;
 import starglas.dsremake.world.WorldTypeDSRemake;
@@ -43,7 +43,7 @@ public class DSMain {
 	@SidedProxy(clientSide="starglas.dsremake.client.ClientProxy", serverSide="starglas.dsremake.common.CommonProxy")
 	public static CommonProxy proxy;
 	
-	public static final PacketPipeline packetPipeline = new PacketPipeline();
+	//public static final PacketPipeline packetPipeline = new PacketPipeline();
 
 
 	// Declaring vars
@@ -53,7 +53,8 @@ public class DSMain {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		packetPipeline.initialise();
+		//packetPipeline.initialise();
+		PacketHandler.init();
 
 		ModItems.init();
 		ModFluids.init(); // Fluids go before blocks
@@ -68,7 +69,7 @@ public class DSMain {
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GUIHandler());
 		MinecraftForge.EVENT_BUS.register(new DSRemakeBucketFill());
-		FMLCommonHandler.instance().bus().register(new NetworkHandler());
+		FMLCommonHandler.instance().bus().register(new NetworkEventHandler());
 		MinecraftForge.EVENT_BUS.register(new DSRemakeEventHandler());
 
 		proxy.registerProxies();
@@ -85,7 +86,7 @@ public class DSMain {
 
 	@EventHandler
 	public void PostInit(FMLPostInitializationEvent event) {
-		packetPipeline.postInitialise();
+		//packetPipeline.postInitialise();
 		FluidContainerRegistry.registerFluidContainer(new FluidContainerRegistry.FluidContainerData(FluidRegistry.getFluidStack(ModFluids.fluidPoison.getName(), FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(ModFluids.PoisonBucket), new ItemStack(Items.bucket)));
 		WorldType DSREMAKE = new WorldTypeDSRemake(10, "DSRemake");
 	}

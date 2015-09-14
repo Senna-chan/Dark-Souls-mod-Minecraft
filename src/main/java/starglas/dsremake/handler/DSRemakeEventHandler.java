@@ -80,14 +80,11 @@ public class DSRemakeEventHandler{
 			NBTTagCompound playerData = CommonProxy.getEntityData(event.entity.getUniqueID());
 			// make sure the compound isn't null
 			if (playerData != null) {
-				// then load the data back into the player's IExtendedEntityProperties
-				event.entity.getExtendedProperties(ModVars.NBTExtendedName).loadNBTData(playerData);
+				((ExtendedPlayer)(event.entity.getExtendedProperties(ModVars.NBTExtendedName))).loadNBTData(playerData);
 			}
-
-
 		}
-
 	}
+
 	@SubscribeEvent
 	public void onPlayerTick(LivingEvent.LivingUpdateEvent event){
 		if(event.entity instanceof EntityPlayer){ // We only want to use the player
@@ -271,9 +268,11 @@ public class DSRemakeEventHandler{
 			event.setCanceled(true);
 		}
 		// Ash for blindness
-		if(event.target instanceof EntityLivingBase){
-			EntityLivingBase target = (EntityLivingBase)event.target;
-			target.addPotionEffect(new PotionEffect(Potion.blindness.getId(), 60, 0));
+		if(props.getPlayerElement()==ModVars.ASHELEMENT){
+			if(event.target instanceof EntityPlayer) {
+				EntityLivingBase target = (EntityLivingBase) event.target;
+				target.addPotionEffect(new PotionEffect(Potion.blindness.getId(), 60, 0));
+			}
 		}
 	}
 	@SideOnly(Side.CLIENT)
@@ -285,6 +284,7 @@ public class DSRemakeEventHandler{
 			event.setCanceled(true);
 
 	}
+	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public void render(RenderGameOverlayEvent.Post event) {
 		// called after vanilla rendering completed (or canceled)
@@ -296,10 +296,11 @@ public class DSRemakeEventHandler{
 		int playerClass = props.getPlayerClass();
 		if (event.isCancelable() || event.type == RenderGameOverlayEvent.ElementType.FOOD)
 		{
-			mc.fontRenderer.drawString(player.getHealth() + "", 100, 200, 0xffff80);
-			mc.fontRenderer.drawString(player.experienceTotal + "", 100, 210, 0xffff80);
-			mc.fontRenderer.drawString("Class: " + ModVars.CLASSNAMES[playerClass], 130, 200, 0xffff80);
-			mc.fontRenderer.drawString("Element: " + ModVars.ELEMENTNAMES[playerElement], 130, 210, 0xffff80);
+			mc.fontRenderer.drawString("Stamina: "+player.getDataWatcher().getWatchableObjectFloat(ModVars.STAMINA_WATCHER) +"", 100, 190, 0x000000);
+			mc.fontRenderer.drawString("HP:      "+ player.getHealth() + "", 100, 200, 0xffff80);
+			mc.fontRenderer.drawString("EXP:     "+ player.experienceTotal + "", 100, 210, 0xffff80);
+			mc.fontRenderer.drawString("Class:   " + ModVars.CLASSNAMES[playerClass], 160, 200, 0xffff80);
+			mc.fontRenderer.drawString("Element: " + ModVars.ELEMENTNAMES[playerElement], 160, 210, 0xffff80);
 		}
 
 	}
