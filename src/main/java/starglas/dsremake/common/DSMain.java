@@ -37,12 +37,12 @@ import starglas.dsremake.world.biome.BiomeRegistry;
 public class DSMain {
 	
 	@Mod.Instance(ModVars.MODID)
-	public static DSMain instance;
 	
 	
 	@SidedProxy(clientSide="starglas.dsremake.client.ClientProxy", serverSide="starglas.dsremake.common.CommonProxy")
 	public static CommonProxy proxy;
-	
+	public static DSMain instance;
+
 	//public static final PacketPipeline packetPipeline = new PacketPipeline();
 
 
