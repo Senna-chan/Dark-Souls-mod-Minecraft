@@ -1,4 +1,4 @@
-package starglas.dsremake.handler;
+package starglas.dsremake.gui.inventory;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;

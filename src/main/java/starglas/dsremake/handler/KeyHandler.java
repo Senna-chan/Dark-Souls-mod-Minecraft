@@ -11,7 +11,7 @@ import org.lwjgl.input.Keyboard;
 import starglas.dsremake.common.helpers.ModVars;
 import starglas.dsremake.gui.container.ContainerCustomPlayer;
 import starglas.dsremake.network.PacketHandler;
-import starglas.dsremake.network.OpenPlayerGuiPacket;
+import starglas.dsremake.network.OpenGuiPacket;
 
 public class KeyHandler {
 
@@ -70,7 +70,7 @@ public class KeyHandler {
                     player.closeScreen();
                 }
                 else {
-                    PacketHandler.sendToServer(new OpenPlayerGuiPacket(ModVars.GUI_DSINV));
+                    PacketHandler.sendToServer(new OpenGuiPacket(ModVars.GUI_DSINV));
                 }
             }
 //            if(kb == keys[SPELLMINUS].getKeyCode()){

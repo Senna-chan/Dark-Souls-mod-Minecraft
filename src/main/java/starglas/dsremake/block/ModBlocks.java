@@ -16,8 +16,10 @@ public class ModBlocks{
 	public static Block ashBlock = new GenericBlock("ashblock").setBlockName("ashblock");
 	public static Block dsAnvil = new DSAnvil().setBlockName("dsAnvil");
 
-	public static Block vilebarkBlock = new GenericBlock("vilebarkblock", Material.wood).setBlockName("vilebarkBlock");
+	public static Block vilebarkBlock = new VilebarkLog().setBlockName("vilebarkBlock");
 	public static Block vilebarkSapling = new VilebarkSapling().setBlockName("vilebarkSapling");
+
+	public static Block dynaTiloTrading = new DynaTiloTrading().setBlockName("dynaTiloTrading");
 
 
 	public static void init(){
@@ -34,6 +36,8 @@ public class ModBlocks{
 		ModHelper.registerBlock(smallChest);
 
 		ModHelper.registerBlock(dsAnvil);
+
+		ModHelper.registerBlock(dynaTiloTrading);
 		
 	}
 }

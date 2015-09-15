@@ -45,6 +45,7 @@ public class BlockBonfire extends BlockContainer{
 	public boolean renderAsNormalBlock(){
 		return false;
 	}
+
 	@Override
 	public void onBlockAdded(World world, int X, int Y, int Z)
     {

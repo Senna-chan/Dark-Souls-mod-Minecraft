@@ -14,7 +14,7 @@ public class BiomeGenPoison extends BiomeGenBase{
     public BiomeGenPoison(int id){
         super(id);
         this.theBiomeDecorator.generateLakes=false;
-        this.theBiomeDecorator.treesPerChunk = 20;
+        this.theBiomeDecorator.treesPerChunk = 0;
         this.theBiomeDecorator.grassPerChunk = 2;
         this.theBiomeDecorator.deadBushPerChunk = 10;
 

@@ -10,6 +10,7 @@ import net.minecraftforge.common.IExtendedEntityProperties;
 import starglas.dsremake.common.CommonProxy;
 import starglas.dsremake.common.helpers.ModHelper;
 import starglas.dsremake.common.helpers.ModVars;
+import starglas.dsremake.gui.inventory.InventoryCustomPlayer;
 import starglas.dsremake.network.PacketHandler;
 import starglas.dsremake.network.SyncPlayerPropsPacket;
 

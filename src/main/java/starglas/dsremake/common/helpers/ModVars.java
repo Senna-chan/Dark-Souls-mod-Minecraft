@@ -47,7 +47,8 @@ public class ModVars
 	public static final byte GUI_DSINV = 0;
 	public static final int GUI_BOOK = 1;
 	public static final byte GUI_BONFIRE = 2;
-	public static final byte GUI_BONFIRECHEST = 3;
+	public static final int GUI_DYNATILO = 3;
 	public static final int BIOME_POISON = 137;
+
 
 }

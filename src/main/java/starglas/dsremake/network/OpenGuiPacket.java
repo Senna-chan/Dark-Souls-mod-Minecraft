@@ -4,7 +4,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import starglas.dsremake.common.helpers.ModVars;
 
-public class OpenPlayerGuiPacket extends MessageBase<OpenPlayerGuiPacket>
+public class OpenGuiPacket extends MessageBase<OpenGuiPacket>
 
 {
 
@@ -15,7 +15,7 @@ public class OpenPlayerGuiPacket extends MessageBase<OpenPlayerGuiPacket>
 	// The basic, no-argument constructor MUST be included to use the new
 	// automated handling
 
-	public OpenPlayerGuiPacket() {
+	public OpenGuiPacket() {
 	}
 
 	// if there are any class fields, be sure to provide a constructor that
@@ -24,7 +24,7 @@ public class OpenPlayerGuiPacket extends MessageBase<OpenPlayerGuiPacket>
 	// for them to be initialized, and use that constructor when sending the
 	// network
 
-	public OpenPlayerGuiPacket(int id) {
+	public OpenGuiPacket(int id) {
 
 		this.id = id;
 
@@ -46,12 +46,12 @@ public class OpenPlayerGuiPacket extends MessageBase<OpenPlayerGuiPacket>
 	}
 
 	@Override
-	public void handleClientSide(OpenPlayerGuiPacket message, EntityPlayer player) {
+	public void handleClientSide(OpenGuiPacket message, EntityPlayer player) {
 
 	}
 
 	@Override
-	public void handleServerSide(OpenPlayerGuiPacket message, EntityPlayer player) {
+	public void handleServerSide(OpenGuiPacket message, EntityPlayer player) {
 		player.openGui(ModVars.MODID, message.id, player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
 	}
 }

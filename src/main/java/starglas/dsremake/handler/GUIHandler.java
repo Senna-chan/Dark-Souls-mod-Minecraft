@@ -6,7 +6,9 @@ import net.minecraft.world.World;
 import starglas.dsremake.common.helpers.ModVars;
 import starglas.dsremake.gui.BonFireGui;
 import starglas.dsremake.gui.BookGui;
+import starglas.dsremake.gui.GuiDynaTilo;
 import starglas.dsremake.gui.container.ContainerCustomPlayer;
+import starglas.dsremake.gui.container.ContainerDynaTilo;
 import starglas.dsremake.gui.inventory.GuiCustomPlayerInventory;
 
 public class GUIHandler implements IGuiHandler {
@@ -20,6 +22,8 @@ public class GUIHandler implements IGuiHandler {
 		switch (ID) {
 			case ModVars.GUI_DSINV:
 				return new ContainerCustomPlayer(player, player.inventory, ExtendedPlayer.get(player).inventoryPlayer);
+			//case ModVars.GUI_DYNATILO:
+			//	return new ContainerDynaTilo(player, player.inventory);
 //			case ModVars.GUI_BONFIRE:
 //				return new ContainerBonfire(player, player.inventory);
 //			case ModVars.GUI_BONFIRECHEST:
@@ -39,6 +43,8 @@ public class GUIHandler implements IGuiHandler {
 				return new BonFireGui(player, player.inventory, ExtendedPlayer.get(player));
 			case ModVars.GUI_BOOK:
 				return new BookGui(player);
+			case ModVars.GUI_DYNATILO:
+				return new GuiDynaTilo(player, player.inventory);
 //			case ModVars.GUI_BONFIRECHEST:
 //				return new GuiBonfireChest(player, player.inventory, ExtendedPlayer.get(player).inventoryBonfire);
 			default:

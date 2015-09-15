@@ -12,7 +12,7 @@ import starglas.dsremake.gui.slots.SlotArmor;
 import starglas.dsremake.gui.slots.SlotShields;
 import starglas.dsremake.gui.slots.SlotSpells;
 import starglas.dsremake.handler.ExtendedPlayer;
-import starglas.dsremake.handler.InventoryCustomPlayer;
+import starglas.dsremake.gui.inventory.InventoryCustomPlayer;
 import starglas.dsremake.items.shields.DSShields;
 
 public class ContainerCustomPlayer extends Container

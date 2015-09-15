@@ -19,7 +19,7 @@ public class PacketHandler {
 
         INSTANCE.registerMessage(MessageTest.class, MessageTest.class, 0, Side.SERVER);
         INSTANCE.registerMessage(SyncPlayerPropsPacket.class, SyncPlayerPropsPacket.class, 1, Side.CLIENT);
-        INSTANCE.registerMessage(OpenPlayerGuiPacket.class, OpenPlayerGuiPacket.class, 2, Side.SERVER);
+        INSTANCE.registerMessage(OpenGuiPacket.class, OpenGuiPacket.class, 2, Side.SERVER);
         INSTANCE.registerMessage(PlayerUseItem.class, PlayerUseItem.class, 3, Side.SERVER);
         INSTANCE.registerMessage(SetupClassPacket.class, SetupClassPacket.class, 4, Side.SERVER);
     }

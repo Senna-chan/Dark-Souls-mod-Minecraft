@@ -12,7 +12,6 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 import starglas.dsremake.common.helpers.ModVars;
 import starglas.dsremake.gui.container.ContainerCustomPlayer;
-import starglas.dsremake.handler.InventoryCustomPlayer;
 
 public class GuiCustomPlayerInventory extends GuiContainer
 
