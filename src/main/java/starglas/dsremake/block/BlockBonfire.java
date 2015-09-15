@@ -89,7 +89,7 @@ public class BlockBonfire extends BlockContainer{
 			BonFireGui.BonFireX = X;
 			BonFireGui.BonFireY = Y;
 			BonFireGui.BonFireZ = Z;
-			player.openGui(ModVars.MODID, ModVars.GUI_BONFIRE, player .worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
+			player.openGui(ModVars.MODID, ModVars.GUI_BONFIRE, player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
 		}
 		else if(currentItem.getItem() == ModItems.RadiantOil) {
 			if (t.getBonFireLevel() != 4) {

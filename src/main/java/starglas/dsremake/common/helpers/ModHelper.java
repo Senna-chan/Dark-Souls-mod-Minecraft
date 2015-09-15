@@ -5,12 +5,14 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.client.IItemRenderer;
@@ -34,7 +36,7 @@ public class ModHelper
 	public static void registerItemRender(Block block, IItemRenderer toRender){
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(block), toRender);
 	}
-	public static void registerBlockRender(Class block, TileEntitySpecialRenderer renderer){
+	public static void registerBlockRender(Class<TileEntity> block, TileEntitySpecialRenderer renderer){
 		ClientRegistry.bindTileEntitySpecialRenderer(block, renderer);
 	}
 
@@ -50,7 +52,7 @@ public class ModHelper
 		EntityRegistry.addSpawn(entityClass, 2, 0, 7,mobType , biometoSpawnIn);
 		createEgg(freeId, solidColor, spotColor);
 	}
-	public static void createEntity(Class entityClass, String entityName, int solidColor, int spotColor) {
+	public static void createEntity(Class<Entity> entityClass, String entityName, int solidColor, int spotColor) {
 		int freeId = EntityRegistry.findGlobalUniqueEntityId();
 
 		EntityRegistry.registerGlobalEntityID(entityClass, entityName, freeId);
@@ -58,7 +60,7 @@ public class ModHelper
 		createEgg(freeId, solidColor, spotColor);
 	}
 	private static void createEgg(int randomId, int solidColor, int spotColor) {
-		EntityList.entityEggs.put(Integer.valueOf(randomId), new EntityList.EntityEggInfo(randomId, solidColor, spotColor));
+		EntityList.entityEggs.put(randomId, new EntityList.EntityEggInfo(randomId, solidColor, spotColor));
 	}
 	public static int playerHasItem(EntityPlayer player, Item item) {
 		ItemStack[] mainInventory = player.inventory.mainInventory;
@@ -66,7 +68,7 @@ public class ModHelper
 		{
 			if (mainInventory[i] != null && mainInventory[i].getItem() == item)
 			{
-				return i;
+				return i; // Returns the first slot of the item
 			}
 		}
 

@@ -179,7 +179,7 @@ public class DSRemakeEventHandler{
 					if(currentElement instanceof EntityLivingBase && currentElement != player && !(currentElement instanceof DSTrader)){
 						PotionEffect posionActive = player.getActivePotionEffect(Potion.poison);
 						if(posionActive!=null){
-							//((EntityLivingBase) currentElement).addPotionEffect(new PotionEffect(Potion.poison.getId(), ));
+							((EntityLivingBase) currentElement).addPotionEffect(new PotionEffect(Potion.poison.getId(), 20, 0));
 						}
 					}
 				}
@@ -239,7 +239,7 @@ public class DSRemakeEventHandler{
 			TileEntityBonfire t = (TileEntityBonfire) event.world.getTileEntity(event.x, event.y, event.z);
 			String owner = t.getOwner();
 			String playerBreaking = event.getPlayer().getDisplayName();
-			if (owner == playerBreaking) {
+			if (owner.equals(playerBreaking)) {
 				event.setCanceled(false);
 			}
 			else {
@@ -270,8 +270,7 @@ public class DSRemakeEventHandler{
 		// Ash for blindness
 		if(props.getPlayerElement()==ModVars.ASHELEMENT){
 			if(event.target instanceof EntityPlayer) {
-				EntityLivingBase target = (EntityLivingBase) event.target;
-				target.addPotionEffect(new PotionEffect(Potion.blindness.getId(), 60, 0));
+				((EntityLivingBase)event.target).addPotionEffect(new PotionEffect(Potion.blindness.getId(), 60, 0));
 			}
 		}
 	}
