@@ -4,6 +4,7 @@ import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import starglas.dsremake.common.helpers.ModVars;
+import starglas.dsremake.entity.tileentity.TileEntityDynaTiloTrading;
 import starglas.dsremake.gui.BonFireGui;
 import starglas.dsremake.gui.BookGui;
 import starglas.dsremake.gui.GuiDynaTilo;
@@ -22,7 +23,9 @@ public class GUIHandler implements IGuiHandler {
 		switch (ID) {
 			case ModVars.GUI_DSINV:
 				return new ContainerCustomPlayer(player, player.inventory, ExtendedPlayer.get(player).inventoryPlayer);
-			//case ModVars.GUI_DYNATILO:
+			case ModVars.GUI_DYNATILO:
+				TileEntityDynaTiloTrading tileEntity = (TileEntityDynaTiloTrading) world.getTileEntity(x, y, z);
+				return new ContainerDynaTilo(player, tileEntity);
 			//	return new ContainerDynaTilo(player, player.inventory);
 //			case ModVars.GUI_BONFIRE:
 //				return new ContainerBonfire(player, player.inventory);
@@ -44,7 +47,8 @@ public class GUIHandler implements IGuiHandler {
 			case ModVars.GUI_BOOK:
 				return new BookGui(player);
 			case ModVars.GUI_DYNATILO:
-				return new GuiDynaTilo(player, player.inventory);
+				TileEntityDynaTiloTrading tileEntity = (TileEntityDynaTiloTrading) world.getTileEntity(x, y, z);
+				return new GuiDynaTilo(player, tileEntity);
 //			case ModVars.GUI_BONFIRECHEST:
 //				return new GuiBonfireChest(player, player.inventory, ExtendedPlayer.get(player).inventoryBonfire);
 			default:

@@ -19,7 +19,6 @@ import net.minecraftforge.fluids.FluidRegistry;
 import starglas.dsremake.block.ModBlocks;
 import starglas.dsremake.common.helpers.DSMainCreativeTabs;
 import starglas.dsremake.common.helpers.ModVars;
-import starglas.dsremake.entity.ModEntities;
 import starglas.dsremake.fluids.ModFluids;
 import starglas.dsremake.handler.*;
 import starglas.dsremake.items.ModItems;
@@ -32,28 +31,19 @@ import starglas.dsremake.world.biome.BiomeRegistry;
 
 
 @Mod(modid = ModVars.MODID, name = ModVars.NAME, version = ModVars.VERSION)
-//@NetworkMod(clientSideRequired = true, serverSideRequired = false)
 
 public class DSMain {
 	
 	@Mod.Instance(ModVars.MODID)
-	
+	public static DSMain instance;
 	
 	@SidedProxy(clientSide="starglas.dsremake.client.ClientProxy", serverSide="starglas.dsremake.common.CommonProxy")
 	public static CommonProxy proxy;
-	public static DSMain instance;
-
-	//public static final PacketPipeline packetPipeline = new PacketPipeline();
 
 
-	// Declaring vars
-	
-	
-	//public static ToolMaterial DSRemake = EnumHelper.addToolMaterial("DSRemake", 0, 1000, -40.0F, 0, 0);
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		//packetPipeline.initialise();
 		PacketHandler.init();
 
 		ModItems.init();
@@ -61,7 +51,6 @@ public class DSMain {
 		ModBlocks.init();
 		DSMainCreativeTabs.RegisterTabs();
 		ModRecipes.init();
-		ModEntities.init();
 		ChestGenHandler.init(); // Gen Handler for chest loot
 
 		WorldGenClass.init();
@@ -73,10 +62,6 @@ public class DSMain {
 		MinecraftForge.EVENT_BUS.register(new DSRemakeEventHandler());
 
 		proxy.registerProxies();
-
-
-		
-		
 	}
 	
 	@EventHandler
@@ -86,7 +71,6 @@ public class DSMain {
 
 	@EventHandler
 	public void PostInit(FMLPostInitializationEvent event) {
-		//packetPipeline.postInitialise();
 		FluidContainerRegistry.registerFluidContainer(new FluidContainerRegistry.FluidContainerData(FluidRegistry.getFluidStack(ModFluids.fluidPoison.getName(), FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(ModFluids.PoisonBucket), new ItemStack(Items.bucket)));
 		WorldType DSREMAKE = new WorldTypeDSRemake(10, "DSRemake");
 	}
@@ -95,7 +79,6 @@ public class DSMain {
 	public void serverLoad(FMLServerStartingEvent event)
 	{
 		// register server commands
-
 		event.registerServerCommand(new CommandCheatLevel());
 	}
 }

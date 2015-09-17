@@ -67,8 +67,8 @@ public class BlockBonfire extends BlockContainer{
 		player.extinguish();
 		player.heal(player.getMaxHealth());
 		ModHelper.removeBadPotions(player);
-		if(player.getFoodStats().getFoodLevel()<10){
-			player.getFoodStats().setFoodLevel(10);
+		if(player.getFoodStats().getFoodLevel()<14){
+			player.getFoodStats().setFoodLevel(14);
 		}
 
 		SoundHandler.onEntityPlay("BonfireLit", world, player, 1, 1);

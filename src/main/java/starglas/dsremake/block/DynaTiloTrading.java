@@ -7,11 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import starglas.dsremake.common.helpers.ModVars;
-import starglas.dsremake.entity.tileentity.TileEntityBonfire;
 import starglas.dsremake.entity.tileentity.TileEntityDynaTiloTrading;
-import starglas.dsremake.handler.ExtendedPlayer;
-import starglas.dsremake.network.OpenGuiPacket;
-import starglas.dsremake.network.PacketHandler;
 
 import java.util.Random;
 
@@ -19,9 +15,13 @@ import java.util.Random;
  * Created by Starlight on 15-9-2015.
  */
 public class DynaTiloTrading extends BlockContainer {
+
+    Random random = new Random();
+
     public DynaTiloTrading() {
         super(Material.rock);
     }
+
 
     @Override
     public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
@@ -29,8 +29,6 @@ public class DynaTiloTrading extends BlockContainer {
     }
 
     public boolean onBlockActivated(World world, int X, int Y, int Z, EntityPlayer player, int par6, float par7, float par8, float par9) {
-        //TileEntityDynaTiloTrading t = (TileEntityDynaTiloTrading) world.getTileEntity(X, Y, Z);
-        //PacketHandler.sendToServer(new OpenGuiPacket());
         if (!world.isRemote)
         {
             player.openGui(ModVars.MODID, ModVars.GUI_DYNATILO, world, X, Y, Z);

@@ -18,9 +18,11 @@ public class ModEntities {
 		ModHelper.createEntity(EntityDeadsapsprout.class, "DeadsapSprout", 0xD5CADB, 0x970AF0, EnumCreatureType.creature, BiomeGenBase.birchForest.birchForestHills.plains);
 		ModHelper.createEntity(EntityVilerevenant.class, "VileRevenant", 0x7C4E00, 0x670075);
 		// Fix for error cuz CommonProxy won't work well 
-		GameRegistry.registerTileEntity(TileEntityBonfire.class, "blockBonfire");
-		GameRegistry.registerTileEntity(TileEntitySmallChest.class, "blockSmallChest");
-		GameRegistry.registerTileEntity(TileEntityBloodstoneOre.class, "BloodstoneOre");
+		GameRegistry.registerTileEntity(TileEntityBonfire.class, "bonfire");
+		GameRegistry.registerTileEntity(TileEntitySmallChest.class, "smallchest");
+		GameRegistry.registerTileEntity(TileEntityBloodstoneOre.class, "bloodstoneore");
+		//GameRegistry.registerTileEntity(TileEntityDynaTiloTrading.class, "dynatilo");
+
 
 		EntityRegistry.registerModEntity(EntityWoodengreatarrow.class, "WoodenGreatArrow", EntityRegistry.findGlobalUniqueEntityId(), ModVars.MODID, 128, 1, true);
 		

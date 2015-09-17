@@ -3,6 +3,7 @@ package starglas.dsremake.common;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import starglas.dsremake.entity.ModEntities;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +13,7 @@ import java.util.UUID;
 public class CommonProxy {
 
 	public void registerProxies() {//Server and Client stuff
-		
+		ModEntities.init();
 	}
 	
 	private static final Map<UUID, NBTTagCompound> extendedEntityData = new HashMap<UUID, NBTTagCompound>();
