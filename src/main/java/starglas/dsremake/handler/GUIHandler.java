@@ -10,7 +10,7 @@ import starglas.dsremake.gui.BookGui;
 import starglas.dsremake.gui.GuiDynaTilo;
 import starglas.dsremake.gui.container.ContainerCustomPlayer;
 import starglas.dsremake.gui.container.ContainerDynaTilo;
-import starglas.dsremake.gui.inventory.GuiCustomPlayerInventory;
+import starglas.dsremake.gui.GuiCustomPlayerInventory;
 
 public class GUIHandler implements IGuiHandler {
 

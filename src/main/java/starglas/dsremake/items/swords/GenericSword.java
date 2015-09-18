@@ -16,6 +16,7 @@ import net.minecraft.world.World;
 import starglas.dsremake.common.helpers.DSMainCreativeTabs;
 import starglas.dsremake.common.helpers.WeaponScaling;
 
+import java.util.List;
 import java.util.Map;
 
 
@@ -96,11 +97,6 @@ public class GenericSword extends Item
     {
         return 72000;
     }
-
-    /**
-     * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
-     */
-
     public Multimap getItemAttributeModifiers()
     {
         Multimap multimap = super.getItemAttributeModifiers();

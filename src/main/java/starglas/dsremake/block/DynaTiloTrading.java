@@ -6,6 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import starglas.dsremake.common.helpers.DSMainCreativeTabs;
 import starglas.dsremake.common.helpers.ModVars;
 import starglas.dsremake.entity.tileentity.TileEntityDynaTiloTrading;
 
@@ -20,6 +21,7 @@ public class DynaTiloTrading extends BlockContainer {
 
     public DynaTiloTrading() {
         super(Material.rock);
+        this.setCreativeTab(DSMainCreativeTabs.tabDSBlocks);
     }
 
 

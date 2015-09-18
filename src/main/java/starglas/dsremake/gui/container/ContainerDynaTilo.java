@@ -18,8 +18,8 @@ public class ContainerDynaTilo extends Container{
     {
         inventoryPlayer = player.inventory;
         this.tileEntity = tileEntity;
-        this.addSlotToContainer(new SlotDynaTilo(tileEntity, 0, 20, 20));
-        this.addSlotToContainer(new SlotDynaTilo(tileEntity, 0, 40, 20));
+        this.addSlotToContainer(new SlotDynaTilo(tileEntity, 0, 134, 26));
+        this.addSlotToContainer(new Slot(tileEntity, 0, 152, 26));
         int i;
         for (i = 0; i < 3; ++i)
         {

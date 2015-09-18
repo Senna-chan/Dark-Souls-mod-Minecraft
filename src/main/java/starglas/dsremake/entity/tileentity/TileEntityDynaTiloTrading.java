@@ -9,7 +9,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
-import java.util.*;
+import java.util.Random;
 
 /**
  * Created by Starlight on 15-9-2015.
@@ -126,7 +126,6 @@ public class TileEntityDynaTiloTrading extends TileEntity implements ISidedInven
 
     @Override
     public void readFromNBT(NBTTagCompound nbt) {
-        super.readFromNBT(nbt);
         NBTTagList taglist = nbt.getTagList("Items", 10);
         this.slotContent = new ItemStack[this.getSizeInventory()];
         for(int i = 0; i < taglist.tagCount(); i++){
@@ -140,7 +139,6 @@ public class TileEntityDynaTiloTrading extends TileEntity implements ISidedInven
 
     @Override
     public void writeToNBT(NBTTagCompound nbt) {
-        super.writeToNBT(nbt);
         NBTTagList tagList = new NBTTagList();
         for(int i = 0; i < this.slotContent.length; i++){
             if(this.slotContent[i] != null){
@@ -155,6 +153,7 @@ public class TileEntityDynaTiloTrading extends TileEntity implements ISidedInven
         if(this.hasCustomInventoryName()){
             nbt.setString("customName", this.getInventoryName());
         }
+
     }
 
     @Override

@@ -20,7 +20,7 @@ public class ModEntities {
 		// Fix for error cuz CommonProxy won't work well 
 		GameRegistry.registerTileEntity(TileEntityBonfire.class, "bonfire");
 		GameRegistry.registerTileEntity(TileEntitySmallChest.class, "smallchest");
-		GameRegistry.registerTileEntity(TileEntityBloodstoneOre.class, "bloodstoneore");
+		GameRegistry.registerTileEntity(TileEntityBloodstoneOre.class, ModVars.MODID);
 		//GameRegistry.registerTileEntity(TileEntityDynaTiloTrading.class, "dynatilo");
 
 

@@ -1,4 +1,4 @@
-package starglas.dsremake.gui.inventory;
+package starglas.dsremake.gui;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -12,6 +12,7 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 import starglas.dsremake.common.helpers.ModVars;
 import starglas.dsremake.gui.container.ContainerCustomPlayer;
+import starglas.dsremake.gui.inventory.InventoryCustomPlayer;
 
 public class GuiCustomPlayerInventory extends GuiContainer
 
@@ -68,12 +69,7 @@ public class GuiCustomPlayerInventory extends GuiContainer
 
 	protected void drawGuiContainerForegroundLayer(int par1, int par2)
 	{
-		// This method will simply draw inventory names on the screen - you
-		// could do without it entirely
 
-		// if that's not important to you, since we are overriding the default
-		// inventory rather than
-		// this just adds "Inventory" above the player's inventory below
 	}
 	/**
 	 * 
