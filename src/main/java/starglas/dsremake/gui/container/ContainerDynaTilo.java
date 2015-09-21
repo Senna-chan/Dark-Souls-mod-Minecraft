@@ -19,7 +19,7 @@ public class ContainerDynaTilo extends Container{
         inventoryPlayer = player.inventory;
         this.tileEntity = tileEntity;
         this.addSlotToContainer(new SlotDynaTilo(tileEntity, 0, 134, 26));
-        this.addSlotToContainer(new Slot(tileEntity, 0, 152, 26));
+        this.addSlotToContainer(new Slot(tileEntity, 1, 152, 26));
         int i;
         for (i = 0; i < 3; ++i)
         {
@@ -43,40 +43,37 @@ public class ContainerDynaTilo extends Container{
         return true;
     }
 
-    public ItemStack transferStackInSlot(EntityPlayer player, int par2){
-        ItemStack itemstack = null;
-        Slot slot = (Slot) this.inventorySlots.get(par2);
+    public ItemStack transferStackInSlot(EntityPlayer player, int slot){
+        ItemStack stack = null;
+        Slot slotObject = (Slot) inventorySlots.get(slot);
 
-        if(slot != null && slot.getHasStack()){
-            ItemStack itemstack1 = slot.getStack();
-            itemstack = itemstack1.copy();
+        //null checks and checks if the item can be stacked (maxStackSize > 1)
+        if (slotObject != null && slotObject.getHasStack()) {
+            ItemStack stackInSlot = slotObject.getStack();
+            stack = stackInSlot.copy();
 
-            if(par2 == 1){
-                if(!this.mergeItemStack(itemstack1, 3, 39, true)){
+            //merges the item into player inventory since its in the tileEntity
+            if (slot < tileEntity.getSizeInventory()) {
+                if (!this.mergeItemStack(stackInSlot, tileEntity.getSizeInventory(), 36+tileEntity.getSizeInventory(), true)) {
                     return null;
                 }
-                slot.onSlotChange(itemstack1, itemstack);
-            }else if(par2 != 1 && par2 != 0){
-                if(par2 >=3 && par2 < 30){
-                    if(!this.mergeItemStack(itemstack1, 30, 39, false)){
-                        return null;
-                    }
-                }else if(par2 >= 30 && par2 < 39 && !this.mergeItemStack(itemstack1, 3, 30, false)){
-                    return null;
-                }
-            }else if(!this.mergeItemStack(itemstack1, 3, 39, false)){
+            }
+            //places it into the tileEntity is possible since its in the player inventory
+            else if (!this.mergeItemStack(stackInSlot, 0, tileEntity.getSizeInventory(), false)) {
                 return null;
             }
-            if(itemstack1.stackSize == 0){
-                slot.putStack((ItemStack)null);
-            }else{
-                slot.onSlotChanged();
+
+            if (stackInSlot.stackSize == 0) {
+                slotObject.putStack(null);
+            } else {
+                slotObject.onSlotChanged();
             }
-            if(itemstack1.stackSize == itemstack.stackSize){
+
+            if (stackInSlot.stackSize == stack.stackSize) {
                 return null;
             }
-            slot.onPickupFromSlot(player, itemstack1);
+            slotObject.onPickupFromSlot(player, stackInSlot);
         }
-        return itemstack;
+        return stack;
     }
 }

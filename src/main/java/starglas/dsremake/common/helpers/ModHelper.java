@@ -38,8 +38,8 @@ public class ModHelper
 		ClientRegistry.bindTileEntitySpecialRenderer(block, renderer);
 	}
 
-	public static void displayChat(EntityPlayer player, Object chatmessage){
-		player.addChatMessage(new ChatComponentText((String)chatmessage));
+	public static void displayChat(EntityPlayer player, Object chatMessage){
+		player.addChatMessage(new ChatComponentText((String) chatMessage));
 	}
 	
 	public static void createEntity(Class entityClass, String entityName, int solidColor, int spotColor, EnumCreatureType mobType, BiomeGenBase biometoSpawnIn) {

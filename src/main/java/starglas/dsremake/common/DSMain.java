@@ -9,16 +9,29 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.WorldType;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import starglas.dsremake.block.ModBlocks;
 import starglas.dsremake.common.helpers.DSMainCreativeTabs;
+import starglas.dsremake.common.helpers.ModHelper;
 import starglas.dsremake.common.helpers.ModVars;
+import starglas.dsremake.entity.mobs.creature.EntityDeadsapsprout;
+import starglas.dsremake.entity.mobs.trader.EntityVilerevenant;
+import starglas.dsremake.entity.projectiles.arrows.EntityWoodengreatarrow;
+import starglas.dsremake.entity.tileentity.TileEntityBloodstoneOre;
+import starglas.dsremake.entity.tileentity.TileEntityBonfire;
+import starglas.dsremake.entity.tileentity.TileEntityDynaTiloTrading;
+import starglas.dsremake.entity.tileentity.TileEntitySmallChest;
 import starglas.dsremake.fluids.ModFluids;
 import starglas.dsremake.handler.*;
 import starglas.dsremake.items.ModItems;
@@ -40,6 +53,7 @@ public class DSMain {
 	@SidedProxy(clientSide="starglas.dsremake.client.ClientProxy", serverSide="starglas.dsremake.common.CommonProxy")
 	public static CommonProxy proxy;
 
+	public static final Logger log = LogManager.getLogger();
 
 
 	@EventHandler
@@ -61,6 +75,15 @@ public class DSMain {
 		FMLCommonHandler.instance().bus().register(new NetworkEventHandler());
 		MinecraftForge.EVENT_BUS.register(new DSRemakeEventHandler());
 
+		ModHelper.createEntity(EntityDeadsapsprout.class, "DeadsapSprout", 0xD5CADB, 0x970AF0, EnumCreatureType.creature, BiomeGenBase.birchForest.birchForestHills.plains);
+		ModHelper.createEntity(EntityVilerevenant.class, "VileRevenant", 0x7C4E00, 0x670075);
+
+		GameRegistry.registerTileEntity(TileEntityBonfire.class, "bonfire");
+		GameRegistry.registerTileEntity(TileEntitySmallChest.class, "smallchest");
+		GameRegistry.registerTileEntity(TileEntityBloodstoneOre.class, "bloodstone");
+		GameRegistry.registerTileEntity(TileEntityDynaTiloTrading.class, "dynatilo");
+
+		EntityRegistry.registerModEntity(EntityWoodengreatarrow.class, "WoodenGreatArrow", EntityRegistry.findGlobalUniqueEntityId(), ModVars.MODID, 128, 1, true);
 		proxy.registerProxies();
 	}
 	

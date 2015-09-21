@@ -60,9 +60,4 @@ public class HeartStone extends Item {
 			return EnumRarity.common;
 		}
 	}
-	
-	@Override
-	public boolean hasEffect(ItemStack par1ItemStack){ // Sets enchanting glow
-		return this.mark == 3;
-	}
 }

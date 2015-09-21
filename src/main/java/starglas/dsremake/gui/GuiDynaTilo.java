@@ -32,7 +32,8 @@ public class GuiDynaTilo extends GuiContainer{
 
     @Override
     public void drawScreen(int x, int y, float ticks){
-        mc.getTextureManager().bindTexture(new ResourceLocation(ModVars.MODID, "/textures/gui/inventory.png"));
         super.drawScreen(x, y, ticks);
+        mc.getTextureManager().bindTexture(new ResourceLocation(ModVars.MODID, "/textures/gui/inventory.png"));
+
     }
 }

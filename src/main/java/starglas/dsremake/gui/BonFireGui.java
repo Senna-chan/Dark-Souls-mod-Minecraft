@@ -67,7 +67,6 @@ public class BonFireGui extends GuiScreen{
 			break;
 		case 1:
 			ModHelper.displayChat(player,"WIP");
-			System.out.println(props.testFunc());
 		default:
 			break;
 		}

@@ -50,4 +50,5 @@ public class ModVars
 	public static final int BIOME_POISON = 137;
 
 
+	public static final int TEAM_NONE = 0;
 }

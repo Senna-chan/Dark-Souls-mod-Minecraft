@@ -33,6 +33,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	private int 	playerHarmony;
 	private boolean playerHasData;
 	private boolean finishedBookSetup;
+	private int 	playerTeam;
 	private EntityPlayer player;
 	// Bonfire
 	private double lastBFX;
@@ -98,6 +99,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 		this.playerClass	= nbt.getInteger("class");
 		this.playerHasData	= nbt.getBoolean("playerHasData");
 		this.finishedBookSetup = nbt.getBoolean("finishedBookSetup");
+		this.playerTeam 	= nbt.getInteger("playerTeam");
 		this.inventoryPlayer.readFromNBT(playerNbt);
 		if(nbt.getDouble("LastBonfireX") != 0 && nbt.getDouble("LastBonfireY") != 0 && nbt.getDouble("LastBonfireZ") != 0){
 			this.lastBFX		= nbt.getDouble("LastBonfireX");
@@ -141,12 +143,10 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	public int getPlayerClass() {
 		return this.playerClass;
 	}
-	public NBTTagCompound testFunc(){
-		NBTTagCompound test = new NBTTagCompound();
-		loadNBTData(test);
-		System.out.println(test.getCompoundTag(ModVars.NBTExtendedName));
-		return test;
+	public int getPlayerTeam() {
+		return this.playerTeam;
 	}
+
 
 	public void consumeStamina(float stamina){
 		float curStamina = this.player.getDataWatcher().getWatchableObjectFloat(ModVars.STAMINA_WATCHER);
@@ -196,6 +196,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 			this.lastBFY		= 0;
 			this.lastBFZ		= 0;
 			this.playerMagicSlots = 3;
+			this.playerTeam 	= ModVars.TEAM_NONE;
 			System.out.println("FirstLogin");
 
 			NBTTagCompound compound = new NBTTagCompound();
@@ -408,6 +409,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 		nbt.setDouble("LastBonfireY", this.lastBFY);
 		nbt.setDouble("LastBonfireZ", this.lastBFZ);
 		nbt.setInteger("MagicSlots", this.playerMagicSlots);
+		nbt.setInteger("playerTeam", this.playerTeam);
 		this.inventoryPlayer.writeToNBT(compound);
 
 //		NBTTagCompound visitedBonfires = new NBTTagCompound();
@@ -434,5 +436,10 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 //		visitedBonfires.setIntArray("20", this.bonfire20);
 
 
+	}
+
+
+	public void setPlayerTeam(int playerTeam) {
+		this.playerTeam = playerTeam;
 	}
 }

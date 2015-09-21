@@ -7,11 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import starglas.dsremake.block.ModBlocks;
 import starglas.dsremake.common.helpers.ModHelper;
-import starglas.dsremake.common.helpers.ModVars;
 import starglas.dsremake.items.ModItems;
-import starglas.dsremake.items.TheBook;
-import starglas.dsremake.items.consumables.Estus;
-import starglas.dsremake.network.PacketHandler;
 
 /**
  * Created by Starlight on 7-7-2015.
@@ -19,7 +15,7 @@ import starglas.dsremake.network.PacketHandler;
 public class NetworkEventHandler {
     @SubscribeEvent
     public void onClientConnected(FMLNetworkEvent.ClientConnectedToServerEvent event){
-        System.out.println("Connected");
+
     }
     @SubscribeEvent
     public void onPlayerJoined(PlayerEvent.PlayerLoggedInEvent event){
@@ -29,15 +25,7 @@ public class NetworkEventHandler {
 
         }
         // Give player their beginner items
-        ItemStack[] playerInventory = player.inventory.mainInventory;
-        boolean beginnerItemFound = false;
-        for(ItemStack itemStack : playerInventory) {
-            if((itemStack != null && itemStack.getItem() instanceof Estus) || (itemStack != null && itemStack.getItem() instanceof TheBook)) {
-                beginnerItemFound = true;
-                break;
-            }
-        }
-        if(!beginnerItemFound){
+        if(ModHelper.playerHasItem(player, ModItems.Estus )!= -1){
             // non debug items
             player.inventory.addItemStackToInventory(new ItemStack(ModItems.Estus));
             player.inventory.addItemStackToInventory(new ItemStack(ModItems.theBook));

@@ -1,12 +1,9 @@
 package starglas.dsremake.network;
 
 import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import starglas.dsremake.common.helpers.ModHelper;
 import starglas.dsremake.handler.ExtendedPlayer;
-import starglas.dsremake.network.PacketPipeline.AbstractPacket;
 
 /**
  * Created by Starlight on 11-9-2015.
