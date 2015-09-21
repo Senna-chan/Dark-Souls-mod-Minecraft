@@ -25,7 +25,7 @@ public class NetworkEventHandler {
 
         }
         // Give player their beginner items
-        if(ModHelper.playerHasItem(player, ModItems.Estus )!= -1){
+        if(ModHelper.playerHasItem(player, ModItems.Estus )== -1){
             // non debug items
             player.inventory.addItemStackToInventory(new ItemStack(ModItems.Estus));
             player.inventory.addItemStackToInventory(new ItemStack(ModItems.theBook));

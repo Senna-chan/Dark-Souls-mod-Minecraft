@@ -4,6 +4,7 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
@@ -40,6 +41,9 @@ public class ModHelper
 
 	public static void displayChat(EntityPlayer player, Object chatMessage){
 		player.addChatMessage(new ChatComponentText((String) chatMessage));
+	}
+	public static void displayChat(Object chatMessage){
+		Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText((String) chatMessage));
 	}
 	
 	public static void createEntity(Class entityClass, String entityName, int solidColor, int spotColor, EnumCreatureType mobType, BiomeGenBase biometoSpawnIn) {
