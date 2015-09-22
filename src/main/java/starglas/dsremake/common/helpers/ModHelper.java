@@ -18,6 +18,8 @@ import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 import starglas.dsremake.common.DSMain;
 
+import java.util.Formatter;
+
 public class ModHelper
 {
 	public static void registerBlock(Block block)
@@ -45,13 +47,17 @@ public class ModHelper
 	public static void displayChat(Object chatMessage){
 		Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText((String) chatMessage));
 	}
+	public static void displayChat(String format, Object... args){
+		String outputString = new Formatter().format(format, args).toString();
+		Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(outputString));
+	}
 	
 	public static void createEntity(Class entityClass, String entityName, int solidColor, int spotColor, EnumCreatureType mobType, BiomeGenBase biometoSpawnIn) {
 		int freeId = EntityRegistry.findGlobalUniqueEntityId();
 
 		EntityRegistry.registerGlobalEntityID(entityClass, entityName, freeId);
 		EntityRegistry.registerModEntity(entityClass, entityName, freeId, DSMain.instance, 64, 1, true);
-		EntityRegistry.addSpawn(entityClass, 2, 0, 7,mobType , biometoSpawnIn);
+		EntityRegistry.addSpawn(entityClass, 2, 0, 7, mobType, biometoSpawnIn);
 		createEgg(freeId, solidColor, spotColor);
 	}
 	public static void createEntity(Class entityClass, String entityName, int solidColor, int spotColor) {
