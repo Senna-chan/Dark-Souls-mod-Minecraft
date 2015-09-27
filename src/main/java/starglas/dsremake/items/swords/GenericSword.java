@@ -16,9 +16,6 @@ import net.minecraft.world.World;
 import starglas.dsremake.common.helpers.DSMainCreativeTabs;
 import starglas.dsremake.common.helpers.WeaponScaling;
 
-import java.util.List;
-import java.util.Map;
-
 
 public class GenericSword extends Item
 {

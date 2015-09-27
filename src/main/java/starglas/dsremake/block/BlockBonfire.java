@@ -61,6 +61,27 @@ public class BlockBonfire extends BlockContainer{
 		int bonfireLevel = t.getBonFireLevel();
 		String BonfireOwner = t.getOwner();
 
+		ItemStack currentItem = player.inventory.getCurrentItem();
+		if(currentItem == null || currentItem.getItem() != ModItems.RadiantOil) {
+			BonFireGui.BonFireX = X;
+			BonFireGui.BonFireY = Y;
+			BonFireGui.BonFireZ = Z;
+			player.openGui(ModVars.MODID, ModVars.GUI_BONFIRE, player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
+		}
+		else if(currentItem.getItem() == ModItems.RadiantOil) {
+			if (t.getBonFireLevel() != 4) {
+
+				int slot = ModHelper.playerHasItem(player, ModItems.RadiantOil);
+
+				if (slot != -1) {
+					player.inventory.decrStackSize(slot, 1);
+					t.upgradeBonfire();
+				}
+			} else {
+				ModHelper.displayChat(player, "This bonfire is already the highest level");
+			}
+		}
+
 		// Sets player spawn
 		player.setSpawnChunk(new ChunkCoordinates((int) player.posX, (int) player.posY, (int) player.posZ), true);
 		// Heals plz
@@ -84,25 +105,8 @@ public class BlockBonfire extends BlockContainer{
 		// Savind the player posision for Homeward bone code
 		props.saveLastVisitedBonfire(player.posX, player.posY, player.posZ);
 		// Displays the GUI
-		ItemStack currentItem = player.inventory.getCurrentItem();
-		if(currentItem == null || currentItem.getItem() != ModItems.RadiantOil) {
-			BonFireGui.BonFireX = X;
-			BonFireGui.BonFireY = Y;
-			BonFireGui.BonFireZ = Z;
-			player.openGui(ModVars.MODID, ModVars.GUI_BONFIRE, player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
-		}
-		else if(currentItem.getItem() == ModItems.RadiantOil) {
-			if (t.getBonFireLevel() != 4) {
-				int slot = ModHelper.playerHasItem(player, ModItems.RadiantOil);
 
-				if (slot != -1) {
-					player.inventory.decrStackSize(slot, 1);
-					t.upgradeBonfire();
-				}
-			} else {
-				ModHelper.displayChat(player, "This bonfire is already the highest level");
-			}
-		}
+
 
 		ModHelper.displayChat(player, bonfireLevel + " " + BonfireOwner);
 		return false;

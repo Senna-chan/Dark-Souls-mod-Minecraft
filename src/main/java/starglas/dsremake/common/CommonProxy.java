@@ -31,6 +31,11 @@ public class CommonProxy {
 		return extendedEntityData.remove(uuid);
 	}
 
+
+	public boolean isSinglePlayer() {
+		return false;
+	}
+
 	public EntityPlayer getPlayerEntity(MessageContext ctx) {
 		return ctx.getServerHandler().playerEntity;
 	}

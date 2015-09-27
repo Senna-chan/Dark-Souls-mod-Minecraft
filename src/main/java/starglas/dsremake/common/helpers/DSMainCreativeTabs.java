@@ -70,6 +70,13 @@ public class DSMainCreativeTabs
 			return Item.getItemFromBlock(Blocks.water);
 		}
 	};
+	public static CreativeTabs tabDSCoop = new CreativeTabs("tabDSCoop") {
+		@Override
+		public Item getTabIconItem() {
+			return Items.clock;
+		}
+	};
+
 	public static void RegisterTabs(){
 
 		

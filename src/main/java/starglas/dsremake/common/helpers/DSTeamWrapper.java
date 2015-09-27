@@ -41,10 +41,10 @@ public class DSTeamWrapper{
                 }
                 scoreboard.getTeam(teamName).getMembershipCollection().add(playerName);
                 //}
-                ModHelper.displayChat("Removed %s from team %s and joined team %s?", player.getDisplayName(), currentPlayerTeam, teamName);
-            } else if (player.getTeam() != null && player.getTeam().getRegisteredName().equals(teamName)) {
-                ModHelper.displayChat(String.format("Player %s already is in team %s", playerName, teamName));
-            } else if (player.getTeam() == null) {
+               ModHelper.displayChat("Removed %s from team %s and joined team %s?", player.getDisplayName(), currentPlayerTeam, teamName);
+            } else if (scoreboard.getPlayersTeam(playerName) != null && scoreboard.getTeam(teamName).getMembershipCollection().contains(playerName)) {
+                ModHelper.displayChat("Player %s already is in team %s", playerName, teamName);
+            } else if (!scoreboard.getTeam(teamName).getMembershipCollection().contains(playerName)) {
                 scoreboard.getTeam(teamName).getMembershipCollection().add(playerName);
                 scoreboard.func_151392_a(playerName, teamName); // Here we can use this without !world.isRemote
                 ModHelper.displayChat("Added %s to team %s", playerName, teamName);
@@ -54,6 +54,7 @@ public class DSTeamWrapper{
 
     public void setPlayerTeam(EntityPlayer player, String teamName){
         // TODO: Create method for wrapper of the registerPlayerToTeam function
+        registerPlayerToTeam(player, teamName);
 
     }
 
@@ -61,18 +62,27 @@ public class DSTeamWrapper{
         team.setNameSuffix(suffix);
     }
     public static void setTeamPrefix(@NotNull ScorePlayerTeam team, String prefix){
-        team.setNamePrefix(prefix);
+        if(team!=null) {
+            team.setNamePrefix(prefix);
+        }
+        else{
+            ModHelper.displayChat("Team %s does not exist(yet)");
+        }
     }
+
     public static void setCoopTeam(EntityPlayer player){
         // TODO: Make sure that this method works the first time. Apperently this isn't the case :(
         String playerName = player.getDisplayName();
         String teamName = playerName.hashCode()+"";
         ExtendedPlayer props = ExtendedPlayer.get(player);
-        if(!props.getPlayerTeam().equals("none")) {
+        if(player.getTeam() == null || !props.getPlayerTeam().equals("none")) {
             props.setPlayerTeam(teamName);
-            registerPlayerToTeam(player, teamName);
+            //String output = registerPlayerToTeam(player, teamName);
+
         }
-        ModHelper.displayChat("%s is already in a CO-OP session", playerName);
+        else {
+            ModHelper.displayChat("%s is already in a CO-OP session", playerName);
+        }
     }
     public static void removeCoopTeam(EntityPlayer player){ // Removes player from CO-OP team and put player back in default/no team
         // TODO: Make sure this method does not create a error at last line
@@ -86,16 +96,15 @@ public class DSTeamWrapper{
             scoreboard.removePlayerFromTeams(player.getDisplayName());
         }
         props.setPlayerTeam("none"); // Make sure that the player data says its none or else it won't save and player can't join other team
+        ModHelper.displayChat("Removed %s from co-op team %s", player.getDisplayName(), playerTempTeam);
     }
 
     public static void addPlayersToCoopTeam(EntityPlayer player){
         ExtendedPlayer props = ExtendedPlayer.get(player);
         String playerTempTeam = props.getPlayerTeam();
         World world = player.getEntityWorld();
-        Scoreboard scoreboard = world.getScoreboard();
-
+        registerPlayerToTeam(player, playerTempTeam);
     }
-
 
 
 }
