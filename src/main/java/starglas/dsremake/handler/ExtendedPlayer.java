@@ -33,7 +33,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	private int 	playerHarmony;
 	private boolean playerHasData;
 	private boolean finishedBookSetup;
-	private String 	playerTeam;
+	private int 	playerTeam;
 	private EntityPlayer player;
 	// Bonfire
 	private double lastBFX;
@@ -44,7 +44,6 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	private int playerMagicSlots;
 	private int[] bonfire20, bonfire19, bonfire18, bonfire17, bonfire16, bonfire15, bonfire14, bonfire13, bonfire12, bonfire11, bonfire10,
 			bonfire9, bonfire8, bonfire7, bonfire6, bonfire5, bonfire4, bonfire3, bonfire2, bonfire1;
-	private NBTTagCompound tesst;
 	// Public values for dirty tricks
 	public float staminaNeeded;
 	public boolean allowedRegeneration;
@@ -89,7 +88,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 		this.playerClass	= nbt.getInteger("class");
 		this.playerHasData	= nbt.getBoolean("playerHasData");
 		this.finishedBookSetup = nbt.getBoolean("finishedBookSetup");
-		this.playerTeam 	= nbt.getString("playerTeam");
+		this.playerTeam 	= nbt.getInteger("playerTeam");
 		this.inventoryPlayer.readFromNBT(playerNbt);
 		if(nbt.getDouble("LastBonfireX") != 0 && nbt.getDouble("LastBonfireY") != 0 && nbt.getDouble("LastBonfireZ") != 0){
 			this.lastBFX		= nbt.getDouble("LastBonfireX");
@@ -134,12 +133,12 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	public int getPlayerClass() {
 		return this.playerClass;
 	}
-	public String getPlayerTeam() {
+	public int getPlayerTeam() {
 		return this.playerTeam;
 	}
 
 	// Setters
-	public void setPlayerTeam(String playerTeam) {
+	public void setPlayerTeam(int playerTeam) {
 		this.playerTeam = playerTeam;
 	}
 	public void changeElement(){
@@ -414,13 +413,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 		nbt.setDouble("LastBonfireY", this.lastBFY);
 		nbt.setDouble("LastBonfireZ", this.lastBFZ);
 		nbt.setInteger("MagicSlots", this.playerMagicSlots);
-		if(this.playerTeam == null) {
-			nbt.setString("playerTeam", "scoreboardTeam");
-		}
-		else{
-			nbt.setString("playerTeam", this.playerTeam);
-		}
-		this.inventoryPlayer.writeToNBT(compound);
+		nbt.setInteger("playerTeam", this.playerTeam);
 
 //		NBTTagCompound visitedBonfires = new NBTTagCompound();
 //		nbt.setTag(ModVars.NBTOwnedBonfires, visitedBonfires);

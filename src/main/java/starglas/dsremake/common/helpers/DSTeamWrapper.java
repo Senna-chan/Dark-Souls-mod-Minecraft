@@ -70,24 +70,23 @@ public class DSTeamWrapper{
         }
     }
 
-    public static void setCoopTeam(EntityPlayer player){
+    public void createCoopTeam(EntityPlayer player){
         // TODO: Make sure that this method works the first time. Apperently this isn't the case :(
+        Scoreboard scoreboard = player.getEntityWorld().getScoreboard();
         String playerName = player.getDisplayName();
-        String teamName = playerName.hashCode()+"";
+        int teamName = playerName.hashCode();
         ExtendedPlayer props = ExtendedPlayer.get(player);
-        if(player.getTeam() == null || !props.getPlayerTeam().equals("none")) {
+        if(player.getTeam() == null || props.getPlayerTeam()==0) {
             props.setPlayerTeam(teamName);
-            //String output = registerPlayerToTeam(player, teamName);
-
-        }
-        else {
-            ModHelper.displayChat("%s is already in a CO-OP session", playerName);
+            scoreboard.getTeam(teamName+"").getMembershipCollection().add(playerName);
+            scoreboard.func_151392_a(playerName, teamName+""); // Here we can use this without !world.isRemote
+            ModHelper.displayChat("Created co-op team for player: %s");
         }
     }
     public static void removeCoopTeam(EntityPlayer player){ // Removes player from CO-OP team and put player back in default/no team
         // TODO: Make sure this method does not create a error at last line
         ExtendedPlayer props = ExtendedPlayer.get(player);
-        String playerTempTeam = props.getPlayerTeam();
+        int playerTempTeam = props.getPlayerTeam();
         World world = player.getEntityWorld();
         Scoreboard scoreboard = world.getScoreboard();
         if(!world.isRemote) {
@@ -95,15 +94,15 @@ public class DSTeamWrapper{
             // scoreboard can't remove the player because it already was removed after first line of the code in this if block
             scoreboard.removePlayerFromTeams(player.getDisplayName());
         }
-        props.setPlayerTeam("none"); // Make sure that the player data says its none or else it won't save and player can't join other team
+        props.setPlayerTeam(0); // Make sure that the player data says its none or else it won't save and player can't join other team
         ModHelper.displayChat("Removed %s from co-op team %s", player.getDisplayName(), playerTempTeam);
     }
 
     public static void addPlayersToCoopTeam(EntityPlayer player){
         ExtendedPlayer props = ExtendedPlayer.get(player);
-        String playerTempTeam = props.getPlayerTeam();
+        int playerTempTeam = props.getPlayerTeam();
         World world = player.getEntityWorld();
-        registerPlayerToTeam(player, playerTempTeam);
+        registerPlayerToTeam(player, playerTempTeam+"");
     }
 
 
